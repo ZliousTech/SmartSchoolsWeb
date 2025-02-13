@@ -1,0 +1,608 @@
+﻿<#@ template language="C#" debug="true" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#> 
+<#@ import namespace="System.IO" #>
+<#@ import namespace="EnvDTE" #>
+<#@ output extension=".cs"#>
+<#
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"SmartSchoolModel.edmx";
+MetadataWorkspace metadataWorkspace = null;
+bool allMetadataLoaded = loader.TryLoadAllMetadata(inputFile, out metadataWorkspace);
+EdmItemCollection ItemCollection = (EdmItemCollection)metadataWorkspace.GetItemCollection(DataSpace.CSpace);
+string namespaceName = code.VsNamespaceSuggestion();
+
+
+var textTransform = DynamicTextTransformation.Create(this);
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+var edmxFile = XElement.Load(textTransform.Host.ResolvePath(inputFile), LoadOptions.SetBaseUri | LoadOptions.SetLineInfo);
+
+
+//read Entity Types and add new class in Repositories
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name + "s";
+string FilePath = "Repositories/" + EntityName + "Repository" + ".cs";
+
+//string schema = GetSchemaName(entity.Name,edmxFile);
+
+
+//continue;
+
+bool IsExists = false;
+try 
+{
+		IsExists = File.Exists(  Host.ResolvePath(FilePath));
+}
+catch(Exception ex)
+{
+	IsExists = false ;
+}
+
+if (IsExists == true ) 
+{
+	continue;
+}
+fileManager.StartNewFile("Repositories/" + EntityName +"Repository"+ ".cs");
+
+
+#>
+ 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Linq.Expressions;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using DataAccess.Base;
+using DataAccess.IRepositories;
+using Objects;
+ 
+namespace DataAccess.Repositories
+{
+internal class <#=EntityName#>Repository : RepositoryBase<<#=entity.Name#>> ,I<#=EntityName#>Repository
+	{
+    public <#=EntityName#>Repository(DbContext context)
+		: base(context)
+    {
+           
+    }
+}
+
+}
+<#	
+}
+#>
+<#
+//read Entity Types and add new class in IRepositories
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name + "s";
+string FilePath = "IRepositories/I" + EntityName + "Repository" + ".cs";
+bool IsExists = false;
+
+//string schema = GetSchemaName(entity.Name,edmxFile);
+
+	
+//continue;
+
+try 
+{
+		IsExists = File.Exists(  Host.ResolvePath(FilePath));
+}
+catch(Exception ex)
+{
+	IsExists = false ;
+}
+
+if (IsExists == true ) 
+{
+	continue;
+}
+
+fileManager.StartNewFile("IRepositories/I" + EntityName +"Repository"+ ".cs");
+
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccess.Base;
+using DataAccess;
+using Objects;
+ 
+namespace DataAccess.IRepositories
+{
+public interface I<#=EntityName#>Repository : IRepository<<#=entity.Name#>>
+{
+
+}
+
+}
+<#	
+}
+//	end of read Entity Types and add new class in IRepositories
+#>
+
+<#
+//read Entity Types and add new class in DataAccessFactory
+try
+{
+fileManager.StartNewFile(@"../DataAccess/Base/DataAccessFactory.cs");
+}
+catch(Exception ex)
+{
+
+}
+
+#>
+/*
+Default code generation for DataAcccessFactory Class ,this code will be overwrited every time the code been generated 
+in case to add any custom code please add it in DataAccessFactoryCustom class 
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccess.Repositories;
+using DataAccess.IRepositories;
+using Objects;
+
+
+namespace DataAccess.Base
+{
+public partial class DataAccessFactory : IDataAccessFactory
+{
+
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+    string EntityNames = entity.Name + "s";
+
+    //string schema = GetSchemaName(entity.Name,edmxFile);
+
+
+    //continue;
+
+#>
+
+    private <#=EntityNames#>Repository _<#=EntityName#>Repository;
+    public I<#=EntityNames#>Repository Get<#=EntityNames#>Repository
+    {
+        get
+        {
+            if (_<#=EntityName#>Repository == null)
+                _<#=EntityName#>Repository = UnitOfWork.CreateRepository<<#=EntityNames#>Repository, <#=EntityName#>>();
+
+            return _<#=EntityName#>Repository;
+        }
+}
+<#	
+}
+
+#>
+}
+}
+<#
+//	end of read Entity Types and add new class in DataAccessFactory
+#>
+
+<#
+//read Entity Types and add new class in IDataAccessFactory
+try
+{
+fileManager.StartNewFile(@"../DataAccess/Base/IDataAccessFactory.cs");
+}
+catch(Exception ex)
+{
+
+}
+
+#>
+/*
+Default code generation for IDataAcccessFactory Class ,this code will be overwrited every time the code been generated 
+in case to add any custom code please add it in IDataAccessFactoryCustom class 
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccess.Repositories;
+using DataAccess.IRepositories;
+using Objects;
+
+namespace DataAccess.Base
+{
+public partial interface IDataAccessFactory
+{
+
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+    string EntityNames = entity.Name + "s";
+
+    //string schema = GetSchemaName(entity.Name,edmxFile);
+
+
+    //continue;
+#>
+    I<#=EntityNames#>Repository Get<#=EntityNames#>Repository { get; }
+        
+<#	
+}
+
+#>
+}
+}
+<#
+//	end of read Entity Types and add new class in IDataAccessFactory
+#>
+
+<#
+//read Entity Types and add new class in Managers(Business Components)
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+string EntityNames = entity.Name + "s";
+string FilePath = @"../Business/Managers/" + EntityNames + "Manager" + ".cs";
+
+bool IsExists = false;
+
+//string schema = GetSchemaName(entity.Name,edmxFile);
+
+	
+//continue;
+
+try 
+{
+		IsExists = File.Exists(  Host.ResolvePath(FilePath));
+}
+catch(Exception ex)
+{
+	IsExists = false ;
+}
+
+if (IsExists == true ) 
+{
+	continue;
+}
+fileManager.StartNewFile(@"../Business/Managers/" + EntityNames +"Manager"+ ".cs");
+
+
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+// </auto-generated>
+//------------------------------------------------------------------------------
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Data.SqlClient;
+
+
+using DataAccess;
+using DataAccess.Base;
+using Business.Base;
+using Business.Interfaces;
+using Objects;
+
+
+ 
+namespace Business.Managers
+{
+public class <#=EntityNames#>Manager : BusinessComponentBase, I<#=EntityNames#>Manager
+{
+
+
+    public <#=EntityNames#>Manager(IDataAccessFactory dataAccessFactory)
+        : base(dataAccessFactory)
+    {
+
+    }
+
+public void Add(<#=EntityName#> <#=EntityName#>)
+    {
+
+DataAccessFactory.Get<#=EntityNames#>Repository.Add(<#=EntityName#>);
+            DataAccessFactory.Commit();
+
+}
+
+public void Update(<#=EntityName#> <#=EntityName#>)
+    {
+
+DataAccessFactory.Get<#=EntityNames#>Repository.Update(<#=EntityName#>);
+        DataAccessFactory.Commit();
+
+}
+
+public void Delete(<#=EntityName#> <#=EntityName#>)
+    {
+
+DataAccessFactory.Get<#=EntityNames#>Repository.Delete(<#=EntityName#>);
+            DataAccessFactory.Commit();
+
+}
+
+public <#=EntityName#> GetById(short id)
+    {
+        <#=EntityName#> <#=EntityName#> = null;
+
+        //  <#=EntityName#> =  DataAccessFactory.Get<#=EntityNames#>Repository.First(_<#=EntityName#> => _<#=EntityName#>.<#=EntityName#>ID == id);
+
+        return <#=EntityName#>;
+    }
+
+    public IList<<#=EntityName#>> GetAll()
+    {
+        IEnumerable<<#=EntityName#>> <#=EntityNames#> = null;
+
+        <#=EntityNames#> = DataAccessFactory.Get<#=EntityNames#>Repository.GetAll();
+
+        IList<<#=EntityName#>> result = <#=EntityNames#>.ToList<<#=EntityName#>>();
+
+        return result;
+    }
+		
+    public IEnumerable<<#=EntityName#>> Find(Expression<Func<<#=EntityName#>, bool>> @where, params Expression<Func<<#=EntityName#>, object>>[] includes)
+    {
+        return  DataAccessFactory.Get<#=EntityNames#>Repository.Find(@where, includes);
+    }
+		
+
+
+
+        		
+
+}
+
+}
+<#	
+}
+//End of read Entity Types and add new class in Managers(Business Components)
+#>
+
+<#
+//read Entity Types and add new class in BusinessComponentsFactory
+try
+{
+fileManager.StartNewFile(@"../Business/Base/BusinessComponentsFactory.cs");
+}
+catch(Exception ex)
+{
+
+}
+
+#>
+/*
+Default code generation for BusinessComponentsFactory Class ,this code will be overwrited every time the code been generated 
+in case to add any custom code please add it in BusinessComponentsFactoryCustom class 
+*/
+using Business.Interfaces;
+using Business.Managers;
+using DataAccess;
+using DataAccess.Base;
+
+namespace Business.Base
+{
+public partial class BusinessComponentsFactory : IBusinessComponentsFactory
+{
+
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+    string EntityNames = entity.Name + "s";
+
+    //string schema = GetSchemaName(entity.Name,edmxFile);
+
+
+
+#>
+
+    public I<#=EntityNames#>Manager Create<#=EntityNames#>Manager()
+    {
+        return new <#=EntityNames#>Manager(new DataAccessFactory());
+    }
+<#	
+}
+
+#>
+}
+}
+<#
+//	end of read Entity Types and add new class in BusinessComponentsFactory
+#>
+
+
+
+
+<#
+
+//read Entity Types and add new class in Interfaces(Business Interfaces)
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+string EntityNames = entity.Name + "s";
+string FilePath = @"../Business/Interfaces/I" + EntityNames + "Manager" + ".cs";
+
+bool IsExists = false;
+
+//string schema = GetSchemaName(entity.Name,edmxFile);
+
+	
+//continue;
+
+try 
+{
+		IsExists = File.Exists(  Host.ResolvePath(FilePath));
+}
+catch(Exception ex)
+{
+	IsExists = false ;
+}
+
+if (IsExists == true ) 
+{
+	continue;
+}
+fileManager.StartNewFile(@"../Business/Interfaces/I" + EntityNames +"Manager"+ ".cs");
+
+
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated from a template.
+// </auto-generated>
+//------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccess;
+using System.Linq.Expressions;
+using Objects;
+namespace Business.Interfaces
+{
+public interface I<#=EntityNames#>Manager
+	{
+
+    void Add(<#=EntityName#> <#=EntityName#>);
+
+    void Update(<#=EntityName#> <#=EntityName#>);
+
+    void Delete(<#=EntityName#> <#=EntityName#>);
+
+    <#=EntityName#> GetById(short id);
+      
+    IList<<#=EntityName#>> GetAll();
+
+    IEnumerable<<#=EntityName#>> Find(Expression<Func<<#=EntityName#>, bool>> where, params Expression<Func<<#=EntityName#>, object>>[] includes);
+		
+    }
+
+}
+<#	
+}
+//End of read Entity Types and add new class in Interfaces(Business Interfaces)
+#>
+
+
+
+
+
+
+<#
+//read Entity Types and add new class in IBusinessComponentsFactory
+try
+{
+fileManager.StartNewFile(@"../Business/Base/IBusinessComponentsFactory.cs");
+}
+catch(Exception ex)
+{
+	
+}
+#>
+/*
+Default code generation for IBusinessComponentsFactory Class ,this code will be overwrited every time the code been generated 
+in case to add any custom code please add it in IBusinessComponentsFactoryCustom class 
+*/
+using DataAccess;
+using Objects;
+namespace Business.Interfaces
+{
+public partial interface IBusinessComponentsFactory
+{
+
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{ 
+string EntityName = entity.Name;
+    string EntityNames = entity.Name + "s";
+
+    //string schema = GetSchemaName(entity.Name,edmxFile);
+
+
+    //continue;
+
+#>
+    /// <summary>
+    /// Creates 
+    /// </summary>
+    /// <returns></returns>
+    I<#=EntityNames#>Manager Create<#=EntityNames#>Manager();
+        
+<#	
+}
+
+#>
+}
+}
+<#
+//	end of read Entity Types and add new class in BusinessComponentsFactory
+#>
+
+<#	
+fileManager.Process();
+	
+#>
+<#+
+public void DeleteFile(string fileName)
+{
+IServiceProvider hostServiceProvider = (IServiceProvider)Host;
+EnvDTE.DTE dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+ProjectItem fileItem = dte.Solution.FindProjectItem(fileName);
+
+if (fileItem == null) return;
+fileItem.Delete();
+}
+
+
+public string GetSchemaName(string entityName, XElement edmx)
+{
+var entity = edmx
+    .Descendants()
+    .Where(item => item.Name.LocalName == "StorageModels")
+    .Descendants()
+    .FirstOrDefault();//item => item.Name.LocalName == "EntityContainer" && item.Attribute("Name").Value == entityName);
+
+var element = entity
+    .Elements()
+    .FirstOrDefault(item => item.Name.LocalName == "EntityContainer");
+
+var targetElement = element
+    .Elements()
+    .FirstOrDefault(item => item.Attribute("Name").Value == entityName ||
+                    item.Attribute("Name").Value == entityName + "s");
+if (targetElement == null)
+{
+
+    string iesName = entityName.Remove(entityName.Length - 1);
+    iesName += "ies";
+
+    targetElement = element
+    .Elements()
+    .FirstOrDefault(item => item.Attribute("Name").Value == iesName);
+
+    if (targetElement == null)
+        return "";
+}
+
+return targetElement.Attribute("Schema").Value;
+}
+#>
+

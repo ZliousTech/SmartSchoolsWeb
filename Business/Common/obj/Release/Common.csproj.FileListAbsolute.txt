@@ -1,0 +1,470 @@
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Common.dll.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Common.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Common.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Business.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\DataAccess.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\EntityFramework.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Objects.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Helpers.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Mvc.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Razor.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Business.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\DataAccess.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Objects.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\EntityFramework.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Helpers.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Mvc.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.Razor.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\obj\Release\Common.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\obj\Release\Common.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.Edm.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.OData.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.Services.Client.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Graph.Core.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Graph.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Logging.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Tokens.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Newtonsoft.Json.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Owin.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\RestSharp.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Buffers.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Diagnostics.DiagnosticSource.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Memory.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Spatial.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.ValueTuple.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.Edm.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.OData.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Data.Services.Client.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Graph.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Graph.Core.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Logging.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Tokens.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\Newtonsoft.Json.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\RestSharp.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Buffers.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Memory.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\System.Spatial.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\de\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\es\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\it\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\de\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\es\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\fr\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\it\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ja\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ko\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ru\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\de\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\es\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\fr\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\it\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ja\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ko\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\ru\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hans\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\Common\bin\Release\zh-Hant\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.dll.config
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Business.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.SqlServer.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Edm.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.OData.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Services.Client.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.Core.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Logging.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Tokens.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Newtonsoft.Json.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Objects.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Owin.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\RestSharp.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Buffers.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Diagnostics.DiagnosticSource.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.IdentityModel.Tokens.Jwt.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Memory.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Spatial.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Helpers.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Mvc.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Razor.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Deployment.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Razor.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Business.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.dll.config
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Objects.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.SqlServer.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Edm.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.OData.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Services.Client.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.Core.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Logging.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Tokens.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Newtonsoft.Json.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\RestSharp.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Buffers.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Diagnostics.DiagnosticSource.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.IdentityModel.Tokens.Jwt.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Memory.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Spatial.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Helpers.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Mvc.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Razor.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Deployment.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Razor.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\de\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\es\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\it\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\My Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.CopyComplete
+D:\My Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.AssemblyReference.cache
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.dll.config
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Common.pdb
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Business.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Edm.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.OData.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Services.Client.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.Core.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Logging.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Newtonsoft.Json.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Objects.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Owin.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\RestSharp.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Buffers.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Diagnostics.DiagnosticSource.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Memory.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Spatial.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Helpers.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Mvc.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Razor.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Razor.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Business.pdb
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.pdb
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\DataAccess.dll.config
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Objects.pdb
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Edm.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.OData.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Data.Services.Client.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Graph.Core.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Logging.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.IdentityModel.Tokens.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\Newtonsoft.Json.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\RestSharp.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Buffers.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Diagnostics.DiagnosticSource.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.IdentityModel.Tokens.Jwt.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Memory.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Spatial.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Helpers.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Mvc.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.Razor.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Deployment.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Web.WebPages.Razor.xml
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\de\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\es\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\it\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\de\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\es\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\fr\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\it\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ja\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ko\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\ru\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hans\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\bin\Release\zh-Hant\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.AssemblyReference.cache
+D:\Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.csproj.CopyComplete
+D:\Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.dll
+D:\Projects\TFS Projects\SmartSchools\Common\obj\Release\Common.pdb
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Numerics.Vectors.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Text.Encodings.Web.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Text.Json.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Threading.Tasks.Extensions.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.ValueTuple.dll
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Numerics.Vectors.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Text.Encodings.Web.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Text.Json.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.Threading.Tasks.Extensions.xml
+D:\My Projects\TFS Projects\SmartSchools\Common\bin\Release\System.ValueTuple.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Common.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Common.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Common.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Business.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\DataAccess.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\EntityFramework.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.Edm.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.OData.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.Services.Client.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Graph.Core.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Graph.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Logging.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Newtonsoft.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\RestSharp.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Buffers.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Memory.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Numerics.Vectors.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Spatial.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Text.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.ValueTuple.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Helpers.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Mvc.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Business.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\DataAccess.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\DataAccess.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Objects.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\EntityFramework.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.Edm.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.OData.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Data.Services.Client.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Graph.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Graph.Core.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Logging.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.IdentityModel.Tokens.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\Newtonsoft.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\RestSharp.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Buffers.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Memory.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Numerics.Vectors.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Spatial.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Text.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.ValueTuple.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Helpers.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Mvc.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\de\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\es\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\it\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\de\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\es\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\fr\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\it\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ja\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ko\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ru\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\de\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\es\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\fr\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\it\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ja\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ko\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\ru\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hans\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Release\zh-Hant\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Release\Common.csproj.AssemblyReference.cache
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Release\Common.csproj.CopyComplete
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Release\Common.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Release\Common.pdb

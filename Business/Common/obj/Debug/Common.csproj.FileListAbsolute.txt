@@ -1,0 +1,504 @@
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Common.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Common.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Common.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Business.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\DataAccess.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\RestSharp.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Buffers.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Memory.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Spatial.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Text.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.ValueTuple.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Business.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Business.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\DataAccess.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\DataAccess.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Objects.pdb
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Objects.dll.config
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\RestSharp.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Buffers.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Memory.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Spatial.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Text.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.ValueTuple.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Debug\Common.dll
+C:\Users\hamza\source\repos\SmartSchool\Common\obj\Debug\Common.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Common.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Common.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Common.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Business.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\EntityFramework.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Graph.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Newtonsoft.Json.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Owin.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\RestSharp.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Buffers.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Memory.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Spatial.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Text.Json.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.ValueTuple.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Helpers.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Mvc.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Razor.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Business.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Business.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\DataAccess.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Objects.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\EntityFramework.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Graph.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\Newtonsoft.Json.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\RestSharp.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Buffers.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Memory.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Spatial.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Text.Json.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.ValueTuple.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Helpers.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Mvc.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.Razor.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\de\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\es\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\it\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\de\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\es\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\fr\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\it\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ja\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ko\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\ru\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\obj\Debug\Common.csproj.CopyComplete
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\obj\Debug\Common.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Common\obj\Debug\Common.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Common.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Common.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Common.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Business.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\EntityFramework.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Graph.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Newtonsoft.Json.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Owin.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\RestSharp.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Buffers.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Memory.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Spatial.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Text.Json.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.ValueTuple.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Helpers.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Mvc.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Razor.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Business.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Business.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\DataAccess.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Objects.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\EntityFramework.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Graph.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\Newtonsoft.Json.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\RestSharp.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Buffers.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Memory.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Spatial.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Text.Json.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.ValueTuple.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Helpers.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Mvc.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.Razor.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\de\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\es\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\it\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\de\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\es\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\fr\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\it\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ja\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ko\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\ru\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\obj\Debug\Common.csproj.CopyComplete
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\obj\Debug\Common.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Common\obj\Debug\Common.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Common.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Common.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Common.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Business.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\DataAccess.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Objects.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Owin.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\RestSharp.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Buffers.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Memory.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Spatial.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Text.Json.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.ValueTuple.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Helpers.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Mvc.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Razor.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Business.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Business.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\DataAccess.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\DataAccess.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Objects.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Objects.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Graph.Core.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\RestSharp.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Buffers.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Memory.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Spatial.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Text.Json.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.ValueTuple.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Helpers.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Mvc.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.Razor.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\obj\Debug\Common.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Common\obj\Debug\Common.pdb

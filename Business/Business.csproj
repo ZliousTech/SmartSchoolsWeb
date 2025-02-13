@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{470FF166-A3E9-4265-858A-33EDC5F6F8C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BusinessComponentBase.cs" />
+    <Compile Include="Base\BusinessComponentsFactory.cs" />
+    <Compile Include="Base\IBusinessComponentsFactory.cs" />
+    <Compile Include="Interfaces\IAbsenceReasonsManager.cs" />
+    <Compile Include="Interfaces\IAcademicCalendar1sManager.cs" />
+    <Compile Include="Interfaces\IAcademicCalendarsManager.cs" />
+    <Compile Include="Interfaces\IAccountOwnerTypesManager.cs" />
+    <Compile Include="Interfaces\IAccountsDetailsManager.cs" />
+    <Compile Include="Interfaces\IAccountsMastersManager.cs" />
+    <Compile Include="Interfaces\IAccountTypesManager.cs" />
+    <Compile Include="Interfaces\IActiveInstalltionsManager.cs" />
+    <Compile Include="Interfaces\IActiveProductKeysManager.cs" />
+    <Compile Include="Interfaces\IAgeClassificationsManager.cs" />
+    <Compile Include="Interfaces\IAppraisalMetricsGroupsManager.cs" />
+    <Compile Include="Interfaces\IAppraisalsManager.cs" />
+    <Compile Include="Interfaces\IAppraisalTypesManager.cs" />
+    <Compile Include="Interfaces\IAppraisalValuesManager.cs" />
+    <Compile Include="Interfaces\IAreasManager.cs" />
+    <Compile Include="Interfaces\IAspNetRolesManager.cs" />
+    <Compile Include="Interfaces\IAttendancesManager.cs" />
+    <Compile Include="Interfaces\IAttendanceTypesManager.cs" />
+    <Compile Include="Interfaces\IAutomaticTimetablesManager.cs" />
+    <Compile Include="Interfaces\IBankBranchsManager.cs" />
+    <Compile Include="Interfaces\IBanksManager.cs" />
+    <Compile Include="Interfaces\IBloodTypesManager.cs" />
+    <Compile Include="Interfaces\IBookChaptersManager.cs" />
+    <Compile Include="Interfaces\IBooksManager.cs" />
+    <Compile Include="Interfaces\IBookUnitsManager.cs" />
+    <Compile Include="Interfaces\IBusAttendanceSchedulesManager.cs" />
+    <Compile Include="Interfaces\IBusFuelsManager.cs" />
+    <Compile Include="Interfaces\IBusInfosManager.cs" />
+    <Compile Include="Interfaces\IBusMaintenancesManager.cs" />
+    <Compile Include="Interfaces\IBusShiftRotationScheduleforAutomaticBusSchedulesManager.cs" />
+    <Compile Include="Interfaces\IBusShiftRotationSchedulesManager.cs" />
+    <Compile Include="Interfaces\IBusToursManager.cs" />
+    <Compile Include="Interfaces\IBusTrackNavigationsManager.cs" />
+    <Compile Include="Interfaces\IBusTripsManager.cs" />
+    <Compile Include="Interfaces\IClassroomsManager.cs" />
+    <Compile Include="Interfaces\IClasssManager.cs" />
+    <Compile Include="Interfaces\ICountrysManager.cs" />
+    <Compile Include="Interfaces\ICreditCardTypesManager.cs" />
+    <Compile Include="Interfaces\ICurrencysManager.cs" />
+    <Compile Include="Interfaces\ICurriculumDepartmentsManager.cs" />
+    <Compile Include="Interfaces\ICurriculumsManager.cs" />
+    <Compile Include="Interfaces\ICustomPropertyTypesManager.cs" />
+    <Compile Include="Interfaces\IDepartmentsManager.cs" />
+    <Compile Include="Interfaces\IDesignationsManager.cs" />
+    <Compile Include="Interfaces\IDesignationTypesManager.cs" />
+    <Compile Include="Interfaces\IDeviceRegistrarsManager.cs" />
+    <Compile Include="Interfaces\IDisciplineActionsManager.cs" />
+    <Compile Include="Interfaces\IDiscountsManager.cs" />
+    <Compile Include="Interfaces\IDiscountStudentsManager.cs" />
+    <Compile Include="Interfaces\IDiscountTypesManager.cs" />
+    <Compile Include="Interfaces\IDocumentCustomPropertysManager.cs" />
+    <Compile Include="Interfaces\IDocumentsManager.cs" />
+    <Compile Include="Interfaces\IDocumentTypesManager.cs" />
+    <Compile Include="Interfaces\IDocumrntCustomizedPropertysManager.cs" />
+    <Compile Include="Interfaces\IEducationalYearsManager.cs" />
+    <Compile Include="Interfaces\IExternalGuardiansManager.cs" />
+    <Compile Include="Interfaces\IExternalGuardStudentsRequestsManager.cs" />
+    <Compile Include="Interfaces\IExternalOtherStudentDetailsManager.cs" />
+    <Compile Include="Interfaces\IExternalStudentAdresssManager.cs" />
+    <Compile Include="Interfaces\IExternalStudentGuardDetailsManager.cs" />
+    <Compile Include="Interfaces\IExternalStudentSchoolDetailsManager.cs" />
+    <Compile Include="Interfaces\IExternalStudentsManager.cs" />
+    <Compile Include="Interfaces\IFamilysManager.cs" />
+    <Compile Include="Interfaces\IFeesManager.cs" />
+    <Compile Include="Interfaces\IFeeTypesManager.cs" />
+    <Compile Include="Interfaces\IFunctionsManager.cs" />
+    <Compile Include="Interfaces\IGroupsManager.cs" />
+    <Compile Include="Interfaces\IGuardiansManager.cs" />
+    <Compile Include="Interfaces\IGuardianTypesManager.cs" />
+    <Compile Include="Interfaces\IHeadquarterssManager.cs" />
+    <Compile Include="Interfaces\IImportanceTypesManager.cs" />
+    <Compile Include="Interfaces\IKPIsManager.cs" />
+    <Compile Include="Interfaces\ILanguagesManager.cs" />
+    <Compile Include="Interfaces\ILiveswithTypesManager.cs" />
+    <Compile Include="Interfaces\ILogsManager.cs" />
+    <Compile Include="Interfaces\ILookupValuesManager.cs" />
+    <Compile Include="Interfaces\IMailTemplatesManager.cs" />
+    <Compile Include="Interfaces\IMaintenanceTypesManager.cs" />
+    <Compile Include="Interfaces\IManualTimetablesManager.cs" />
+    <Compile Include="Interfaces\IMappedFieldsManager.cs" />
+    <Compile Include="Interfaces\IMaritalStatussManager.cs" />
+    <Compile Include="Interfaces\IMSTeams_AccountssManager.cs" />
+    <Compile Include="Interfaces\IMSTeams_SessionAttendessManager.cs" />
+    <Compile Include="Interfaces\IMSTeams_SessionssManager.cs" />
+    <Compile Include="Interfaces\INotifiactionStatussManager.cs" />
+    <Compile Include="Interfaces\INotificationsManager.cs" />
+    <Compile Include="Interfaces\INotificationsWebsManager.cs" />
+    <Compile Include="Interfaces\IOccasionTypesManager.cs" />
+    <Compile Include="Interfaces\IOtherStudentDetailsManager.cs" />
+    <Compile Include="Interfaces\IPaymentMethodsManager.cs" />
+    <Compile Include="Interfaces\IPrivilagesManager.cs" />
+    <Compile Include="Interfaces\IQualificationsManager.cs" />
+    <Compile Include="Interfaces\IQuestionBanksManager.cs" />
+    <Compile Include="Interfaces\IQuestionLevelsManager.cs" />
+    <Compile Include="Interfaces\IQuestionTypesManager.cs" />
+    <Compile Include="Interfaces\IRecurrenceTypesManager.cs" />
+    <Compile Include="Interfaces\IReligionsManager.cs" />
+    <Compile Include="Interfaces\IScheduledBusTripsManager.cs" />
+    <Compile Include="Interfaces\IScheduleZonesManager.cs" />
+    <Compile Include="Interfaces\ISchoolBranchsManager.cs" />
+    <Compile Include="Interfaces\ISchoolClasssManager.cs" />
+    <Compile Include="Interfaces\ISchoolSettingsManager.cs" />
+    <Compile Include="Interfaces\ISectionsManager.cs" />
+    <Compile Include="Interfaces\ISessionDistributionsManager.cs" />
+    <Compile Include="Interfaces\ISessionsManager.cs" />
+    <Compile Include="Interfaces\ISpecializationsManager.cs" />
+    <Compile Include="Interfaces\ISpecialResidenceConditionTypesManager.cs" />
+    <Compile Include="Interfaces\IStaffBankDetailsManager.cs" />
+    <Compile Include="Interfaces\IStaffContactDetailsManager.cs" />
+    <Compile Include="Interfaces\IStaffJobDetailsManager.cs" />
+    <Compile Include="Interfaces\IStaffLeafsManager.cs" />
+    <Compile Include="Interfaces\IStaffSalaryDetailsManager.cs" />
+    <Compile Include="Interfaces\IStaffsManager.cs" />
+    <Compile Include="Interfaces\IStudentAdresssManager.cs" />
+    <Compile Include="Interfaces\IStudentBehaviorsManager.cs" />
+    <Compile Include="Interfaces\IStudentDiseassManager.cs" />
+    <Compile Include="Interfaces\IStudentFeesManager.cs" />
+    <Compile Include="Interfaces\IStudentGuardDetailsManager.cs" />
+    <Compile Include="Interfaces\IStudentHealthsManager.cs" />
+    <Compile Include="Interfaces\IStudentPaymentsManager.cs" />
+    <Compile Include="Interfaces\IStudentPhysicalStatusManager.cs" />
+    <Compile Include="Interfaces\IStudentResultsManager.cs" />
+    <Compile Include="Interfaces\IStudentSchoolDetailsManager.cs" />
+    <Compile Include="Interfaces\IStudentsManager.cs" />
+    <Compile Include="Interfaces\IStudentStatusManager.cs" />
+    <Compile Include="Interfaces\IStudent_LoginsManager.cs" />
+    <Compile Include="Interfaces\ISubjectsManager.cs" />
+    <Compile Include="Interfaces\ISystemFieldsManager.cs" />
+    <Compile Include="Interfaces\ISystemObjectsManager.cs" />
+    <Compile Include="Interfaces\ISystemSettingsManager.cs" />
+    <Compile Include="Interfaces\ISystemSettingsperSchoolsManager.cs" />
+    <Compile Include="Interfaces\ITeacherExperiencesManager.cs" />
+    <Compile Include="Interfaces\ITeachersManager.cs" />
+    <Compile Include="Interfaces\ITeacherSubjectsManager.cs" />
+    <Compile Include="Interfaces\ITemplateSettingsManager.cs" />
+    <Compile Include="Interfaces\ITimetableConditionsManager.cs" />
+    <Compile Include="Interfaces\ITimetableItemsManager.cs" />
+    <Compile Include="Interfaces\ITimetablesManager.cs" />
+    <Compile Include="Interfaces\ITransportCategorysManager.cs" />
+    <Compile Include="Interfaces\ITransportCategoryTypesManager.cs" />
+    <Compile Include="Interfaces\ITransportDirectionsManager.cs" />
+    <Compile Include="Interfaces\ITransportTypesManager.cs" />
+    <Compile Include="Interfaces\IUsersManager.cs" />
+    <Compile Include="Interfaces\IUserTypesManager.cs" />
+    <Compile Include="Interfaces\IVirtualMeetingsManager.cs" />
+    <Compile Include="Interfaces\IWebUsersManager.cs" />
+    <Compile Include="Interfaces\IWifesManager.cs" />
+    <Compile Include="Managers\AbsenceReasonsManager.cs" />
+    <Compile Include="Managers\AcademicCalendar1sManager.cs" />
+    <Compile Include="Managers\AcademicCalendarsManager.cs" />
+    <Compile Include="Managers\AccountOwnerTypesManager.cs" />
+    <Compile Include="Managers\AccountsDetailsManager.cs" />
+    <Compile Include="Managers\AccountsMastersManager.cs" />
+    <Compile Include="Managers\AccountTypesManager.cs" />
+    <Compile Include="Managers\ActiveInstalltionsManager.cs" />
+    <Compile Include="Managers\ActiveProductKeysManager.cs" />
+    <Compile Include="Managers\AgeClassificationsManager.cs" />
+    <Compile Include="Managers\AppraisalMetricsGroupsManager.cs" />
+    <Compile Include="Managers\AppraisalsManager.cs" />
+    <Compile Include="Managers\AppraisalTypesManager.cs" />
+    <Compile Include="Managers\AppraisalValuesManager.cs" />
+    <Compile Include="Managers\AreasManager.cs" />
+    <Compile Include="Managers\AspNetRolesManager.cs" />
+    <Compile Include="Managers\AttendancesManager.cs" />
+    <Compile Include="Managers\AttendanceTypesManager.cs" />
+    <Compile Include="Managers\AutomaticTimetablesManager.cs" />
+    <Compile Include="Managers\BankBranchsManager.cs" />
+    <Compile Include="Managers\BanksManager.cs" />
+    <Compile Include="Managers\BloodTypesManager.cs" />
+    <Compile Include="Managers\BookChaptersManager.cs" />
+    <Compile Include="Managers\BooksManager.cs" />
+    <Compile Include="Managers\BookUnitsManager.cs" />
+    <Compile Include="Managers\BusAttendanceSchedulesManager.cs" />
+    <Compile Include="Managers\BusFuelsManager.cs" />
+    <Compile Include="Managers\BusInfosManager.cs" />
+    <Compile Include="Managers\BusMaintenancesManager.cs" />
+    <Compile Include="Managers\BusShiftRotationScheduleforAutomaticBusSchedulesManager.cs" />
+    <Compile Include="Managers\BusShiftRotationSchedulesManager.cs" />
+    <Compile Include="Managers\BusToursManager.cs" />
+    <Compile Include="Managers\BusTrackNavigationsManager.cs" />
+    <Compile Include="Managers\BusTripsManager.cs" />
+    <Compile Include="Managers\ClassroomsManager.cs" />
+    <Compile Include="Managers\ClasssManager.cs" />
+    <Compile Include="Managers\CountrysManager.cs" />
+    <Compile Include="Managers\CreditCardTypesManager.cs" />
+    <Compile Include="Managers\CurrencysManager.cs" />
+    <Compile Include="Managers\CurriculumDepartmentsManager.cs" />
+    <Compile Include="Managers\CurriculumsManager.cs" />
+    <Compile Include="Managers\CustomPropertyTypesManager.cs" />
+    <Compile Include="Managers\DepartmentsManager.cs" />
+    <Compile Include="Managers\DesignationsManager.cs" />
+    <Compile Include="Managers\DesignationTypesManager.cs" />
+    <Compile Include="Managers\DeviceRegistrarsManager.cs" />
+    <Compile Include="Managers\DisciplineActionsManager.cs" />
+    <Compile Include="Managers\DiscountsManager.cs" />
+    <Compile Include="Managers\DiscountStudentsManager.cs" />
+    <Compile Include="Managers\DiscountTypesManager.cs" />
+    <Compile Include="Managers\DocumentCustomPropertysManager.cs" />
+    <Compile Include="Managers\DocumentsManager.cs" />
+    <Compile Include="Managers\DocumentTypesManager.cs" />
+    <Compile Include="Managers\DocumrntCustomizedPropertysManager.cs" />
+    <Compile Include="Managers\EducationalYearsManager.cs" />
+    <Compile Include="Managers\ExternalGuardiansManager.cs" />
+    <Compile Include="Managers\ExternalGuardStudentsRequestsManager.cs" />
+    <Compile Include="Managers\ExternalOtherStudentDetailsManager.cs" />
+    <Compile Include="Managers\ExternalStudentAdresssManager.cs" />
+    <Compile Include="Managers\ExternalStudentGuardDetailsManager.cs" />
+    <Compile Include="Managers\ExternalStudentSchoolDetailsManager.cs" />
+    <Compile Include="Managers\ExternalStudentsManager.cs" />
+    <Compile Include="Managers\FamilysManager.cs" />
+    <Compile Include="Managers\FeesManager.cs" />
+    <Compile Include="Managers\FeeTypesManager.cs" />
+    <Compile Include="Managers\FunctionsManager.cs" />
+    <Compile Include="Managers\GroupsManager.cs" />
+    <Compile Include="Managers\GuardiansManager.cs" />
+    <Compile Include="Managers\GuardianTypesManager.cs" />
+    <Compile Include="Managers\HeadquarterssManager.cs" />
+    <Compile Include="Managers\ImportanceTypesManager.cs" />
+    <Compile Include="Managers\KPIsManager.cs" />
+    <Compile Include="Managers\LanguagesManager.cs" />
+    <Compile Include="Managers\LiveswithTypesManager.cs" />
+    <Compile Include="Managers\LogsManager.cs" />
+    <Compile Include="Managers\LookupValuesManager.cs" />
+    <Compile Include="Managers\MailTemplatesManager.cs" />
+    <Compile Include="Managers\MaintenanceTypesManager.cs" />
+    <Compile Include="Managers\ManualTimetablesManager.cs" />
+    <Compile Include="Managers\MappedFieldsManager.cs" />
+    <Compile Include="Managers\MaritalStatussManager.cs" />
+    <Compile Include="Managers\MSTeams_AccountssManager.cs" />
+    <Compile Include="Managers\MSTeams_SessionAttendessManager.cs" />
+    <Compile Include="Managers\MSTeams_SessionssManager.cs" />
+    <Compile Include="Managers\NotifiactionStatussManager.cs" />
+    <Compile Include="Managers\NotificationsManager.cs" />
+    <Compile Include="Managers\NotificationsWebsManager.cs" />
+    <Compile Include="Managers\OccasionTypesManager.cs" />
+    <Compile Include="Managers\OtherStudentDetailsManager.cs" />
+    <Compile Include="Managers\PaymentMethodsManager.cs" />
+    <Compile Include="Managers\PrivilagesManager.cs" />
+    <Compile Include="Managers\QualificationsManager.cs" />
+    <Compile Include="Managers\QuestionBanksManager.cs" />
+    <Compile Include="Managers\QuestionLevelsManager.cs" />
+    <Compile Include="Managers\QuestionTypesManager.cs" />
+    <Compile Include="Managers\RecurrenceTypesManager.cs" />
+    <Compile Include="Managers\ReligionsManager.cs" />
+    <Compile Include="Managers\ScheduledBusTripsManager.cs" />
+    <Compile Include="Managers\ScheduleZonesManager.cs" />
+    <Compile Include="Managers\SchoolBranchsManager.cs" />
+    <Compile Include="Managers\SchoolClasssManager.cs" />
+    <Compile Include="Managers\SchoolSettingsManager.cs" />
+    <Compile Include="Managers\SectionsManager.cs" />
+    <Compile Include="Managers\SessionDistributionsManager.cs" />
+    <Compile Include="Managers\SessionsManager.cs" />
+    <Compile Include="Managers\SpecializationsManager.cs" />
+    <Compile Include="Managers\SpecialResidenceConditionTypesManager.cs" />
+    <Compile Include="Managers\StaffBankDetailsManager.cs" />
+    <Compile Include="Managers\StaffContactDetailsManager.cs" />
+    <Compile Include="Managers\StaffJobDetailsManager.cs" />
+    <Compile Include="Managers\StaffLeafsManager.cs" />
+    <Compile Include="Managers\StaffSalaryDetailsManager.cs" />
+    <Compile Include="Managers\StaffsManager.cs" />
+    <Compile Include="Managers\StudentAdresssManager.cs" />
+    <Compile Include="Managers\StudentBehaviorsManager.cs" />
+    <Compile Include="Managers\StudentDiseassManager.cs" />
+    <Compile Include="Managers\StudentFeesManager.cs" />
+    <Compile Include="Managers\StudentGuardDetailsManager.cs" />
+    <Compile Include="Managers\StudentHealthsManager.cs" />
+    <Compile Include="Managers\StudentPaymentsManager.cs" />
+    <Compile Include="Managers\StudentPhysicalStatusManager.cs" />
+    <Compile Include="Managers\StudentResultsManager.cs" />
+    <Compile Include="Managers\StudentSchoolDetailsManager.cs" />
+    <Compile Include="Managers\StudentsManager.cs" />
+    <Compile Include="Managers\StudentStatusManager.cs" />
+    <Compile Include="Managers\Student_LoginsManager.cs" />
+    <Compile Include="Managers\SubjectsManager.cs" />
+    <Compile Include="Managers\SystemFieldsManager.cs" />
+    <Compile Include="Managers\SystemObjectsManager.cs" />
+    <Compile Include="Managers\SystemSettingsManager.cs" />
+    <Compile Include="Managers\SystemSettingsperSchoolsManager.cs" />
+    <Compile Include="Managers\TeacherExperiencesManager.cs" />
+    <Compile Include="Managers\TeachersManager.cs" />
+    <Compile Include="Managers\TeacherSubjectsManager.cs" />
+    <Compile Include="Managers\TemplateSettingsManager.cs" />
+    <Compile Include="Managers\TimetableConditionsManager.cs" />
+    <Compile Include="Managers\TimetableItemsManager.cs" />
+    <Compile Include="Managers\TimetablesManager.cs" />
+    <Compile Include="Managers\TransportCategorysManager.cs" />
+    <Compile Include="Managers\TransportCategoryTypesManager.cs" />
+    <Compile Include="Managers\TransportDirectionsManager.cs" />
+    <Compile Include="Managers\TransportTypesManager.cs" />
+    <Compile Include="Managers\UsersManager.cs" />
+    <Compile Include="Managers\UserTypesManager.cs" />
+    <Compile Include="Managers\VirtualMeetingsManager.cs" />
+    <Compile Include="Managers\WebUsersManager.cs" />
+    <Compile Include="Managers\WifesManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{3ac75501-932d-417a-b3a7-0c81d3ee6336}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Objects\Objects.csproj">
+      <Project>{f87e3642-a918-4763-92fb-b0e15d2e5eee}</Project>
+      <Name>Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

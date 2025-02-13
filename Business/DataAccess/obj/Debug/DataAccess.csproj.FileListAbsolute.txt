@@ -1,0 +1,60 @@
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.pdb
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.dll.config
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\hamza\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\DataAccess.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\EntityFramework.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\Objects.dll.config
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\EntityFramework.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\obj\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\DataAccess\obj\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\DataAccess.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\DataAccess.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\EntityFramework.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\Objects.dll.config
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\EntityFramework.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\obj\Debug\DataAccess.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\Objects.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.pdb

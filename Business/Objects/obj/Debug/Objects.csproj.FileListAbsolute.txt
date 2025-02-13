@@ -1,0 +1,24 @@
+C:\Users\hamza\source\repos\SmartSchool\Objects\bin\Debug\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\Objects\bin\Debug\Objects.pdb
+C:\Users\hamza\source\repos\SmartSchool\Objects\obj\Debug\Objects.csproj.AssemblyReference.cache
+C:\Users\hamza\source\repos\SmartSchool\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+C:\Users\hamza\source\repos\SmartSchool\Objects\obj\Debug\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\Objects\obj\Debug\Objects.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\obj\Debug\Objects.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\obj\Debug\Objects.dll
+D:\Backup(SmartSchool)\Last12\SmartSchool\Objects\obj\Debug\Objects.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\bin\Debug\Objects.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\bin\Debug\Objects.pdb
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\obj\Debug\Objects.csproj.AssemblyReference.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\obj\Debug\Objects.dll
+D:\Backup(SmartSchool)\TestSmartSchool\SmartSchool\Objects\obj\Debug\Objects.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\bin\Debug\Objects.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\bin\Debug\Objects.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\obj\Debug\Objects.csproj.AssemblyReference.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\obj\Debug\Objects.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\Objects\obj\Debug\Objects.pdb
