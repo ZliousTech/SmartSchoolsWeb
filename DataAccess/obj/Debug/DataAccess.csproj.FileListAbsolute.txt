@@ -73,3 +73,18 @@ C:\Users\Mohd\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.Co
 C:\Users\Mohd\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.csproj.Up2Date
 C:\Users\Mohd\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Mohd\source\repos\SmartSchool\DataAccess\obj\Debug\DataAccess.pdb
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\DataAccess.dll.config
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\DataAccess.dll
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\DataAccess.pdb
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\EntityFramework.dll
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\Objects.dll
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\Objects.pdb
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\Objects.dll.config
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\EntityFramework.xml
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\obj\Debug\DataAccess.csproj.Up2Date
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\obj\Debug\DataAccess.dll
+E:\Zlious Technology\SmartSchoolsWeb\DataAccess\obj\Debug\DataAccess.pdb

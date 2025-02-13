@@ -73,3 +73,18 @@ C:\Users\Mohd\source\repos\SmartSchool\Business\obj\Debug\Business.csproj.CoreCo
 C:\Users\Mohd\source\repos\SmartSchool\Business\obj\Debug\Business.csproj.Up2Date
 C:\Users\Mohd\source\repos\SmartSchool\Business\obj\Debug\Business.dll
 C:\Users\Mohd\source\repos\SmartSchool\Business\obj\Debug\Business.pdb
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\Business.dll
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\Business.pdb
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\DataAccess.dll
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\Objects.dll
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\EntityFramework.dll
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\DataAccess.pdb
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\DataAccess.dll.config
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\Objects.pdb
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\Objects.dll.config
+E:\Zlious Technology\SmartSchoolsWeb\Business\bin\Debug\EntityFramework.xml
+E:\Zlious Technology\SmartSchoolsWeb\Business\obj\Debug\Business.csproj.AssemblyReference.cache
+E:\Zlious Technology\SmartSchoolsWeb\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+E:\Zlious Technology\SmartSchoolsWeb\Business\obj\Debug\Business.csproj.Up2Date
+E:\Zlious Technology\SmartSchoolsWeb\Business\obj\Debug\Business.dll
+E:\Zlious Technology\SmartSchoolsWeb\Business\obj\Debug\Business.pdb
