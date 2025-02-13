@@ -1,0 +1,1218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Westwind.Utilities.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1">
+            <summary>
+            Reads and Writes configuration settings in .NET config files and 
+            sections. Allows reading and writing to default or external files 
+            and specification of the configuration section that settings are
+            applied to.
+            
+            This implementation doesn't support Read and Write operation that
+            don't return a string value. Only Read(string) and WriteAsString()
+            should be used to read and write string values.
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.ConnectionString">
+            <summary>
+            The raw SQL connection string or connectionstrings name
+            for the database connection.
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.ProviderName">
+            <summary>
+            The data provider used to access the database
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.Tablename">
+            <summary>
+            Table in the database that holds configuration data
+            Table must have ID(int) and ConfigData (nText) fields
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.Key">
+            <summary>
+            The key of the record into which the config
+            data is written. Defaults to 1.
+            
+            If you need to read or write multiple different
+            configuration records you have to change it on
+            this provider before calling the Read()/Write()
+            methods.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.Read``1">
+            <summary>
+            Reads configuration data into a new instance from SQL Server
+            that is returned.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Configuration.SqlServerConfigurationProvider`1.Read(Westwind.Utilities.Configuration.AppConfiguration)">
+            <summary>
+            Reads configuration data from Sql Server into an existing 
+            instance updating its fields.
+            </summary> 
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Westwind.Utilities.Data.ConnectionStringInfo">
+            <summary>
+            Used to parse a connection string or connection string name 
+            into a the base connection  string and dbProvider.
+            
+            If a connection string is passed that's just used.
+            If a ConnectionString entry name is passed the connection 
+            string is extracted and the provider parsed.
+            </summary>
+        </member>
+        <member name="F:Westwind.Utilities.Data.ConnectionStringInfo.DefaultProviderName">
+            <summary>
+            The default connection string provider
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.ConnectionStringInfo.ConnectionString">
+            <summary>
+            The connection string parsed
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.ConnectionStringInfo.Provider">
+            <summary>
+            The DbProviderFactory parsed from the connection string
+            or default provider
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.ConnectionStringInfo.GetConnectionStringInfo(System.String,System.String,System.Data.Common.DbProviderFactory)">
+            <summary>
+            Figures out the Provider and ConnectionString from either a connection string
+            name in a config file or full  ConnectionString and provider.         
+            </summary>
+            <param name="connectionString">Config file connection name or full connection string</param>
+            <param name="providerName">optional provider name. If not passed with a connection string is considered Sql Server</param>
+            <param name="factory">optional provider factory. Use for .NET Core to pass actual provider instance since DbproviderFactories doesn't exist</param> 
+        </member>
+        <member name="M:Westwind.Utilities.Data.ConnectionStringInfo.RetrieveConnectionStringFromConfig(System.String,Westwind.Utilities.Data.ConnectionStringInfo)">
+            <summary>
+            Retrieves a connection string from the Connection Strings configuration settings
+            </summary>
+            <param name="connectionStringName"></param>
+            <param name="info"></param>
+            <exception cref="T:System.InvalidOperationException">Throws when connection string doesn't exist</exception>
+            <returns></returns>
+        </member>
+        <member name="T:Westwind.Utilities.Data.DataAccessBase">
+            <summary>
+            Base Data Access Layer (DAL) for ADO.NET SQL operations.
+            Provides easy, single method operations to retrieve DataReader,
+            DataTable, DataSet and Entities, perform non-query operations,
+            call stored procedures.
+            
+            This abstract class implements most data operations using a
+            configured DbProvider. Subclasses implement specific database
+            providers and override a few methods that might have provider
+            specific SQL Syntax.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.#ctor">
+            <summary>
+            Default constructor that should be called back to 
+            by subclasses. Parameterless assumes default provider
+            and no connection string which must be explicitly set.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.#ctor(System.String)">
+            <summary>
+            Most common constructor that expects a connection string or 
+            connection string name from a .config file. If a connection
+            string is provided the default provider is used.
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.#ctor(System.String,System.String)">
+            <summary>
+            Constructor that expects a full connection string and provider
+            for creating a SQL instance. To be called by the same implementation
+            on a subclass.
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.#ctor(System.String,System.Data.Common.DbProviderFactory)">
+            <summary>
+            Constructor that expects a full connection string and provider
+            for creating a SQL instance. To be called by the same implementation
+            on a subclass.
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.#ctor(System.String,Westwind.Utilities.DataAccessProviderTypes)">
+            <summary>
+            Create a DataAccess component with a specific database provider
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerType"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetConnectionInfo(System.String,System.String)">
+            <summary>
+            Figures out the dbProvider and Connection string from a 
+            connectionString name in a config file or explicit 
+            ConnectionString and provider.         
+            </summary>
+            <param name="connectionString">Config file connection name or full connection string</param>
+            <param name="providerName">optional provider name. If not passed with a connection string is considered Sql Server</param>
+        </member>
+        <member name="F:Westwind.Utilities.Data.DataAccessBase.dbProvider">
+            <summary>
+            The internally used dbProvider
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.ErrorMessage">
+            <summary>
+            An error message if a method fails
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.ErrorNumber">
+            <summary>
+            Optional error number returned by failed SQL commands
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.ParameterPrefix">
+            <summary>
+            The prefix used by the provider
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.UsePositionalParameters">
+            <summary>
+            Determines whether parameters are positional or named. Positional
+            parameters are added without adding the name using just the ParameterPrefix
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.LeftFieldBracket">
+            <summary>
+            Character used for the left bracket on field names. Can be empty or null to use none
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.RightFieldBracket">
+            <summary>
+            Character used for the right bracket on field names. Can be empty or null to use none
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.ConnectionString">
+            <summary>
+            ConnectionString for the data access component
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.Transaction">
+            <summary>
+            A SQL Transaction object that may be active. You can 
+            also set this object explcitly
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.Connection">
+            <summary>
+            The SQL Connection object used for connections
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.Timeout">
+            <summary>
+            The Sql Command execution Timeout in seconds.
+            Set to -1 for whatever the system default is.
+            Set to 0 to never timeout (not recommended).
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.ExecuteWithSchema">
+            <summary>
+            Determines whether extended schema information is returned for 
+            queries from the server. Useful if schema needs to be returned
+            as part of DataSet XML creation 
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Data.DataAccessBase.LastSql">
+            <summary>
+            Holds the last SQL string executed
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.OpenConnection">
+            <summary>
+            Opens a Sql Connection based on the connection string.
+            Called internally but externally accessible. Sets the internal
+            _Connection property.
+            </summary>
+            <returns></returns>
+            <summary>
+            Opens a Sql Connection based on the connection string.
+            Called internally but externally accessible. Sets the internal
+            _Connection property.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CloseConnection(System.Data.Common.DbCommand)">
+            <summary>
+            Closes a connection
+            </summary>
+            <param name="Command"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CloseConnection">
+            <summary>
+            Closes an active connection. If a transaction is pending the 
+            connection is held open.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateCommand(System.String,System.Data.CommandType,System.Object[])">
+            <summary>
+            Creates a Command object and opens a connection
+            </summary>        
+            <param name="sql">Sql string to execute</param>
+            <param name="parameters">Either values mapping to @0,@1,@2 etc. or DbParameter objects created with CreateParameter()</param>
+            <returns>Command object or null on error</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateCommand(System.String,System.Object[])">
+            <summary>
+            Creates a Command object and opens a connection
+            </summary>        
+            <param name="sql">Sql string to execute</param>
+            <param name="parameters">Either values mapping to @0,@1,@2 etc. or DbParameter objects created with CreateParameter()</param>
+            <returns>command object</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.AddParameters(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Adds parameters to a DbCommand instance. Parses value and DbParameter parameters
+            properly into the command's Parameters collection.
+            </summary>
+            <param name="command">A preconfigured DbCommand object that should have all connection information set</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateParameter(System.String,System.Object)">
+            <summary>
+            Used to create named parameters to pass to commands or the various
+            methods of this class.
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="dbType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            Used to create named parameters to pass to commands or the various
+            methods of this class.
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="dbType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateParameter(System.String,System.Object,System.Int32)">
+            <summary>
+            Used to create named parameters to pass to commands or the various
+            methods of this class.
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateParameter(System.String,System.Object,System.Data.DbType)">
+            <summary>
+            Used to create named parameters to pass to commands or the various
+            methods of this class.
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="dbType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreateParameter(System.String,System.Object,System.Data.DbType,System.Int32)">
+            <summary>
+            Used to create named parameters to pass to commands or the various
+            methods of this class.
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.BeginTransaction">
+            <summary>
+            Starts a new transaction on this connection/instance
+            </summary>
+            <remarks>Opens a Connection and keeps it open for the duration of the transaction. Calls to `.CloseConnection` while the transaction is active have no effect.</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CommitTransaction">
+            <summary>
+            Commits all changes to the database and ends the transaction
+            </summary>
+            <remarks>Closes Connection</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.RollbackTransaction">
+            <summary>
+            Rolls back a transaction
+            </summary>
+            <remarks>Closes Connection</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            Executes a non-query command and returns the affected records
+            </summary>
+            <param name="Command">Command should be created with GetSqlCommand to have open connection</param>       
+            <returns>Affected Record count or -1 on error</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteNonQuery(System.String,System.Object[])">
+            <summary>
+            Executes a command that doesn't return any data. The result
+            returns the number of records affected or -1 on error.
+            </summary>
+            <param name="sql">SQL statement as a string</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+            <summary>
+            Executes a command that doesn't return a data result. You can return
+            output parameters and you do receive an AffectedRecords counter.
+            .setItem("list_html", JSON.stringify(data));
+            </summary>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteNonQueryAsync(System.Data.Common.DbCommand)">
+            <summary>
+            Executes a non-query command and returns the affected records
+            </summary>
+            <param name="Command">Command should be created with GetSqlCommand to have open connection</param>       
+            <returns>Affected Record count or -1 on error</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteNonQueryAsync(System.String,System.Object[])">
+            <summary>
+            Executes a command that doesn't return any data. The result
+            returns the number of records affected or -1 on error.
+            </summary>
+            <param name="sql">SQL statement as a string</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+            <summary>
+            Executes a command that doesn't return a data result. You can return
+            output parameters and you do receive an AffectedRecords counter.
+            .setItem("list_html", JSON.stringify(data));
+            </summary>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteScalar(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Executes a command and returns a scalar value from it
+            </summary>
+            <param name="command">DbCommand containing command to run</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>value or null on failure</returns>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteScalar(System.String,System.Object[])">
+            <summary>
+            Executes a Sql command and returns a single value from it.
+            </summary>
+            <param name="Sql">Sql string to execute</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>Result value or null. Check ErrorMessage on Null if unexpected</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteScalarAsync(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Executes a command and returns a scalar value from it
+            </summary>
+            <param name="command">DbCommand containing command to run</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>value or null on failure</returns>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteScalarAsync(System.String,System.Object[])">
+            <summary>
+            Executes a Sql command and returns a single value from it.
+            </summary>
+            <param name="Sql">Sql string to execute</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>Result value or null. Check ErrorMessage on Null if unexpected</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.RunSqlScript(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Executes a long SQL script that contains batches (GO commands). This code
+            breaks the script into individual commands and captures all execution errors.
+            
+            If ContinueOnError is false, operations are run inside of a transaction and
+            changes are rolled back. If true commands are accepted even if failures occur
+            and are not rolled back.
+            </summary>
+            <param name="script"></param>
+            <param name="continueOnError"></param>
+            <param name="scriptIsFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.DoesTableExist(System.String,System.String)">
+            <summary>
+            Determines whether a table exists
+            </summary>
+            <param name="tablename"></param>
+            <param name="schema"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteReader(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Executes a SQL Command object and returns a SqlDataReader object
+            </summary>
+            <param name="command">Command should be created with GetSqlCommand and open connection</param>
+            <param name="parameters"></param>
+            <returns></returns>
+            <returns>A SqlDataReader. Make sure to call Close() to close the underlying connection.</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteReader(System.String,System.Object[])">
+            <summary>
+            Executes a SQL command against the server and returns a DbDataReader
+            </summary>
+            <param name="sql">Sql String</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteDynamicDataReader(System.String,System.Object[])">
+            <summary>
+            Executes a Sql statement and returns a dynamic DataReader instance 
+            that exposes each field as a property
+            </summary>
+            <param name="sql">Sql String to executeTable</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteReader``1(System.String,System.Object[])">
+            <summary>
+            Return a list of entities that are matched to an object
+            </summary>
+            <typeparam name="T">Type of object to create from data record</typeparam>
+            <param name="sql">Sql string</param>
+            <param name="parameters">
+             DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param> 
+            <returns>An enumerated list of objects or null</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteReader``1(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Allows querying and return a list of entities.
+            </summary>	    
+            <typeparam name="T"></typeparam>
+            <param name="command"></param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.Query``1(System.String,System.Object[])">
+            <summary>
+            Executes a SQL statement and creates an object list using
+            optimized Reflection.
+            
+            Not very efficient but provides an easy way to retrieve 
+            an object list from query.
+            </summary>
+            <typeparam name="T">Entity type to create from DataReader data</typeparam>
+            <param name="sql">Sql string to execute</param>        
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>List of objects or null. Null is returned if there are no matches</returns>       
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.QueryList``1(System.String,System.Object[])">
+            <summary>
+            Returns list of objects from a query.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.QueryListWithExclusions``1(System.String,System.String,System.Object[])">
+            <summary>
+            Returns list of objects from a query.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql">Sql Statement string</param>
+            <param name="propertiesToSkip">Comma delimited list of property names to skip</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.Query``1(System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Executes a SQL command and creates an object list using
+            Reflection.
+            
+            Not very efficient but provides an easy way to retrieve
+            object lists from queries.
+            </summary>
+            <typeparam name="T">Entity type to create from DataReader data</typeparam>
+            <param name="command">Command object containing configured SQL command to execute</param>        
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>List of objects or null. Null is returned if there are no matches</returns>   
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.QueryWithExclusions``1(System.String,System.String,System.Object[])">
+            <summary>
+            Executes a SQL statement and creates an object list using
+            Reflection.
+            
+            Not very efficient but provides an easy way to retrieve
+            object lists from queries
+            </summary>
+            <typeparam name="T">Entity type to create from DataReader data</typeparam>
+            <param name="sql">Sql string to execute</param>        
+            <param name="propertiesToExclude">Comma delimited list of properties that are not to be updated</param>
+            <param name="parameters">
+             DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns>List of objects</returns>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.QueryWithExclusions``1(System.Data.Common.DbCommand,System.String,System.Object[])">
+            <summary>
+            Executes a SQL statement and creates an object list using
+            Reflection.
+            
+            Not very efficient but provides an easy way to retrieve
+            </summary>
+            <typeparam name="T">Entity type to create from DataReader data</typeparam>
+            <param name="sql">Sql string to execute</param>        
+            <param name="parameters">DbParameters to fill the SQL statement</param>
+            <returns>List of objects</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteStoredProcedureReader(System.String,System.Object[])">
+            <summary>
+            Calls a stored procedure that returns a cursor results
+            The result is returned as a DataReader
+            </summary>
+            <param name="storedProc">Name of the Stored Procedure to call</param>
+            <param name="parameters">
+            Parameters to pass. Note that if you need to pass out/inout/return parameters
+            you need to pass DbParameter instances or use the CreateParameter() method
+            </param>
+            <returns>A DataReader or null on failure</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteStoredProcedureReader``1(System.String,System.Object[])">
+            <summary>
+            Calls a stored procedure that returns a cursor results
+            The result is returned as an IEnumerable&lt;T&gt;> list
+            </summary>
+            <example>
+            IEnumerable&lt;Customer%gt; customers = context.Db.ExecuteStoredProcedureReader&lt;Customer&gt;('GetCustomers',         
+                         context.Db.CreateParameter('@cCompany','W%'));
+            </example>
+            <param name="storedProc">Name of the Stored Procedure to call</param>
+            <param name="parameters">
+            Use CreateParameter() for named, output or return parameters. Plain values for others.
+            </param>
+            <returns>A DataReader or null on failure</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteStoredProcedureNonQuery(System.String,System.Object[])">
+            <summary>
+            Executes a stored procedure that doesn't return a result set.
+            </summary>
+            <param name="storedProc">The Stored Procedure to call</param>
+            <param name="parameters">
+            Parameters to pass. Note that if you need to pass out/inout/return parameters
+            you need to pass DbParameter instances or use the CreateParameter() method
+            </param>
+            <returns>> 0 or greater on success, -1 on failure</returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteTable(System.String,System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Returns a DataTable from a Sql Command string passed in.
+            </summary>
+            <param name="tablename"></param>
+            <param name="command"></param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteTable(System.String,System.String,System.Object[])">
+            <summary>
+            Returns a DataTable from a Sql Command string passed in.
+            </summary>
+            <param name="Tablename"></param>
+            <param name="ConnectionString"></param>
+            <param name="Sql"></param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteDataSet(System.String,System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Returns a DataSet/DataTable from a Sql Command string passed in. 
+            </summary>
+            <param name="Tablename">The name for the table generated or the base names</param>
+            <param name="Command"></param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteDataSet(System.String,System.String,System.Object[])">
+            <summary>
+            Executes a SQL command against the server and returns a DataSet of the result
+            </summary>
+            <param name="command"></param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteDataSet(System.Data.DataSet,System.String,System.Data.Common.DbCommand,System.Object[])">
+            <summary>
+            Returns a DataSet from a Sql Command string passed in.
+            </summary>
+            <param name="tableName"></param>
+            <param name="command"></param>
+            <param name="parameters"></param>
+            <returns></returns>        
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.ExecuteDataSet(System.Data.DataSet,System.String,System.String,System.Object[])">
+            <summary>
+            Returns a DataTable from a Sql Command string passed in.
+            </summary>
+            <param name="tablename"></param>
+            <param name="Command"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.CreatePagingCommand(System.String,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Sql 2005 specific semi-generic paging routine
+            </summary>
+            <param name="sql"></param>
+            <param name="pageSize"></param>
+            <param name="page"></param>
+            <param name="sortOrderFields"></param>
+            <param name="Parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetEntity(System.Object,System.Data.Common.DbCommand,System.String)">
+            <summary>
+            Generic routine to retrieve an object from a database record
+            The object properties must match the database fields.
+            </summary>
+            <param name="entity">The object to update</param>
+            <param name="command">Database command object</param>
+            <param name="propertiesToSkip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetEntity(System.Object,System.String,System.Object[])">
+            <summary>
+            Retrieves a single record and returns it as an entity
+            </summary>
+            <param name="entity"></param>
+            <param name="sql"></param>        
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetEntity(System.Object,System.String,System.String,System.Object,System.String)">
+            <summary>
+            Generic routine to return an Entity that matches the field names of a 
+            table exactly.
+            </summary>
+            <param name="entity"></param>
+            <param name="table"></param>
+            <param name="keyField"></param>
+            <param name="keyValue"></param>
+            <param name="propertiesToSkip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.FindKey``1(System.Object,System.String,System.String)">
+             <summary>
+             Finds the first matching entity based on a keyfield and key value.
+             Note the keyfield can be any field that is used in a WHERE clause.
+            
+             This method has been renamed from Find() to avoid ambiguous
+             overload errors.
+             </summary>
+             <typeparam name="T">Type of entity to populate</typeparam>
+             <param name="keyValue">Value to look up in keyfield</param>
+             <param name="tableName">Name of the table to work on</param>
+             <param name="keyField">Field that is used for the key lookup</param>
+             <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.Find``1(System.String,System.Object[])">
+             <summary>
+             Returns the first matching record retrieved from data based on a SQL statement
+             as an entity or null if no match was found.
+            
+             NOTE: Key based method has been renamed to:
+             `FindKey`
+             </summary>
+             <typeparam name="T">Entity type to fill</typeparam>
+             <param name="sql">SQL string to execute. Use @0,@1,@2 for parameters.
+             
+             Recommend you use `TOP1` in your SQL statements to limit the 
+             amount of data returned from the underlying query even though
+             a full list returns the same result.
+             </param>
+             <param name="parameters">
+             DbParameters (CreateParameter()) for named parameters
+             or use @0,@1 parms in SQL and plain values
+             </param>
+             <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.FindEx``1(System.String,System.String,System.Object[])">
+            <summary>
+            Returns an entity that is the first match from a sql statement string.
+            </summary>
+            <typeparam name="T">Entity type to return</typeparam>
+            <param name="sql">Sql string to execute. Use @0,@1,@2 for positional parameters</param>
+            <param name="propertiesToSkip">fields to not update from the resultset</param>
+            <param name="parameters">
+            DbParameters (CreateParameter()) for named parameters
+            or use @0,@1 parms in SQL and plain values
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.UpdateEntity(System.Object,System.String,System.String,System.String)">
+            <summary>
+            Updates an entity object that has matching fields in the database for each
+            public property. Kind of a poor man's quick entity update mechanism.
+            
+            Note this method will not save if the record doesn't already exist in the db.
+            </summary>        
+            <param name="entity">entity to update</param>
+            <param name="table">the table name to update</param>
+            <param name="keyField">keyfield used to find entity</param>
+            <param name="propertiesToSkip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetUpdateEntityCommand(System.Object,System.String,System.String,System.String)">
+            <summary>
+            Updates an entity object that has matching fields in the database for each
+            public property. Kind of a poor man's quick entity update mechanism.
+            
+            Note this method will not save if the record doesn't already exist in the db.
+            </summary>        
+            <param name="entity">entity to update</param>
+            <param name="table">the table name to update</param>
+            <param name="keyField">keyfield used to find entity</param>
+            <param name="propertiesToSkip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.UpdateEntity(System.Object,System.String,System.String,System.String,System.String)">
+            <summary>
+            This version of UpdateEntity allows you to specify which fields to update and
+            so is a bit more efficient as it only checks for specific fields in the database
+            and the underlying table.
+            </summary>
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)"/>
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.InsertEntity(System.Object,System.String,System.String,System.Boolean)"/>
+            <param name="entity">Entity to update</param>
+            <param name="table">DB Table to udpate</param>
+            <param name="keyField">The keyfield to query on</param>
+            <param name="propertiesToSkip">fields to skip in update</param>
+            <param name="fieldsToUpdate">fields that should be updated</param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetUpdateEntityCommand(System.Object,System.String,System.String,System.String,System.String)">
+            <summary>
+            Gets a DbCommand that creates an update statement.
+            that allows you to specify which fields to update and
+            so is a bit more efficient as it only checks for specific fields in the database
+            and the underlying table.
+            </summary>
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)"/>
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.InsertEntity(System.Object,System.String,System.String,System.Boolean)"/>
+            <param name="entity">Entity to update</param>
+            <param name="table">DB Table to udpate</param>
+            <param name="keyField">The keyfield to query on</param>
+            <param name="propertiesToSkip">fields to skip in update</param>
+            <param name="fieldsToUpdate">fields that should be updated</param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.InsertEntity(System.Object,System.String,System.String,System.Boolean)">
+            <summary>
+            Inserts an object into the database based on its type information.
+            The properties must match the database structure and you can skip
+            over fields in the propertiesToSkip list.        
+            </summary>        
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)" />        
+            <param name="entity"></param>
+            <param name="table"></param>
+            <param name="KeyField"></param>
+            <param name="propertiesToSkip"></param>
+            <returns>
+            Scope Identity or Null (when returnIdentityKey is true
+            Otherwise affected records
+            </returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.InsertEntityAsync(System.Object,System.String,System.String,System.Boolean)">
+            <summary>
+            Inserts an object into the database based on its type information.
+            The properties must match the database structure and you can skip
+            over fields in the propertiesToSkip list.        
+            </summary>        
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)" />        
+            <param name="entity"></param>
+            <param name="table"></param>
+            <param name="KeyField"></param>
+            <param name="propertiesToSkip"></param>
+            <returns>
+            Scope Identity or Null (when returnIdentityKey is true
+            Otherwise affected records
+            </returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.GetInsertEntityCommand(System.Object,System.String,System.String)">
+            <summary>
+            Gets the DbCommand used to insert an object into the database based on its type information.
+            The properties must match the database structure and you can skip
+            over fields in the propertiesToSkip list.        
+            </summary>        
+            <seealso cref="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)" />        
+            <param name="entity"></param>
+            <param name="table"></param>
+            <param name="KeyField"></param>
+            <returns>
+            Scope Identity or Null (when returnIdentityKey is true
+            Otherwise affected records
+            </returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.SaveEntity(System.Object,System.String,System.String,System.String)">
+            <summary>
+            Saves an entity into the database using insert or update as required.
+            Requires a key field that exists on both the entity and the database.
+            </summary>
+            <param name="entity">entity to save</param>
+            <param name="table">table to save to</param>
+            <param name="keyField">keyfield to update</param>
+            <param name="propertiesToSkip">optional fields to skip when updating (keys related items etc)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.SetError(System.String,System.Int32)">
+            <summary>
+            Sets the error message for the failure operations
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.SetError(System.String)">
+            <summary>
+            Sets the error message and error number.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataAccessBase.SetError">
+            <summary>
+            Sets the error message for failure operations.
+            </summary>
+        </member>
+        <member name="T:Westwind.Utilities.Data.DataTableDynamicExtensions">
+            <summary>
+            Extends the DataTable to provide access to DynamicDataRow 
+            data.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataTableDynamicExtensions.DynamicRow(System.Data.DataTable,System.Int32)">
+            <summary>
+            Returns a dynamic DataRow instance that can be accessed
+            with the field name as a property
+            </summary>
+            <param name="index"></param>
+            <returns></returns>taTab
+        </member>
+        <member name="M:Westwind.Utilities.Data.DataTableDynamicExtensions.DynamicRows(System.Data.DataTable)">
+            <summary>
+            Returns a dynamic list of rows so you can reference them with
+            row.fieldName
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Westwind.Utilities.Data.DynamicDataRows">
+            <summary>
+            Helper class that extends a DataRow collection to 
+            be exposed as individual <see cref="T:Westwind.Utilities.Data.DynamicDataRow"/>  objects
+            </summary>
+        </member>
+        <member name="T:Westwind.Utilities.Data.DynamicDataReader">
+            <summary>
+            This class provides an easy way to use object.property
+            syntax with a DataReader by wrapping a DataReader into
+            a dynamic object.
+            
+            The class also automatically fixes up DbNull values
+            (null into .NET and DbNUll)
+            </summary>
+        </member>
+        <member name="F:Westwind.Utilities.Data.DynamicDataReader.DataReader">
+            <summary>
+            Cached Instance of DataReader passed in
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DynamicDataReader.#ctor(System.Data.IDataReader)">
+            <summary>
+            Pass in a loaded DataReader
+            </summary>
+            <param name="dataReader">DataReader instance to work off</param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DynamicDataReader.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Returns a value from the current DataReader record
+            If the field doesn't exist null is returned.
+            DbNull values are turned into .NET nulls.
+            </summary>
+            <param name="binder"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Westwind.Utilities.Data.DynamicDataRow">
+            <summary>
+            This class provides an easy way to turn a DataRow 
+            into a Dynamic object that supports direct property
+            access to the DataRow fields.
+            
+            The class also automatically fixes up DbNull values
+            (null into .NET and DbNUll to DataRow)
+            </summary>
+        </member>
+        <member name="F:Westwind.Utilities.Data.DynamicDataRow.DataRow">
+            <summary>
+            Instance of object passed in
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DynamicDataRow.#ctor(System.Data.DataRow)">
+            <summary>
+            Pass in a DataRow to work off
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DynamicDataRow.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Returns a value from a DataRow items array.
+            If the field doesn't exist null is returned.
+            DbNull values are turned into .NET nulls.
+            
+            </summary>
+            <param name="binder"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.DynamicDataRow.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Property setter implementation tries to retrieve value from instance 
+            first then into this object
+            </summary>
+            <param name="binder"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Westwind.Utilities.Data.SqlDataAccess">
+            <summary>
+            Sql Server specific implementation of the DataAccessBase class to
+            provide an easy to use Data Access Layer (DAL) with single line
+            operations for most data retrieval and non-query operations.
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlDataAccess.CreatePagingCommand(System.String,System.Int32,System.Int32,System.String,System.Object[])">
+            <summary>
+            Sql 2005 and later specific semi-generic paging routine
+            </summary>
+            <param name="sql"></param>
+            <param name="pageSize"></param>
+            <param name="page"></param>
+            <param name="sortOrderFields"></param>
+            <param name="Parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetDbProviderFactory(System.String,System.String)">
+            <summary>
+            Loads a SQL Provider factory based on the DbFactory type name and assembly.       
+            </summary>
+            <param name="dbProviderFactoryTypename">Type name of the DbProviderFactory</param>
+            <param name="assemblyName">Short assembly name of the provider factory. Note: Host project needs to have a reference to this assembly</param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetDbProviderFactory(Westwind.Utilities.DataAccessProviderTypes)">
+            <summary>
+            This method loads various providers dynamically similar to the 
+            way that DbProviderFactories.GetFactory() works except that
+            this API is not available on .NET Standard 2.0
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetDbProviderFactory(System.String)">
+            <summary>
+            Returns a provider factory using the old Provider Model names from full framework .NET.
+            Simply calls DbProviderFactories.
+            </summary>
+            <param name="providerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetSqlCommand(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Creates a Command object and opens a connection
+            </summary>
+            <param name="ConnectionString"></param>
+            <param name="Sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetSqlDataReader(System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Returns a SqlDataReader object from a SQL string.
+            
+            Please ensure you close the Reader object
+            </summary>
+            <param name="ConnectionString"></param>
+            <param name="Sql"></param>
+            <param name="Parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.GetDataTable(System.String,System.String,System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Returns a DataTable from a Sql Command string passed in.
+            </summary>
+            <param name="Tablename"></param>
+            <param name="ConnectionString"></param>
+            <param name="Sql"></param>
+            <param name="Parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Data.SqlUtils.CloseConnection(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Closes a connection
+            </summary>
+            <param name="Command"></param>
+        </member>
+        <member name="T:Westwind.Utilities.Logging.SqlLogAdapter">
+            <summary>
+            Log adapter that writes to a SQL Server Database
+            </summary>
+        </member>
+        <member name="P:Westwind.Utilities.Logging.SqlLogAdapter.LogFilename">
+            <summary>
+            The name of the table that data in SQL Server is written to
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.#ctor(System.String)">
+            <summary>
+            Must pass in a SQL Server connection string or 
+            config ConnectionString Id.
+            </summary>
+            <param name="connectionString"></param>        
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.#ctor">
+            <summary>
+            this version configures itself from the LogManager 
+            configuration section
+            </summary>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.CreateDal">
+            <summary>
+            Internally creates and configures an instance of the DAL used for data access
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.WriteEntry(Westwind.Utilities.Logging.WebLogEntry)">
+            <summary>
+            Writes a new Web specific entry into the log file
+            
+            Assumes that your log file is set up to be a Web Log file
+            </summary>
+            <param name="webEntry"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if the insert operation fails</exception>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.GetEntry(System.Int32)">
+            <summary>
+            Returns an individual Web log entry from the log table
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.GetEntries(Westwind.Utilities.Logging.ErrorLevels,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Returns entries for a given error level, and date range
+            </summary>
+            <param name="errorLevel"></param>
+            <param name="count"></param>
+            <param name="dateFrom"></param>
+            <param name="dateTo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.CreateLog">
+            <summary>
+            Creates a new log table in the current database. If the table exists already it
+            is dropped and recreated.
+            
+            Requires database admin access.
+            </summary>
+            <param name="logType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.DeleteLog">
+            <summary>
+            Deletes the Sql Log Table
+            </summary>
+            <param name="logType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.Clear">
+            <summary>
+            Clears all the records of the log table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.Clear(System.Int32)">
+            <summary>
+            Clears the table and leaves the last number of records specified intact
+            </summary>
+            <param name="countToLeave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Westwind.Utilities.Logging.SqlLogAdapter.GetEntryCount(Westwind.Utilities.Logging.ErrorLevels)">
+            <summary>
+            Returns the number of total log entries
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
