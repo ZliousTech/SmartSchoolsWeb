@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40c76906a9bc448683b4bde6fc91cf2d" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="SmartSchoolsModel.AbsenceReason" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AcademicCalendar" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ActiveInstalltion" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ActiveProductKey" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AppraisalMetricsGroup" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Appraisal" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AppraisalType" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AppraisalValue" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AutomaticTimetable" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BookChapter" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Book" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BookUnit" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusAttendanceSchedule" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusShiftRotationSchedule" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusShiftRotationScheduleforAutomaticBusSchedule" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Country" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Currency" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.CustomPropertyType" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DesignationType" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DeviceRegistrar" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DocumentCustomProperty" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Document" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DocumentType" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DocumrntCustomizedProperty" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Function" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ImportanceType" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.KPI" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Language" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.LiveswithType" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.LookupValue" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ManualTimetable" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MaritalStatus" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.NotifiactionStatus" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Notification" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Privilage" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.QuestionBank" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.QuestionLevel" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.QuestionType" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.RecurrenceType" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ScheduleZone" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SpecialResidenceConditionType" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentAdress" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentSchoolDetail" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SystemObject" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SystemSetting" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TeacherExperience" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TimetableCondition" Width="1.5" PointX="10.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.UserType" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.WebUser" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AcademicCalendar1" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AccountOwnerType" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AccountsDetail" Width="1.5" PointX="14.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AccountsMaster" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AccountType" Width="1.5" PointX="4.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AgeClassification" Width="1.5" PointX="20.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Area" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AspNetRole" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Attendance" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.AttendanceType" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BankBranch" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Bank" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BloodType" Width="1.5" PointX="6.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusFuel" Width="1.5" PointX="8.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusInfo" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusMaintenance" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusTour" Width="1.5" PointX="22.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusTrackNavigation" Width="1.5" PointX="16.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.BusTrip" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Class" Width="1.5" PointX="22.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Classroom" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.CreditCardType" Width="1.5" PointX="2.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Designation" Width="1.5" PointX="20.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DisciplineAction" Width="1.5" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Family" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.FeeType" Width="1.5" PointX="24.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Group" Width="1.5" PointX="24.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.GuardianType" Width="1.5" PointX="24.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Log" Width="1.5" PointX="4.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MaintenanceType" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MappedField" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.OccasionType" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.PaymentMethod" Width="1.5" PointX="6.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Qualification" Width="1.5" PointX="8.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Religion" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ScheduledBusTrip" Width="1.5" PointX="10.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Section" Width="1.5" PointX="18.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SessionDistribution" Width="1.5" PointX="20.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Specialization" Width="1.5" PointX="22.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Staff" Width="1.5" PointX="24.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StaffBankDetail" Width="1.5" PointX="26.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StaffContactDetail" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StaffLeaf" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StaffSalaryDetail" Width="1.5" PointX="2.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentBehavior" Width="1.5" PointX="28.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentFee" Width="1.5" PointX="28.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentPayment" Width="1.5" PointX="28.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentPhysicalStatu" Width="1.5" PointX="28.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentResult" Width="1.5" PointX="28.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentStatu" Width="1.5" PointX="28.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Subject" Width="1.5" PointX="28.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SystemField" Width="1.5" PointX="4.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TemplateSetting" Width="1.5" PointX="28.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Timetable" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Wife" Width="1.5" PointX="30.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SchoolSetting" Width="1.5" PointX="7.375" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SystemSettingsperSchool" Width="1.5" PointX="17.375" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StaffJobDetail" Width="1.5" PointX="13.375" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentDiseas" Width="1.5" PointX="23.375" PointY="31.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Headquarters" Width="1.5" PointX="3.375" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.EducationalYear" Width="1.5" PointX="15.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalGuardian" Width="1.5" PointX="19.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalGuardStudentsRequest" Width="1.5" PointX="31.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalOtherStudentDetail" Width="1.5" PointX="31.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalStudentAdress" Width="1.5" PointX="0.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalStudentGuardDetail" Width="1.5" PointX="25.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalStudentSchoolDetail" Width="1.5" PointX="31.375" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.User" Width="1.5" PointX="31.375" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Department" Width="1.5" PointX="13.375" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SchoolClass" Width="1.5" PointX="33.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.SchoolBranch" Width="1.5" PointX="33.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TransportCategoryType" Width="1.5" PointX="28.375" PointY="33.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TransportDirection" Width="1.5" PointX="33.375" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TransportType" Width="1.5" PointX="5.375" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TransportCategory" Width="1.5" PointX="33.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Fee" Width="1.5" PointX="7.375" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DiscountType" Width="1.5" PointX="34.375" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Curriculum" Width="1.5" PointX="34.375" PointY="26.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.CurriculumDepartment" Width="1.5" PointX="33.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.ExternalStudent" Width="1.5" PointX="31.375" PointY="26.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Discount" Width="1.5" PointX="33.375" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.DiscountStudent" Width="1.5" PointX="34.375" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.OtherStudentDetail" Width="1.5" PointX="35.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Guardian" Width="1.5" PointX="25.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentHealth" Width="1.5" PointX="13.375" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Teacher" Width="1.5" PointX="34.375" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TeacherSubject" Width="1.5" PointX="35.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Session" Width="1.5" PointX="25.375" PointY="22.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.TimetableItem" Width="1.5" PointX="17.375" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Student" Width="1.5" PointX="19.375" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MSTeams_Accounts" Width="1.5" PointX="35.75" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MSTeams_SessionAttendes" Width="1.5" PointX="35.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.VirtualMeeting" Width="1.5" PointX="2.75" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MailTemplate" Width="1.5" PointX="9.375" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.MSTeams_Sessions" Width="1.5" PointX="36.375" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.Student_Login" Width="1.5" PointX="36.375" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.NotificationsWeb" Width="1.5" PointX="28.375" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.StudentGuardDetail" Width="1.5" PointX="35.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartSchoolsModel.GuardianSchool" Width="1.5" PointX="36.375" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

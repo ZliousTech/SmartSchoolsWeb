@@ -1,0 +1,2086 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartSchoolsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AbsenceReason">
+    <Key>
+      <PropertyRef Name="AbsenceReasonID" />
+    </Key>
+    <Property Name="AbsenceReasonArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AbsenceReasonEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AbsenceReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="AcademicCalendar">
+    <Key>
+      <PropertyRef Name="CalendarID" />
+    </Key>
+    <Property Name="CalendarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ActiveInstalltion">
+    <Key>
+      <PropertyRef Name="InstallationID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="InstallationDate" Type="DateTime" Precision="3" />
+    <Property Name="InstallationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MachineIP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MachineName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MACID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessorID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ActiveProductKey">
+    <Key>
+      <PropertyRef Name="ProductKeyID" />
+    </Key>
+    <Property Name="ProductKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductKeyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AppraisalMetricsGroup">
+    <Key>
+      <PropertyRef Name="AppraisalGroupID" />
+    </Key>
+    <Property Name="AppraisalGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppriasalGroupArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AppriasalGroupEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Appraisal">
+    <Key>
+      <PropertyRef Name="AppraisalID" />
+    </Key>
+    <Property Name="AppraisalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppraisalOwnerType" Type="Int32" />
+    <Property Name="AppraisalSubjectType" Type="Int32" />
+    <Property Name="AppraisalType" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="IsPeriodic" Type="Int32" />
+    <Property Name="IsScheduled" Type="Int32" />
+    <Property Name="AppraisalArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AppraisalEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AppraisalType">
+    <Key>
+      <PropertyRef Name="AppraisalTypeID" />
+    </Key>
+    <Property Name="AppraisalTypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AppraisalTypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AppraisalTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="AppraisalValue">
+    <Key>
+      <PropertyRef Name="AppraisalValueID" />
+    </Key>
+    <Property Name="AppraisalValueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppraisalValueTextinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AppraisalValueTextinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AutomaticTimetable">
+    <Key>
+      <PropertyRef Name="TimetableEntityID" />
+    </Key>
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="SessionID" Type="Int32" />
+    <Property Name="TeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TimetableEntityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimetableItemID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BookChapter">
+    <Key>
+      <PropertyRef Name="BookUnitChapterID" />
+    </Key>
+    <Property Name="BookID" Type="Int32" />
+    <Property Name="BookUnitChapterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChapterNumber" Type="Int32" />
+    <Property Name="ChapterTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UnitID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="AvailableAmount" Type="Int32" />
+    <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BookType" Type="Int32" />
+    <Property Name="ISBN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageID" Type="Int32" />
+    <Property Name="LibraryNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberofUnits" Type="Int32" />
+    <Property Name="PurchasePrice" Type="Single" />
+    <Property Name="SalePrice" Type="Single" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="Semester" Type="Int32" />
+    <Property Name="Volume" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BookUnit">
+    <Key>
+      <PropertyRef Name="BookUnitID" />
+    </Key>
+    <Property Name="BookID" Type="Int32" />
+    <Property Name="BookUnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitNumber" Type="Int32" />
+    <Property Name="UnitTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberofChapters" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BusAttendanceSchedule">
+    <Key>
+      <PropertyRef Name="AttendantScheduleItemID" />
+    </Key>
+    <Property Name="AttendantScheduleItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TourDate" Type="DateTime" Precision="3" />
+    <Property Name="TourID" Type="Int32" />
+    <Property Name="TourTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BusShiftRotationSchedule">
+    <Key>
+      <PropertyRef Name="BusShiftRotationScheduleItemID" />
+    </Key>
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BusShiftRotationScheduleItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FirstAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShiftDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BusShiftRotationScheduleforAutomaticBusSchedule">
+    <Key>
+      <PropertyRef Name="BusShiftRotationScheduleItemID" />
+    </Key>
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BusShiftRotationScheduleItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FirstAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShiftDate" Type="DateTime" Precision="3" />
+    <Property Name="TourDirection" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ArabicCurrency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ArabicNationality" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishCurrency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishNationality" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MobileNumberLength" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumberValidStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NationalIdentificationArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NationalIdentificationEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Flag" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EnglishCurrency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ArabicCurrency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DecimalPlaces" Type="Int32" />
+    <Property Name="ArabicCurrencyCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencySign" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishCurrencyCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CustomPropertyType">
+    <Key>
+      <PropertyRef Name="CustomPropertyTypeID" />
+    </Key>
+    <Property Name="CustomPropertyTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomPropertyTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CustomPropertyTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DesignationType">
+    <Key>
+      <PropertyRef Name="DesignationTypeID" />
+    </Key>
+    <Property Name="DesignationTypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationTypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="DeviceRegistrar">
+    <Key>
+      <PropertyRef Name="DeviceRegistratinId" />
+    </Key>
+    <Property Name="DeviceRegistratinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceRegistrationCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeviceRegistrationActive" Type="Int32" />
+    <Property Name="OwnerID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerMobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DocumentCustomProperty">
+    <Key>
+      <PropertyRef Name="CustomPropertyID" />
+    </Key>
+    <Property Name="CustomPropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentOwnerID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentOwnerType" Type="Int32" />
+    <Property Name="DocumentTypeID" Type="Int32" />
+    <Property Name="FileExtension" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeID" />
+    </Key>
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentTypeArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentTypeEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="DocumrntCustomizedProperty">
+    <Key>
+      <PropertyRef Name="CustomPropertyID" />
+    </Key>
+    <Property Name="CustomPropertyArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CustomPropertyCreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomPropertyDefaultValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomPropertyEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CustomPropertyFieldSize" Type="Int32" />
+    <Property Name="CustomPropertyFormat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CustomPropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomPropertyRequired" Type="Int32" />
+    <Property Name="CustomPropertyType" Type="Int32" />
+    <Property Name="DocumentTypeID" Type="Int32" />
+    <Property Name="LocalLookupID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="FunctionID" />
+    </Key>
+    <Property Name="FunctionArbicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FunctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ImportanceType">
+    <Key>
+      <PropertyRef Name="ImportanceTypeID" />
+    </Key>
+    <Property Name="ImportanceArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImportanceEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImportanceTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="KPI">
+    <Key>
+      <PropertyRef Name="MetricID" />
+    </Key>
+    <Property Name="IsMetricPercentage" Type="Int32" />
+    <Property Name="IsMetricTextual" Type="Int32" />
+    <Property Name="KPIWeight" Type="Int32" />
+    <Property Name="MetricArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MetricEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MetricID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MetricMaximumValue" Type="Int32" />
+    <Property Name="MetricMinimumValue" Type="Int32" />
+    <Property Name="MetricType" Type="Int32" />
+    <Property Name="AppraisalID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageWindowsCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LiveswithType">
+    <Key>
+      <PropertyRef Name="LiveswithID" />
+    </Key>
+    <Property Name="LivesWithArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LivesWithEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LiveswithID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="LookupValue">
+    <Key>
+      <PropertyRef Name="LookupValueID" />
+    </Key>
+    <Property Name="CustomPropertyID" Type="Int32" />
+    <Property Name="LookupValue1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LookupValueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LookupValueLanguageID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ManualTimetable">
+    <Key>
+      <PropertyRef Name="TimetableEntityID" />
+    </Key>
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="SessionID" Type="Int32" />
+    <Property Name="TeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TimetableEntityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimetableItemID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="MaritalStatusID" />
+    </Key>
+    <Property Name="ArabicMaritalStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishMaritalStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="NotifiactionStatus">
+    <Key>
+      <PropertyRef Name="NotifiactionStatusID" />
+    </Key>
+    <Property Name="NotifiactionStatusArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NotifiactionStatusEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NotifiactionStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="DateRead" Type="DateTime" Precision="3" />
+    <Property Name="DateReceived" Type="DateTime" Precision="3" />
+    <Property Name="DateSent" Type="DateTime" Precision="3" />
+    <Property Name="DesitinationID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationType" Type="Int32" />
+    <Property Name="ImportanceLevel" Type="Int32" />
+    <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SourceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SourceType" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="DateDelegated" Type="DateTime" Precision="3" />
+    <Property Name="DateSeen" Type="DateTime" Precision="3" />
+    <Property Name="DateReplied" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Privilage">
+    <Key>
+      <PropertyRef Name="PrivilageID" />
+    </Key>
+    <Property Name="FunctionID" Type="Int32" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="PrivilageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrivilageValue" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuestionBank">
+    <Key>
+      <PropertyRef Name="QuestionID" />
+    </Key>
+    <Property Name="BookUnitID" Type="Int32" />
+    <Property Name="ChapterID" Type="Int32" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="CurriculumID" Type="Int32" />
+    <Property Name="QuestionExamWeight" Type="Single" />
+    <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionLevel" Type="Int32" />
+    <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionType" Type="Int32" />
+    <Property Name="Semester" Type="Int32" />
+    <Property Name="SubjectID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuestionLevel">
+    <Key>
+      <PropertyRef Name="QuestionLevelID" />
+    </Key>
+    <Property Name="QuestionLevelArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionLevelEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="QuestionTypeID" />
+    </Key>
+    <Property Name="QuestionTypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionTypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="RecurrenceType">
+    <Key>
+      <PropertyRef Name="RecurrenceTypeID" />
+    </Key>
+    <Property Name="RecurrenceTypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RecurrenceTypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RecurrenceTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ScheduleZone">
+    <Key>
+      <PropertyRef Name="ScheduleZoneID" />
+    </Key>
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Distance" Type="Double" />
+    <Property Name="ScheduleZoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vertices" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZoneID" Type="Int32" />
+    <Property Name="ZoneName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SpecialResidenceConditionType">
+    <Key>
+      <PropertyRef Name="SpecialResidenceConditionID" />
+    </Key>
+    <Property Name="SpecialResidenceConditionArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SpecialResidenceConditionEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SpecialResidenceConditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="StudentAdress">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="GuardianID" Type="Int32" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Building" Type="Int32" />
+    <Property Name="Flat" Type="Int32" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="StudentSchoolDetail">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="DateofAdmission" Type="DateTime" Precision="3" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Results" Type="Int32" />
+    <Property Name="ComingBusTourID" Type="Int32" />
+    <Property Name="GoingBusTourID" Type="Int32" />
+    <Property Name="PreviousSchool" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ComingTourOrder" Type="Int32" />
+    <Property Name="GoingTourOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SystemObject">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+    </Key>
+    <Property Name="CanNotify" Type="Int32" />
+    <Property Name="ObjectArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectOnly" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="CurrentAcademicYear" />
+    </Key>
+    <Property Name="CurrentAcademicYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocumentsPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastDocumentID" Type="Int32" />
+    <Property Name="LastStaffID" Type="Int32" />
+    <Property Name="LastStudentID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TeacherExperience">
+    <Key>
+      <PropertyRef Name="TeacherExperienceID" />
+    </Key>
+    <Property Name="AppraisalValue" Type="Int32" />
+    <Property Name="Curriculum" Type="Int32" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectID" Type="Int32" />
+    <Property Name="TeacherExperienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="YearsofExperience" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherWeight" Type="Double" />
+  </EntityType>
+  <EntityType Name="TimetableCondition">
+    <Key>
+      <PropertyRef Name="ScheduleConditionID" />
+    </Key>
+    <Property Name="ScheduleConditionArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduleConditionEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduleConditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WebUser">
+    <Key>
+      <PropertyRef Name="WebUserId" />
+    </Key>
+    <Property Name="ApplicationID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Locked" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserSystemID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="WebUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="AcademicCalendar1">
+    <Key>
+      <PropertyRef Name="OccasionID" />
+    </Key>
+    <Property Name="OccasionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OccasionType" Type="Int32" />
+    <Property Name="StartingDate" Type="DateTime" Precision="3" />
+    <Property Name="NumberofDays" Type="Int32" />
+    <Property Name="Vacation" Type="Int32" />
+    <Property Name="CalendarID" Type="Int32" />
+    <Property Name="SchoolYear1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AccountOwnerType">
+    <Key>
+      <PropertyRef Name="AccountOwnerTypeID" />
+    </Key>
+    <Property Name="AccountOwnerTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AccountOwnerTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountOwnerTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AccountsDetail">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="TransactionArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="AmountType" Type="Int32" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AccountsMaster">
+    <Key>
+      <PropertyRef Name="AccountID" />
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="AccountNameinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNameinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OpeningBalance" Type="Double" />
+    <Property Name="ClosingBalance" Type="Double" />
+    <Property Name="DebitBalance" Type="Double" />
+    <Property Name="CreditBalance" Type="Double" />
+    <Property Name="ParentAccountID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfChildren" Type="Int32" />
+    <Property Name="OwnerType" Type="Int32" />
+    <Property Name="AccountType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="AccountTypeID" />
+    </Key>
+    <Property Name="AccountTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AccountTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AgeClassification">
+    <Key>
+      <PropertyRef Name="AgeClassificationID" />
+    </Key>
+    <Property Name="AgeClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgeClassificationArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AgeClassificationEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="AreaNameinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AreaNameinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="ZoneVertices" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StraightDistanceFromSchool" Type="Double" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="AttendanceItemID" />
+    </Key>
+    <Property Name="AttendanceItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttendanceDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttendanceType" Type="Int32" />
+    <Property Name="AbsenceReason" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParentInformed" Type="Int32" />
+    <Property Name="ParentMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AttendanceNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstSession" Type="Int32" />
+    <Property Name="SecondSession" Type="Int32" />
+    <Property Name="ThirdSession" Type="Int32" />
+    <Property Name="FourthSession" Type="Int32" />
+    <Property Name="FifthSession" Type="Int32" />
+    <Property Name="SixthSession" Type="Int32" />
+    <Property Name="SeventhSession" Type="Int32" />
+    <Property Name="EighthSession" Type="Int32" />
+    <Property Name="EighthSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FirstSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SecondSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SixthSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FifthSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SeventhSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FourthSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ThirdSessionTimeStamp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AttendanceType">
+    <Key>
+      <PropertyRef Name="AttendanceTypeID" />
+    </Key>
+    <Property Name="AttendanceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AttedanceTypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttedanceTypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BankBranch">
+    <Key>
+      <PropertyRef Name="BranchCode" />
+    </Key>
+    <Property Name="BranchCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BankCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BranchArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BranchEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BranchAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchContactNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="BankCode" />
+    </Key>
+    <Property Name="BankCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BankArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BanKEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BloodType">
+    <Key>
+      <PropertyRef Name="BloodTypeID" />
+    </Key>
+    <Property Name="BloodTypeID" Type="Int32" Nullable="false" />
+    <Property Name="BloodType1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BusFuel">
+    <Key>
+      <PropertyRef Name="BusFuelID" />
+    </Key>
+    <Property Name="BusFuelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FillingDate" Type="DateTime" Precision="3" />
+    <Property Name="NumberofLiters" Type="Int32" />
+    <Property Name="Cost" Type="Double" />
+    <Property Name="PetrolStation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BusInfo">
+    <Key>
+      <PropertyRef Name="BusID" />
+    </Key>
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="DriverID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberofSeats" Type="Int32" />
+    <Property Name="BusLicenseDate" Type="DateTime" Precision="3" />
+    <Property Name="Ownership" Type="Int32" />
+    <Property Name="PurchasePrice" Type="Double" />
+    <Property Name="RentValue" Type="Double" />
+    <Property Name="BusOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ParkingArea" Type="Int32" />
+    <Property Name="StandbyDay1" Type="Int32" />
+    <Property Name="StandbyDay2" Type="Int32" />
+    <Property Name="StandbyDay3" Type="Int32" />
+    <Property Name="StandbyDay4" Type="Int32" />
+    <Property Name="StandbyDay5" Type="Int32" />
+    <Property Name="PicnicAllowed" Type="Int32" />
+    <Property Name="AttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BusCurrentStatus" Type="Int32" />
+    <Property Name="PlateNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="BusMaintenance">
+    <Key>
+      <PropertyRef Name="MaintenanceID" />
+    </Key>
+    <Property Name="MaintenanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaintenanceDate" Type="DateTime" Precision="3" />
+    <Property Name="MaintenanceType" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Double" />
+    <Property Name="Workshop" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BusTour">
+    <Key>
+      <PropertyRef Name="TourID" />
+    </Key>
+    <Property Name="TourID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="BusNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TourArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TourEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TourArea" Type="Int32" />
+    <Property Name="MaxNoofStudents" Type="Int32" />
+    <Property Name="NumberofStudents" Type="Int32" />
+    <Property Name="TourAttendant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EstimatedTourTime" Type="Int32" />
+    <Property Name="EstimatedFuelConsumption" Type="Int32" />
+    <Property Name="TourDirection" Type="Int32" />
+    <Property Name="StratingTime" Type="DateTime" Precision="3" />
+    <Property Name="StraightDistanceFromSchool" Type="Double" />
+    <Property Name="BestDistanceFromSchool" Type="Double" />
+    <Property Name="SecondAttendant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BusTrackNavigation">
+    <Key>
+      <PropertyRef Name="MoveSequnce" />
+    </Key>
+    <Property Name="MoveSequnce" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="BusNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoveDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoveTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="BusSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoadSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FuelLevel" Type="Double" />
+    <Property Name="StudentInBus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TripNumPerDay" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BusTrip">
+    <Key>
+      <PropertyRef Name="TripID" />
+    </Key>
+    <Property Name="TripID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TripDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TripTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direction" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ClassEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AgeClassification" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Classroom">
+    <Key>
+      <PropertyRef Name="ClassRoomID" />
+      <PropertyRef Name="CLassRoomNumber" />
+    </Key>
+    <Property Name="ClassRoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLassRoomNumber" Type="Int32" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="Building" Type="Int32" />
+    <Property Name="Floor" Type="Int32" />
+    <Property Name="NumberofChairs" Type="Int32" />
+    <Property Name="Available" Type="Int32" />
+    <Property Name="RoomArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RoomEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BuildingArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BuildingEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CreditCardType">
+    <Key>
+      <PropertyRef Name="CreditCardTypeID" />
+    </Key>
+    <Property Name="CreditCardTypeID" Type="Int32" Nullable="false" />
+    <Property Name="CreditCardTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="Int32" Nullable="false" />
+    <Property Name="DesignationArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DisciplineAction">
+    <Key>
+      <PropertyRef Name="ActionID" />
+    </Key>
+    <Property Name="ActionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ActionDate" Type="DateTime" Precision="3" />
+    <Property Name="MotivationorPunichment" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Family">
+    <Key>
+      <PropertyRef Name="FamilyID" />
+    </Key>
+    <Property Name="FamilyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FatherArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherNationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FeeType">
+    <Key>
+      <PropertyRef Name="FeeTypeID" />
+    </Key>
+    <Property Name="FeeTypeID" Type="Int32" Nullable="false" />
+    <Property Name="FeeArabicDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FeeEnglishDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ClassRelated" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="GroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GroupDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GuardianType">
+    <Key>
+      <PropertyRef Name="GuardianTypeID" />
+    </Key>
+    <Property Name="GuardianTypeID" Type="Int32" Nullable="false" />
+    <Property Name="GuardianTypeinArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianTypeinEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Operation" />
+      <PropertyRef Name="DateTimeStamp" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MaintenanceType">
+    <Key>
+      <PropertyRef Name="MaintenanceTypeID" />
+    </Key>
+    <Property Name="MaintenanceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="MaintenancetypeArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaintenancetypeEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MappedField">
+    <Key>
+      <PropertyRef Name="FieldID" />
+    </Key>
+    <Property Name="FieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SystemFieldID" Type="Int32" />
+    <Property Name="TemplateField" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FeeFieldID" Type="Int32" />
+    <Property Name="FeeorSystem" Type="Int32" />
+  </EntityType>
+  <EntityType Name="OccasionType">
+    <Key>
+      <PropertyRef Name="OccasionID" />
+    </Key>
+    <Property Name="OccasionID" Type="Int32" Nullable="false" />
+    <Property Name="OccasionTypeArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OccasionTypeEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OccasionColor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentMethodArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethodEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Qualification">
+    <Key>
+      <PropertyRef Name="QualificationID" />
+    </Key>
+    <Property Name="QualificationID" Type="Int32" Nullable="false" />
+    <Property Name="QualificationArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QualificationEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ReligionID" />
+    </Key>
+    <Property Name="ReligionID" Type="Int32" Nullable="false" />
+    <Property Name="ReligionArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReligionEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ScheduledBusTrip">
+    <Key>
+      <PropertyRef Name="TripPassengerID" />
+    </Key>
+    <Property Name="TripPassengerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Direction" Type="Int32" />
+    <Property Name="TripDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TripTime" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BusNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DriverID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DriverName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerType" Type="Int32" />
+    <Property Name="PassengerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolLongitude" Type="Double" />
+    <Property Name="SchoolLatitude" Type="Double" />
+    <Property Name="PassengerAgeFactor" Type="Int32" />
+    <Property Name="PassengerLongitude" Type="Double" />
+    <Property Name="PassengerLatitude" Type="Double" />
+    <Property Name="PassengerPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PassengerOnBoard" Type="Int32" />
+    <Property Name="PassengeroffBoard" Type="Int32" />
+    <Property Name="PassengeronBoardDateTime" Type="DateTime" Precision="3" />
+    <Property Name="PassengeroffBoardDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AttendantLatitude" Type="Double" />
+    <Property Name="AttendantLongitude" Type="Double" />
+    <Property Name="AttendantName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DriverMobileNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttendantMobileNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TripID" Type="Int64" />
+    <Property Name="TripEnded" Type="Int32" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AttendanceStatus" Type="Int32" />
+    <Property Name="PickupOrder" Type="Int32" />
+    <Property Name="SecondAttendantID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantLongitude" Type="Double" />
+    <Property Name="SecondAttendantLatitude" Type="Double" />
+    <Property Name="SecondAttendantName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SecondAttendantMobileNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="ClassroomID" Type="Int32" />
+    <Property Name="SectionCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="MaxNumberofStudents" Type="Int32" />
+    <Property Name="NumberofStudents" Type="Int32" />
+    <Property Name="IsFull" Type="Int32" />
+    <Property Name="SectionArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SectionEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SessionDistribution">
+    <Key>
+      <PropertyRef Name="SessionDistributionID" />
+    </Key>
+    <Property Name="SessionDistributionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="Day1Sessions" Type="Int32" />
+    <Property Name="Day2Sessions" Type="Int32" />
+    <Property Name="Day3Sessions" Type="Int32" />
+    <Property Name="Day4Sessions" Type="Int32" />
+    <Property Name="Day5Sessions" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Specialization">
+    <Key>
+      <PropertyRef Name="SpecializationID" />
+    </Key>
+    <Property Name="SpecializationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpecializationArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SpecializationEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StaffArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StaffEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="NationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="3" />
+    <Property Name="MaritalStatus" Type="Int32" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CivilNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Int32" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Photo_A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StaffBankDetail">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Bank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IBANCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StaffContactDetail">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PermanentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="StaffLeaf">
+    <Key>
+      <PropertyRef Name="StaffLeaveID" />
+    </Key>
+    <Property Name="StaffLeaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LeaveDate" Type="DateTime" Precision="3" />
+    <Property Name="LeaveTime" Type="DateTime" Precision="3" />
+    <Property Name="NumberofDays" Type="Int32" />
+    <Property Name="NumberofSessionsLeft" Type="Int32" />
+    <Property Name="ReasontoLeave" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StaffSalaryDetail">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BasicSalary" Type="Double" />
+    <Property Name="HousingAllowence" Type="Double" />
+    <Property Name="TransportationAllowence" Type="Double" />
+    <Property Name="OtherAllowence" Type="Double" />
+    <Property Name="SocialInsuranceNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SocialInsuranceValue" Type="Single" />
+    <Property Name="IncomeTaxNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxValue" Type="Single" />
+  </EntityType>
+  <EntityType Name="StudentBehavior">
+    <Key>
+      <PropertyRef Name="StudentBehaviorID" />
+    </Key>
+    <Property Name="StudentBehaviorID" Type="Int32" Nullable="false" />
+    <Property Name="BehaviorArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BehaviorEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentFee">
+    <Key>
+      <PropertyRef Name="StudentFeeID" />
+    </Key>
+    <Property Name="StudentFeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeeID" Type="Int32" />
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="NumberofInstallments" Type="Int32" />
+    <Property Name="TransactionID" Type="Int32" />
+    <Property Name="IsClosed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StudentPayment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuardianD" Type="Int32" />
+    <Property Name="PaymentAmount" Type="Double" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethod" Type="Int32" />
+    <Property Name="ChequeNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BankCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ChequeDate" Type="DateTime" Precision="3" />
+    <Property Name="CreditCardType" Type="Int32" />
+    <Property Name="CreditCardNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NameonCreditCard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardExpiryDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentPhysicalStatu">
+    <Key>
+      <PropertyRef Name="PhysicalStatusID" />
+    </Key>
+    <Property Name="PhysicalStatusID" Type="Int32" Nullable="false" />
+    <Property Name="PhysicalStatusArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PhysicalStatusEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentResult">
+    <Key>
+      <PropertyRef Name="ResultID" />
+    </Key>
+    <Property Name="ResultID" Type="Int32" Nullable="false" />
+    <Property Name="ResultArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ResultEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentStatu">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="StatusArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjectID" />
+    </Key>
+    <Property Name="SubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SubjectArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaxMark" Type="Int32" />
+    <Property Name="FailMark" Type="Int32" />
+    <Property Name="NumberOfSessionsPerWeek" Type="Int32" />
+    <Property Name="SchedulingCondition" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SystemField">
+    <Key>
+      <PropertyRef Name="SystemFieldID" />
+    </Key>
+    <Property Name="SystemFieldID" Type="Int32" Nullable="false" />
+    <Property Name="SystemFieldArabicText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SystemFieldEnglishText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianorStudent" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TemplateSetting">
+    <Key>
+      <PropertyRef Name="TemplateSettingsID" />
+    </Key>
+    <Property Name="TemplateSettingsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="ContractType" Type="Int32" />
+    <Property Name="ContractTemplateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptTemplateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TemplateArchivePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SignatoryID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Timetable">
+    <Key>
+      <PropertyRef Name="TimetableEntityID" />
+    </Key>
+    <Property Name="TimetableEntityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="TimetableItemID" Type="Int32" />
+    <Property Name="TeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SessionID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Wife">
+    <Key>
+      <PropertyRef Name="WifeID" />
+    </Key>
+    <Property Name="WifeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FamilyID" Type="Int32" />
+    <Property Name="WifeArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WifeEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WifeNationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatus" Type="Int32" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="SmartSchoolsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AbsenceReasons" EntityType="Self.AbsenceReason" />
+    <EntitySet Name="AcademicCalendars" EntityType="Self.AcademicCalendar" />
+    <EntitySet Name="ActiveInstalltions" EntityType="Self.ActiveInstalltion" />
+    <EntitySet Name="ActiveProductKeys" EntityType="Self.ActiveProductKey" />
+    <EntitySet Name="AppraisalMetricsGroups" EntityType="Self.AppraisalMetricsGroup" />
+    <EntitySet Name="Appraisals" EntityType="Self.Appraisal" />
+    <EntitySet Name="AppraisalTypes" EntityType="Self.AppraisalType" />
+    <EntitySet Name="AppraisalValues" EntityType="Self.AppraisalValue" />
+    <EntitySet Name="AutomaticTimetables" EntityType="Self.AutomaticTimetable" />
+    <EntitySet Name="BookChapters" EntityType="Self.BookChapter" />
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="BookUnits" EntityType="Self.BookUnit" />
+    <EntitySet Name="BusAttendanceSchedules" EntityType="Self.BusAttendanceSchedule" />
+    <EntitySet Name="BusShiftRotationSchedules" EntityType="Self.BusShiftRotationSchedule" />
+    <EntitySet Name="BusShiftRotationScheduleforAutomaticBusSchedules" EntityType="Self.BusShiftRotationScheduleforAutomaticBusSchedule" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Currencies" EntityType="Self.Currency" />
+    <EntitySet Name="CustomPropertyTypes" EntityType="Self.CustomPropertyType" />
+    <EntitySet Name="DesignationTypes" EntityType="Self.DesignationType" />
+    <EntitySet Name="DeviceRegistrars" EntityType="Self.DeviceRegistrar" />
+    <EntitySet Name="DocumentCustomProperties" EntityType="Self.DocumentCustomProperty" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="DocumrntCustomizedProperties" EntityType="Self.DocumrntCustomizedProperty" />
+    <EntitySet Name="Functions" EntityType="Self.Function" />
+    <EntitySet Name="ImportanceTypes" EntityType="Self.ImportanceType" />
+    <EntitySet Name="KPIs" EntityType="Self.KPI" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="LiveswithTypes" EntityType="Self.LiveswithType" />
+    <EntitySet Name="LookupValues" EntityType="Self.LookupValue" />
+    <EntitySet Name="ManualTimetables" EntityType="Self.ManualTimetable" />
+    <EntitySet Name="MaritalStatuses" EntityType="Self.MaritalStatus" />
+    <EntitySet Name="NotifiactionStatuses" EntityType="Self.NotifiactionStatus" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="Privilages" EntityType="Self.Privilage" />
+    <EntitySet Name="QuestionBanks" EntityType="Self.QuestionBank" />
+    <EntitySet Name="QuestionLevels" EntityType="Self.QuestionLevel" />
+    <EntitySet Name="QuestionTypes" EntityType="Self.QuestionType" />
+    <EntitySet Name="RecurrenceTypes" EntityType="Self.RecurrenceType" />
+    <EntitySet Name="ScheduleZones" EntityType="Self.ScheduleZone" />
+    <EntitySet Name="SpecialResidenceConditionTypes" EntityType="Self.SpecialResidenceConditionType" />
+    <EntitySet Name="StudentAdresses" EntityType="Self.StudentAdress" />
+    <EntitySet Name="StudentSchoolDetails" EntityType="Self.StudentSchoolDetail" />
+    <EntitySet Name="SystemObjects" EntityType="Self.SystemObject" />
+    <EntitySet Name="SystemSettings" EntityType="Self.SystemSetting" />
+    <EntitySet Name="TeacherExperiences" EntityType="Self.TeacherExperience" />
+    <EntitySet Name="TimetableConditions" EntityType="Self.TimetableCondition" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+    <EntitySet Name="WebUsers" EntityType="Self.WebUser" />
+    <EntitySet Name="AcademicCalendars1" EntityType="Self.AcademicCalendar1" />
+    <EntitySet Name="AccountOwnerTypes" EntityType="Self.AccountOwnerType" />
+    <EntitySet Name="AccountsDetails" EntityType="Self.AccountsDetail" />
+    <EntitySet Name="AccountsMasters" EntityType="Self.AccountsMaster" />
+    <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
+    <EntitySet Name="AgeClassifications" EntityType="Self.AgeClassification" />
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="AttendanceTypes" EntityType="Self.AttendanceType" />
+    <EntitySet Name="BankBranches" EntityType="Self.BankBranch" />
+    <EntitySet Name="Banks" EntityType="Self.Bank" />
+    <EntitySet Name="BloodTypes" EntityType="Self.BloodType" />
+    <EntitySet Name="BusFuels" EntityType="Self.BusFuel" />
+    <EntitySet Name="BusInfoes" EntityType="Self.BusInfo" />
+    <EntitySet Name="BusMaintenances" EntityType="Self.BusMaintenance" />
+    <EntitySet Name="BusTours" EntityType="Self.BusTour" />
+    <EntitySet Name="BusTrackNavigations" EntityType="Self.BusTrackNavigation" />
+    <EntitySet Name="BusTrips" EntityType="Self.BusTrip" />
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Classrooms" EntityType="Self.Classroom" />
+    <EntitySet Name="CreditCardTypes" EntityType="Self.CreditCardType" />
+    <EntitySet Name="Designations" EntityType="Self.Designation" />
+    <EntitySet Name="DisciplineActions" EntityType="Self.DisciplineAction" />
+    <EntitySet Name="Families" EntityType="Self.Family" />
+    <EntitySet Name="FeeTypes" EntityType="Self.FeeType" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="GuardianTypes" EntityType="Self.GuardianType" />
+    <EntitySet Name="Logs" EntityType="Self.Log" />
+    <EntitySet Name="MaintenanceTypes" EntityType="Self.MaintenanceType" />
+    <EntitySet Name="MappedFields" EntityType="Self.MappedField" />
+    <EntitySet Name="OccasionTypes" EntityType="Self.OccasionType" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+    <EntitySet Name="Qualifications" EntityType="Self.Qualification" />
+    <EntitySet Name="Religions" EntityType="Self.Religion" />
+    <EntitySet Name="ScheduledBusTrips" EntityType="Self.ScheduledBusTrip" />
+    <EntitySet Name="Sections" EntityType="Self.Section" />
+    <EntitySet Name="SessionDistributions" EntityType="Self.SessionDistribution" />
+    <EntitySet Name="Specializations" EntityType="Self.Specialization" />
+    <EntitySet Name="Staffs" EntityType="Self.Staff" />
+    <EntitySet Name="StaffBankDetails" EntityType="Self.StaffBankDetail" />
+    <EntitySet Name="StaffContactDetails" EntityType="Self.StaffContactDetail" />
+    <EntitySet Name="StaffLeaves" EntityType="Self.StaffLeaf" />
+    <EntitySet Name="StaffSalaryDetails" EntityType="Self.StaffSalaryDetail" />
+    <EntitySet Name="StudentBehaviors" EntityType="Self.StudentBehavior" />
+    <EntitySet Name="StudentFees" EntityType="Self.StudentFee" />
+    <EntitySet Name="StudentPayments" EntityType="Self.StudentPayment" />
+    <EntitySet Name="StudentPhysicalStatus" EntityType="Self.StudentPhysicalStatu" />
+    <EntitySet Name="StudentResults" EntityType="Self.StudentResult" />
+    <EntitySet Name="StudentStatus" EntityType="Self.StudentStatu" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="SystemFields" EntityType="Self.SystemField" />
+    <EntitySet Name="TemplateSettings" EntityType="Self.TemplateSetting" />
+    <EntitySet Name="Timetables" EntityType="Self.Timetable" />
+    <EntitySet Name="Wives" EntityType="Self.Wife" />
+    <EntitySet Name="SchoolSettings" EntityType="SmartSchoolsModel.SchoolSetting" />
+    <EntitySet Name="SystemSettingsperSchools" EntityType="SmartSchoolsModel.SystemSettingsperSchool" />
+    <EntitySet Name="StaffJobDetails" EntityType="SmartSchoolsModel.StaffJobDetail" />
+    <EntitySet Name="StudentDiseases" EntityType="SmartSchoolsModel.StudentDiseas" />
+    <EntitySet Name="Headquarters" EntityType="SmartSchoolsModel.Headquarters" />
+    <EntitySet Name="EducationalYears" EntityType="SmartSchoolsModel.EducationalYear" />
+    <EntitySet Name="ExternalGuardians" EntityType="SmartSchoolsModel.ExternalGuardian" />
+    <EntitySet Name="ExternalGuardStudentsRequests" EntityType="SmartSchoolsModel.ExternalGuardStudentsRequest" />
+    <EntitySet Name="ExternalOtherStudentDetails" EntityType="SmartSchoolsModel.ExternalOtherStudentDetail" />
+    <EntitySet Name="ExternalStudentAdresses" EntityType="SmartSchoolsModel.ExternalStudentAdress" />
+    <EntitySet Name="ExternalStudentGuardDetails" EntityType="SmartSchoolsModel.ExternalStudentGuardDetail" />
+    <EntitySet Name="ExternalStudentSchoolDetails" EntityType="SmartSchoolsModel.ExternalStudentSchoolDetail" />
+    <EntitySet Name="Users" EntityType="SmartSchoolsModel.User" />
+    <EntitySet Name="Departments" EntityType="SmartSchoolsModel.Department" />
+    <EntitySet Name="SchoolClasses" EntityType="SmartSchoolsModel.SchoolClass" />
+    <EntitySet Name="SchoolBranches" EntityType="SmartSchoolsModel.SchoolBranch" />
+    <EntitySet Name="TransportCategoryTypes" EntityType="SmartSchoolsModel.TransportCategoryType" />
+    <EntitySet Name="TransportDirections" EntityType="SmartSchoolsModel.TransportDirection" />
+    <EntitySet Name="TransportTypes" EntityType="SmartSchoolsModel.TransportType" />
+    <EntitySet Name="TransportCategories" EntityType="SmartSchoolsModel.TransportCategory" />
+    <EntitySet Name="Fees" EntityType="SmartSchoolsModel.Fee" />
+    <EntitySet Name="DiscountTypes" EntityType="SmartSchoolsModel.DiscountType" />
+    <EntitySet Name="Curriculums" EntityType="SmartSchoolsModel.Curriculum" />
+    <EntitySet Name="CurriculumDepartments" EntityType="SmartSchoolsModel.CurriculumDepartment" />
+    <EntitySet Name="ExternalStudents" EntityType="SmartSchoolsModel.ExternalStudent" />
+    <EntitySet Name="Discounts" EntityType="SmartSchoolsModel.Discount" />
+    <EntitySet Name="DiscountStudents" EntityType="SmartSchoolsModel.DiscountStudent" />
+    <EntitySet Name="OtherStudentDetails" EntityType="SmartSchoolsModel.OtherStudentDetail" />
+    <EntitySet Name="Guardians" EntityType="SmartSchoolsModel.Guardian" />
+    <EntitySet Name="StudentHealths" EntityType="SmartSchoolsModel.StudentHealth" />
+    <EntitySet Name="Teachers" EntityType="SmartSchoolsModel.Teacher" />
+    <EntitySet Name="TeacherSubjects" EntityType="SmartSchoolsModel.TeacherSubject" />
+    <EntitySet Name="Sessions" EntityType="SmartSchoolsModel.Session" />
+    <EntitySet Name="TimetableItems" EntityType="SmartSchoolsModel.TimetableItem" />
+    <EntitySet Name="Students" EntityType="SmartSchoolsModel.Student" />
+    <EntitySet Name="MSTeams_Accounts" EntityType="SmartSchoolsModel.MSTeams_Accounts" />
+    <EntitySet Name="MSTeams_SessionAttendes" EntityType="SmartSchoolsModel.MSTeams_SessionAttendes" />
+    <EntitySet Name="VirtualMeetings" EntityType="SmartSchoolsModel.VirtualMeeting" />
+    <EntitySet Name="MailTemplates" EntityType="SmartSchoolsModel.MailTemplate" />
+    <EntitySet Name="MSTeams_Sessions" EntityType="SmartSchoolsModel.MSTeams_Sessions" />
+    <EntitySet Name="Student_Login" EntityType="SmartSchoolsModel.Student_Login" />
+    <EntitySet Name="NotificationsWebs" EntityType="SmartSchoolsModel.NotificationsWeb" />
+    <EntitySet Name="StudentGuardDetails" EntityType="SmartSchoolsModel.StudentGuardDetail" />
+    <EntitySet Name="GuardianSchools" EntityType="SmartSchoolsModel.GuardianSchool" />
+  </EntityContainer>
+  <EntityType Name="SchoolSetting">
+    <Key>
+      <PropertyRef Name="SchoolID" />
+    </Key>
+    <Property Name="SchoolID" Type="Int32" Nullable="false" />
+    <Property Name="NumberofClassRooms" Type="Int32" />
+    <Property Name="NumberofChairsPerClass" Type="Int32" />
+    <Property Name="NumberofSessionsPerDay" Type="Int32" />
+    <Property Name="NumberofSessionsPerTeacher" Type="Int32" />
+    <Property Name="AllowedNumberofStudentsPerYardArea" Type="Int32" />
+    <Property Name="AllowedNumberofStudentsPerClassroomArea" Type="Int32" />
+    <Property Name="WeekStartingDay" Type="Int32" />
+    <Property Name="StartingTime" Type="DateTime" Precision="3" />
+    <Property Name="FirstClassStartingTime" Type="DateTime" Precision="3" />
+    <Property Name="SessionDuration" Type="Int32" />
+    <Property Name="BreakBetweenSessionsDuration" Type="Int32" />
+    <Property Name="BreakDuration" Type="Int32" />
+    <Property Name="NumberofSemesters" Type="Int32" />
+    <Property Name="MultiDependantsDiscount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SystemSettingsperSchool">
+    <Key>
+      <PropertyRef Name="SchoolID" />
+    </Key>
+    <Property Name="SchoolID" Type="Int32" Nullable="false" />
+    <Property Name="LastInvoiceNumber" Type="Int32" />
+    <Property Name="OptionalArabicFields" Type="Int32" />
+    <Property Name="OptionalEnglishFields" Type="Int32" />
+    <Property Name="OptionalFamilyDetails" Type="Int32" />
+    <Property Name="OptionalThirdName" Type="Int32" />
+    <Property Name="BusScheduleDateType" Type="Int32" />
+    <Property Name="BusScheduleType" Type="Int32" />
+    <Property Name="NumberofBusTrips" Type="Int32" />
+    <Property Name="TimetableType" Type="Int32" />
+    <Property Name="SubjectDistributionMethod" Type="Int32" />
+    <Property Name="SubjectforClassorSection" Type="Int32" />
+    <Property Name="CurrencyOptions" Type="Int32" />
+    <Property Name="BusAttendantAssigningMethod" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StaffJobDetail">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Designation" Type="Int32" />
+    <Property Name="DateOfJoining" Type="DateTime" Precision="3" />
+    <Property Name="Qualification" Type="Int32" />
+    <Property Name="Specialization" Type="Int32" />
+    <Property Name="YearOfExperience" Type="Int32" />
+    <Property Name="YearofGraduation" Type="Int32" />
+    <Property Name="Institution" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="UseSchoolTransportation" Type="Int32" />
+    <Property Name="BusAttendance" Type="Int32" />
+    <Property Name="ComingTourID" Type="Int32" />
+    <Property Name="GoingTourID" Type="Int32" />
+    <Property Name="ComingTourOrder" Type="Int32" />
+    <Property Name="LeaveswithSchoolBus" Type="Int32" />
+    <Property Name="GoingTourOrder" Type="Int32" />
+    <Property Name="SchoolStaffNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AssistedTeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentDiseas">
+    <Key>
+      <PropertyRef Name="DiseasesID" />
+    </Key>
+    <Property Name="DiseasesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="Mumps" Type="Boolean" />
+    <Property Name="Chickenpox" Type="Boolean" />
+    <Property Name="rubella" Type="Boolean" />
+    <Property Name="Rheumaticfever" Type="Boolean" />
+    <Property Name="Diabetes" Type="Boolean" />
+    <Property Name="Heartdiseases" Type="Boolean" />
+    <Property Name="Pissingoff" Type="Boolean" />
+    <Property Name="Jointbonediseases" Type="Boolean" />
+    <Property Name="sprayer" Type="Boolean" />
+    <Property Name="Hearingimpairment" Type="Boolean" />
+    <Property Name="Visualimpairment" Type="Boolean" />
+    <Property Name="Speechimpairment" Type="Boolean" />
+    <Property Name="Bladderdiseases" Type="Boolean" />
+    <Property Name="Epilepsy" Type="Boolean" />
+    <Property Name="Hepatitis" Type="Boolean" />
+    <Property Name="Shakika" Type="Boolean" />
+    <Property Name="Fainting" Type="Boolean" />
+    <Property Name="Kidneydisease" Type="Boolean" />
+    <Property Name="Surgery" Type="Boolean" />
+    <Property Name="Urinarysystemdiseases" Type="Boolean" />
+    <Property Name="InternalStudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Headquarters">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="ProductKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EducationalYear">
+    <Key>
+      <PropertyRef Name="EductionalYearID" />
+    </Key>
+    <Property Name="EductionalYearID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EducationalYear1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExternalGuardian">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="NationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CivilNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAccepted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ExternalGuardStudentsRequest">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianID" Type="Int32" Nullable="false" />
+    <Property Name="RequestStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExternalOtherStudentDetail">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="GuardianID" Type="Int32" />
+    <Property Name="Behavior" Type="Int32" />
+    <Property Name="BehaviorNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BloodType" Type="Int32" />
+    <Property Name="DiseaseType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyOrder" Type="Int32" />
+    <Property Name="FamilyTotalMonthlyIncome" Type="Double" />
+    <Property Name="HasChronicDisease" Type="Int32" />
+    <Property Name="HealthNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LivesWith" Type="Int32" />
+    <Property Name="NumberofBrothers" Type="Int32" />
+    <Property Name="NumberofSisters" Type="Int32" />
+    <Property Name="PhysicalStatus" Type="Int32" />
+    <Property Name="SpecialCare" Type="Int32" />
+    <Property Name="SpecialResidenceConditions" Type="Int32" />
+    <Property Name="Talents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ValedictorianinSubject" Type="Int32" />
+    <Property Name="WeakinSubject" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExternalStudentAdress">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuardianID" Type="Int32" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Building" Type="Int32" />
+    <Property Name="Flat" Type="Int32" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+  </EntityType>
+  <EntityType Name="ExternalStudentGuardDetail">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="GuardianID" Type="Int32" />
+    <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FatherQualification" Type="Int32" />
+    <Property Name="MotherQualification" Type="Int32" />
+    <Property Name="FatherSpecialization" Type="Int32" />
+    <Property Name="MotherSpecialization" Type="Int32" />
+    <Property Name="FatherJob" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MotherJob" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FatherWorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherWorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MotherEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MailBox" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SmsNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExternalStudentSchoolDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="DateofAdmission" Type="DateTime" Precision="3" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="EductionalYear" Type="Int32" />
+    <Property Name="LastSchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="TransportationSubscription" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="IsAcademic" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SchoolClass">
+    <Key>
+      <PropertyRef Name="SchoolClassID" />
+    </Key>
+    <Property Name="SchoolClassID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="CurriculumID" Type="Int32" />
+    <Property Name="SchoolClassEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolClassArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Coeducation" Type="Boolean" Nullable="false" />
+    <Property Name="Male" Type="Boolean" Nullable="false" />
+    <Property Name="Female" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SchoolBranch">
+    <Key>
+      <PropertyRef Name="SchoolID" />
+    </Key>
+    <Property Name="SchoolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="SchoolArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolContactNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Latitude" Type="Double" />
+    <Property Name="SchoolCurrency" Type="Int32" />
+    <Property Name="YardArea" Type="Int32" />
+    <Property Name="MaxSchoolStudents" Type="Int32" />
+    <Property Name="ClassroomArea" Type="Int32" />
+    <Property Name="MaxStudentsinClassroom" Type="Int32" />
+    <Property Name="CurrentNumberofStudents" Type="Int32" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <Property Name="IsRegistered" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransportCategoryType">
+    <Key>
+      <PropertyRef Name="TransportCategoryTypeID" />
+    </Key>
+    <Property Name="TransportCategoryTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransportCategoryArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TransportCategoryEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransportDirection">
+    <Key>
+      <PropertyRef Name="TransportDirectionID" />
+    </Key>
+    <Property Name="TransportDirectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DirectionNameArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DirectionNameEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransportType">
+    <Key>
+      <PropertyRef Name="TransportTypeID" />
+    </Key>
+    <Property Name="TransportTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransportNameArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TransportNameEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransportCategory">
+    <Key>
+      <PropertyRef Name="TransportCategoryID" />
+    </Key>
+    <Property Name="TransportCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransportTypeID" Type="Int32" />
+    <Property Name="TransportCategoryTypeID" Type="Int32" />
+    <Property Name="DistanceInMeters" Type="Double" />
+    <Property Name="TransportCategoryCostGo" Type="Double" />
+    <Property Name="TransportCategoryCostReturn" Type="Double" />
+    <Property Name="TransportCategoryCostTwoWay" Type="Double" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Fee">
+    <Key>
+      <PropertyRef Name="FeeID" />
+    </Key>
+    <Property Name="FeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeeArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FeeEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FeeType" Type="Int32" />
+    <Property Name="FeeAmount" Type="Double" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="CurriculumID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiscountType">
+    <Key>
+      <PropertyRef Name="DiscountTypeID" />
+    </Key>
+    <Property Name="DiscountTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiscountTypeArabic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountTypeEnglish" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Curriculum">
+    <Key>
+      <PropertyRef Name="CurriculumID" />
+    </Key>
+    <Property Name="CurriculumArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CurriculumEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CurriculumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CurriculumDepartment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurriculumID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExternalStudent">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="StudentArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StudentEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="3" />
+    <Property Name="GuardianID" Type="Int32" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyID" Type="Int32" />
+    <Property Name="MotherID" Type="Int32" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Int32" />
+    <Property Name="GuardianRelationship" Type="Int32" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Photo_A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransportDirectionID" Type="Int32" />
+    <Property Name="AddressID" Type="Int32" />
+    <Property Name="BirthPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="DiscountID" />
+    </Key>
+    <Property Name="DiscountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiscountDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountQuestion" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountTypeID" Type="Int32" />
+    <Property Name="DiscountPercentage" Type="Double" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DiscountStudent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" Nullable="false" />
+    <Property Name="DiscountID" Type="Int32" Nullable="false" />
+    <Property Name="IsYes" Type="Boolean" Nullable="false" />
+    <Property Name="InternalStudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OtherStudentDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Behavior" Type="Int32" />
+    <Property Name="BehaviorNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BloodType" Type="Int32" />
+    <Property Name="DiseaseType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyOrder" Type="Int32" />
+    <Property Name="FamilyTotalMonthlyIncome" Type="Double" />
+    <Property Name="HasChronicDisease" Type="Int32" />
+    <Property Name="HealthNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LivesWith" Type="Int32" />
+    <Property Name="NumberofBrothers" Type="Int32" />
+    <Property Name="NumberofSisters" Type="Int32" />
+    <Property Name="PhysicalStatus" Type="Int32" />
+    <Property Name="SpecialCare" Type="Int32" />
+    <Property Name="SpecialResidenceConditions" Type="Int32" />
+    <Property Name="Talents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ValedictorianinSubject" Type="Int32" />
+    <Property Name="WeakinSubject" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Guardian">
+    <Key>
+      <PropertyRef Name="GuardianID" />
+    </Key>
+    <Property Name="GuardianID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuardianArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="Religion" Type="Int32" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethod" Type="Int32" />
+    <Property Name="CreditCardType" Type="Int32" />
+    <Property Name="CreditCardNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NameonCreditCard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreditCardCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentHealth">
+    <Key>
+      <PropertyRef Name="DiseasesID" />
+    </Key>
+    <Property Name="DiseasesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Mumps" Type="Boolean" />
+    <Property Name="Chickenpox" Type="Boolean" />
+    <Property Name="rubella" Type="Boolean" />
+    <Property Name="Rheumaticfever" Type="Boolean" />
+    <Property Name="Diabetes" Type="Boolean" />
+    <Property Name="Heartdiseases" Type="Boolean" />
+    <Property Name="Pissingoff" Type="Boolean" />
+    <Property Name="Jointbonediseases" Type="Boolean" />
+    <Property Name="sprayer" Type="Boolean" />
+    <Property Name="Hearingimpairment" Type="Boolean" />
+    <Property Name="Visualimpairment" Type="Boolean" />
+    <Property Name="Speechimpairment" Type="Boolean" />
+    <Property Name="Bladderdiseases" Type="Boolean" />
+    <Property Name="Epilepsy" Type="Boolean" />
+    <Property Name="Hepatitis" Type="Boolean" />
+    <Property Name="Shakika" Type="Boolean" />
+    <Property Name="Fainting" Type="Boolean" />
+    <Property Name="Kidneydisease" Type="Boolean" />
+    <Property Name="Surgery" Type="Boolean" />
+    <Property Name="Urinarysystemdiseases" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberofSessins" Type="Int32" />
+    <Property Name="Classroom" Type="Int32" />
+    <Property Name="TimeTableSessions" Type="Int32" />
+    <Property Name="AssistantTeacher" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TeacherSubject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SectionCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="SessionID" />
+    </Key>
+    <Property Name="SessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="WeekDay" Type="Int32" />
+    <Property Name="SessionDayOrder" Type="Int32" />
+    <Property Name="SessionTime" Type="DateTime" Precision="3" />
+    <Property Name="Available" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TimetableItem">
+    <Key>
+      <PropertyRef Name="TimetableItemID" />
+    </Key>
+    <Property Name="TimetableItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="Int32" />
+    <Property Name="SchoolYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolClassID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="SubjectID" Type="Int32" />
+    <Property Name="TeacherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ItemRGBColor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StudentArabicName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StudentEnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NationalNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="3" />
+    <Property Name="GuardianID" Type="Int32" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyID" Type="Int32" />
+    <Property Name="MotherID" Type="Int32" />
+    <Property Name="ResidencyNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Int32" />
+    <Property Name="GuardianRelationship" Type="Int32" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Photo_A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransportDirectionID" Type="Int32" />
+    <Property Name="AddressID" Type="Int32" />
+    <Property Name="BirthPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MSTeams_Accounts">
+    <Key>
+      <PropertyRef Name="MSTeamAccountID" />
+    </Key>
+    <Property Name="MSTeamAccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenantID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientSecret" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Domain" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MSTeams_SessionAttendes">
+    <Key>
+      <PropertyRef Name="MSTeamAttendeeID" />
+    </Key>
+    <Property Name="MSTeamAttendeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MSTeamSessionID" Type="Int32" Nullable="false" />
+    <Property Name="AttendeID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JoinURL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JoinTime" Type="DateTime" Precision="3" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VirtualMeeting">
+    <Key>
+      <PropertyRef Name="VirtualSessionID" />
+    </Key>
+    <Property Name="VirtualSessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeetingTitle" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="StaffID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusID" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="MeetingID" Type="Int32" Nullable="false" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MailTemplate">
+    <Key>
+      <PropertyRef Name="TemplateID" />
+    </Key>
+    <Property Name="TemplateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TemplateNameEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TemplateNameAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Template" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MSTeams_Sessions">
+    <Key>
+      <PropertyRef Name="MSTeamSessionID" />
+    </Key>
+    <Property Name="MSTeamSessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MSTeamsAccountID" Type="Int32" Nullable="false" />
+    <Property Name="SubjectID" Type="Int32" />
+    <Property Name="SectionID" Type="Int32" />
+    <Property Name="MeetingTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="JoinURL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JoinWebURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Student_Login">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="IsBlocked" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="NotificationsWeb">
+    <Key>
+      <PropertyRef Name="NotifcationID" />
+    </Key>
+    <Property Name="NotifcationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArabicDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnglishDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedByID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleID" Type="Int32" />
+    <Property Name="NotificationTypeID" Type="Int32" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToGroupID" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="Visited" Type="Boolean" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StudentGuardDetail">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GuardianID" Type="Int32" Nullable="false" />
+    <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FatherQualification" Type="Int32" />
+    <Property Name="MotherQualification" Type="Int32" />
+    <Property Name="FatherSpecialization" Type="Int32" />
+    <Property Name="MotherSpecialization" Type="Int32" />
+    <Property Name="FatherJob" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MotherJob" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FatherWorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherWorkPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MotherEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MailBox" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SmsNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GuardianSchool">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuardianID" Type="Int32" />
+    <Property Name="SchoolID" Type="Int32" />
+  </EntityType>
+</Schema>

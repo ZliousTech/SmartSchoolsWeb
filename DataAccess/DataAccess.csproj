@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AC75501-932D-417A-B3A7-0C81D3EE6336}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\DataAccessFactory.cs" />
+    <Compile Include="Base\DataAccessFactoryCustom.cs" />
+    <Compile Include="Base\IDataAccessFactory.cs" />
+    <Compile Include="Base\IDataAccessFactoryCustom.cs" />
+    <Compile Include="Base\IRepository.cs" />
+    <Compile Include="Base\RepositoryBase.cs" />
+    <Compile Include="Base\UnitOfWork.cs" />
+    <Compile Include="IRepositories\IAbsenceReasonsRepository.cs" />
+    <Compile Include="IRepositories\IAcademicCalendar1sRepository.cs" />
+    <Compile Include="IRepositories\IAcademicCalendarsRepository.cs" />
+    <Compile Include="IRepositories\IAccountOwnerTypesRepository.cs" />
+    <Compile Include="IRepositories\IAccountsDetailsRepository.cs" />
+    <Compile Include="IRepositories\IAccountsMastersRepository.cs" />
+    <Compile Include="IRepositories\IAccountTypesRepository.cs" />
+    <Compile Include="IRepositories\IActiveInstalltionsRepository.cs" />
+    <Compile Include="IRepositories\IActiveProductKeysRepository.cs" />
+    <Compile Include="IRepositories\IAgeClassificationsRepository.cs" />
+    <Compile Include="IRepositories\IAppraisalMetricsGroupsRepository.cs" />
+    <Compile Include="IRepositories\IAppraisalsRepository.cs" />
+    <Compile Include="IRepositories\IAppraisalTypesRepository.cs" />
+    <Compile Include="IRepositories\IAppraisalValuesRepository.cs" />
+    <Compile Include="IRepositories\IAreasRepository.cs" />
+    <Compile Include="IRepositories\IAspNetRolesRepository.cs" />
+    <Compile Include="IRepositories\IAttendancesRepository.cs" />
+    <Compile Include="IRepositories\IAttendanceTypesRepository.cs" />
+    <Compile Include="IRepositories\IAutomaticTimetablesRepository.cs" />
+    <Compile Include="IRepositories\IBankBranchsRepository.cs" />
+    <Compile Include="IRepositories\IBanksRepository.cs" />
+    <Compile Include="IRepositories\IBloodTypesRepository.cs" />
+    <Compile Include="IRepositories\IBookChaptersRepository.cs" />
+    <Compile Include="IRepositories\IBooksRepository.cs" />
+    <Compile Include="IRepositories\IBookUnitsRepository.cs" />
+    <Compile Include="IRepositories\IBusAttendanceSchedulesRepository.cs" />
+    <Compile Include="IRepositories\IBusFuelsRepository.cs" />
+    <Compile Include="IRepositories\IBusInfosRepository.cs" />
+    <Compile Include="IRepositories\IBusMaintenancesRepository.cs" />
+    <Compile Include="IRepositories\IBusShiftRotationScheduleforAutomaticBusSchedulesRepository.cs" />
+    <Compile Include="IRepositories\IBusShiftRotationSchedulesRepository.cs" />
+    <Compile Include="IRepositories\IBusToursRepository.cs" />
+    <Compile Include="IRepositories\IBusTrackNavigationsRepository.cs" />
+    <Compile Include="IRepositories\IBusTripsRepository.cs" />
+    <Compile Include="IRepositories\IClassroomsRepository.cs" />
+    <Compile Include="IRepositories\IClasssRepository.cs" />
+    <Compile Include="IRepositories\ICountrysRepository.cs" />
+    <Compile Include="IRepositories\ICreditCardTypesRepository.cs" />
+    <Compile Include="IRepositories\ICurrencysRepository.cs" />
+    <Compile Include="IRepositories\ICurriculumDepartmentsRepository.cs" />
+    <Compile Include="IRepositories\ICurriculumsRepository.cs" />
+    <Compile Include="IRepositories\ICustomPropertyTypesRepository.cs" />
+    <Compile Include="IRepositories\IDepartmentsRepository.cs" />
+    <Compile Include="IRepositories\IDesignationsRepository.cs" />
+    <Compile Include="IRepositories\IDesignationTypesRepository.cs" />
+    <Compile Include="IRepositories\IDeviceRegistrarsRepository.cs" />
+    <Compile Include="IRepositories\IDisciplineActionsRepository.cs" />
+    <Compile Include="IRepositories\IDiscountsRepository.cs" />
+    <Compile Include="IRepositories\IDiscountStudentsRepository.cs" />
+    <Compile Include="IRepositories\IDiscountTypesRepository.cs" />
+    <Compile Include="IRepositories\IDocumentCustomPropertysRepository.cs" />
+    <Compile Include="IRepositories\IDocumentsRepository.cs" />
+    <Compile Include="IRepositories\IDocumentTypesRepository.cs" />
+    <Compile Include="IRepositories\IDocumrntCustomizedPropertysRepository.cs" />
+    <Compile Include="IRepositories\IEducationalYearsRepository.cs" />
+    <Compile Include="IRepositories\IExternalGuardiansRepository.cs" />
+    <Compile Include="IRepositories\IExternalGuardStudentsRequestsRepository.cs" />
+    <Compile Include="IRepositories\IExternalOtherStudentDetailsRepository.cs" />
+    <Compile Include="IRepositories\IExternalStudentAdresssRepository.cs" />
+    <Compile Include="IRepositories\IExternalStudentGuardDetailsRepository.cs" />
+    <Compile Include="IRepositories\IExternalStudentSchoolDetailsRepository.cs" />
+    <Compile Include="IRepositories\IExternalStudentsRepository.cs" />
+    <Compile Include="IRepositories\IFamilysRepository.cs" />
+    <Compile Include="IRepositories\IFeesRepository.cs" />
+    <Compile Include="IRepositories\IFeeTypesRepository.cs" />
+    <Compile Include="IRepositories\IFunctionsRepository.cs" />
+    <Compile Include="IRepositories\IGroupsRepository.cs" />
+    <Compile Include="IRepositories\IGuardiansRepository.cs" />
+    <Compile Include="IRepositories\IGuardianTypesRepository.cs" />
+    <Compile Include="IRepositories\IHeadquarterssRepository.cs" />
+    <Compile Include="IRepositories\IImportanceTypesRepository.cs" />
+    <Compile Include="IRepositories\IKPIsRepository.cs" />
+    <Compile Include="IRepositories\ILanguagesRepository.cs" />
+    <Compile Include="IRepositories\ILiveswithTypesRepository.cs" />
+    <Compile Include="IRepositories\ILogsRepository.cs" />
+    <Compile Include="IRepositories\ILookupValuesRepository.cs" />
+    <Compile Include="IRepositories\IMailTemplatesRepository.cs" />
+    <Compile Include="IRepositories\IMaintenanceTypesRepository.cs" />
+    <Compile Include="IRepositories\IManualTimetablesRepository.cs" />
+    <Compile Include="IRepositories\IMappedFieldsRepository.cs" />
+    <Compile Include="IRepositories\IMaritalStatussRepository.cs" />
+    <Compile Include="IRepositories\IMSTeams_AccountssRepository.cs" />
+    <Compile Include="IRepositories\IMSTeams_SessionAttendessRepository.cs" />
+    <Compile Include="IRepositories\IMSTeams_SessionssRepository.cs" />
+    <Compile Include="IRepositories\INotifiactionStatussRepository.cs" />
+    <Compile Include="IRepositories\INotificationsRepository.cs" />
+    <Compile Include="IRepositories\INotificationsWebsRepository.cs" />
+    <Compile Include="IRepositories\IOccasionTypesRepository.cs" />
+    <Compile Include="IRepositories\IOtherStudentDetailsRepository.cs" />
+    <Compile Include="IRepositories\IPaymentMethodsRepository.cs" />
+    <Compile Include="IRepositories\IPrivilagesRepository.cs" />
+    <Compile Include="IRepositories\IQualificationsRepository.cs" />
+    <Compile Include="IRepositories\IQuestionBanksRepository.cs" />
+    <Compile Include="IRepositories\IQuestionLevelsRepository.cs" />
+    <Compile Include="IRepositories\IQuestionTypesRepository.cs" />
+    <Compile Include="IRepositories\IRecurrenceTypesRepository.cs" />
+    <Compile Include="IRepositories\IReligionsRepository.cs" />
+    <Compile Include="IRepositories\IScheduledBusTripsRepository.cs" />
+    <Compile Include="IRepositories\IScheduleZonesRepository.cs" />
+    <Compile Include="IRepositories\ISchoolBranchsRepository.cs" />
+    <Compile Include="IRepositories\ISchoolClasssRepository.cs" />
+    <Compile Include="IRepositories\ISchoolSettingsRepository.cs" />
+    <Compile Include="IRepositories\ISectionsRepository.cs" />
+    <Compile Include="IRepositories\ISessionDistributionsRepository.cs" />
+    <Compile Include="IRepositories\ISessionsRepository.cs" />
+    <Compile Include="IRepositories\ISpecializationsRepository.cs" />
+    <Compile Include="IRepositories\ISpecialResidenceConditionTypesRepository.cs" />
+    <Compile Include="IRepositories\IStaffBankDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStaffContactDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStaffJobDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStaffLeafsRepository.cs" />
+    <Compile Include="IRepositories\IStaffSalaryDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStaffsRepository.cs" />
+    <Compile Include="IRepositories\IStudentAdresssRepository.cs" />
+    <Compile Include="IRepositories\IStudentBehaviorsRepository.cs" />
+    <Compile Include="IRepositories\IStudentDiseassRepository.cs" />
+    <Compile Include="IRepositories\IStudentFeesRepository.cs" />
+    <Compile Include="IRepositories\IStudentGuardDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStudentHealthsRepository.cs" />
+    <Compile Include="IRepositories\IStudentPaymentsRepository.cs" />
+    <Compile Include="IRepositories\IStudentPhysicalStatusRepository.cs" />
+    <Compile Include="IRepositories\IStudentResultsRepository.cs" />
+    <Compile Include="IRepositories\IStudentSchoolDetailsRepository.cs" />
+    <Compile Include="IRepositories\IStudentsRepository.cs" />
+    <Compile Include="IRepositories\IStudentStatusRepository.cs" />
+    <Compile Include="IRepositories\IStudent_LoginsRepository.cs" />
+    <Compile Include="IRepositories\ISubjectsRepository.cs" />
+    <Compile Include="IRepositories\ISystemFieldsRepository.cs" />
+    <Compile Include="IRepositories\ISystemObjectsRepository.cs" />
+    <Compile Include="IRepositories\ISystemSettingsperSchoolsRepository.cs" />
+    <Compile Include="IRepositories\ISystemSettingsRepository.cs" />
+    <Compile Include="IRepositories\ITeacherExperiencesRepository.cs" />
+    <Compile Include="IRepositories\ITeachersRepository.cs" />
+    <Compile Include="IRepositories\ITeacherSubjectsRepository.cs" />
+    <Compile Include="IRepositories\ITemplateSettingsRepository.cs" />
+    <Compile Include="IRepositories\ITimetableConditionsRepository.cs" />
+    <Compile Include="IRepositories\ITimetableItemsRepository.cs" />
+    <Compile Include="IRepositories\ITimetablesRepository.cs" />
+    <Compile Include="IRepositories\ITransportCategorysRepository.cs" />
+    <Compile Include="IRepositories\ITransportCategoryTypesRepository.cs" />
+    <Compile Include="IRepositories\ITransportDirectionsRepository.cs" />
+    <Compile Include="IRepositories\ITransportTypesRepository.cs" />
+    <Compile Include="IRepositories\IUsersRepository.cs" />
+    <Compile Include="IRepositories\IUserTypesRepository.cs" />
+    <Compile Include="IRepositories\IVirtualMeetingsRepository.cs" />
+    <Compile Include="IRepositories\IWebUsersRepository.cs" />
+    <Compile Include="IRepositories\IWifesRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AbsenceReasonsRepository.cs" />
+    <Compile Include="Repositories\AcademicCalendar1sRepository.cs" />
+    <Compile Include="Repositories\AcademicCalendarsRepository.cs" />
+    <Compile Include="Repositories\AccountOwnerTypesRepository.cs" />
+    <Compile Include="Repositories\AccountsDetailsRepository.cs" />
+    <Compile Include="Repositories\AccountsMastersRepository.cs" />
+    <Compile Include="Repositories\AccountTypesRepository.cs" />
+    <Compile Include="Repositories\ActiveInstalltionsRepository.cs" />
+    <Compile Include="Repositories\ActiveProductKeysRepository.cs" />
+    <Compile Include="Repositories\AgeClassificationsRepository.cs" />
+    <Compile Include="Repositories\AppraisalMetricsGroupsRepository.cs" />
+    <Compile Include="Repositories\AppraisalsRepository.cs" />
+    <Compile Include="Repositories\AppraisalTypesRepository.cs" />
+    <Compile Include="Repositories\AppraisalValuesRepository.cs" />
+    <Compile Include="Repositories\AreasRepository.cs" />
+    <Compile Include="Repositories\AspNetRolesRepository.cs" />
+    <Compile Include="Repositories\AttendancesRepository.cs" />
+    <Compile Include="Repositories\AttendanceTypesRepository.cs" />
+    <Compile Include="Repositories\AutomaticTimetablesRepository.cs" />
+    <Compile Include="Repositories\BankBranchsRepository.cs" />
+    <Compile Include="Repositories\BanksRepository.cs" />
+    <Compile Include="Repositories\BloodTypesRepository.cs" />
+    <Compile Include="Repositories\BookChaptersRepository.cs" />
+    <Compile Include="Repositories\BooksRepository.cs" />
+    <Compile Include="Repositories\BookUnitsRepository.cs" />
+    <Compile Include="Repositories\BusAttendanceSchedulesRepository.cs" />
+    <Compile Include="Repositories\BusFuelsRepository.cs" />
+    <Compile Include="Repositories\BusInfosRepository.cs" />
+    <Compile Include="Repositories\BusMaintenancesRepository.cs" />
+    <Compile Include="Repositories\BusShiftRotationScheduleforAutomaticBusSchedulesRepository.cs" />
+    <Compile Include="Repositories\BusShiftRotationSchedulesRepository.cs" />
+    <Compile Include="Repositories\BusToursRepository.cs" />
+    <Compile Include="Repositories\BusTrackNavigationsRepository.cs" />
+    <Compile Include="Repositories\BusTripsRepository.cs" />
+    <Compile Include="Repositories\ClassroomsRepository.cs" />
+    <Compile Include="Repositories\ClasssRepository.cs" />
+    <Compile Include="Repositories\CountrysRepository.cs" />
+    <Compile Include="Repositories\CreditCardTypesRepository.cs" />
+    <Compile Include="Repositories\CurrencysRepository.cs" />
+    <Compile Include="Repositories\CurriculumDepartmentsRepository.cs" />
+    <Compile Include="Repositories\CurriculumsRepository.cs" />
+    <Compile Include="Repositories\CustomPropertyTypesRepository.cs" />
+    <Compile Include="Repositories\DepartmentsRepository.cs" />
+    <Compile Include="Repositories\DesignationsRepository.cs" />
+    <Compile Include="Repositories\DesignationTypesRepository.cs" />
+    <Compile Include="Repositories\DeviceRegistrarsRepository.cs" />
+    <Compile Include="Repositories\DisciplineActionsRepository.cs" />
+    <Compile Include="Repositories\DiscountsRepository.cs" />
+    <Compile Include="Repositories\DiscountStudentsRepository.cs" />
+    <Compile Include="Repositories\DiscountTypesRepository.cs" />
+    <Compile Include="Repositories\DocumentCustomPropertysRepository.cs" />
+    <Compile Include="Repositories\DocumentsRepository.cs" />
+    <Compile Include="Repositories\DocumentTypesRepository.cs" />
+    <Compile Include="Repositories\DocumrntCustomizedPropertysRepository.cs" />
+    <Compile Include="Repositories\EducationalYearsRepository.cs" />
+    <Compile Include="Repositories\ExternalGuardiansRepository.cs" />
+    <Compile Include="Repositories\ExternalGuardStudentsRequestsRepository.cs" />
+    <Compile Include="Repositories\ExternalOtherStudentDetailsRepository.cs" />
+    <Compile Include="Repositories\ExternalStudentAdresssRepository.cs" />
+    <Compile Include="Repositories\ExternalStudentGuardDetailsRepository.cs" />
+    <Compile Include="Repositories\ExternalStudentSchoolDetailsRepository.cs" />
+    <Compile Include="Repositories\ExternalStudentsRepository.cs" />
+    <Compile Include="Repositories\FamilysRepository.cs" />
+    <Compile Include="Repositories\FeesRepository.cs" />
+    <Compile Include="Repositories\FeeTypesRepository.cs" />
+    <Compile Include="Repositories\FunctionsRepository.cs" />
+    <Compile Include="Repositories\GroupsRepository.cs" />
+    <Compile Include="Repositories\GuardiansRepository.cs" />
+    <Compile Include="Repositories\GuardianTypesRepository.cs" />
+    <Compile Include="Repositories\HeadquarterssRepository.cs" />
+    <Compile Include="Repositories\ImportanceTypesRepository.cs" />
+    <Compile Include="Repositories\KPIsRepository.cs" />
+    <Compile Include="Repositories\LanguagesRepository.cs" />
+    <Compile Include="Repositories\LiveswithTypesRepository.cs" />
+    <Compile Include="Repositories\LogsRepository.cs" />
+    <Compile Include="Repositories\LookupValuesRepository.cs" />
+    <Compile Include="Repositories\MailTemplatesRepository.cs" />
+    <Compile Include="Repositories\MaintenanceTypesRepository.cs" />
+    <Compile Include="Repositories\ManualTimetablesRepository.cs" />
+    <Compile Include="Repositories\MappedFieldsRepository.cs" />
+    <Compile Include="Repositories\MaritalStatussRepository.cs" />
+    <Compile Include="Repositories\MSTeams_AccountssRepository.cs" />
+    <Compile Include="Repositories\MSTeams_SessionAttendessRepository.cs" />
+    <Compile Include="Repositories\MSTeams_SessionssRepository.cs" />
+    <Compile Include="Repositories\NotifiactionStatussRepository.cs" />
+    <Compile Include="Repositories\NotificationsRepository.cs" />
+    <Compile Include="Repositories\NotificationsWebsRepository.cs" />
+    <Compile Include="Repositories\OccasionTypesRepository.cs" />
+    <Compile Include="Repositories\OtherStudentDetailsRepository.cs" />
+    <Compile Include="Repositories\PaymentMethodsRepository.cs" />
+    <Compile Include="Repositories\PrivilagesRepository.cs" />
+    <Compile Include="Repositories\QualificationsRepository.cs" />
+    <Compile Include="Repositories\QuestionBanksRepository.cs" />
+    <Compile Include="Repositories\QuestionLevelsRepository.cs" />
+    <Compile Include="Repositories\QuestionTypesRepository.cs" />
+    <Compile Include="Repositories\RecurrenceTypesRepository.cs" />
+    <Compile Include="Repositories\ReligionsRepository.cs" />
+    <Compile Include="Repositories\ScheduledBusTripsRepository.cs" />
+    <Compile Include="Repositories\ScheduleZonesRepository.cs" />
+    <Compile Include="Repositories\SchoolBranchsRepository.cs" />
+    <Compile Include="Repositories\SchoolClasssRepository.cs" />
+    <Compile Include="Repositories\SchoolSettingsRepository.cs" />
+    <Compile Include="Repositories\SectionsRepository.cs" />
+    <Compile Include="Repositories\SessionDistributionsRepository.cs" />
+    <Compile Include="Repositories\SessionsRepository.cs" />
+    <Compile Include="Repositories\SpecializationsRepository.cs" />
+    <Compile Include="Repositories\SpecialResidenceConditionTypesRepository.cs" />
+    <Compile Include="Repositories\StaffBankDetailsRepository.cs" />
+    <Compile Include="Repositories\StaffContactDetailsRepository.cs" />
+    <Compile Include="Repositories\StaffJobDetailsRepository.cs" />
+    <Compile Include="Repositories\StaffLeafsRepository.cs" />
+    <Compile Include="Repositories\StaffSalaryDetailsRepository.cs" />
+    <Compile Include="Repositories\StaffsRepository.cs" />
+    <Compile Include="Repositories\StudentAdresssRepository.cs" />
+    <Compile Include="Repositories\StudentBehaviorsRepository.cs" />
+    <Compile Include="Repositories\StudentDiseassRepository.cs" />
+    <Compile Include="Repositories\StudentFeesRepository.cs" />
+    <Compile Include="Repositories\StudentGuardDetailsRepository.cs" />
+    <Compile Include="Repositories\StudentHealthsRepository.cs" />
+    <Compile Include="Repositories\StudentPaymentsRepository.cs" />
+    <Compile Include="Repositories\StudentPhysicalStatusRepository.cs" />
+    <Compile Include="Repositories\StudentResultsRepository.cs" />
+    <Compile Include="Repositories\StudentSchoolDetailsRepository.cs" />
+    <Compile Include="Repositories\StudentsRepository.cs" />
+    <Compile Include="Repositories\StudentStatusRepository.cs" />
+    <Compile Include="Repositories\Student_LoginsRepository.cs" />
+    <Compile Include="Repositories\SubjectsRepository.cs" />
+    <Compile Include="Repositories\SystemFieldsRepository.cs" />
+    <Compile Include="Repositories\SystemObjectsRepository.cs" />
+    <Compile Include="Repositories\SystemSettingsperSchoolsRepository.cs" />
+    <Compile Include="Repositories\SystemSettingsRepository.cs" />
+    <Compile Include="Repositories\TeacherExperiencesRepository.cs" />
+    <Compile Include="Repositories\TeachersRepository.cs" />
+    <Compile Include="Repositories\TeacherSubjectsRepository.cs" />
+    <Compile Include="Repositories\TemplateSettingsRepository.cs" />
+    <Compile Include="Repositories\TimetableConditionsRepository.cs" />
+    <Compile Include="Repositories\TimetableItemsRepository.cs" />
+    <Compile Include="Repositories\TimetablesRepository.cs" />
+    <Compile Include="Repositories\TransportCategorysRepository.cs" />
+    <Compile Include="Repositories\TransportCategoryTypesRepository.cs" />
+    <Compile Include="Repositories\TransportDirectionsRepository.cs" />
+    <Compile Include="Repositories\TransportTypesRepository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="Repositories\UserTypesRepository.cs" />
+    <Compile Include="Repositories\VirtualMeetingsRepository.cs" />
+    <Compile Include="Repositories\WebUsersRepository.cs" />
+    <Compile Include="Repositories\WifesRepository.cs" />
+    <Compile Include="SmartSchoolModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartSchoolModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmartSchoolModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartSchoolModel.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="SmartSchoolModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SmartSchoolModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SmartSchoolModel.edmx.diagram">
+      <DependentUpon>SmartSchoolModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SmartSchoolModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartSchoolModel.edmx</DependentUpon>
+      <LastGenOutput>SmartSchoolModel.Context.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Objects\Objects.csproj">
+      <Project>{f87e3642-a918-4763-92fb-b0e15d2e5eee}</Project>
+      <Name>Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
