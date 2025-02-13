@@ -1,0 +1,1193 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+@using System.Data
+
+@{
+    ViewBag.Title = "RegisterEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+
+    string pull = "";
+    string buttonpull = "";
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        buttonpull = "pull-right";
+        modalpositon = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        buttonpull = "pull-left";
+        modalpositon = "right";
+
+    }
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../Content/Wizard/WizardStyle.css" rel="stylesheet" />
+    <link href="../../Maps/MapStyle.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+    <style>
+        .dashboardrp, .fullscreenbutton, .langswtch {
+            display: none !important;
+        }
+
+        .stepwizard-step > p {
+            text-align: center;
+        }
+
+        .labeltitle {
+            margin-top: 28px;
+        }
+
+        .htitles {
+            margin-bottom: 25px;
+        }
+
+        .pac-container {
+            background-color: #FFF;
+            z-index: 20;
+            position: fixed;
+            display: inline-block;
+            float: left;
+        }
+
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+            /*opacity:0 !important;*/
+        }
+
+        .Cur div.tagsinput span.tag {
+            background: #00C0EF;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .ColoredTitle {
+            font-weight: bold;
+            color: white;
+            margin-right: 10px;
+        }
+
+        span .select2 {
+            width: unset;
+        }
+
+        .row2{
+            display:flex;
+            direction:inherit;
+        }
+    </style>
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ElectronicRegistrationService")</h2>
+</div>
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+
+<script src="../../Maps/GoogleMaps.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<script src="../../Content/Wizard/wizardJS.js"></script>
+<script src="../../Content/Wizard/SchoolRegistrationWizard.js"></script>
+
+@Html.HiddenFor(m => m.schoolBranch.SchoolID)
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms" style="overflow-x: auto; padding:20px">
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <a href="#step-1" type="button" class="btn btn-info btn-circle">
+                            1
+                        </a>
+                        <p>@R.GetResource("SchoolInformation")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step" id="DepartmentsStepWizard">
+                        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            2
+                        </a>
+                        <p>@R.GetResource("DepartmentsandCurriculums")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            3
+                        </a>
+                        <p>@R.GetResource("Linkingthecurriculumtoacademicdepartments")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            4
+                        </a>
+                        <p> @R.GetResource("Classes")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            5
+                        </a>
+                        <p>@R.GetResource("Prices")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-6" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            6
+                        </a>
+                        <p>@R.GetResource("Fees")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-7" type="button" class="btn btn-default btn-circle" disabled="disabled">
+                            7
+                        </a>
+                        <p>@R.GetResource("Discounts")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-8" type="button" class="btn btn-default btn-circle" id="transportationStep" disabled="disabled">
+                            8
+                        </a>
+                        <p>@R.GetResource("Transportation")&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-9" type="button" class="btn btn-default btn-circle" id="LoginStep" disabled="disabled">
+                            9
+                        </a>
+                        <p>@R.GetResource("LoginInformation") </p>
+                    </div>
+                </div>
+            </div>
+
+            <form id="addStudentdata" enctype="multipart/form-data">
+
+                <div class="row setup-content" id="step-1">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("SchoolInformation")</h4>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("SchoolName")</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.schoolBranch.SchoolArabicName, new { @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("MobileNumber")</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.schoolBranch.SchoolContactNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Country")</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-control-wrapper">
+                                                @Html.EditorFor(model => model.schoolBranch.Country, "SelectListRequired", new { List = Model.Countries, Disabled = false })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Longitude")</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.schoolBranch.Longitude, new { @class = "form-control", Name = "number", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a id="openMapModal" class="show-modal btn btn-info">
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Latitude")</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.schoolBranch.Latitude, new { @class = "form-control", Name = "number", required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Email")</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.SchoolEmail, new { @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Numberofschoolclasses")</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.SchoolSettings.NumberofClassRooms, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="col-md-2">
+                                        <label>@R.GetResource("Maximumnumberofseatsperclass")</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.SchoolSettings.NumberofChairsPerClass, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @{ var base64 = "";
+                                var imgSrc = "../../AppContent/Images/avatar.jpeg";
+                                if (Model.schoolBranch.Photo != null)
+                                {
+                                    base64 = Convert.ToBase64String(Model.schoolBranch.Photo);
+                                    imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                                }
+                            }
+                            <div class="col-md-2">
+                                <div class="profile-userpic">
+                                    <img src="@imgSrc" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                                    <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this,'#profileImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                    <button type="button" style="width:161px;" onclick="showuploadfile('#fileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload" style="margin: 0px 3px;"></i> @R.GetResource("Upload")</button>
+                                </div>
+
+                                <div class="row">
+                                    <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left: 15px; padding-right: 15px;">
+                            <button class="btn btn-primary-custom forms SchoolInfonextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row setup-content" id="step-2">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("DepartmentsandCurriculums")</h4>
+                            <br />
+                            <br />
+                            <div class="inner-Container">
+                                <div class="light-component inner">
+                                    <div id="DivDepartments" style=" margin:auto; width: 100% !important; padding: 10px !important;" class="tablecontainer">
+                                        <div class="light-component action">
+                                            <a class="popup btn btn-primary" href="/SchoolRegistration/SaveDepartment/0">
+                                                <span>
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </span>
+                                                <h5>
+                                                    @R.GetResource("AddDepartment")
+                                                </h5>
+                                            </a>
+                                        </div>
+                                        <table id="tblDepartments" class="table table-striped table-bordered table-hover" style="width:100% !important">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">@R.GetResource("DepartmentArabicName")</th>
+                                                    <th scope="col">@R.GetResource("DepartmentEnglishName")</th>
+                                                    <th scope="col">@R.GetResource("DepartmentType")</th>
+                                                    <th scope="col">@R.GetResource("Edit")</th>
+                                                    <th scope="col">@R.GetResource("Delete")</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*Abuhammad*@
+                            <div class="inner-Container">
+                                <div class="light-component inner">
+                                    <div id="DivCur" style=" margin:auto; width:100% !important" class="tablecontainerCur">
+                                        <div class="light-component action">
+                                            <a class="popupCur btn btn-primary" href="/SchoolRegistration/SaveCurriculum/0">
+                                                <span>
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </span>
+                                                <h5>
+                                                    @R.GetResource("AddCurriculum")
+                                                </h5>
+                                            </a>
+                                        </div>
+                                        <table id="tblCurriculums" class="table table-striped table-bordered table-hover" style="width:100% !important">
+                                            <thead>
+                                                <tr>
+                                                    <th>@R.GetResource("CurriculumArabicName")</th>
+                                                    <th>@R.GetResource("CurriculumEnglishName")</th>
+                                                    <th>@R.GetResource("Edit")</th>
+                                                    <th>@R.GetResource("Delete")</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary-custom forms DepartmentInfonextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="DivCurriculumPartial">
+
+                </div>
+
+
+                <div id="DivClassesPartial">
+
+                </div>
+
+
+                <div id="DivPricesPartial">
+
+                </div>
+
+
+                <div id="DivFeesPartial">
+
+                </div>
+
+
+                <div class="row setup-content" id="step-7">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("Discounts")</h4>
+                            <br />
+                            <div class="inner-Container">
+                                <div class="light-component action">
+                                    <button id="addRow"
+                                            class="show-modal-Discount btn btn-info" type="button" data-toggle="modal" data-target="#DiscountModal">
+                                        <span>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </span>
+                                        <h5>
+                                            @R.GetResource("AddDiscount")
+                                        </h5>
+                                    </button>
+                                </div>
+                                <div class="light-component inner">
+
+
+                                    <div id="DivDiscountsPartial">
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <button class="btn btn-primary-custom forms DiscountnextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row setup-content" id="step-8">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("Transportation")</h4>
+                            <br />
+                            <br />
+                            @{
+                                var checkedAirDistance = "";
+                                var checkedRealDistance = "";
+                                var TransportResult = (from Trans in context.TransportCategories where Trans.SchoolID == Model.schoolBranch.SchoolID select Trans).FirstOrDefault();
+                                if (TransportResult != null)
+                                {
+                                    if (TransportResult.TransportTypeID == 1)
+                                    {
+                                        checkedRealDistance = "checked";
+                                    }
+                                    else if (TransportResult.TransportTypeID == 2)
+                                    {
+                                        checkedAirDistance = "checked";
+                                    }
+                                }
+                            }
+                            <div class="row row2">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Categoryaccordingtoairdistance")</label>
+                                        <input id="AirDistance" name="DistanceCategory" value="1" type="radio" @checkedAirDistance>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Categoryaccordingtodistancefromschool(realdistance)")</label>
+                                        <input id="RealDistance" name="DistanceCategory" value="2" type="radio" @checkedRealDistance>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row" id="DivAirMap" style="display:none;">
+                                <div class="col-md-12">
+                                    <div class="row row2">
+                                        <div class="col-md-4">
+                                            <label class="control-label">@R.GetResource("Pleaseclickonthemaptodeterminedistances")</label>
+                                        </div>
+                                        <div class="col-md-2">
+
+                                            <a id="openairmap" type="button" target="_blank" href="@Url.Action("GoogleMapsAirDistanceAPI", "TransportMAPs", new { SchoolID=Model.schoolBranch.SchoolID})">
+                                                <img alt="map" src="../../Images/MainItemImg/MapIcn.png" width="100" height="50">
+                                            </a>
+                                            <img src="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" id="DivRealDistance" style="display:none;">
+
+                                @foreach (var T in Model.TransportCategoryTypes)
+                                {
+                                    var TransportRes = (from TransportCategory in context.TransportCategories where TransportCategory.SchoolID == Model.schoolBranch.SchoolID && TransportCategory.TransportCategoryTypeID == T.TransportCategoryTypeID && TransportCategory.TransportTypeID == 1 select TransportCategory).FirstOrDefault();
+                                    var GoValue = 0.0;
+                                    var ReturnValue = 0.0;
+                                    var TwoWayValue = 0.0;
+                                    var Distance = 0.0;
+                                    if (TransportRes != null)
+                                    {
+                                        GoValue = TransportRes.TransportCategoryCostGo.Value;
+                                        ReturnValue = TransportRes.TransportCategoryCostReturn.Value;
+                                        TwoWayValue = TransportRes.TransportCategoryCostTwoWay.Value;
+                                        Distance = TransportRes.DistanceInMeters.Value;
+                                    }
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("Roundtripcost")</label>
+                                                    <input type="text" class="form-control" id="TwoWay_@T.TransportCategoryTypeID" value="@TwoWayValue" name="realnumber" placeholder="التكلفة" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("Returncost")</label>
+                                                    <input type="text" class="form-control" id="ReturnCost_@T.TransportCategoryTypeID" value="@ReturnValue" name="realnumber" placeholder="التكلفة" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("GoingCost")</label>
+                                                    <input type="text" class="form-control" id="GoCost_@T.TransportCategoryTypeID" value="@GoValue" name="realnumber" placeholder="التكلفة" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    @{ 
+                                                        var TName = CurrentLanguage == Languges.English ?
+                                                            T.TransportCategoryEnglishName : T.TransportCategoryArabicName;
+                                                    }
+                                                    <label class="control-label"> @TName @R.GetResource("Lessthan")</label>
+                                                    <input type="text" class="form-control" id="Distance_@T.TransportCategoryTypeID" value="@Distance" name="realnumber" placeholder="المسافة بالمتر" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <button class="btn btn-primary-custom forms TransportInfonextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row setup-content" id="step-9">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("LoginInformation")</h4>
+                            <br />
+                            <div class="row row2">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("UserName")<span class="required" style="color:red;"> * </span></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row2">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Password")<span class="required" style="color:red;"> * </span></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required", value = Model.Password })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row2">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("ConfirmPassword")<span class="required" style="color:red;"> * </span></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.Confirm, new { @class = "form-control", required = "required", value = Model.Confirm })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row2" id="ErrorPassword" style="display:none;">
+                                <div class="col-md-2">
+                                    <p style="color:red">@R.GetResource("PasswordMismatch")</p>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary-custom forms LoginInfonextBtn  @buttonpull" type="button">@R.GetResource("Finish")</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="float:@modalpositon;" id="myModalLabel">@R.GetResource("Locatetheschool")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_map">
+                        <div id="panel">
+                            <div class="search-panel">
+                                <div class="details-div mt10">
+                                    <div class="col-md-12">
+                                        <input type="PickupAddress" value="Amman, Jordan" class="form-control mr10" name="PickupAddress" placeholder="Sublocality" id="searchTextField" autocomplete="on" runat="server" required="" data-msg-required="Please enter Pick up Address" aria-required="true">
+                                        <button class="btn btn info" onclick="createMap();"><i class="fa fa-search" aria-hidden="true"></i>@R.GetResource("Search")</button>
+
+                                        <div><label class="control-label">@R.GetResource("Address"): </label> <input id="address" value="شارع مسعود بن ناصر، شارع مسعود بن ناصر الدوار السابع مقابل البنك العربي مجمع سامي خواجا عمّان،، Amman, Jordan" name="address" type="text" class="form-control border" /></div>
+                                        <div class="mt10"><label class="control-label">@R.GetResource("Latitude"):</label>  <input type="text" value="31.9539494" class="form-control" name="latitudemap" id="latitudemap"></div>
+                                        <div class="mt10"><label class="control-label"> @R.GetResource("Longitude"):</label> <input type="text" value="35.910635" class="form-control" name="longitudemap" id="longitudemap"></div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-map" id="location-map">
+
+                            <div style="width: 600px; height: 400px;" id="myMap"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_end">
+                        <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                        <button type="button" id="savelocation" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("SaveLocation")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DiscountModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="validme">
+                    <form>
+
+                        <div class="row">
+                            @Html.Hidden("DiscountIDEdit")
+                            <div class="col-md-3"><div class="form-group"><input type="text" class="form-control" id="DiscountDescription" placeholder="@R.GetResource("Descriptionofthediscount")" required></div></div>
+                            <div class="col-md-3"><div class="form-group"><input type="text" class="form-control" id="DiscountPercentege" placeholder="@R.GetResource("DiscountPercentage")" name="realnumber" required></div></div>
+                            <div class="col-md-3">
+                                @Html.EditorFor(model => model.DiscountTypeID, "SelectListRequired", new { List = Model.DiscountTypes, Disabled = false })
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" style="text-align:right;">
+                                    <label>@R.GetResource("Formulaforaskingaboutthediscount")</label>
+                                    <textarea class="form-control" id="DiscountQuestion" rows="4" cols="50" placeholder="@R.GetResource("Exampleofthesiblingdiscount:Doeshehaveasiblinginschool?")" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_end">
+                                <button type="button" class="btn btn-secondary closemodal" id="closeAddButton" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                                <button type="button" id="saveDiscount" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("Save")</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="DiscountModalEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="validme">
+                    <form>
+                        <div class="row">
+                            @Html.Hidden("DiscountIDEdit")
+                            <div class="col-md-3"><div class="form-group"><input type="text" class="form-control" id="DiscountDescription2" placeholder="@R.GetResource("Descriptionofthediscount")" required></div></div>
+                            <div class="col-md-3"><div class="form-group"><input type="text" class="form-control" name="realnumber" id="DiscountPercentege2" placeholder="@R.GetResource("DiscountPercentage")" required></div></div>
+
+                            <div class="col-md-3" id="DiscountListTwo">
+                                <select id="DiscountTypeID2" class="form-control select2"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" style="text-align:right;">
+                                    <label>@R.GetResource("Formulaforaskingaboutthediscount")</label>
+                                    <textarea class="form-control" id="DiscountQuestion2" rows="4" cols="50" placeholder="@R.GetResource("Exampleofthesiblingdiscount:Doeshehaveasiblinginschool?")" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_end">
+                                <button type="button" class="btn btn-secondary closemodal" id="closeEditButton" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                                <button type="button" id="updateDiscount" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("Edit")</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="EditDiscountBtn"
+        class="btn btn-info" type="button" style="display:none;" data-toggle="modal" data-target="#DiscountModalEdit">
+    Edit Discount <i class="fa fa-plus" style="color:white;"></i>
+</button>
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function () {
+
+        $('#openMapModal').click(function () {
+            $('#myModal').modal();
+        });
+
+        var RadioDistanceCategory = $("input[name='DistanceCategory']:checked").val();
+
+        if (RadioDistanceCategory == '1') {
+            $("#DivAirMap").css("display", "");
+            $("#DivRealDistance").css("display", "none");
+
+        }
+        else if (RadioDistanceCategory == '2') {
+            $("#DivAirMap").css("display", "none");
+            $("#DivRealDistance").css("display", "");
+        }
+
+        $('input[type=radio][name=DistanceCategory]').change(function () {
+            debugger;
+            if (this.value == '1') {
+                $("#DivAirMap").css("display", "");
+                $("#DivRealDistance").css("display", "none");
+
+            }
+            else if (this.value == '2') {
+                $("#DivAirMap").css("display", "none");
+                $("#DivRealDistance").css("display", "");
+            }
+        });
+
+        $('#myModal').on('show.bs.modal', function (event) {
+            var input = document.getElementById('searchTextField');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                $('#latitudemap').val(place.geometry.location.lat());
+                $('#longitudemap').val(place.geometry.location.lng());
+            });
+            createMap();
+
+            $("#location-map").css("width", "100%");
+            $("#myMap").css("width", "100%");
+        });
+
+        // Trigger map resize event after modal shown
+        $(".show-modal").click(function () {
+            $("#myModal").modal({
+                show: true,
+                backdrop: 'static',
+                keyboard: true
+            });
+        });
+        $(".show-modal-Discount").click(function () {
+            //$("#DiscountListTwo").css("display", "none");
+            //$("#updateDiscount").css("display", "none");
+            $("#DiscountTypeID").css("display", "");
+            $("#saveDiscount").css("display", "");
+        });
+        $(".show-modalAir").click(function () {
+            $("#AirMapModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+        $("#savelocation").on('click', function (e) {
+            longitudemap = $("#longitudemap").val();
+            latitudemap = $("#latitudemap").val();
+            $("#schoolBranch_Longitude").val(longitudemap);
+            $("#schoolBranch_Latitude").val(latitudemap);
+            $(".closemodal").click();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+        });
+
+        $('input[name="number"]').keyup(function (e) {
+            debugger;
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+        });
+
+        $('body').on('click', '#saveDiscount', function () {
+            var curStep = $(this).closest(".validme"),
+                curInputs = curStep.find("input[type='text'],textarea"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+
+                var DiscountDecription = $("#DiscountDescription").val();
+                var DiscountQuestion = $("#DiscountQuestion").val();
+                var DiscountPercentege = $("#DiscountPercentege").val();
+                var DiscountTypeID = $("#DiscountTypeID").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddDiscount",
+                    data: { 'DiscountDecription': DiscountDecription, 'DiscountQuestion': DiscountQuestion, 'DiscountPercentege': DiscountPercentege, 'DiscountTypeID': DiscountTypeID, 'SchoolID': $("#schoolBranch_SchoolID").val() },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            Swal.fire({
+                                title: '',
+                                text: 'تمت عملية الحفظ بنجاح',
+                                icon: 'info',
+                                timer: 1000, 
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                position: 'top'
+                            });
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    }
+
+                }).done(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "GetDiscountsStep",
+                        cache: false,
+                        data: { 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+                    }).done(function (result) {
+                        $('#DivDiscountsPartial').html(result);
+                    });
+                });
+
+                document.getElementById('closeAddButton').click();
+            }
+        });
+
+        $('body').on('click', '#updateDiscount', function () {
+            var curStep = $(this).closest(".validme"),
+                curInputs = curStep.find("input[type='text'],textarea"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid || curInputs[i].value.trim() === "") {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                var DiscountID = $("#DiscountIDEdit").val();
+                var DiscountQuestion = $("#DiscountQuestion2").val();
+                var DiscountDecription = $("#DiscountDescription2").val();
+                var DiscountPercentege = $("#DiscountPercentege2").val();
+                var DiscountTypeID = $("#DiscountTypeID2").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "UpdateDiscount",
+                    data: { 'DiscountID': DiscountID, 'DiscountDecription': DiscountDecription, 'DiscountQuestion': DiscountQuestion, 'DiscountPercentege': DiscountPercentege, 'DiscountTypeID': DiscountTypeID },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            Swal.fire({
+                                title: '',
+                                text: 'تمت عملية الحفظ بنجاح',
+                                icon: 'info',
+                                timer: 1000,
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                position: 'top'
+                            });
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    }
+
+                }).done(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "GetDiscountsStep",
+                        cache: false,
+                        data: { 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+                    }).done(function (result) {
+                        $('#DivDiscountsPartial').html(result);
+                    });
+                });
+
+                document.getElementById('closeEditButton').click();
+            }
+
+            //$('body').on('click', '#AddDiscountbtn', function () {
+
+            //});
+        });
+
+        $('input[Name="realnumber"]').keyup(function (e) {
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+
+        //-------------------------Jquery Datatables Section -------------------------------------------
+        var DepartmentTable = $("#tblDepartments").DataTable({
+            "ajax": {
+                "url": 'GetDepartments',
+                "type": "get",
+                "data": { "SchoolID": $("#schoolBranch_SchoolID").val() },
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "DepartmentArabicName", "autoWidth": true },
+                { "data": "DepartmentEnglishName", "autoWidth": true },
+                {
+                    "data": "IsAcademic", "width": "autoWidth", "render": function (data) {
+                        if (data === true) {
+                            return 'اكاديمي';
+                        }
+                        else {
+                            return 'اداري';
+                        }
+                    }
+                },
+                {
+                    "data": "DepartmentID", "width": "50px", "render": function (data) {
+                        return '<a class="padding popup" href="/SchoolRegistration/SaveDepartment/' + data + '"><i class="fa fa-edit fa-s-15"></i></a>';
+                    }
+                },
+                {
+                    "data": "DepartmentID", "width": "50px", "render": function (data) {
+                        return '<a class="padding popup" href="/SchoolRegistration/DeleteDepartment/' + data + '"><i class="fa fa-trash fa-s-15"></i></a>';
+                    }
+                }
+            ]
+
+        })
+
+        $('.tablecontainer').on('click', 'a.popup', function (e) {
+            debugger;
+            e.preventDefault();
+            OpenPopup($(this).attr('href'));
+        });
+
+        function OpenPopup(pageUrl) {
+            debugger;
+            var $pageContent = $('<div/>');
+            $pageContent.load(pageUrl, function () {
+                $('#popupForm', $pageContent).removeData('validator');
+                $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse('form');
+            });
+
+            $dialog = $('<div class="popupwindow" style="overflow:auto"></div>')
+                .html($pageContent)
+                .dialog({
+                    draggable: false,
+                    autoOpen: true,
+                    resizeable: false,
+                    model: true,
+                    height: 300,
+                    width: 300,
+                    close: function () {
+                        $dialog.dialog('destroy').remove();
+                    }
+                });
+
+            $dialog.dialog('open');
+        }
+        $('body').on('submit', '#popupForm', function (e) {
+
+            var url = $('#popupForm')[0].action;
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#popupForm").serialize(),
+                success: function (data) {
+
+                    $dialog.dialog('close');
+                    DepartmentTable.ajax.reload();
+                }
+            });
+            e.preventDefault();
+        });
+
+        //-------------------------Cur------------------
+        var CurriculumTable = $("#tblCurriculums").DataTable({
+            "ajax": {
+                "url": 'GetCurriculums',
+                "type": "get",
+                "data": { "SchoolID": $("#schoolBranch_SchoolID").val() },
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "CurriculumArabicName", "autoWidth": true },
+                { "data": "CurriculumEnglishName", "autoWidth": true },
+
+                {
+                    "data": "CurriculumID", "width": "50px", "render": function (data) {
+                        return '<a class="padding popupCur" href="/SchoolRegistration/SaveCurriculum/' + data + '"><i class="fa fa-edit fa-s-15"></i></a>';
+                    }
+                },
+                {
+                    "data": "CurriculumID", "width": "50px", "render": function (data) {
+                        return '<a class="padding popupCur" href="/SchoolRegistration/DeleteCurriculum/' + data + '"><i class="fa fa-trash fa-s-15"></i></a>';
+                    }
+                }
+            ]
+        });
+
+        $('.tablecontainerCur').on('click', 'a.popupCur', function (e) {
+            debugger;
+            e.preventDefault();
+            OpenPopupCur($(this).attr('href'));
+        });
+
+        //abuhammad
+        function OpenPopupCur(pageUrl) {
+            debugger;
+            var $pageContent = $('<div/>')
+            $pageContent.load(pageUrl, function () {
+                $('#popupFormCur', $pageContent).removeData('validator');
+                $('#popupFormCur', $pageContent).removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse('form');
+            });
+
+            var $dialog = $('<div class="popupwindow" style="overflow:auto"></div>')
+                .html($pageContent)
+                .dialog({
+                    draggable: false,
+                    autoOpen: true,
+                    resizeable: false,
+                    model: true,
+                    height: 300,
+                    width: 300,
+                    close: function () {
+                        $dialog.dialog('destroy').remove();
+                    }
+                });
+
+            $dialog.dialog('open');
+        }
+
+        $('body').on('submit', '#popupFormCur', function (e) {
+            debugger;
+            var url = $('#popupFormCur')[0].action;
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#popupFormCur").serialize(),
+                success: function (data) {
+                    debugger;
+                    //$dialog.dialog('close');
+                    CurriculumTable.ajax.reload();
+                }
+            });
+            e.preventDefault();
+        });
+    });
+
+    function DeleteDiscount(discountid) {
+        Swal.fire({
+        title: '@R.GetResource("Areyousure")?',
+        text: '@R.GetResource("Oncedeleted")!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '@R.GetResource("OK")',
+        cancelButtonText: '@R.GetResource("Cancel")',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: "DeleteDiscount",
+                    data: { 'DiscountID': discountid },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            Swal.fire({
+                                title: '',
+                                text: 'تمت عملية الحذف بنجاح',
+                                icon: 'info',
+                                timer: 1000, 
+                                timerProgressBar: true,
+                                showConfirmButton: false,
+                                position: 'top'
+                            });
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                }).done(function () {
+                    $.ajax({
+                        type: "GET",
+                        url: "GetDiscountsStep",
+                        cache: false,
+                        data: { 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+                    }).done(function (result) {
+                        $('#DivDiscountsPartial').html(result);
+                    });
+                });
+            }
+        });
+    }
+
+    function EditDiscount(discountid) {
+        debugger;
+        $("#DiscountIDEdit").val(discountid);
+        $.ajax({
+            type: "GET",
+            url: "GetDiscountByID",
+            data: { 'DiscountID': discountid },
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    $("#DiscountDescription2").val(response.DiscountDecription);
+                    $("#DiscountQuestion2").val(response.DiscountQuestion);
+                    $("#DiscountPercentege2").val(response.DiscountPercentege);
+                    $("#DiscountTypeID").val(response.DiscountPercentege);
+                    for (var i = 0; i < response.DiscountTypes.length; i++) {
+                        var s;
+                        debugger;
+                        if (response.DiscountTypes[i].DiscountTypeID == response.DiscountTypeID) {
+                            s += '<option value="' + response.DiscountTypes[i].DiscountTypeID + '" selected="selected">' + response.DiscountTypes[i].DiscountTypeArabic + '</option>';
+                        }
+                        else {
+                            s += '<option value="' + response.DiscountTypes[i].DiscountTypeID + '">' + response.DiscountTypes[i].DiscountTypeArabic + '</option>';
+                        }
+                    }
+                    $("#DiscountTypeID2").html(s);
+                    $("#EditDiscountBtn").click();
+                    //show modal
+                } else {
+                    alert("Something went wrong");
+                }
+            },
+
+        });
+    }
+
+    function readURL(input, id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id)
+                    .attr('src', e.target.result).width(130)
+                    .height(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function showuploadfile(id) {
+        $(id).click();
+    }
+</script>

@@ -1,0 +1,199 @@
+﻿@model SmartSchool.Models.TransportMAPs.TransportMAPs
+
+@{
+    Layout = null;
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+
+    }
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../../Maps/MapStyle.css" rel="stylesheet" />
+
+    <style>
+        #map {
+            height: 98%;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stepwizard-step > p {
+            text-align: unset;
+        }
+
+        .labeltitle {
+            margin-top: 28px;
+        }
+
+        .htitles {
+            margin-bottom: 25px;
+        }
+
+        .pac-container {
+            background-color: #FFF;
+            z-index: 20;
+            position: fixed;
+            display: inline-block;
+            float: left;
+        }
+
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+        }
+    </style>
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("SchoolLatitude")</label>
+                @Html.TextBoxFor(m => m.SChoolLatitude, new { @class = "form-control", @readonly = true, required = "required" })
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("SchoolLongitude")</label>
+
+                @Html.TextBoxFor(m => m.SchoolLongitude, new { @class = "form-control", @readonly = true, required = "required" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("StudentLatitude")</label>
+
+                @Html.TextBoxFor(m => m.StudentLatitude, new { @class = "form-control", @readonly = true, required = "required" })
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("StudentLongitude")</label>
+
+                @Html.TextBoxFor(m => m.StudentLongitude, new { @class = "form-control", @readonly = true, required = "required" })
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("DistanceinM")</label>
+                <div style=" font-weight:bold; color: royalblue;">@Model.DistanceinM</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("DistanceinKM")</label>
+
+                <div style="font-weight:bold; color: royalblue;">@Model.DistanceinKM</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>@R.GetResource("Category")</label>
+
+                <div style="font-weight:bold; color: royalblue;">@Model.Category</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @if (CurrentLanguage == Languges.English)
+                {
+                    <label>Subscribe in transportation</label>
+                }
+                else
+                {
+                    <label>@R.GetResource("Subscriptiontotransportation")</label>
+                }
+                <div style="font-weight:bold; color: royalblue;">@Model.SubscribeTransportation</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12" style="height:700px;">
+            <label>@R.GetResource("PresentsintheMAP")</label>
+            <br />
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function initMap() {
+        var directionsRenderer = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: { lat: parseFloat($("#SChoolLatitude").val()), lng: parseFloat($("#SchoolLongitude").val()) }
+        });
+        directionsRenderer.setMap(map);
+
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
+        document.getElementById('mode').addEventListener('change', function () {
+            calculateAndDisplayRoute(directionsService, directionsRenderer);
+        });
+    }
+
+    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+        directionsService.route({
+            origin: { lat: parseFloat($("#SChoolLatitude").val()), lng: parseFloat($("#SchoolLongitude").val()) },
+            destination: { lat: parseFloat($("#StudentLatitude").val()), lng: parseFloat($("#StudentLongitude").val()) },
+            travelMode: google.maps.TravelMode.DRIVING
+
+        }, function (response, status) {
+            if (status == 'OK') {
+                directionsRenderer.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&callback=initMap">
+</script>

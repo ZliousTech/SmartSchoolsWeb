@@ -1,0 +1,81 @@
+﻿@model List<Objects.DTO.HeadQuarterDTO>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Headquarters")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("RegisterHeadQuarter","Settings")" style="width:200px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Registeranewheadquarter")
+            </h5>
+        </a>
+    </div>
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col"> @R.GetResource("CompanyID") </th>
+                    <th scope="col"> @R.GetResource("CompanyArabicName") </th>
+                    <th scope="col"> @R.GetResource("CompanyEnglishName") </th>
+                    <th scope="col"> @R.GetResource("Country") </th>
+                    <th scope="col"> @R.GetResource("ContactNo") </th>
+                    <th scope="col"> @R.GetResource("Email") </th>
+                    <th scope="col"></th>
+
+                </tr>   
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <th scope="row">@item.CompanyID</th>
+                    <td>@item.CompanyArabicName</td>
+                    <td>@item.CompanyEnglishName</td>
+                    <td>@item.Country</td>
+                    <td>
+                        <a href="tel:4444565756">
+                            @item.ContactNo
+                        </a>
+                    </td>
+                    <td>
+                        <a href="mailto:@item.Email">
+                            @item.Email
+                        </a>
+                    </td>
+                    <td style="display:flex">
+                        <a href="@Url.Action("EditHeadQuarter","Settings", new { CompanyID=item.CompanyID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        <a href="@Url.Action("RegisterUserHeadQuarter","Settings", new { CompanyID=item.CompanyID })" class="padding"><i class="fa fa-user fa-s-15"></i></a>
+                        <a href="@Url.Action("DisplayUserInfoHeadQuarter","Settings", new { CompanyID=item.CompanyID })" class="padding">
+                            <i class="fa fa-info-circle fa-s-15" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

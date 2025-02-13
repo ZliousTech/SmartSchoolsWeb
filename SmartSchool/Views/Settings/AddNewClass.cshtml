@@ -1,0 +1,213 @@
+﻿@model SmartSchool.Models.Settings.Classes
+@{
+    ViewBag.Title = "Add Class";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewClass")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddClassRoom" enctype="multipart/form-data" class="padding">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Classes")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.ClassID, Model.ClassTextName, @R.GetResource("SelectClass"), new { @class = "form-control  select2", Name = "ClassID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Curriculums")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.CurriculumID, Model.CurriculumTextName, @R.GetResource("SelectCurriculum"), new { @class = "form-control  select2", Name = "CurriculumID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ClassArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SchoolClassArabicName, new { @class = "form-control", Name = "SchoolClassArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ClassEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SchoolClassEnglishName, new { @class = "form-control", Name = "SchoolClassEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        //$("#SchoolClassArabicName").attr("disabled","disabled");
+        //$("#SchoolClassEnglishName").attr("disabled", "disabled");
+
+        $("#ClassID").on("change", function () {
+            var ClassID = $(this).val();
+            var CurriculumID = $("#CurriculumID").val();
+
+            if (ClassID != "" && CurriculumID != "") {
+                $.ajax({
+                    url: '/Settings/GetClassData',
+                    method: 'GET',
+                    data: { ClassID: ClassID, CurriculumID: CurriculumID },
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#SchoolClassArabicName").val(response.SchoolClassArabicName);
+                            $("#SchoolClassEnglishName").val(response.SchoolClassEnglishName);
+                        }
+                        else {
+                            Swal.fire(
+                                'Error',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+        });
+        $("#CurriculumID").on("change", function () {
+            var CurriculumID = $(this).val();
+            var ClassID = $("#ClassID").val();
+            if (ClassID != "" && CurriculumID != "") {
+                $.ajax({
+                    url: '/Settings/GetClassData',
+                    method: 'GET',
+                    data: { ClassID: ClassID, CurriculumID: CurriculumID },
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#SchoolClassArabicName").val(response.SchoolClassArabicName);
+                            $("#SchoolClassEnglishName").val(response.SchoolClassEnglishName);
+                        }
+                        else{
+                            Swal.fire(
+                                'Error',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+        });
+        
+        $(".btnsavedit").on("click", function () {
+            debugger;
+            var isValid = true;
+            if ($("#ClassID").val() == "") { isValid = false; }
+            if ($("#CurriculumID").val() == "") { isValid = false; }
+            if ($('input[name="SchoolClassArabicName"]').length <= 0) { isValid = false; }
+            if ($('input[name="SchoolClassEnglishName"]').length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var ClassID = $("#ClassID").val();
+                var CurriculumID = $("#CurriculumID").val();
+                var SchoolClassArabicName = $("#SchoolClassArabicName").val();
+                var SchoolClassEnglishName = $("#SchoolClassEnglishName").val();
+
+                formData.append('ClassID', ClassID);
+                formData.append('CurriculumID', CurriculumID);
+                formData.append('SchoolClassArabicName', SchoolClassArabicName);
+                formData.append('SchoolClassEnglishName', SchoolClassEnglishName);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddNewClass",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllClasses", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            if (response.Message != "") {
+                                Swal.fire(
+                                    'Information',
+                                    response.MaxNoofClasses,
+                                    'info'
+                                );
+                            }
+                            else {
+                                Swal.fire(
+                                    'Error',
+                                    response.Message,
+                                    'error'
+                                );
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+                alert("Please Enter the all data");
+            }
+        });
+    });
+</script>

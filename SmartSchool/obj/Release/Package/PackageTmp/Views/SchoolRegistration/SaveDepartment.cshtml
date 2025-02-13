@@ -1,0 +1,48 @@
+﻿@model  Objects.Department
+
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("SaveDepartment", "SchoolRegistration", FormMethod.Post, new { id = "popupForm" }))
+{
+    @Html.HiddenFor(a => a.SchoolID)
+
+    if (Model != null && Model.DepartmentID > 0)
+    {
+        @Html.HiddenFor(a=>a.DepartmentID)
+
+    }
+    <div class="form-group">
+        <label>@R.GetResource("DepartmentArabicName")</label>
+        @Html.TextBoxFor(a=>a.DepartmentArabicName)
+
+    </div>
+    <div class="form-group">
+        <label>@R.GetResource("DepartmentEnglishName")</label>
+        @Html.TextBoxFor(a => a.DepartmentEnglishName)
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label>@R.GetResource("Administrative")</label>
+            @Html.RadioButtonFor(a => a.IsAcademic, false)
+        </div>
+        <div class="col-md-6">
+        <label>@R.GetResource("Academic")</label>
+            @Html.RadioButtonFor(a => a.IsAcademic, true)
+        </div>
+
+
+    </div>
+    <div>
+        <input type="submit" value="@R.GetResource("Save")"/>
+    </div>
+
+}
+<script>
+    $(document).ready(function () {
+        debugger;
+        var SchoolID = location.search.split('=')[1]; 
+        $("#SchoolID").val(SchoolID);
+    });
+</script>

@@ -1,0 +1,37 @@
+﻿
+@model DateTime?
+@{ 
+
+    string str = "";
+    if (Model.HasValue)
+    {
+        var temp = DateTime.Now.Subtract(Model.Value);
+        if(temp.TotalHours <= 1)
+        {
+
+            var r = Math.Ceiling(temp.TotalMinutes);
+            if (r < 0)
+            {
+                r = r * -1;
+            }
+            str = string.Format("{0} minutes ago", Math.Ceiling(r));
+
+        }else if( temp.TotalHours<= 24 )
+        {
+            str = string.Format("{0} hours ago", Math.Ceiling(temp.TotalHours));
+        }
+        else if (temp.TotalHours <= 72)
+        {
+            str = string.Format("{0} days ago", Math.Ceiling( temp.TotalDays));
+
+        }else
+        {
+            str = Model.Value.ToString("dd/MM/yyyy");
+
+        }
+    }
+
+
+}
+
+@Html.Raw(str)

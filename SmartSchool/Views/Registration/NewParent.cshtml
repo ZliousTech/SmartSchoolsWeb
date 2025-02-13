@@ -1,0 +1,539 @@
+﻿@model SmartSchool.Models.Registration.NewParentModel
+@{
+    ViewBag.Title = "RegisterEmployee";
+    Layout = null;
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZLIOUS | SMART-SCHOOL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/plugins/jquery-toast/dist/jquery.toast.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/AppContent/style.css" rel="stylesheet" />
+    @if (CurrentLanguage == Languges.Arabic)
+    {
+        <!-- compiled and minified CSS -->
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-cSfiDrYfMj9eYCidq//oGXEkMc0vuTxHXizrMOFAaPsLt1zoCUVnSsURN+nef1lj"
+              crossorigin="anonymous">
+        <!-- compiled and minified theme CSS -->
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-YNPmfeOM29goUYCxqyaDVPToebWWQrHk0e3QYEs7Ovg6r5hSRKr73uQ69DkzT1LH"
+              crossorigin="anonymous">
+
+        <!-- compiled and minified JavaScript -->
+        <script src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"
+                crossorigin="anonymous"></script>
+        <link href="~/AppContent/rtl.css" rel="stylesheet">
+
+    }
+
+    <style>
+        input[type=checkbox], input[type=radio] {
+            float: none;
+        }
+
+        .container::after {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+
+
+</head>
+
+<body>
+    <div class="shader">
+        <div class="overlay"></div>
+        <div class="spanner show">
+            <div class="loader show"></div>
+            <p>Loading ... </p>
+        </div>
+    </div>
+    <button onclick="topFunction()" id="scroll-btn" title="Go to top">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+    <header class="header-container">
+        <section class="inner-row">
+            <div class="banner light-component">
+                <div class="logo-holder">
+                    <a href="@Url.Action("Index","Home")" class="header-logo-anchor">
+                        <img src="~/AppContent/Images/smartschoollogo.png" alt="smart school logo">
+                    </a>
+                </div>
+
+                <nav class="toolbar-nav">
+                    <ul>
+
+                        <li>
+                            <a href="@Url.Action("SwitchLanguage","Common")" class="anchor-lang">
+                                <span>
+                                    <i class="fa fa-language" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+
+    <main class="body-container">
+        <div class="inner-row">
+
+            <div class="head-body-col">
+                <span onclick="goBack()">
+                    <!-- back  icon-->
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </span>
+                <h2>@R.GetResource("NewUserAccount")</h2>
+            </div>
+
+            <div class="inner-Container">
+                @*<div class="light-component action">
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <h4>
+                            @R.GetResource("AddNewUser")
+                        </h4>
+                    </a>
+                </div>*@
+
+                <div class="light-component inner">
+                    <div class="container setup-content" style="margin-top:20px;">
+
+                        <form class="NewParentForm">
+                            <div class="col-xs-12">
+                                <div class="col-md-12">
+                                    <h4 class="htitles">@R.GetResource("PersonalInformation")</h4>
+                                    <div class="row">
+                                        <div class="col-md-2 labeltitle">
+                                            <label>@R.GetResource("GuardianName")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("GivenName")</label>
+                                                @Html.TextBoxFor(m => m.FirstArabicName, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("FatherName")</label>
+                                                @Html.TextBoxFor(m => m.SecondArabicName, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("ThirdName")</label>
+                                                @Html.TextBoxFor(m => m.ThirdArabicName, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("FamilyName")</label>
+                                                @Html.TextBoxFor(m => m.FourthArabicName, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("Gender")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("Male")</label>
+                                                @Html.RadioButtonFor(model => model.Gender, "gender", new { Value = 0, @checked = true })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">@R.GetResource("Female")</label>
+                                                @Html.RadioButtonFor(model => model.Gender, "gender", new { Value = 1 })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("Nationality")</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Nationality, "SelectListRequired", new { List = Model.NationalityList, Disabled = false })
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("NationalNumber")</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.NationalNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("ResidencyNumber")</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.ResidencyNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("CivilRegisterNumber")</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.CivilNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("MobileNumber")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.CountryKey, "SelectListRequired", new { List = Model.CountryKeysList, Disabled = false })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <input type="text" id="MobileNo" name="number" class="form-control" maxlength="11" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary-custom forms SendBtn" type="button">@R.GetResource("Send")</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer class="footer-Contianer">
+
+        <section class="inner-row footer">
+            <div class="bg-pattern">
+                <div class="shader"></div>
+            </div>
+            <p>
+                Super-powered by Zlious Tech ©2020-2021.
+            </p>
+        </section>
+
+    </footer>
+
+</body>
+
+
+</html>
+
+<script src="../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+<script src="../assets/plugins/jquery-toast/dist/toast.js"></script>
+<script>
+
+    //$('.select2').select2();
+    var $loading = $('.shader').hide();
+    $(document)
+        .ajaxStart(function () {
+            $loading.show();
+        })
+        .ajaxStop(function () {
+            $loading.hide();
+        });
+    window.onscroll = function () { scrollFunction() };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            $('#scroll-btn').fadeIn();
+        } else {
+            $('#scroll-btn').fadeOut();
+        }
+    }
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    function goBack() {
+        window.history.back();
+    }
+    $(document).ready(function () {
+        $('body').on('input', '#Nationality', function () {
+            var NationalNumber = document.getElementById("NationalNumber");
+            var MobileNo = document.getElementById("MobileNo");
+            let value = $(this).val();
+            if (value == 62) {
+                // Egyption.
+                NationalNumber.maxLength = 14;
+                MobileNo.maxLength = 11;
+            }
+            else if (value == 109 || value == 188) {
+                // Jordan and Saudi Arabia.
+                NationalNumber.maxLength = 10;
+                MobileNo.maxLength = 10;
+            }
+            else if (value == 100 || value == 209) {
+                // Iraq and Syria.
+                NationalNumber.maxLength = 11;
+            }
+        });
+
+        var SendButton  = $('.SendBtn');
+        SendButton.click(function () {
+            //debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                var Mobilevalue = $("#MobileNo").val();
+                var CountryKey = $("#CountryKey").val();
+                if (CountryKey == 62 || CountryKey == 100 || CountryKey == 209) {
+                    // Egyption, Iraq and Syria.
+                    if (Mobilevalue.length != 11) {
+                        $.toast({
+                            heading: ' الرجاء ادخال رقم الموبايل المكون من 11 رقم بشكل صحيح ! ',
+                            text: '',
+                            position: 'top-center',
+                            loaderBg: '#ff6849',
+                            icon: 'error',
+                            hideAfter: 3000,
+                            stack: 6
+                        });
+                        isValid = false;
+                    }
+                }
+                else if (CountryKey == 109 || CountryKey == 188) {
+                    // Jordan and Saudi Arabia.
+                    if (Mobilevalue.length != 10) {
+                        $.toast({
+                            heading: ' الرجاء ادخال رقم الموبايل المكون من 10 ارقام بشكل صحيح ! ',
+                            text: '',
+                            position: 'top-center',
+                            loaderBg: '#ff6849',
+                            icon: 'error',
+                            hideAfter: 3000,
+                            stack: 6
+                        });
+                        isValid = false;
+                    }
+                }
+            }
+            if (isValid)
+            {
+                //abuhammad & Hamza01
+                debugger;
+                var FirstArabicName = $("#FirstArabicName").val();
+                var SecondArabicName = $("#SecondArabicName").val();
+                var ThirdArabicName = $("#ThirdArabicName").val();
+                var FourthArabicName = $("#FourthArabicName").val();
+                var Gender = $("input[name='Gender']:checked").val();
+                var NationalNumber = $("#NationalNumber").val();
+                var ResidencyNumber = $("#ResidencyNumber").val();
+                var CivilNumber = $('#CivilNumber').val();
+                var Nationality = $("#Nationality option:selected").val();
+                var CountryKey = $("#CountryKey option:selected").val();
+                var MobileNo = $("#MobileNo").val();
+                var dataObject = JSON.stringify({
+                    'FirstArabicName': FirstArabicName,
+                    'SecondArabicName': SecondArabicName,
+                    'ThirdArabicName': ThirdArabicName,
+                    'FourthArabicName': FourthArabicName,
+                    'Gender': Gender,
+                    'NationalNumber': NationalNumber,
+                    'CountryKey': CountryKey,
+                    'ResidencyNumber': ResidencyNumber,
+                    'CivilNumber': CivilNumber,
+                    'Nationality': Nationality,
+                    'MobileNo': MobileNo
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: "CheckParent",
+                    data: {
+                        'NationalNumber': $("#NationalNumber").val(), 'ResidencyNumber': $("#ResidencyNumber").val(), 'CountryCode': CountryKey,
+                        'MobileNo': $("#MobileNo").val(), 'CivilNumber': $("#CivilNumber").val()
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        if ((response.old != null && response.old != "") || (response.External != null && response.External != "")) {
+                            $.toast({
+                                heading: 'ولي الأمر مسجل بالفعل !',
+                                text: '',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                        else if ((response.oldPhone != null && response.oldPhone != "") || (response.externalPhone != null && response.externalPhone != "")) {
+                            $.toast({
+                                heading: ' رقم الهاتف مسجل بالفعل ! ',
+                                text: '',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                        else {
+                            $.ajax({
+                                type: "POST",
+                                url: "NewParent",
+                                data: dataObject,
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function (response) {
+                                    if (response.Success) {
+                                        SendButton.attr("disabled", "disabled");
+                                        $.toast({
+                                            text: '  تم إرسال إسم المستخدم وكلمة المرور بنجاح الرجاء تسجيل الدخول كولي أمر لمتابعة التسجيل',
+                                            position: 'top-center',
+                                            loaderBg: '#ff6849',
+                                            icon: 'success',
+                                            hideAfter: 3000,
+                                            stack: 6
+                                        });
+
+                                        window.setTimeout(function () {
+                                            // Move to a new location or you can do something else
+                                            window.location.href = '@Url.Action("Login", "Account")';
+                                        }, 3000);
+                                    } else {
+                                        $.toast({
+                                            text: response.Message ,
+                                            position: 'top-center',
+                                            loaderBg: '#ff6849',
+                                            icon: 'error',
+                                            hideAfter: 3000,
+                                            stack: 6
+                                        });
+                                    }
+                                },
+                                failure: function (response) {
+                                    alert(response.responseText);
+                                },
+                                error: function (response) {
+                                    alert(response.responseText);
+                                }
+                            });
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+
+        //debugger;
+
+        $('#NationalNumber').on('input', function (e) {
+            var txtNational = $('#NationalNumber');
+            if (txtNational.val() != null && txtNational.val() != '') {
+                $("#ResidencyNumber").attr("disabled", "disabled");
+                $("#CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#ResidencyNumber").removeAttr("disabled");
+                $("#CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('#ResidencyNumber').on('input', function (e) {
+            var txtResidencyNumber = $('#ResidencyNumber');
+            if (txtResidencyNumber.val() != null && txtResidencyNumber.val() != '') {
+                $("#NationalNumber").attr("disabled", "disabled");
+                $("#CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#NationalNumber").removeAttr("disabled");
+                $("#CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('#CivilNumber').on('input', function (e) {
+            var txtCivilNumber = $('#CivilNumber');
+            if (txtCivilNumber.val() != null && txtCivilNumber.val() != '') {
+                $("#NationalNumber").attr("disabled", "disabled");
+                $("#ResidencyNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#NationalNumber").removeAttr("disabled");
+                $("#ResidencyNumber").removeAttr("disabled");
+            }
+        });
+
+        $('input[name="number"]').keyup(function (e) {
+            //debugger;
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+                if ($('#NationalNumber').val() == '') {
+                    $("#ResidencyNumber").removeAttr("disabled");
+                    $("#CivilNumber").removeAttr("disabled");
+                }
+                if ($('#ResidencyNumber').val() == '') {
+                    $("#NationalNumber").removeAttr("disabled");
+                    $("#CivilNumber").removeAttr("disabled");
+                }
+            }
+        });
+    });
+</script>

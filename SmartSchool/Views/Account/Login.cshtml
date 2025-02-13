@@ -1,0 +1,431 @@
+﻿@model SmartSchool.Models.Account.AccountLoginModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+    ViewBag.Title = "Login";
+    Layout = null;
+    string fontfamily = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        fontfamily = "";
+        textalign = "";
+    }
+    else
+    {
+        fontfamily = "Cairo";
+        textalign = "right";
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="smartschool,zlious,school,study,smart" />
+    <link rel="shortcut icon" href="~/AppContent/Images/favicon.png" />
+    <title>ZLIOUS | SMART-SCHOOL</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="~/AppContent/login.css" rel="stylesheet" />
+    <link href="~/AppContent/style.css" rel="stylesheet" />
+    @if (CurrentLanguage == Languges.Arabic)
+    {
+        <link href="~/AppContent/rtl.css" rel="stylesheet" />
+    }
+    <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+    <title>SMARTSCHOOL | Login</title>
+    <!-- Meta tag Keywords -->
+
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+</head>
+
+<body>
+    <!-- <div class="shader"></div> -->
+    <header class="header-container">
+        <section class="inner-row">
+            <div class="banner light-component">
+                <div class="logo-holder">
+                    <a href="javascript:void(0)" class="header-logo-anchor">
+                        <img src="~/AppContent/Images/smartschoollogo.png" alt="smart school logo">
+                    </a>
+                </div>
+
+                <nav class="toolbar-nav">
+                    <ul>
+
+                        <li>
+                            <a href="javascript:void(0)" class="anchor-lang">
+                                <span>
+                                    <i class="fa fa-language" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+    </header>
+
+    <main class="body-container">
+        <div class="inner-row form">
+            <div class="login-container light-component">
+                <div class="Portal-Widget" id="EmployeePortal" onclick="showForm(this,'Employee-Login')">
+                    <div class="image-holder">
+                        <img src="~/AppContent/Images/Employee-icon.png" alt="">
+                        <h2><span>@R.GetResource("StaffSchools") </span>  @R.GetResource("System") </h2>
+                    </div>
+                </div>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "Employee-Login" }))
+                {
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">@R.GetResource("Username")</label>
+                        @Html.TextBoxFor(model => model.Username, new { @Class = "form-control", @id = "exampleInputUserName", @required = "required", @Placeholder = @R.GetResource("Username") })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">@R.GetResource("Password")</label>
+                        @Html.PasswordFor(a => a.Password, new { @Class = "form-control", @id = "exampleInputPassword1", @required = "required", @Placeholder = @R.GetResource("Password") })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        @R.GetResource("Login")
+                    </button>
+
+
+                    if (Model.Errormsg != null)
+                    {
+                        <div class="form-group has-error">
+                            <br />
+                            <span class="help-block">@Html.DisplayFor(a => a.Errormsg)</span>
+                        </div>
+                    }
+
+                    <label class="col-form-label text-primary" data-toggle="modal" data-target="#SSModal">@R.GetResource("Forgetpassword")</label>
+
+                }
+            </div>
+
+            <div class="login-container light-component">
+                <div class="Portal-Widget" id="parentPortal" onclick="showForm(this,'parent-Login')">
+                    <div class="image-holder">
+                        <img src="~/AppContent/Images/family.svg" alt="">
+                        <h2><span>@R.GetResource("Parent") </span>  @R.GetResource("System")</h2>
+                    </div>
+                </div>
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "parent-Login" }))
+                {
+                    @Html.HiddenFor(a => a.loginasparent, new { Value = true })
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">@R.GetResource("Username")</label>
+                        @Html.TextBoxFor(model => model.Username, new { @Class = "form-control", @id = "exampleInputUserName", @required = "required", @Placeholder = @R.GetResource("Username") })
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">@R.GetResource("Password")</label>
+                        @Html.PasswordFor(a => a.Password, new { @Class = "form-control", @id = "exampleInputUserName", @required = "required", @Placeholder = @R.GetResource("Password") })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        @R.GetResource("Login")
+                    </button>
+                    <div class="login-new-user">
+                        <a href="@Url.Action("Index", "Registration")">
+                            <span>
+                                @R.GetResource("Notmember")?
+                            </span>
+                            @R.GetResource("RegisterNewAccount")
+                        </a>
+                    </div>
+
+                    if (Model.ErrormsgGrdn != null)
+                    {
+                        <div class="form-group has-error">
+                            <br />
+                            <span class="help-block">@Html.DisplayFor(a => a.ErrormsgGrdn)</span>
+                        </div>
+                    }
+
+                    @*<span><image src="~/AppContent/Images/WhatsAppIcon.png" style="height:40px;"></image><label style="font-weight:bold;">(+20) 105-097-0632</label></span>*@
+                    <label class="col-form-label text-primary" data-toggle="modal" data-target="#ExtGardModal">@R.GetResource("Forgetpassword")</label>
+                }
+            </div>
+
+            <div class="login-container light-component">
+                <div class="Portal-Widget" id="StudentPortal" onclick="showForm(this,'Student-Login')">
+                    <div class="image-holder">
+                        <img src="~/AppContent/Images/Student-login.png" alt="">
+                        <h2><span>@R.GetResource("Student")  </span> @R.GetResource("System")</h2>
+                    </div>
+
+                </div>
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "Student-Login" }))
+                {
+                    @Html.HiddenFor(a => a.loginasStudent, new { Value = true })
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">@R.GetResource("Username")</label>
+                        @Html.TextBoxFor(model => model.Username, new { @Class = "form-control", @id = "exampleInputUserName", @required = "required", @Placeholder = @R.GetResource("Username") })
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">@R.GetResource("Password")</label>
+                        @Html.PasswordFor(a => a.Password, new { @Class = "form-control", @id = "exampleInputUserName", @required = "required", @Placeholder = @R.GetResource("Password") })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        @R.GetResource("Login")
+                    </button>
+
+                    if (Model.ErrormsgStd != null)
+                    {
+                        <div class="form-group has-error">
+                            <br />
+                            <span class="help-block">@Html.DisplayFor(a => a.ErrormsgStd)</span>
+                        </div>
+                    }
+                }
+
+            </div>
+
+            <div class="light-component cover">
+                <img src="~/AppContent/Images/banner1.png" alt="">
+            </div>
+        </div>
+
+
+    </main>
+
+    <header class="header-container">
+        <section class="inner-row">
+            <div class="banner light-component">
+                @*---------------------------------------------------------------------------------
+                    Forget Password (External Gaurdian)
+                    Button to Open the Modal*@
+                <div class="modal fade" id="ExtGardModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            @*Modal Header*@
+                            <div class="modal-header">
+                                <h4 class="modal-title">@R.GetResource("Forgetpassword")</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            @*Modal body*@
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("NationalNo")</label>
+                                    @Html.TextBoxFor(model => model.NationalNoForget, new { @Class = "form-control", @id = "NationalNogrd", @required = "required", @Placeholder = @R.GetResource("NationalNo") })
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("CountryCode")</label>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.CountryKeyID, "SelectListRequired", new { List = Model.CountryKeysList, Disabled = false })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("MobileNo")</label>
+                                    @Html.TextBoxFor(model => model.MobileNoForget, new { @Class = "form-control", @id = "MobileNogrd", @required = "required", @Placeholder = @R.GetResource("MobileNo") })
+                                </div>
+                            </div>
+                            @*Modal footer*@
+                            <div class="modal-footer">
+                                <button type="button" id="BtnSendSMS" name="BtnSendSMS" class="btn btn-primary">@R.GetResource("Send")</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">@R.GetResource("Close")</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Forget Password
+                    ---------------------------------------------------------------------------------*@
+
+                @*---------------------------------------------------------------------------------
+                    Forget Password (Staff / School)
+                    Button to Open the Modal*@
+                <div class="modal fade" id="SSModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            @*Modal Header*@
+                            <div class="modal-header">
+                                <h4 class="modal-title">@R.GetResource("Forgetpassword")</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            @*Modal body*@
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("username")</label>
+                                    @Html.TextBoxFor(model => model.NationalNoForget, new { @Class = "form-control", @id = "UsernameSS", @required = "required", @Placeholder = @R.GetResource("username") })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("CountryCode")</label>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.CountryKeyID, "SelectListRequired", new { List = Model.CountryKeysList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">@R.GetResource("MobileNo")</label>
+                                    @Html.TextBoxFor(model => model.MobileNoForget, new { @Class = "form-control", @id = "MobileNoSS", @required = "required", @Placeholder = @R.GetResource("MobileNo") })
+                                </div>
+                            </div>
+                            @*Modal footer*@
+                            <div class="modal-footer">
+                                <button type="button" id="BtnSendSMSSS" name="BtnSendSMS" class="btn btn-primary">@R.GetResource("Send")</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">@R.GetResource("Close")</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @*End Forget Password
+                    ---------------------------------------------------------------------------------*@
+            </div>
+        </section>
+    </header>
+
+    <footer class="footer-Contianer">
+
+        <section class="inner-row footer">
+            <div class="bg-pattern">
+                <div class="shader"></div>
+            </div>
+            <p>
+                Super-powered by Zlious Tech © 2016.
+            </p>
+        </section>
+
+    </footer>
+    <script>
+
+        function showForm(target, form) {
+            $('#' + target.id).remove();
+            $('#' + target.id).fadeOut();
+            $('#' + form).fadeIn();
+        };
+        $(document).ready(function () {
+            $(".anchor-lang").on("click", function () {
+                $.ajax({
+                    url: 'switchlang',
+                    type: 'POST',
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (result) {
+                        window.location.reload();
+                    }
+                });
+            });
+
+            function CountryKeyIDindex(index) {
+                var _CountryKeyID = document.querySelectorAll("#CountryKeyID");
+                return _CountryKeyID[index].value;
+            }
+
+            $("#BtnSendSMS").on("click", function () {
+                var _NationalNo = $("#NationalNogrd").val();
+                var _CountryKeyID = CountryKeyIDindex(0)
+                var _MobileNo = $("#MobileNogrd").val();
+
+                $.ajax({
+                    url: '@Url.Action("GerGrdInfo")',
+                    data: {
+                        NationalNo: _NationalNo,
+                        CountryKeyID: _CountryKeyID,
+                        MobileNo: _MobileNo
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        //var MsgA = data.Message;
+                        var MsgArr = data.Message.split("*");
+                        switch (MsgArr[0]) {
+                            case "error":
+                                Msg("Forget Password", MsgArr[1], MsgArr[0]);
+                                break;
+                            case "success":
+                                Msg("Forget Password", MsgArr[1], MsgArr[0]);
+                                setTimeout(window.location.reload(), 6000);
+                                break;
+                        }
+                    }
+                    //,
+                    //error: function () {
+                    //    alert("Error");
+                    //}
+                });
+            });
+
+            $("#BtnSendSMSSS").on("click", function () {
+                var _UserName = $("#UsernameSS").val();
+                var _CountryKeyID = CountryKeyIDindex(1)
+                var _MobileNo = $("#MobileNoSS").val();
+
+                $.ajax({
+                    url: '@Url.Action("GetStaffInfo")',
+                    data: {
+                        UserName: _UserName,
+                        CountryKeyID: _CountryKeyID,
+                        MobileNo: _MobileNo
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        //var MsgA = data.Message;
+                        var MsgArr = data.Message.split("*");
+                        switch (MsgArr[0]) {
+                            case "error":
+                                Msg("Forget Password", MsgArr[1], MsgArr[0]);
+                                break;
+                            case "success":
+                                Msg("Forget Password", MsgArr[1], MsgArr[0]);
+                                setTimeout(window.location.reload(), 6000);
+                                break;
+                        }
+                    }
+                    ,
+                    error: function () {
+                        alert("Error");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script>
+        function Msg(title, msg, type) {
+            swal(title, msg, type);
+        }
+    </script>
+
+</body>
+
+</html>

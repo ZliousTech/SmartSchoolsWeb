@@ -1,0 +1,84 @@
+﻿@model List<Objects.DTO.EmployeeDTO>
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+  
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Employees")</h2>
+</div>
+
+@if(CurrentLanguage == Languges.Arabic)
+{
+<script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("RegisterEmployee","Employee")" style="width:195px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+               @R.GetResource("Registeranewemployee")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                   
+                    @*<th scope="col"> @R.GetResource("StaffID") </th>*@
+                    <th scope="col"> @R.GetResource("EmployeeName") </th>
+                    <th scope="col"> @R.GetResource("Department") </th>
+                    <th scope="col"> @R.GetResource("Designation") </th>
+                    <th scope="col"> @R.GetResource("MobileNumber") </th>
+                    @*<th scope="col"> @R.GetResource("Email") </th>*@
+                    <th scope="col">@R.GetResource("JoiningDate")</th>
+                    <th scope="col">@R.GetResource("Edit")</th>
+                </tr>
+            </thead>
+            <tbody>  
+                @foreach (var item in Model)
+                {
+                    var Date = "";
+                    Date = item.dateofjoining.Date.ToShortDateString();
+                    <tr>
+                     
+                        @*<th scope="row">@item.StaffID</th>*@
+                        <td>@item.EmployeeName</td>
+                        <td>@item.DepartmentName</td>
+                        <td>@item.Destigniation</td>
+                        <td>
+                            <a href="tel:4444565756">
+                                @item.mobilenumber
+                            </a>
+                        </td>
+                        @*<td>
+                            <a href="mailto:@item.Email">
+                                @item.Email
+                            </a>
+                        </td>*@
+                        <td>@Date</td>
+                        <td style="display:flex">
+                         <a href="@Url.Action("EditEmployee","Employee",new { StaffID=item.StaffID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                           
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

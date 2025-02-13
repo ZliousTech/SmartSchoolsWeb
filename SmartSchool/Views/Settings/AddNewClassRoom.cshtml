@@ -1,0 +1,190 @@
+﻿@model SmartSchool.Models.Settings.ClassRooms
+@{
+    ViewBag.Title = "Add ClassRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewClassRoom")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddClassRoom" enctype="multipart/form-data" class="padding">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@R.GetResource("ClassRoomNumber")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.CLassRoomNumber, new { @class = "form-control", Name = "CLassRoomNumber", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("RoomArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.RoomArabicName, new { @class = "form-control", Name = "RoomArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("RoomEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.RoomEnglishName, new { @class = "form-control", Name = "RoomEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@R.GetResource("Building")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.Building, new { @class = "form-control", Name = "Building", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("BuildingArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BuildingArabicName, new { @class = "form-control", Name = "BuildingArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("BuildingEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BuildingEnglishName, new { @class = "form-control", Name = "BuildingEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@R.GetResource("Floor")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.Floor, new { @class = "form-control", Name = "Floor", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@R.GetResource("NumberofChairs")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.NumberofChairs, new { @class = "form-control", Name = "NumberofChairs", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(".btnsavedit").on("click", function () {
+            var isValid = true;
+            if ($('input[name="RoomArabicName"]').length <= 0) { isValid = false; }
+            if ($('input[name="RoomEnglishName"]').length <= 0) { isValid = false; }
+            if ($('input[name="BuildingArabicName"]').length <= 0) { isValid = false; }
+            if ($('input[name="BuildingEnglishName"]').length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var CLassRoomNumber = $("#CLassRoomNumber").val();
+                var RoomArabicName = $("#RoomArabicName").val();
+                var RoomEnglishName = $("#RoomEnglishName").val();
+                var Building = $("#Building").val();
+                var BuildingArabicName = $("#BuildingArabicName").val();
+                var BuildingEnglishName = $("#BuildingEnglishName").val();
+                var Floor = $("#Floor").val();
+                var NumberofChairs = $("#NumberofChairs").val();
+
+                formData.append('CLassRoomNumber', CLassRoomNumber);
+                formData.append('RoomArabicName', RoomArabicName);
+                formData.append('RoomEnglishName', RoomEnglishName);
+                formData.append('Building', Building);
+                formData.append('BuildingArabicName', BuildingArabicName);
+                formData.append('BuildingEnglishName', BuildingEnglishName);
+                formData.append('Floor', Floor);
+                formData.append('NumberofChairs', NumberofChairs);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddNewClassRoom",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllClassRooms", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

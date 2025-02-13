@@ -1,0 +1,24 @@
+﻿
+@model int?
+@using SmartSchool.Models.Common;
+@{
+    var list = (List<LookupDTO>)ViewData["List"];
+}
+<select name="@Html.IdForModel()" id="@Html.IdForModel()" class="form-control select2">
+    <option value="0">@R.GetResource("All")</option>
+    @if (list != null)
+    {
+        foreach (var item in list)
+        {
+            if (Model.HasValue && item.ID == Model.Value)
+            {
+                <option value="@item.ID" selected="selected">@item.Description</option>
+            }
+            else
+            {
+                <option value="@item.ID">@item.Description</option>
+            }
+        }
+    }
+</select>
+

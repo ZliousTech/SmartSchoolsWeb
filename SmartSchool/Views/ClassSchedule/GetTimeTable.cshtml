@@ -1,0 +1,107 @@
+﻿@model SmartSchool.Models.Teacher.TeacherRegisterModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("TeacherClassSchedule")</h2>
+</div>
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                @if (Model != null)
+                {
+                    <h4 class="htitles"> <label>@Model.TeacherName</label> </h4>
+
+                    <table class="calendar table table-bordered" style="border-radius:20px">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                @foreach (var Day in Model.WeekDaysList)
+                                {
+                                    <th width="20%">@(CurrentLanguage == Languges.English ? Day.Description : Day.DescriptionAR)</th>
+                                }
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var Sessions in Model.SessionsPerDayWithStartTimeList)
+                            {
+                                var TeacherTimeTable = new Objects.DTO.TeacherTimeTable();
+                                <tr>
+                                    <td class="text-center">@(CurrentLanguage == Languges.English ? Sessions.Description : Sessions.DescriptionAR)</td>
+
+                                    @foreach (var Day in Model.WeekDaysList)
+                                    {
+                                        //Day.ID - 1 to be compatible with weekday in stored proceder "201510060046"
+                                        TeacherTimeTable = /* -1 is Manual, 0 is Auto*/
+                                         Model.TimetableType == -1 ? BaseController.GetTeacherManualTimetable(Model.TeacherID, Day.ID - 1, Sessions.ID, Model.schoolID)
+                                         : BaseController.GetTeacherAutomaticTimetable(Model.TeacherID, Day.ID - 1, Sessions.ID, Model.schoolID);
+
+                                        if (TeacherTimeTable != null)
+                                        {
+                                            <td class="" rowspan="1" style="color:white;background-color:@TeacherTimeTable.ItemRGBColor">
+
+                                                <div class="row-fluid practice"
+                                                     style="width: 99%; height: 100%;display:flex;justify-content:center;align-items:center;flex-direction:column">
+                                                    <span class="title">
+                                                        @(CurrentLanguage == Languges.English ? TeacherTimeTable.SubjectEnglishName : TeacherTimeTable.SubjectArabicName)
+                                                    </span> 
+                                                    <span class="lecturer">
+                                                         @(CurrentLanguage == Languges.English ? TeacherTimeTable.SchoolClassEnglishName : TeacherTimeTable.SchoolClassArabicName)
+                                                    </span> 
+                                                    <span class="location">
+                                                        @TeacherTimeTable.SectionCode
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td rowspan="1"></td>
+                                        }
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

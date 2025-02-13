@@ -1,0 +1,405 @@
+﻿@model SmartSchool.Models.Settings.HeadQuarterRegisterModel
+
+@{
+    ViewBag.Title = "AllHeadquarters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../../Maps/MapStyle.css" rel="stylesheet" />
+
+}
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("EditHeadquarters")</h2>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+
+                <form id="addheadquarterdata" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(model => model.CompanyID)
+
+                    <div class="row setup-content" id="step-1">
+                        <div class="col-md-10">
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("HeadQuarterArabicName")<span class="required" style="color:red;"> * </span></label>
+                                            @Html.TextBoxFor(m => m.CompanyArabicName, new { @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Country")<span class="required" style="color:red;"> * </span></label>
+                                            @Html.EditorFor(model => model.Country, "SelectListRequired", new { List = Model.CountryList, Disabled = false })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("HeadQuarterEnglishName")<span class="required" style="color:red;"> * </span></label>
+                                            @Html.TextBoxFor(m => m.CompanyEnglishName, new { @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("City")</label>
+                                            <div class="form-control-wrapper">
+                                                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("ContactNo")<span class="required" style="color:red;"> * </span></label>
+                                            @Html.TextBoxFor(m => m.ContactNo, new { @class = "form-control", Name = "number", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Street")</label>
+                                            <div class="form-control-wrapper">
+                                                @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Email")</label>
+                                            <div class="form-control-wrapper">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Longitude")</label>
+                                            <div class="form-control-wrapper">
+                                                @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Latitude")</label>
+                                            <div class="form-control-wrapper">
+                                                @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>@R.GetResource("Maps")</label>
+                                            <button type="button" class="show-modal form-control btn-Map" data-toggle="modal" data-target="myModal">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-control-wrapper">
+                                                @Html.HiddenFor(m => m.ProductKey, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btnsavedit btn btn-primary-custom" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                            </div>
+                        </div>
+
+                        @{ var base64 = "";
+                            var imgSrc = "../../AppContent/Images/avatar.jpeg";
+                            if (Model.Photo != null)
+                            {
+                                base64 = Convert.ToBase64String(Model.Photo);
+                                imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                            }
+                        }
+                        <div class="col-md-2">
+                            <div class="profile-userpic">
+                                <img src="@imgSrc" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                                <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this,'#profileImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                <button type="button" style="width:161px;" onclick="showuploadfile('#fileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload" style="margin: 0px 3px;"></i> @R.GetResource("Upload")</button>
+                            </div>
+
+                            <div class="row">
+                                <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="float:@modalpositon;" id="myModalLabel">@R.GetResource("Determinetheheadquarterplacelocation")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_map">
+                        <div id="panel">
+                            <div class="search-panel">
+                                <div class="details-div mt10">
+                                    <div class="col-md-12">
+                                        <input type="PickupAddress" value="Amman, Jordan" class="form-control mr10" name="PickupAddress" placeholder="Sublocality" id="searchTextField" autocomplete="on" runat="server" required="" data-msg-required="Please enter Pick up Address" aria-required="true">
+                                        <button class="btn btn info" onclick="createMap();"><i class="fa fa-search" aria-hidden="true"></i>@R.GetResource("Search")</button>
+
+                                        <div><label class="control-label">@R.GetResource("Address"): </label> <input id="address" value="" name="address" type="text" class="form-control border" /></div>
+                                        <div class="mt10"><label class="control-label">@R.GetResource("Latitude"):</label>  <input type="text" value="@Model.Latitude" class="form-control" name="latitudemap" id="latitudemap"></div>
+                                        <div class="mt10"><label class="control-label"> @R.GetResource("Longitude"):</label> <input type="text" value="@Model.Longitude" class="form-control" name="longitudemap" id="longitudemap"></div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-map" id="location-map">
+
+                            <div style="width: 600px; height: 400px;" id="myMap"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_end">
+                        <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                        <button type="button" id="savelocation" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("SaveLocation")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#myModal').on('show.bs.modal', function (event) {
+            var input = document.getElementById('searchTextField');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                $('#latitudemap').val(place.geometry.location.lat());
+                $('#longitudemap').val(place.geometry.location.lng());
+            });
+            createMap();
+
+            $("#location-map").css("width", "100%");
+            $("#myMap").css("width", "100%");
+        });
+
+        // Trigger map resize event after modal shown
+        $(".show-modal").click(function () {
+            $("#myModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+
+        $("#savelocation").on('click', function (e) {
+            longitudemap = $("#longitudemap").val();
+            latitudemap = $("#latitudemap").val();
+            $("#Longitude").val(longitudemap);
+            $("#Latitude").val(latitudemap);
+            $(".closemodal").click();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+        });
+
+        $('input[Name="number"]').keypress(function (e) {
+            $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+        $('input[Name="number"]').keyup(function (e) {
+            $(this).val($(this).val().replace(/[^\d].+/, ""));
+            if ((e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+
+        $('input[Name="realnumber"]').keypress(function (e) {
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+        $('input[Name="realnumber"]').keyup(function (e) {
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+
+
+        $(".btnsavedit").on("click", function () {
+            debugger;
+
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+
+                var formData = new FormData();
+                var CompanyID = $("#CompanyID").val();
+                var CompanyArabicName = $("#CompanyArabicName").val();
+                var CompanyEnglishName = $("#CompanyEnglishName").val();
+                var ContactNo = $("#ContactNo").val();
+                var Country = $("#Country").val();
+                var City = $("#City").val();
+                var Street = $("#Street").val();
+                var Longitude = $("#Longitude").val();
+                var Latitude = $("#Latitude").val();
+                var Email = $("#Email").val();
+                var ProductKey = $("#ProductKey").val();
+
+                formData.append('CompanyID', CompanyID);
+                formData.append('CompanyArabicName', CompanyArabicName);
+                formData.append('CompanyEnglishName', CompanyEnglishName);
+                formData.append('ContactNo', ContactNo);
+                formData.append('Country', Country);
+                formData.append('City', City);
+                formData.append('Street', Street);
+                formData.append('Longitude', Longitude);
+                formData.append('Latitude', Latitude);
+                formData.append('Email', Email);
+                formData.append('ProductKey', ProductKey);
+                formData.append('file', $('#fileuploader')[0].files[0]);
+
+                $.ajax({
+                    type: "POST",
+                    url: "EditHeadQuarter",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("ViewHeadQuarters", "Settings")';
+
+                            }, 3000);
+
+                        } else {
+                            $.toast({
+                                text: response.Message,
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                    }
+                });
+
+            }
+
+        });
+    });
+
+    function readURL(input, id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id)
+                    .attr('src', e.target.result).width(130)
+                    .height(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function showuploadfile(id) {
+        $(id).click();
+    }
+</script>

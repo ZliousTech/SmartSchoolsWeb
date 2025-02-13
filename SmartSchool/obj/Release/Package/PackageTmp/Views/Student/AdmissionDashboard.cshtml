@@ -1,0 +1,143 @@
+﻿@model SmartSchool.Models.Student.AdmissionDashboardModel
+@{
+    Layout = null;
+}
+
+<div class="circle-cards-container">
+
+    <a href="javascript:void(0)" class="light-component" style="max-height: 250px;" id = "PendingRequests">
+        <div>
+            <span>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </span>
+            <h4>@R.GetResource("Numberofremainingorders")</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.PendingRequests
+                </label>
+            </div>
+
+        </div>
+    </a>
+
+    <a href="javascript:void(0)" class="light-component" style="max-height: 250px;">
+        <div>
+            <span>
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </span>
+            <h4>@R.GetResource("Numberofacceptedapplications")</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.AcceptedRequests
+                </label>
+            </div>
+
+        </div>
+    </a>
+
+    <a href="javascript:void(0)" class="light-component" style="max-height: 250px;" id="RejectedRequests">
+        <div>
+            <span>
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+            </span>
+            <h4>@R.GetResource("Numberofrejectedapplications")</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.RejectedRequests
+                </label>
+            </div>
+
+        </div>
+    </a>
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h4>مواصلات الفئة الاولى</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.CategoryOne
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h4>مواصلات الفئة الثانية</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.CategoryTwo
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h4>مواصلات الفئة  الثالثة</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.CategoryThree
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h4>مواصلات الفئة  الرابعة</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.CategoryFour
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h4> مواصلات الفئة  الخامسة</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.CategoryFive
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component">
+        <div>
+            <span>
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+            </span>
+            <h4>خارج نطاق فئات المواصلات</h4>
+            <div class="light-component" style="padding:10px">
+                <label>
+                    @Model.OutsideCategories
+                </label>
+            </div>
+
+        </div>
+    </a>*@
+</div>
+

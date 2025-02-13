@@ -1,0 +1,67 @@
+﻿@model SmartSchool.Models.Settings.HeadQuarterRegisterModel
+
+@{
+
+    ViewBag.Title = "AllHeadquarters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+
+        modalpositon = "left";
+
+    }
+    else
+    {
+
+        buttonpositon = "left";
+
+    }
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ViewUserheadquarterInfo")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <div class="row">
+                    @if (CurrentLanguage == Languges.English)
+                    {<h3>@Model.CompanyEnglishName</h3>}
+                else
+                {<h3>@Model.CompanyArabicName</h3>}
+
+                   <hr />
+
+                </div>
+
+                <form class="padding">
+                    <div class="form-group">
+                        <label for="TxtUserName">@R.GetResource("Username")</label>
+                        <input type="text" id="TxtUserName" name="TxtUserName" class="form-control" disabled  placeholder="@(Model.UserName==null? Model.UserHeadQuarterDecoreText : Model.UserName)">
+                    </div>
+                    <div class="form-group">
+                        <label for="TxtPassword">@R.GetResource("Password")</label>
+                        <input type="text" id="TxtPassword" name="TxtPassword" class="form-control" disabled  placeholder="@(Model.Password==null? Model.UserHeadQuarterDecoreText : Model.Password)">
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+

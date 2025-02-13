@@ -1,0 +1,737 @@
+﻿@model SmartSchool.Models.Student.StudentInternalRegModel
+@{
+    ViewBag.Title = "RegisterEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string buttonpull = "";
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        buttonpull = "pull-right";
+        modalpositon = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        buttonpull = "pull-left";
+        modalpositon = "right";
+
+    }
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="~/fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="../assets/plugins/material/material.min.css">
+    <link rel="stylesheet" href="../assets/css/material_style.css">
+    <!-- Theme Styles -->
+    <link href="~/assets/css/theme/full/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="~/assets/css/theme/full/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/theme/full/theme-color.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.css" />
+
+    <link href="~/Content/Wizard/WizardStyle.css" rel="stylesheet" />
+    <link href="~/Maps/MapStyle.css" rel="stylesheet" />
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>نظام التسجيل الإلكتروني الداخلي للطلاب</h2>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="containers" style="margin-top:20px;width:100%">
+            <div class="page-content-wrapper">
+                <div class="page-content">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box" style="background-color:white;">
+                                <div class="card-body" style="background-color:white;">
+                                    <div class="mdl-tabs mdl-js-tabs">
+
+                                        <div class="mdl-tabs__tab-bar">
+                                            <a href="#tab1-panel" class="mdl-tabs__tab is-active">ولي الأمر</a>
+                                            <a href="#tab2-panel" class="mdl-tabs__tab">م الطالب</a>
+                                            <a href="#tab3-panel" class="mdl-tabs__tab">م المدرسية</a>
+                                            <a href="#tab4-panel" class="mdl-tabs__tab">ولي الأمر</a>
+                                            <a href="#tab5-panel" class="mdl-tabs__tab">العائلة</a>
+                                            <a href="#tab6-panel" class="mdl-tabs__tab">العنوان</a>
+                                            <a href="#tab7-panel" class="mdl-tabs__tab">م الأكاديمية</a>
+                                            <a href="#tab8-panel" class="mdl-tabs__tab">م الاجتماعية</a>
+                                            <a href="#tab9-panel" class="mdl-tabs__tab">م الصحية</a>
+                                            <a href="#tab10-panel" class="mdl-tabs__tab">الرسوم</a>
+                                            <a href="#tab11-panel" class="mdl-tabs__tab">م السلوكية</a>
+                                            <a href="#tab12-panel" class="mdl-tabs__tab">التهذيبية</a>
+                                        </div>
+
+                                        @*Tab ولي الأمر*@
+                                        <div class="mdl-tabs__panel is-active p-t-20" id="tab1-panel">
+                                            @*Guardians TABs*@
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="borderBox light bordered card-box">
+                                                        <div class="borderBox-title tabbable-line">
+                                                            <ul class="nav nav-tabs">
+                                                                <li class="nav-item">
+                                                                    <a href="#borderBox_tab3" data-toggle="tab">بطاقة الائتمان</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a href="#borderBox_tab2" data-toggle="tab">العنوان</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a href="#borderBox_tab1" data-toggle="tab" class="active">معلومات أولياء الأمر</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="borderBox-body">
+                                                            <div class="tab-content">
+                                                                @*Tab 1*@
+                                                                <div class="tab-pane active" id="borderBox_tab1">
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">الإسم الأول</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم الأب</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم الجد</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم العائلة</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">الإسم الأول</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="انجليزي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم الأب</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="انجليزي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم الجد</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="انجليزي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">اسم العائلة</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" placeholder="انجليزي" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">الجنسية</label>
+                                                                        <div class="col-lg-2 col-md-2">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر الجنسية</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">أردني</option>
+                                                                                    <option value="113">سعودي</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <label class="control-label col-md-1">الجنس</label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="radio">
+                                                                                <input id="radiobg1" name="radio2" type="radio" checked="checked">
+                                                                                <label for="radiobg1">ذكر</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="radio">
+                                                                                <input id="radiobg1" name="radio2" type="radio" checked="checked">
+                                                                                <label for="radiobg1">أنثى</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">الرقم الوطني</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">الديانة</label>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر الديانة</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">الاسلام</option>
+                                                                                    <option value="114">المسيحية</option>
+                                                                                    <option value="115">اليهودية</option>
+                                                                                    <option value="116">أخرى</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">رقم الاقامة</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">طريقة الدفع</label>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر طريقة الدفع</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">نقدا</option>
+                                                                                    <option value="114">شيك بنكي</option>
+                                                                                    <option value="115">بطاقة ائتمانية</option>
+                                                                                    <option value="116">فواتيركم</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">رقم جواز السفر</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                @*Tab 2*@
+                                                                <div class="tab-pane" id="borderBox_tab2">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-12">
+                                                                            <a class="btn blue m-b-10" href="#">جديد</a>
+                                                                            <a class="btn blue m-b-10" href="#">اضافة احداثيات</a>
+                                                                            <a class="btn blue m-b-10" href="#">اضافة الى القائمة</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">الدولة</label>
+                                                                        <div class="col-lg-2 col-md-2">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر الدولة</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">الاردن</option>
+                                                                                    <option value="114">السعودية</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">المدينة</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">الشارع</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">المبنى</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">الشقة</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-1">خط طول</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">خط عرض</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">رقم الجوال</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <label class="control-label col-md-1">البريد الالكتروني</label>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="form-group row">
+                                                                        <table class="mdl-data-table ml-table-striped mdl-js-data-table mdl-data-table--selectable is-upgraded">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>حذف</th>
+                                                                                    <th>الدولة</th>
+                                                                                    <th>المديتة</th>
+                                                                                    <th>الشارع</th>
+                                                                                    <th>المبنى</th>
+                                                                                    <th>الشقة</th>
+                                                                                    <th>خط طول</th>
+                                                                                    <th>خط عرض</th>
+                                                                                    <th>التسلسل</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td><i class="material-icons f-left">delete</i></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td><i class="material-icons f-left">delete</i></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+
+                                                                @*Tab 3*@
+                                                                <div class="tab-pane" id="borderBox_tab3">
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-2">نوع بطاقة الائتمان</label>
+                                                                        <div class="col-lg-4 col-md-4">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر نوع بطاقة الائتمان</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">Not yet</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-2">رقم بطاقة الإئتمان</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-2">الإسم على البطاقة</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-2">تاريخ الانتهاء</label>
+                                                                        <div class="col-lg-2 col-md-2">
+                                                                            <select class="form-control  select2">
+                                                                                <option value="">اختر الستة</option>
+                                                                                <optgroup>
+                                                                                    <option value="109">Not yet</option>
+                                                                                </optgroup>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label class="control-label col-md-2">رقم التحقق</label>
+                                                                        <div class="col-md-4">
+                                                                            <div class="input-icon right">
+                                                                                <i class="fa"></i>
+                                                                                <input type="text" class="form-control" name="name" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <a class="btn blue m-b-10" href="#">حفظ</a>
+                                                                        <a class="btn red m-b-10" href="#">إلغاء</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*Tab معلومات الطالب*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab2-panel">
+                                            <div class="card-head"><header> معلومات الطالب </header></div>
+                                            <br />
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">الإسم الأول</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم الأب</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم الجد</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم العائلة</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="عربي" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">الإسم الأول</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="نجليوي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم الأب</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="نجليوي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم الجد</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="نجليوي" />
+                                                    </div>
+                                                </div>
+
+                                                <label class="control-label col-md-1">اسم العائلة</label>
+                                                <div class="col-md-2">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" placeholder="نجليوي" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">الجنسية</label>
+                                                <div class="col-lg-2 col-md-2">
+                                                    <select class="form-control  select2">
+                                                        <option value="">اختر الجنسية</option>
+                                                        <optgroup>
+                                                            <option value="109">أردني</option>
+                                                            <option value="113">سعودي</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="control-label col-md-1">الجنس</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="radio">
+                                                        <input id="radiobg1" name="radio2" type="radio" checked="checked">
+                                                        <label for="radiobg1">ذكر</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="radio">
+                                                        <input id="radiobg1" name="radio2" type="radio" checked="checked">
+                                                        <label for="radiobg1">أنثى</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">الرقم الوطني</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">رقم الاقامة</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-1">رقم جواز السفر</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-icon right">
+                                                        <i class="fa"></i>
+                                                        <input type="text" class="form-control" name="name" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="control-label col-md-1">
+                                                    <label>تاريخ الميلاد</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-control-wrapper">
+                                                            @Html.TextBoxFor(model => model.DateofBirth, new { @class = "date floating-label mdl-textfield__input", placeholder = "dd/mm/yyyy", required = "required" })
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-md-2">
+                                                    <div class="profile-userpic">
+                                                        <img src="~/AppContent/Images/avatar.jpeg" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                                                        <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this);" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                                        <button type="button" style="width:161px;" onclick="showuploadfile();" class="btn btn-info btn-default "><i class="fa fa-upload"></i> Upload</button>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*Tab المعلومات المدرسية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab3-panel">
+                                            <p>
+                                                المعلومات المدرسية
+                                            </p>
+                                        </div>
+
+                                        @*Tab معلومات ولي الأمر*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab4-panel">
+                                            <p>
+                                                معلومات ولي الأمر
+                                            </p>
+                                        </div>
+
+                                        @*Tab العائلة*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                                            <p>
+                                                العائلة
+                                            </p>
+                                        </div>
+
+                                        @*Tab العنوان*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                                            <p>
+                                                العنوان
+                                            </p>
+                                        </div>
+
+                                        @*Tab المعلومات الأكاديمية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab7-panel">
+                                            <p>
+                                                المعلومات الأكاديمية
+                                            </p>
+                                        </div>
+
+                                        @*Tab المعلومات الاجتماعية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab8-panel">
+                                            <p>
+                                                المعلومات الاجتماعية
+                                            </p>
+                                        </div>
+
+                                        @*Tab المغلومات الصحية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab9-panel">
+                                            <p>
+                                                المغلومات الصحية
+                                            </p>
+                                        </div>
+
+                                        @*Tab الرسوم*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab10-panel">
+                                            <p>
+                                                الرسوم
+                                            </p>
+                                        </div>
+
+                                        @*Tab المعلومات السلوكية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab11-panel">
+                                            <p>
+                                                المعلومات السلوكية
+                                            </p>
+                                        </div>
+
+                                        @*Tab الاجراءات التهذيبية*@
+                                        <div class="mdl-tabs__panel p-t-20" id="tab12-panel">
+                                            <p>
+                                                الاجراءات التهذيبية
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- start js include path -->
+<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+<script src="~//assets/plugins/popper/popper.js"></script>
+<script src="~/assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+<script src="~/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- bootstrap -->
+<script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="~/assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>
+<!-- Common js-->
+<script src="~/assets/js/app.js"></script>
+<script src="~/assets/js/layout.js"></script>
+<script src="~/assets/js/theme-color.js"></script>
+<!-- Material -->
+<script src="~/assets/plugins/material/material.min.js"></script>
+<script src="~/assets/plugins/material-datetimepicker/moment-with-locales.min.js"></script>
+<script src="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
+<script src="~/assets/plugins/material-datetimepicker/datetimepicker.js"></script>
+<!-- end js include path -->

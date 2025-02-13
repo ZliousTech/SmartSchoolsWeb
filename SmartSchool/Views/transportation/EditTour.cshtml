@@ -1,0 +1,489 @@
+﻿@model SmartSchool.Models.transportation.TransportatioModel
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        modalpositon = "left";
+    }
+    else
+    {
+        modalpositon = "right";
+
+    }
+
+}
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+@section SectionHead{
+    <link href="../../Content/Wizard/WizardStyle.css" rel="stylesheet" />
+}
+
+<style>
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+    }
+
+    .form-holder {
+        width: 100%;
+        padding: 10px 25px;
+    }
+
+
+    .success-box {
+        padding: 10px;
+    }
+
+
+        .success-box img {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .success-box > div {
+            vertical-align: top;
+            display: inline-block;
+            color: #888;
+        }
+
+
+    /* Rating Star Widgets Style */
+    .rating-stars > ul {
+        padding: 9px 0px !important;
+        margin: 0px;
+    }
+
+    .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .rating-stars ul > li.star {
+            display: inline-block;
+        }
+
+            /* Idle State of the stars */
+            .rating-stars ul > li.star > i.fa {
+                font-size: 2.5em; /* Change the size of the stars */
+                color: #ccc; /* Color on idle state */
+            }
+
+            /* Hover state of the stars */
+            .rating-stars ul > li.star.hover > i.fa {
+                color: #FFCC36;
+            }
+
+            /* Selected state of the stars */
+            .rating-stars ul > li.star.selected > i.fa {
+                color: #FF912C;
+            }
+
+    table.calendar {
+        margin-bottom: 0;
+    }
+
+        table.calendar > thead > tr > th {
+            text-align: center;
+        }
+
+        table.calendar > tbody > tr > td {
+            height: 20px;
+        }
+
+            table.calendar > tbody > tr > td > div {
+                //padding: 8px;
+                height: 40px;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                float: left;
+            }
+
+            table.calendar > tbody > tr > td.has-events {
+                color: white;
+                cursor: pointer;
+                padding: 0;
+                border-radius: 4px;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div {
+                    background-color: #08C;
+                    border-left: 1px solid white;
+                }
+
+                    table.calendar > tbody > tr > td.has-events > div:first-child {
+                        border-left: 0;
+                        margin-left: 1px;
+                    }
+
+                    table.calendar > tbody > tr > td.has-events > div.practice {
+                        opacity: 0.7;
+                    }
+
+            table.calendar > tbody > tr > td.conflicts > div > span.title {
+                //color: red;
+            }
+
+            table.calendar > tbody > tr > td.max-conflicts > div {
+                background-color: red;
+                color: white;
+            }
+
+            table.calendar > tbody > tr > td.has-events > div > span {
+                display: block;
+                text-align: center;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div > span a {
+                    color: white;
+                }
+
+                table.calendar > tbody > tr > td.has-events > div > span.title {
+                    font-weight: bold;
+                }
+
+    table.table-borderless > thead > tr > th, table.table-borderless > tbody > tr > td {
+        border: 0;
+    }
+
+    .table tbody tr.hover td, .table tbody tr.hover th {
+        background-color: whiteSmoke;
+    }
+</style>
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>
+        @R.GetResource("EditTour")
+    </h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        @Html.HiddenFor(c => c.AttendantID)
+        @Html.HiddenFor(c => c.SecondAttendantID)
+        @Html.HiddenFor(c=>c.TourID)
+        <div class="form-holder">
+            <div class="row ">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("TourInformation")</h4>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("TourNameAr")</label>
+                                    @Html.TextBoxFor(m => m.TourNameAr, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("TourNameEn")</label>
+                                    @Html.TextBoxFor(m => m.TourNameEn, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @*<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("TourAreaName")</label>
+                                    @Html.EditorFor(model => model.AreaID, "SelectList", new { List = Model.TourAreaList, Disabled = false })
+                                </div>
+                            </div>*@
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Bus")</label>
+                                    @Html.EditorFor(model => model.BusNo, "SelectListDynamic", new { List = Model.BusList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("FirstEscort")</label>
+                                    @Html.TextBoxFor(m => m.Attendant, new { @class = "form-control", required = "required", @Disabled = "Disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("SecondEscort")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.SecondAttendant, new { @class = "form-control", required = "required", @Disabled = "Disabled" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("MaxNumberOfStudent")</label>
+                                    @Html.TextBoxFor(m => m.MaxNoofStudents, new { @class = "form-control", Name = "number", Type = "number", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("NumberofStudents")</label>
+                                    @Html.TextBoxFor(m => m.NumberofStudents, new { @class = "form-control", Name = "number", Type = "number", required = "required", @Disabled = "Disabled" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("StratingTime")</label>
+                                    <input type="text" id="time2" value="@Model.StratingTime" class="StratingTime floating-label mdl-textfield__input" placeholder="Time" data-dtp="dtp_dEiDR">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label>@R.GetResource("TourDirection")</label>
+                                    <div class="form-group">
+                                        @if (Model.TourDirection == 0)
+                                        {
+
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="ParkingSchool" name="TourDirection" value="0" type="radio" checked>
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Go)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="1" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Return)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="2" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("TwoWay")
+                                                    </label>
+                                                </div>
+                                            </div>*@
+                                        }
+                                    </div>
+
+                                    <div class="form-group">
+                                        @if (Model.TourDirection == 1)
+                                        {
+
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="ParkingSchool" name="TourDirection" value="0" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Go)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="1" type="radio" checked>
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Return)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="2" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("TwoWay")
+                                                    </label>
+                                                </div>
+                                            </div>*@
+                                        }
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @if (Model.TourDirection == 2)
+                                        {
+
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="ParkingSchool" name="TourDirection" value="0" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Go)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="1" type="radio">
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("OnWay(Return)")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-3">
+                                                <div class="radio-aqua jc-fr">
+                                                    <input id="TourDirection" name="TourDirection" value="2" type="radio" checked>
+                                                    <label for="TourDirection">
+                                                        @R.GetResource("TwoWay")
+                                                    </label>
+                                                </div>
+                                            </div>*@
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="EditTourInfoBtn">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../Content/Wizard/TeacherWizard.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#EditTourInfoBtn").on("click", function () {
+            
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+
+                var DataObj = JSON.stringify({
+                    'TourID': $('#TourID').val(),
+                    'TourNameAr': $("#TourNameAr").val(),
+                    'TourNameEn': $("#TourNameEn").val(),
+                    'AreaID': $("#AreaID option:selected").val(),
+                    'BusNo': $("#BusNo option:selected").val(),
+                    'AttendantID': $('#AttendantID').val(),
+                    'SecondAttendantID': $('#SecondAttendantID').val(),
+                    'MaxNoofStudents': $("#MaxNoofStudents").val(),
+                    //'NumberofStudents': $("#NumberofStudents").val(),
+                    'NumberofStudents': 0,
+                    'StratingTime': $(".StratingTime").val(),
+                    'TourDirection': $('input[name="TourDirection"]:checked').val()
+
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "EditTour",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.Success) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                $(".select2").select2({
+                                    width: 'resolve'
+                                });
+                             window.location.href = '@Url.Action("ListBusTours", "transportation")';
+
+                            }, 3000);
+                        }
+                        else {
+                            $.toast({
+                                heading: 'حدث خطا ما !',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                    }
+
+                })
+            }
+        });
+
+        $('#BusNo').on('change', function (e) {
+            var BusNo = $("#BusNo option:selected").val();
+            $.ajax({
+                type: "GET",
+                url: "BusInfoDetails",
+                data: { 'BusNo': BusNo },
+                dataType: "json",
+                success: function (response) {
+                    if (response.data != null) {
+                        $("#Attendant").val(response.data.Attendant);
+                        $("#SecondAttendant").val(response.data.SecondAttendant);
+                        $("#AttendantID").val(response.data.AttendantID);
+                        $("#SecondAttendantID").val(response.data.SecondAttendantID);
+                        $("#MaxNoofStudents").val(response.data.NumberOfseats);
+                    }
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        });
+
+
+
+
+    });
+
+
+</script>
+
+
+
+

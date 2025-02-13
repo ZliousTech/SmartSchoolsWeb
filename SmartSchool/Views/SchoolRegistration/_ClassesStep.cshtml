@@ -1,0 +1,483 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+    string buttonpull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        buttonpull = "pull-right";
+    }
+    else
+    {
+        buttonpull = "pull-left";
+    }
+}
+@{
+    List<string> CurriculumNames = new List<string>();
+}
+
+<style>
+    .row2 {
+        display: flex;
+        direction: inherit;
+    }
+</style>
+
+@*<script src="../../assets/plugins/jquery/jquery.min.js"></script>*@
+<script src="../../Content/Wizard/wizardJS.js"></script>
+<script src="../../Content/Wizard/SchoolRegistrationWizard.js"></script>
+<div class="row setup-content" id="step-4">
+    <div class="col-xs-12">
+        <div class="col-md-12">
+            <h4 class="htitles">@R.GetResource("Classes")</h4>
+            <br />
+            <br />
+            @foreach (var item in Model.Curriculum)
+            {
+                if (!CurriculumNames.Contains(item.CurriculumArabicName))
+                {
+                    <div class="row row2" style="background-color:cornflowerblue">
+                        @{
+                            var curName = CurrentLanguage == Languges.English ?
+                                "Curriculum " + item.CurriculumEnglishName : "المنهاج " + item.CurriculumArabicName;
+                        }
+                        <h4 class="ColoredTitle">@curName</h4>
+                    </div>
+                    List<int> ClassIDs = (from SchoolClass in context.SchoolClasses where SchoolClass.SchoolID == Model.schoolBranch.SchoolID && SchoolClass.CurriculumID == item.CurriculumID select SchoolClass.ClassID.Value).ToList();
+                    <table class="table table-bordered" style="text-align:center;">
+                        <thead>
+                            <tr>
+                                <th>@R.GetResource("Class")</th>
+                                <th colspan="4">@R.GetResource("Department")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model.Classes)
+                            {
+                                var Schoolclass = (from SchoolClass in context.SchoolClasses where SchoolClass.SchoolID == Model.schoolBranch.SchoolID && SchoolClass.CurriculumID == item.CurriculumID && SchoolClass.ClassID == c.ClassID select SchoolClass).FirstOrDefault();
+
+                                var checkclass = "";
+                                var checkMix = "";
+                                var checkMale = "";
+                                var checkFemale = "";
+                                if (ClassIDs.Count > 0)
+                                {
+                                    if (ClassIDs.Contains(c.ClassID))
+                                    {
+                                        checkclass = "checked";
+                                    }
+
+                                }
+                                if (Schoolclass != null)
+                                {
+                                    if (Schoolclass.Coeducation == true)
+                                    {
+                                        checkMix = "checked";
+                                    }
+                                    if (Schoolclass.Male == true)
+                                    {
+                                        checkMale = "checked";
+                                    }
+                                    if (Schoolclass.Female == true)
+                                    {
+                                        checkFemale = "checked";
+                                    }
+                                }
+                                <tr>
+                                    <td>
+                                        <div class="checkbox checkbox-icon-aqua">
+                                            <input id="@c.ClassID$@item.CurriculumID" name="SchoolClasses" type="checkbox" @checkclass>
+                                            @{
+                                                var className = CurrentLanguage == Languges.English ?
+                                                    c.ClassEnglishName :c.ClassArabicName;
+                                            }
+                                            <label for="@c.ClassID$@item.CurriculumID">
+                                                @className
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td colspan="4">
+                                        <div class="row row2">
+                                            <div class="col-md-2">
+                                                <div class="checkbox checkbox-icon-aqua">
+                                                    <input id="Mix_@c.ClassID$@item.CurriculumID" name="Mix" type="checkbox" @checkMix>
+                                                    <label for="Mix_@c.ClassID$@item.CurriculumID">
+                                                        @R.GetResource("Mix")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="checkbox checkbox-icon-yellow">
+                                                    <input id="Male_@c.ClassID$@item.CurriculumID" name="Male" type="checkbox" @checkMale>
+                                                    <label for="Male_@c.ClassID$@item.CurriculumID">
+                                                        @R.GetResource("Males")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="checkbox checkbox-icon-red">
+                                                    <input id="Female_@c.ClassID$@item.CurriculumID" name="Female" type="checkbox" @checkFemale>
+                                                    <label for="Female_@c.ClassID$@item.CurriculumID">
+                                                        @R.GetResource("Females")
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    CurriculumNames.Add(item.CurriculumArabicName);
+
+                }
+            }
+            <button class="btn btn-primary-custom forms SchoolClassInfonextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+<script src="../../assets/plugins/jquery-toast/dist/toast.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    var NoOfClassRooms = 0;
+    $(document).ready(function () {
+
+        var SchoolClassInfonextBtn = $('.SchoolClassInfonextBtn');
+        // Cache the jQuery selectors
+        var mixInputs = $("input[name='Mix']");
+        var maleInputs = $("input[name='Male']");
+        var femaleInputs = $("input[name='Female']");
+
+        //-------------------------Limitized the SchoolClasses number based on NoOfRooms---------------------------
+        var dataObject = { "SchoolID": $("#schoolBranch_SchoolID").val() };
+        $.ajax({
+            type: "GET",
+            url: "GetNoOfClassRooms",
+            data: dataObject,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            async: false,
+            success: function (response) {
+                if (response.Success) {
+                    NoOfClassRooms = response.NoOfClassRooms;
+                }
+                else {
+                    Swal.fire(
+                        'Error',
+                        'Something went wrong\n ' + response.Message + '',
+                        'error'
+                    );
+                }
+            }
+        });
+
+        var SchoolClassList = [];
+        var UncheckedSchoolClassList = [];
+        var MixList = [];
+        var UnCheckedMixList = [];
+        var MaleList = [];
+        var UnCheckedMaleList = [];
+        var FemaleList = [];
+        var UnCheckedFemaleList = [];
+
+        // Intializations.
+        $("input[name='SchoolClasses']").each(function () {
+            var inputName = $(this).attr('id');
+            var id = inputName.split('$')[0];
+            var curriculum = inputName.split('$')[1];
+            if ($(this).is(":checked")) {
+                SchoolClassList.push(inputName);
+            }
+            else {
+                handleDisableRelated(id, curriculum, mixInputs);
+                handleDisableRelated(id, curriculum, maleInputs);
+                handleDisableRelated(id, curriculum, femaleInputs);
+            }
+        });
+        $("input[name='Mix']").each(function () {
+            if ($(this).is(":checked")) {
+                var inputName = $(this).attr('id');
+                var id = extractID(inputName);
+                var curriculum = extractCurriculum(inputName);
+
+                MixList.push(inputName);
+                handleDisableRelated(id, curriculum, maleInputs);
+                handleDisableRelated(id, curriculum, femaleInputs);
+            }
+        });
+        $("input[name='Male']").each(function () {
+            if ($(this).is(":checked")) {
+                var inputName = $(this).attr('id');
+                var id = extractID(inputName);
+                var curriculum = extractCurriculum(inputName);
+
+                MaleList.push(inputName);
+                handleDisableRelated(id, curriculum, mixInputs);
+            }
+        });
+        $("input[name='Female']").each(function () {
+            if ($(this).is(":checked")) {
+                var inputName = $(this).attr('id');
+                var id = extractID(inputName);
+                var curriculum = extractCurriculum(inputName);
+
+                FemaleList.push(inputName);
+                handleDisableRelated(id, curriculum, mixInputs);
+            }
+        });
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        // Operations.
+        $("input[name='SchoolClasses']").on("change", function () {
+            var inputName = $(this).attr('id');
+            var id = inputName.split('$')[0];
+            var curriculum = inputName.split('$')[1];
+            if ($(this).is(":checked")) {
+                if ((MixList.length + MaleList.length + FemaleList.length) >= NoOfClassRooms) {
+                    maxNoRoomsFire();
+                    $(this).prop('checked', false);
+                }
+                else {
+                    SchoolClassList.push(inputName);
+                    handleEnableRelated(id, curriculum, mixInputs);
+                    handleEnableRelated(id, curriculum, maleInputs);
+                    handleEnableRelated(id, curriculum, femaleInputs);
+                }
+            }
+            else {
+                var schoolclassToDelete = SchoolClassList.indexOf(inputName);
+                if (schoolclassToDelete !== -1) { SchoolClassList.splice(schoolclassToDelete, 1); }
+
+                var mixToDelete = MixList.indexOf("Mix_" + inputName);
+                if (mixToDelete !== -1) { MixList.splice(mixToDelete, 1); }
+
+                var maleToDelete = MaleList.indexOf("Male_" + inputName);
+                if (maleToDelete !== -1) { MaleList.splice(maleToDelete, 1); }
+
+                var femaleToDelete = FemaleList.indexOf("Female_" + inputName);
+                if (femaleToDelete !== -1) { FemaleList.splice(femaleToDelete, 1); }
+
+                handleDisableRelated(id, curriculum, mixInputs);
+                handleDisableRelated(id, curriculum, maleInputs);
+                handleDisableRelated(id, curriculum, femaleInputs);
+            }
+        });
+        $("input[name='Mix']").on('change', function () {
+            var inputName = $(this).attr('id');
+            var id = extractID(inputName);
+            var curriculum = extractCurriculum(inputName);
+
+            if ($(this).is(":checked")) {
+                if ((MixList.length + MaleList.length + FemaleList.length) >= NoOfClassRooms) {
+                    maxNoRoomsFire();
+                    $(this).prop('checked', false);
+                }
+                else {
+                    MixList.push(inputName);
+                    handleDisableRelated(id, curriculum, maleInputs);
+                    handleDisableRelated(id, curriculum, femaleInputs);
+                }
+            }
+            else {
+                var elementToDelete = MixList.indexOf(inputName);
+                if (elementToDelete !== -1) { MixList.splice(elementToDelete, 1); }
+                handleEnableRelated(id, curriculum, maleInputs);
+                handleEnableRelated(id, curriculum, femaleInputs);
+            }
+        });
+
+
+        $("input[name='Male']").on('change', function () {
+            var inputName = $(this).attr('id');
+            var id = extractID(inputName);
+            var curriculum = extractCurriculum(inputName);
+
+            if ($(this).is(":checked")) {
+                if ((MixList.length + MaleList.length + FemaleList.length) >= NoOfClassRooms) {
+                    maxNoRoomsFire();
+                    $(this).prop('checked', false);
+                }
+                else {
+                    MaleList.push(inputName);
+                    handleDisableRelated(id, curriculum, mixInputs);
+                }
+            }
+            else {
+                var elementToDelete = MaleList.indexOf(inputName);
+                if (elementToDelete !== -1) { MaleList.splice(elementToDelete, 1); }
+                $("input[name='Female']").each(function () {
+                    if ($(this).attr('id').split('$')[0].split('_')[1] == id && $(this).attr('id').split('$')[1] == curriculum) {
+                        if (!$(this).is(":checked")) {
+                            $("input[name='Mix']").each(function () {
+                                if ($(this).attr('id').split('$')[0].split('_')[1] == id && $(this).attr('id').split('$')[1] == curriculum) {
+                                    $(this).prop('disabled', false);
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+        $("input[name='Female']").on('change', function () {
+            var inputName = $(this).attr('id');
+            var id = extractID(inputName);
+            var curriculum = extractCurriculum(inputName);
+
+            if ($(this).is(":checked")) {
+                if ((MixList.length + MaleList.length + FemaleList.length) >= NoOfClassRooms) {
+                    maxNoRoomsFire();
+                    $(this).prop('checked', false);
+                }
+                else {
+                    FemaleList.push(inputName);
+                    handleDisableRelated(id, curriculum, mixInputs)
+                }
+            }
+            else {
+                var elementToDelete = FemaleList.indexOf(inputName);
+                if (elementToDelete !== -1) { FemaleList.splice(elementToDelete, 1); }
+                $("input[name='Male']").each(function () {
+                    if ($(this).attr('id').split('$')[0].split('_')[1] == id && $(this).attr('id').split('$')[1] == curriculum) {
+                        if (!$(this).is(":checked")) {
+                            $("input[name='Mix']").each(function () {
+                                if ($(this).attr('id').split('$')[0].split('_')[1] == id && $(this).attr('id').split('$')[1] == curriculum) {
+                                    $(this).prop('disabled', false);
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+        //-------------------------End of Limitized SchoolClasses region-------------------------------------------
+
+        SchoolClassInfonextBtn.click(function () {
+            debugger;
+            UncheckedSchoolClassList.splice(0, UncheckedSchoolClassList.length);
+            UnCheckedMixList.splice(0, UnCheckedMixList.length);
+            UnCheckedMaleList.splice(0, UnCheckedMaleList.length);
+            UnCheckedFemaleList.splice(0, UnCheckedFemaleList.length);
+
+            $("input[name='SchoolClasses']").each(function () {
+                if (!$(this).is(":checked")) {
+                    UncheckedSchoolClassList.push($(this).attr('id'));
+                }
+            });
+            $("input[name='Mix']").each(function () {
+                if (!$(this).is(":checked")) {
+                    UnCheckedMixList.push($(this).attr('id'));
+                }
+            });
+            $("input[name='Male']").each(function () {
+                if (!$(this).is(":checked")) {
+                    UnCheckedMaleList.push($(this).attr('id'));
+                }
+            });
+            $("input[name='Female']").each(function () {
+                if (!$(this).is(":checked")) {
+                    UnCheckedFemaleList.push($(this).attr('id'));
+                }
+            });
+            
+            $(document).off('click.SchoolClassInfonextBtn');
+            $(this).closest(".setup-content").unbind("click");
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a");
+
+            $.ajax({
+                type: "POST",
+                url: "AddSchoolClasses",
+                data: JSON.stringify({ 'SchoolClasses': SchoolClassList, 'UnCheckedClasses': UncheckedSchoolClassList, 'Mix': MixList, 'UnCheckMix': UnCheckedMixList, 'Male': MaleList, 'UnCheckMale': UnCheckedMaleList, 'Female': FemaleList, 'UnCheckFemale': UnCheckedFemaleList, 'SchoolID': $("#schoolBranch_SchoolID").val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                async: false,
+                success: function (response) {
+                    if (response.NoClassError === "" && response.DepError === "" && response.CurError === "") {
+                        debugger;
+                        $.ajax({
+                            type: "GET",
+                            url: "GetPricesStep",
+                            cache: false,
+                            data: { 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+                        }).done(function (result) {
+                            debugger;
+                            $('#DivPricesPartial').html(result);
+                            setTimeout(function () {
+                                nextStepWizard.removeAttr('disabled')[0].click();
+                            }, 200);
+                        });
+                    }
+                    else {
+                        //$.toast({
+                        //    heading: 'الرجاء أختيار الصفوف لكل منهاج أو التأكد من أختيار على الأقل قسم لكل صف قمت باختياره !',
+                        //    text: '',
+                        //    position: 'top-center',
+                        //    loaderBg: '#ff6849',
+                        //    icon: 'error',
+                        //    hideAfter: 10000,
+                        //    stack: 6
+                        //});
+                        alert(response.NoClassError + " " + response.DepError + " " + response.CurError);
+                    }
+                },
+                failure: function (response) {
+                    alert("failure");
+                },
+                error: function (response) {
+                    alert("error\n" + response.Message);
+                }
+                //traditional: true
+            });
+        });
+    });
+
+    // Function to extract inputID from format => type_id$Curriculumid
+    function extractID(inputName) {
+        return inputName.split('$')[0].split('_')[1];
+    }
+
+    // Function to extract inputCurriculum from format => type_id$curriculumid
+    function extractCurriculum(inputName) {
+        return inputName.split('$')[1];
+    }
+
+    // Function to manage disabling related inputs
+    function handleDisableRelated(id, curriculum, $relatedInputs) {
+        $relatedInputs.each(function () {
+            var inputId = $(this).attr('id');
+            if (inputId.split('$')[0].split('_')[1] == id && inputId.split('$')[1] == curriculum) {
+                $(this).prop('checked', false);
+                $(this).prop('disabled', true);
+            }
+        });
+    }
+
+    // Function to manage enabling related inputs
+    function handleEnableRelated(id, curriculum, $relatedInputs) {
+        $relatedInputs.each(function () {
+            var inputId = $(this).attr('id');
+            if (inputId.split('$')[0].split('_')[1] == id && inputId.split('$')[1] == curriculum) {
+                $(this).prop('disabled', false);
+            }
+        });
+    }
+
+    function maxNoRoomsFire() {
+        return Swal.fire(
+            'Information',
+            'الحد الأقصى لعدد الغرف ' + NoOfClassRooms + ' غرفة برجاء الذهاب إلى الإعدادات وزيادة عدد الغرف لإتمام عملية الإضافة',
+            'info'
+        );
+    }
+</script>

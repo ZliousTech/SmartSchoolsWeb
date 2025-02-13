@@ -1,0 +1,144 @@
+﻿@model SmartSchool.Models.Calendar.AcademicCalendar
+@{
+    ViewBag.Title = "PrepareAcademicCalendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+
+    .row{
+        width:100%;
+        margin:10px;
+    }
+
+    #from-to {
+        font-size: 20px;
+        font-family: GESSTextLight-Light;
+        text-align: center;
+        color: #3699ff;
+    }
+
+    .img-responsive {
+        border-radius: unset;
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    #calendarDes {
+        font-size: 30px;
+        font-family: GESSTextLight-Light;
+        text-align: inherit;
+        font-weight: bold;
+        padding: 15px;
+        line-height: 1.2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+</style>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AcademicCalendar")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="row">
+            <div id="from-to">
+            </div>
+        </div>
+        <div class="row">
+            @{ var base64 = "";
+                var imgSrc = "../../Images/Holyday-event.jpg";
+                if (Model != null)
+                {
+                    if (Model.Photo != null)
+                    {
+                        base64 = Convert.ToBase64String(Model.Photo);
+                        imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                    }
+                }
+            }
+            <div class="col-md-3">
+                <img src="@imgSrc" alt="CalendarEvent" class="img-responsive">
+            </div>
+            <div id="calendarDes" class="col-md-9">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+        var monthNames = currentLanguage == 1 ? [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ] : [
+            'يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو',
+            'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفبر', 'ديسمبر'
+        ];
+
+        function formatDate(date) {
+            return moment(date).format('MMMM DD');
+        }
+
+        function getFormattedMonth(date) {
+            return monthNames[date.getMonth()];
+        }
+
+        var startingDateMilliseconds = @(Model.StartingDate.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds);
+        var startingDate = new Date(startingDateMilliseconds);
+        var formattedStartingDate = formatDate(startingDate);
+        var monthNameStartingDate = getFormattedMonth(startingDate);
+
+        var from = '@R.GetResource("From")' + ' ' + formattedStartingDate.split(' ')[1] +
+            ' ' + monthNameStartingDate;
+
+        var endDateMilliseconds = startingDateMilliseconds + @(Model.NumberofDays * 24 * 60 * 60 * 1000);
+        var endDate = new Date(endDateMilliseconds);
+        var formattedEndDate = formatDate(endDate);
+        var monthNameEndDate = getFormattedMonth(endDate);
+
+        var to = '@R.GetResource("To")' + ' ' + formattedEndDate.split(' ')[1] +
+            ' ' + monthNameEndDate;
+
+        $("#from-to").empty().text(from + ' ' + to);
+
+        var eventDescription = currentLanguage == 1 ?
+            '@Model.EnglishDescription' : '@Model.ArabicDescription';
+        
+        $("#calendarDes").empty().text(eventDescription);
+    });
+</script>

@@ -1,0 +1,199 @@
+﻿
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string dir = "";
+
+    if (CurrentLanguage == Languges.English)
+    {
+        dir = "ltr";
+
+    }
+    else
+    {
+        dir = "rtl";
+
+    }
+}
+
+<!DOCTYPE html>
+<html dir="@dir">
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="theme-color" content="#3699ff">
+    <meta name="description" content="smartschool,smart,school,student,parent,learn" />
+    <title>ZLIOUS | SMART-SCHOOL</title>
+    <link href="~/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/assets/plugins/material/material.min.css">
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+
+    <link rel="stylesheet" href="~/assets/css/material_style.css">
+    <link rel="stylesheet" href="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.css" />
+    <link rel="stylesheet" href="~/assets/plugins/jquery-toast/dist/jquery.toast.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/icon.css">
+    <link href="~/AppContent/style.css" rel="stylesheet">
+
+    @RenderSection("SectionHead", false)
+
+    @if (CurrentLanguage != Languges.English)
+    {
+
+        <!-- compiled and minified CSS -->
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-cSfiDrYfMj9eYCidq//oGXEkMc0vuTxHXizrMOFAaPsLt1zoCUVnSsURN+nef1lj"
+              crossorigin="anonymous">
+        <!-- compiled and minified theme CSS -->
+        <link rel="stylesheet"
+              href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-YNPmfeOM29goUYCxqyaDVPToebWWQrHk0e3QYEs7Ovg6r5hSRKr73uQ69DkzT1LH"
+              crossorigin="anonymous">
+
+        <!-- compiled and minified JavaScript -->
+        <script src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"
+                crossorigin="anonymous"></script>
+        <link href="~/AppContent/rtl.css" rel="stylesheet">
+    }
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+
+
+    <link rel="shortcut icon" href="~/AppContent/Images/favicon.png" />
+    <link href="~/Content/multi-select.css" rel="stylesheet" />
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>*@
+
+    @*MICROSOFT TEAMS*@
+    <!-- Microsoft Teams JavaScript API (via CDN) -->
+
+</head>
+<!-- END HEAD -->
+
+<body>
+    <div class="shader">
+        <div class="overlay"></div>
+        <div class="spanner show">
+            <div class="loader show"></div>
+            <p>Loading ... </p>
+        </div>
+    </div>
+    <button onclick="topFunction()" id="scroll-btn" title="Go to top">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    @Html.Partial("_Header")
+    <main class="body-container">
+        <div class="inner-row">
+            @RenderBody()
+        </div>
+
+    </main>
+
+    <footer class="footer-Contianer">
+
+        <section class="inner-row footer">
+            <div class="bg-pattern">
+                <div class="shader"></div>
+            </div>
+            <p>
+                Super-powered by Zlious Tech © 2016 - @DateTime.Now.Year
+            </p>
+        </section>
+
+    </footer>        <!-- end footer -->
+    <!-- start js include path -->
+
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="http://www.w3cschool.cc/try/jeasyui/jquery.easyui.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+    @*<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>*@
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+    <script src="../assets/plugins/jquery-toast/dist/toast.js"></script>
+    <script src="~/assets/plugins/material/material.min.js"></script>
+    <script src="~/assets/plugins/material-datetimepicker/moment-with-locales.min.js"></script>
+    <script src="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
+    <script src="~/assets/plugins/material-datetimepicker/datetimepicker.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js"></script>
+    <script src="~/Scripts/jquery.multi-select.js"></script>
+    <!-- summernote -->
+    <!-- end js include path -->
+    @if (CurrentLanguage == Languges.English)
+    {
+        <script src="../../Content/dtablesen.js"></script>
+    }
+    else
+    {
+        <script src="../../Content/dtables.js"></script>
+    }
+    <script>
+
+
+        $('.select2').select2();
+
+        var $loading = $('.shader').hide();
+        $(document)
+            .ajaxStart(function () {
+                $loading.show();
+            })
+            .ajaxStop(function () {
+                $loading.hide();
+            });
+
+
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                $('#scroll-btn').fadeIn();
+            }
+            else {
+                $('#scroll-btn').fadeOut();
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        function goBack() {
+            window.history.back();
+        }
+
+    </script>
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+
+</html>

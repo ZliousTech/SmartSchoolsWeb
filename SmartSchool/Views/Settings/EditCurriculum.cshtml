@@ -1,0 +1,132 @@
+﻿@model SmartSchool.Models.Settings.Curriculums
+@{
+    ViewBag.Title = "Edit Curriculum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("EditCurriculums")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="EditSpcCurriculum" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(model => model.CurriculumID, new { Name = "CurriculumID" })
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("CurriculumArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.CurriculumArabicName, new { @class = "form-control", Name = "CurriculumArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("CurriculumEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.CurriculumEnglishName, new { @class = "form-control", Name = "CurriculumEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var isValid = true;
+
+        if ($('input[Name="CurriculumArabicName"]').length <= 0) {
+            isValid = false;
+        }
+
+        if ($('input[Name="CurriculumEnglishName"]').length <= 0) {
+            isValid = false;
+        }
+
+        $(".btnsavedit").on("click", function () {
+            debugger;
+
+            if (isValid) {
+                var formData = new FormData();
+                var CurriculumID = $("#CurriculumID").val();
+                var CurriculumArabicName = $("#CurriculumArabicName").val();
+                var CurriculumEnglishName = $("#CurriculumEnglishName").val();
+
+                formData.append('CurriculumID', CurriculumID);
+                formData.append('CurriculumArabicName', CurriculumArabicName);
+                formData.append('CurriculumEnglishName', CurriculumEnglishName);
+
+                $.ajax({
+                    type: "POST",
+                    url: "SaveEditCurriculum",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $(".btnsavedit").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllCurriculums", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+
+            }
+
+        });
+    });
+</script>

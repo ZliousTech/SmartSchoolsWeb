@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZLIOUS | SMART-SCHOOL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+
+
+</head>
+
+<body>
+    <button onclick="topFunction()" id="scroll-btn" title="Go to top">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+    <header class="header-container">
+        <section class="inner-row">
+            <div class="banner light-component">
+                <div class="logo-holder">
+                    <a href="javascript:void(0)" class="header-logo-anchor">
+                        <img src="./Images/smartschoollogo.png" alt="smart school logo">
+                    </a>
+                </div>
+
+
+                <nav class="toolbar-nav">
+                    <ul>
+                        <li>
+                            <div href="javascript:void(0)" class="User-info">
+                                <div class="Avatar">
+                                    <img src="Images/avatar.jpeg" alt="avatar">
+                                </div>
+                                <span>
+                                    Mustafa alshekly
+                                </span>
+                                <div class="chveron-holder">
+                                    <img src="Images/chveron.png" alt="chveron">
+                                </div>
+                                <div class="Dropdwon-item-setting">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            </span>
+                                            <a href="javascript:void(0)">
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="anchor-lang">
+                                <span>
+                                    <i class="fa fa-language" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+    </header>
+    <main class="body-container">
+        <div class="inner-row">
+
+            <div class="head-body-col">
+                <span>
+                    <!-- back  icon-->
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </span>
+                <h2>New User | Create Account</h2>
+            </div>
+
+            <div class="inner-Container">
+                <div class="light-component action">
+                    <a href="javascript:void(0)">
+                        <span>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <h4>
+                            Add new User
+                        </h4>
+                    </a>
+                </div>
+
+                <div class="light-component inner">
+                    <div class="setup-content" style="margin-top:20px;">
+
+                        <form class="NewParentForm" novalidate="novalidate">
+                            <div class="col-xs-12">
+                                <div class="col-md-12">
+                                    <h4 class="htitles">Personal Information</h4>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Parent Name</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Given Name</label>
+                                                <input class="form-control" id="FirstArabicName" name="FirstArabicName"
+                                                    required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Father Name</label>
+                                                <input class="form-control" id="SecondArabicName"
+                                                    name="SecondArabicName" required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Third Name</label>
+                                                <input class="form-control" id="ThirdArabicName" name="ThirdArabicName"
+                                                    required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Family Name</label>
+                                                <input class="form-control" id="FourthArabicName"
+                                                    name="FourthArabicName" required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Gender</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Male</label>
+                                                <input type="radio" id="male" name="gender" value="male">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="control-label">Female</label>
+                                                <input value="1" id="Gender" name="Gender" type="radio">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Nationality</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <select name="Nationality" id="Nationality" class="form-control select2"
+                                                    required="required" tabindex="-1" aria-hidden="true">
+                                                    <option value="">Please select</option>
+                                                    <option value="1">Afghan</option>
+                                                    <option value="2">Aland Islander</option>
+                                                    <option value="3">Albanian</option>
+                                                    <option value="4">Algerian</option>
+                                                    <option value="5">American Samoan</option>
+                                                    <option value="6">Andorran</option>
+                                                    <option value="7">Angolan</option>
+                                                    <option value="8">Anguillan</option>
+                                                    <option value="9">Antarctican</option>
+                                                    <option value="10">Antiguan</option>
+                                                    <option value="11">Argentinian</option>
+                                                    <option value="12">Armenian</option>
+                                                    <option value="13">Aruban</option>
+                                                    <option value="14">Australian</option>
+                                                    <option value="15">Austrian</option>
+                                                    <option value="16">Azerbaijani</option>
+                                                    <option value="17">Bahamian</option>
+                                                    <option value="18">Bahraini</option>
+                                                    <option value="19">Bangladeshi</option>
+                                                    <option value="20">Barbadian</option>
+                                                    <option value="21">Belarusian</option>
+                                                    <option value="22">Belgian</option>
+                                                    <option value="23">Belizean</option>
+                                                    <option value="24">Beninese</option>
+                                                    <option value="25">Bermudan</option>
+                                                    <option value="26">Bhutanese</option>
+                                                    <option value="27">Bolivian</option>
+                                                    <option value="28">Bosnian / Herzegovinian</option>
+                                                    <option value="29">Botswanan</option>
+                                                    <option value="30">Bouvetian</option>
+                                                    <option value="31">Brazilian</option>
+                                                    <option value="32">British Indian Ocean Territory</option>
+                                                    <option value="33">Bruneian</option>
+                                                    <option value="34">Bulgarian</option>
+                                                    <option value="35">Burkinabe</option>
+                                                    <option value="36">Burundian</option>
+                                                    <option value="37">Cambodian</option>
+                                                    <option value="38">Cameroonian</option>
+                                                    <option value="39">Canadian</option>
+                                                    <option value="40">Cape Verdean</option>
+                                                    <option value="41">Caymanian</option>
+                                                    <option value="42">Central African</option>
+                                                    <option value="43">Chadian</option>
+                                                    <option value="44">Chilean</option>
+                                                    <option value="45">Chinese</option>
+                                                    <option value="46">Christmas Islander</option>
+                                                    <option value="47">Cocos Islander</option>
+                                                    <option value="48">Colombian</option>
+                                                    <option value="49">Comorian</option>
+                                                    <option value="50">Congolese</option>
+                                                    <option value="51">Cook Islander</option>
+                                                    <option value="52">Costa Rican</option>
+                                                    <option value="53">Croatian</option>
+                                                    <option value="54">Cuban</option>
+                                                    <option value="55">Cypriot</option>
+                                                    <option value="56">Czech</option>
+                                                    <option value="57">Danish</option>
+                                                    <option value="58">Djiboutian</option>
+                                                    <option value="59">Dominican</option>
+                                                    <option value="60">Dominican</option>
+                                                    <option value="61">Ecuadorian</option>
+                                                    <option value="62">Egyptian</option>
+                                                    <option value="63">Salvadoran</option>
+                                                    <option value="64">Equatorial Guinean</option>
+                                                    <option value="65">Eritrean</option>
+                                                    <option value="66">Estonian</option>
+                                                    <option value="67">Ethiopian</option>
+                                                    <option value="68">Falkland Islander</option>
+                                                    <option value="69">Faroese</option>
+                                                    <option value="70">Fijian</option>
+                                                    <option value="71">Finnish</option>
+                                                    <option value="72">French</option>
+                                                    <option value="73">French Guianese</option>
+                                                    <option value="74">French Polynesian</option>
+                                                    <option value="75">French</option>
+                                                    <option value="76">Gabonese</option>
+                                                    <option value="77">Gambian</option>
+                                                    <option value="78">Georgian</option>
+                                                    <option value="79">German</option>
+                                                    <option value="80">Ghanaian</option>
+                                                    <option value="81">Gibraltar</option>
+                                                    <option value="82">Greek</option>
+                                                    <option value="83">Greenlandic</option>
+                                                    <option value="84">Grenadian</option>
+                                                    <option value="85">Guadeloupe</option>
+                                                    <option value="86">Guamanian</option>
+                                                    <option value="87">Guatemalan</option>
+                                                    <option value="88">Guernsian</option>
+                                                    <option value="89">Guinean</option>
+                                                    <option value="90">Guinea-Bissauan</option>
+                                                    <option value="91">Guyanese</option>
+                                                    <option value="92">Haitian</option>
+                                                    <option value="93">Hondurasan</option>
+                                                    <option value="94">Hongkongese</option>
+                                                    <option value="95">Hungarian</option>
+                                                    <option value="96">Icelandic</option>
+                                                    <option value="97">Indian</option>
+                                                    <option value="98">Indonesian</option>
+                                                    <option value="99">Iranian</option>
+                                                    <option value="100">Iraqi</option>
+                                                    <option value="101">Irish</option>
+                                                    <option value="102">Manx</option>
+                                                    <option value="103">Israeli</option>
+                                                    <option value="104">Italian</option>
+                                                    <option value="105">Ivory Coastian</option>
+                                                    <option value="106">Jamaican</option>
+                                                    <option value="107">Japanese</option>
+                                                    <option value="108">Jersian</option>
+                                                    <option value="109">Jordanian</option>
+                                                    <option value="110">Kazakh</option>
+                                                    <option value="111">Kenyan</option>
+                                                    <option value="112">I-Kiribati</option>
+                                                    <option value="113">North Korean</option>
+                                                    <option value="114">South Korean</option>
+                                                    <option value="115">Kuwaiti</option>
+                                                    <option value="116">Kyrgyzstani</option>
+                                                    <option value="117">Laotian</option>
+                                                    <option value="118">Latvian</option>
+                                                    <option value="119">Lebanese</option>
+                                                    <option value="120">Basotho</option>
+                                                    <option value="121">Liberian</option>
+                                                    <option value="122">Libyan</option>
+                                                    <option value="123">Liechtenstein</option>
+                                                    <option value="124">Lithuanian</option>
+                                                    <option value="125">Luxembourger</option>
+                                                    <option value="126">Macanese</option>
+                                                    <option value="127">Macedonian</option>
+                                                    <option value="128">Malagasy</option>
+                                                    <option value="129">Malawian</option>
+                                                    <option value="130">Malaysian</option>
+                                                    <option value="131">Maldivian</option>
+                                                    <option value="132">Malian</option>
+                                                    <option value="133">Maltese</option>
+                                                    <option value="134">Marshallese</option>
+                                                    <option value="135">Martiniquais</option>
+                                                    <option value="136">Mauritanian</option>
+                                                    <option value="137">Mauritian</option>
+                                                    <option value="138">Mahoran</option>
+                                                    <option value="139">Mexican</option>
+                                                    <option value="140">Micronesian</option>
+                                                    <option value="141">Moldovan</option>
+                                                    <option value="142">Monacan</option>
+                                                    <option value="143">Mongolian</option>
+                                                    <option value="144">Montenegrin</option>
+                                                    <option value="145">Montserratian</option>
+                                                    <option value="146">Moroccan</option>
+                                                    <option value="147">Mozambican</option>
+                                                    <option value="148">Myanmarian</option>
+                                                    <option value="149">Namibian</option>
+                                                    <option value="150">Nauruan</option>
+                                                    <option value="151">Nepalese</option>
+                                                    <option value="152">Dutch</option>
+                                                    <option value="153">Dutch Antilier</option>
+                                                    <option value="154">New Caledonian</option>
+                                                    <option value="155">New Zealander</option>
+                                                    <option value="156">Nicaraguan</option>
+                                                    <option value="157">Nigerien</option>
+                                                    <option value="158">Nigerian</option>
+                                                    <option value="159">Niuean</option>
+                                                    <option value="160">Norfolk Islander</option>
+                                                    <option value="161">Northern Marianan</option>
+                                                    <option value="162">Norwegian</option>
+                                                    <option value="163">Omani</option>
+                                                    <option value="164">Pakistani</option>
+                                                    <option value="165">Palauan</option>
+                                                    <option value="166">Panamanian</option>
+                                                    <option value="167">Papua New Guinean</option>
+                                                    <option value="168">Paraguayan</option>
+                                                    <option value="169">Peruvian</option>
+                                                    <option value="170">Filipino</option>
+                                                    <option value="171">Pitcairn Islander</option>
+                                                    <option value="172">Polish</option>
+                                                    <option value="173">Portuguese</option>
+                                                    <option value="174">Puerto Rican</option>
+                                                    <option value="175">Qatari</option>
+                                                    <option value="176">Reunionese</option>
+                                                    <option value="177">Romanian</option>
+                                                    <option value="178">Russian</option>
+                                                    <option value="179">Rwandan</option>
+                                                    <option value="180">Saint Barthelmian</option>
+                                                    <option value="181">St. Helenian</option>
+                                                    <option value="182">Kittitian/Nevisian</option>
+                                                    <option value="183">St. Pierre and Miquelon</option>
+                                                    <option value="184">Saint Vincent and the Grenadines</option>
+                                                    <option value="185">Samoan</option>
+                                                    <option value="186">Sammarinese</option>
+                                                    <option value="187">Sao Tomean</option>
+                                                    <option value="188">Saudi Arabian</option>
+                                                    <option value="189">Senegalese</option>
+                                                    <option value="190">Serbian</option>
+                                                    <option value="191">Seychellois</option>
+                                                    <option value="192">Sierra Leonean</option>
+                                                    <option value="193">Singaporean</option>
+                                                    <option value="194">Slovak</option>
+                                                    <option value="195">Slovenian</option>
+                                                    <option value="196">Solomon Island</option>
+                                                    <option value="197">Somali</option>
+                                                    <option value="198">South African</option>
+                                                    <option value="199">South Georgia and the South Sandwich</option>
+                                                    <option value="200">South Sudanese</option>
+                                                    <option value="201">Spanish</option>
+                                                    <option value="202">Sri Lankian</option>
+                                                    <option value="203">Sudanese</option>
+                                                    <option value="204">Surinamese</option>
+                                                    <option value="205">Svalbardian/Jan Mayenian</option>
+                                                    <option value="206">Swazi</option>
+                                                    <option value="207">Swedish</option>
+                                                    <option value="208">Swiss</option>
+                                                    <option value="209">Syrian</option>
+                                                    <option value="210">Taiwanese</option>
+                                                    <option value="211">Tajikistani</option>
+                                                    <option value="212">Tanzanian</option>
+                                                    <option value="213">Thai</option>
+                                                    <option value="214">Timor-Lestian</option>
+                                                    <option value="215">Togolese</option>
+                                                    <option value="216">Tokelaian</option>
+                                                    <option value="217">Tongan</option>
+                                                    <option value="218">Trinidadian/Tobagonian</option>
+                                                    <option value="219">Tunisian</option>
+                                                    <option value="220">Turkish</option>
+                                                    <option value="221">Turkmen</option>
+                                                    <option value="222">Turks and Caicos Islands</option>
+                                                    <option value="223">Tuvaluan</option>
+                                                    <option value="224">Ugandan</option>
+                                                    <option value="225">Ukrainian</option>
+                                                    <option value="226">Emirati</option>
+                                                    <option value="227">British</option>
+                                                    <option value="228">American</option>
+                                                    <option value="229">Uruguayan</option>
+                                                    <option value="230">US Minor Outlying Islander</option>
+                                                    <option value="231">Uzbek</option>
+                                                    <option value="232">Vanuatuan</option>
+                                                    <option value="233">Vatican</option>
+                                                    <option value="234">Venezuelan</option>
+                                                    <option value="235">Vietnamese</option>
+                                                    <option value="236">American Virgin Islander</option>
+                                                    <option value="237">Wallisian/Futunan</option>
+                                                    <option value="238">Sahrawian</option>
+                                                    <option value="239">Yemeni</option>
+                                                    <option value="240">Zambian</option>
+                                                    <option value="241">Zimbabwean</option>
+                                                    <option value="242">Palestinian</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>National Number</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input name="number" class="form-control" id="NationalNumber"
+                                                    required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Residency Number</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input name="number" class="form-control" id="ResidencyNumber"
+                                                    required="required" type="text" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Civil Register Number</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input name="number" class="form-control" id="CivilNumber" type="text"
+                                                    value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Mobile Number</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" id="MobileNo" name="number" class="form-control"
+                                                    maxlength="10" required="">
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary-custom forms" type="button">Submit</button>
+
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer class="footer-Contianer">
+
+        <section class="inner-row footer">
+            <div class="bg-pattern">
+                <div class="shader"></div>
+            </div>
+            <p>
+                Super-powered by Zlious Tech ©2020-2021.
+            </p>
+        </section>
+
+    </footer>
+    <script>
+
+        $('.select2').select2();
+
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                $('#scroll-btn').fadeIn();
+            } else {
+                $('#scroll-btn').fadeOut();
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+
+
+    </script>
+</body>
+
+
+</html>

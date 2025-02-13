@@ -1,0 +1,81 @@
+﻿@model List<SmartSchool.Models.Settings.ClassRooms>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("ClassRooms")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddNewClassRoom","Settings")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddNewClassRoom")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%" style="text-align:center">
+            <thead>
+                <tr>
+                    <th scope="col">@R.GetResource("CLassRoomNumber")</th>
+                    <th scope="col"> @R.GetResource("RoomArabicName") </th>
+                    <th scope="col"> @R.GetResource("RoomEnglishName") </th>
+                    <th scope="col"> @R.GetResource("Building") </th>
+                    <th scope="col"> @R.GetResource("BuildingName") </th>
+                    <th scope="col"> @R.GetResource("Floor") </th>
+                    <th scope="col"> @R.GetResource("NumberofChairs") </th>
+                    <th scope="col"> @R.GetResource("Edit") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var BuildingName = ViewBag.CurrentLanguage == Languges.English ? @item.BuildingEnglishName : @item.BuildingArabicName;
+                    <tr>
+                        <td>@item.CLassRoomNumber</td>
+                        <td>@item.RoomArabicName</td>
+                        <td>@item.RoomEnglishName</td>
+                        <td>@item.Building</td>
+                        <td>@BuildingName</td>
+                        <td>@item.Floor</td>
+                        <td>@item.NumberofChairs</td>
+                        <td style="display:flex">
+                            <a href="@Url.Action("EditClassRoom","Settings", new { ClassRoomID = item.ClassRoomID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

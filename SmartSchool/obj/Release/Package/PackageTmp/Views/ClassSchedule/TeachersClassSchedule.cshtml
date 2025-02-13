@@ -1,0 +1,67 @@
+﻿@model SmartSchool.Models.Teacher.TeacherRegisterModel
+@{
+    ViewBag.Title = "TeachersClassSchedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("TeachersClassSchedule")</h2>
+</div>
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    @*<th scope="col"> @R.GetResource("StaffID") </th>*@
+                    <th scope="col"> @R.GetResource("TeacherName") </th>
+                    <th scope="col"> @R.GetResource("View") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.TeacherNameList)
+                {
+                    <tr scope="row">
+                        @*<td>@item.id</td>*@
+                        <td>@item.Description</td>
+
+                        <td style="display:flex">
+                            <a href="@Url.Action("GetTimeTable","ClassSchedule",new { StaffID= BaseController.Encrypt(item.id )})" class="btn btn-primary"><i class="fa fa-eye">@R.GetResource("View")</i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

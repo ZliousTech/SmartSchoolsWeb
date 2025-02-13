@@ -1,0 +1,208 @@
+﻿@model SmartSchool.Models.Registration.ParentRegistrationModel
+@{
+
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+    <style>
+        .dashboardrp, .fullscreenbutton {
+            display: none !important;
+        }
+
+        .control-label {
+            font-weight: 600;
+        }
+
+        .labeltitle {
+            justify-content: center;
+            display: flex;
+            margin-top: 5px;
+        }
+
+        .inner-Container > .light-component.action > a {
+            width: 390px;
+        }
+
+        .light-component.inner {
+            padding: 20px;
+        }
+
+        .container::after {
+            display: none;
+        }
+    </style>
+
+}
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ElectronicRegistrationService")</h2>
+</div>
+
+<div class="inner-Container">
+
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-laptop" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Welcome") <br> @Model.ParentName <br> @R.GetResource("in") @R.GetResource("ElectronicRegistrationService")
+
+            </h5>
+        </a>
+
+    </div>
+    <div class="light-component inner">
+
+
+        <div class="form-group">
+            <label class="control-label">@R.GetResource("Pleaseselectthenumberofchildrenyouwanttoregister")</label>
+
+
+            <input id="NumOfStudents" type="number" class="form-control" value="0" step="1">
+
+
+
+            <button style="margin-top:10px;" class="btn btn-info" onclick="BuildInputs()">@R.GetResource("Add")</button>
+
+        </div>
+
+
+
+
+
+
+        <div class="container setup-content" style="margin-top:20px;">
+
+            <form>
+                <div class="row">
+                    <div id="DivStudentNames"></div>
+                </div>
+
+                <button id="AddStudents" type="button" class="btn btn-info" style="margin:0 auto; display:flex; display:none;">
+                    @R.GetResource("Save")
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('body').on('click', '#remove', function () {
+
+
+            $(this).closest(".closelyDiv").remove();
+            if ($.trim($("#DivStudentNames").html()).length == 0)
+            {
+                $("#AddStudents").css("display", "none");
+
+            }
+
+        });
+        $('body').on('click', '#AddStudents', function () {
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                debugger;
+                var numItems = $('.closelyDiv').length;
+                var StudentsArray = [];
+                for (i = 1; i <= numItems; i++) {
+                    var FirstName = $("#FirstName"+i+"").val();
+                    var SecondName = $("#SecondName"+i+"").val();
+                    var ThirdName = $("#ThirdName"+i+"").val();
+                    var FourthName = $("#FourthName" + i + "").val();
+                    var studentname = FirstName.replace(" ", "-") + " " + SecondName.replace(" ", "-") + " " + ThirdName.replace(" ", "-") + " " + FourthName.replace(" ", "-");
+                    StudentsArray.push(studentname);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "AddStudentsToRegister",
+                    data: JSON.stringify(StudentsArray),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3500,
+                                stack: 6
+                            });
+                                   window.setTimeout(function () {
+
+                            window.location.href = '@Url.Action("ParentRegistrationRequests", "Registration")';
+
+                        }, 3500);
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    traditional: true
+                });
+
+            }
+
+        });
+    });
+    function BuildInputs() {
+        var numOfStudents = $("#NumOfStudents").val();
+        var DivStudentNames = $("#DivStudentNames");
+        DivStudentNames.html("");
+        var htmlscript = "";
+
+        for (i = 1; i <= numOfStudents; i++) {
+            debugger;
+            htmlscript += '<div class="closelyDiv"><div class="row"><div class="col-md-2 labeltitle"><label class="control-label">@R.GetResource("StudentName")</label></div>';
+            htmlscript += '<div class="col-md-2"><div class="form-group"><input type="text" class="form-control" id="FirstName' + i + '" placeholder="@R.GetResource("FirstName")" required"></div></div>';
+            htmlscript += '<div class="col-md-2"><div class="form-group"><input type="text" class="form-control secondNameInput" id="SecondName' + i + '" placeholder="@R.GetResource("FatherName")" required></div></div>';
+            htmlscript += '<div class="col-md-2"><div class="form-group"><input type="text" class="form-control thirdNameInput" id="ThirdName' + i + '" placeholder="@R.GetResource("GrandFatherName")"></div></div>';
+            htmlscript += '<div class="col-md-2"><div class="form-group"><input type="text" class="form-control forthNameInput" id="FourthName' + i + '" placeholder="@R.GetResource("FamilyName")" required></div></div>';
+            htmlscript += '<img src="../../Images/remove.PNG" width="32" height="32" border="0" align="top" class="add" id="remove" /></div></div>';
+        }
+        if (htmlscript != "") {
+            DivStudentNames.html(htmlscript);
+            $("#AddStudents").css("display", "block");
+        }
+    }
+    $('body').on('input', '#SecondName1', function () {
+        let SecondName1 = $(this).val();
+        let SecondNamesInputs = document.querySelectorAll(".secondNameInput");
+        SecondNamesInputs.forEach(function (secondnameinput) {
+            secondnameinput.value = SecondName1;
+        });
+    });
+    $('body').on('input', '#ThirdName1', function () {
+        let ThirdName1 = $(this).val();
+        let ThirdNamesInputs = document.querySelectorAll(".thirdNameInput");
+        ThirdNamesInputs.forEach(function (thirdnameinput) {
+            thirdnameinput.value = ThirdName1;
+        });
+    });
+    $('body').on('input', '#FourthName1', function () {
+        let FourthName1 = $(this).val();
+        let ForthNamesInputs = document.querySelectorAll(".forthNameInput");
+        ForthNamesInputs.forEach(function (forthnameinput) {
+            forthnameinput.value = FourthName1;
+        });
+    });
+</script>
+
+

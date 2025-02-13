@@ -1,0 +1,481 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddQuestions.aspx.cs" Inherits="SmartSchool.questionsweb.AddQuestions" ValidateRequest="false" MaintainScrollPositionOnPostback="true" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="theme-color" content="#3699ff"/>
+    <meta name="description" content="smartschool,smart,school,student,parent,learn" />
+    <title>ZLIOUS | SMART-SCHOOL</title>
+    <link href="~/fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" href="~/assets/plugins/material/material.min.css"/>
+    <%--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--%>
+
+    <link rel="stylesheet" href="~/assets/css/material_style.css"/>
+    <link rel="stylesheet" href="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.css" />
+    <link rel="stylesheet" href="~/assets/plugins/jquery-toast/dist/jquery.toast.min.css"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="http://www.w3cschool.cc/try/jeasyui/themes/icon.css"/>
+    <link href="~/AppContent/style.css" rel="stylesheet"/>
+
+    <%if (hdclutrueName.Value.Contains("ar")) { %>
+        <!--compiled and minified CSS-->
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-cSfiDrYfMj9eYCidq//oGXEkMc0vuTxHXizrMOFAaPsLt1zoCUVnSsURN+nef1lj" crossorigin="anonymous" />
+        <!-- compiled and minified theme CSS -->
+        <link rel="stylesheet"
+            href="https://cdn.rtlcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+            integrity="sha384-YNPmfeOM29goUYCxqyaDVPToebWWQrHk0e3QYEs7Ovg6r5hSRKr73uQ69DkzT1LH"
+            crossorigin="anonymous" />
+
+        <!-- compiled and minified JavaScript -->
+        <script src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"
+            crossorigin="anonymous"></script>
+
+        <link href="~/AppContent/rtl.css" rel="stylesheet" />
+    <%} %>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css"/>
+    <link rel="shortcut icon" href="~/AppContent/Images/favicon.png" />
+    <link href="~/Content/multi-select.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/plugins/summernote/summernote.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:HiddenField ID="hdclutrueName" runat="server" />
+        <asp:HiddenField ID="Hdqbgid" runat="server" />
+
+        <div class="shader">
+            <div class="overlay"></div>
+            <div class="spanner show">
+                <div class="loader show"></div>
+                <p>Loading ... </p>
+            </div>
+        </div>
+<%--        <button onclick="topFunction()" id="scroll-btn" title="Go to top">
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </button>--%>
+
+        <header class="header-container">
+            <section class="inner-row">
+                <div class="banner light-component">
+                    <div class="logo-holder">
+                        <a href="/" class="header-logo-anchor">
+                            <img src="/AppContent/Images/smartschoollogo.png" alt="smart school logo"/>
+                        </a>
+                    </div>
+
+                    <nav class="toolbar-nav">
+                        <ul>
+                            <li>
+                                <div href="javascript:void(0)" class="User-info">
+                                    <div class="Avatar">
+                                        <img id="userProfileImg" src="../../AppContent/Images/avatar.jpeg" alt="avatar"/>
+                                    </div>
+                                    <span><asp:Label ID="LblUName" runat="server"></asp:Label></span>
+                                    <div class="chveron-holder">
+                                        <img src="/AppContent/Images/chveron.png" alt="chveron"/>
+                                    </div>
+                                    <div class="Dropdwon-item-setting">
+                                        <ul>
+                                            <li>
+                                                <span>
+                                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                </span>
+                                                <a href="/Account/Logout"><%=Resources.Resource.Logout %></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="/Common/SwitchLanguage" class="anchor-lang">
+                                    <span>
+                                        <i class="fa fa-language" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </header>
+
+        <main class="body-container">
+            <div class="inner-row">
+
+                <div class="head-body-col">
+                    <span>
+                        <!-- back  icon-->
+                        <a href="quesbank.aspx" style="color: #fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                        <%--<a onclick="goBack()" style="color: #fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>--%>
+                    </span>
+                    <h2><%=Resources.Resource.AddNewQuestions %></h2>
+                </div>
+
+                <div class="light-component inner">
+                    <h5>
+                        <span class="text-info" style="text-decoration: underline;">
+                            <%=Resources.Resource.QuestionsFormTitle %>: <asp:Label ID="LblQuesFrmTit" runat="server" ForeColor="OrangeRed"></asp:Label>
+                        </span>
+                    </h5>
+
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label><%=Resources.Resource.QuestionType %></label>
+                                <asp:DropDownList ID="DrpQuestionType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DrpQuestionType_IndxChange" class="form-control select2"></asp:DropDownList>
+                            </div>
+                        </div>
+
+                        <div id="DivAnswerText" runat="server">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label"><%=Resources.Resource.AnswerText %></label>
+                                    <asp:TextBox ID="TxtAnswerText" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="DivMultiChoices" runat="server">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label"><%=Resources.Resource.NumberofChoices %></label>
+                                    <%--<asp:TextBox ID="TxtNumberofChoices" runat="server" class="form-control"></asp:TextBox>--%>
+                                    <asp:DropDownList ID="DrpNumberofChoices" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DrpNumberofChoices_IndxChange" class="form-control select2"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label"><%=Resources.Resource.TheCorrectAnswer %></label>
+                                    <asp:TextBox ID="TxtTheCorrectAnswer" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="DivTrueFalse" runat="server">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label><%=Resources.Resource.TheCorrectAnswer %></label>
+                                    <asp:DropDownList ID="DrpTrueFalse" runat="server" class="form-control select2"></asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="DivYesNo" runat="server">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label><%=Resources.Resource.TheCorrectAnswer %></label>
+                                    <asp:DropDownList ID="DrpYesNo" runat="server" class="form-control select2"></asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.QuestionGrade %></label>
+                                <asp:TextBox ID="TxtQuestionGrade" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" id="DivMultiChoicesAnswers" runat="server">
+                        <div class="col-md-2" id="DivMultiChoicesAnswer01" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberOne %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer01" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-2" id="DivMultiChoicesAnswer02" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberTwo %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer02" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-2" id="DivMultiChoicesAnswer03" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberThree %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer03" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-2" id="DivMultiChoicesAnswer04" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberFour %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer04" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-2" id="DivMultiChoicesAnswer05" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberFive %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer05" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-2" id="DivMultiChoicesAnswer06" runat="server">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.AnswerNumberSix %></label>
+                                <asp:TextBox ID="TxtMultiChoicesAnswer06" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" id="DivQuestionTime" runat="server">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.QuestionTimeInMinutes %></label>
+                                <asp:TextBox ID="TxtQuestionTime" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label"><%=Resources.Resource.QuestionText %></label>
+                                <asp:TextBox ID="TxtQuestionText" runat="server" TextMode="MultiLine" class="form-control summernote"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <hr />
+                        <div class="form-group">
+                            <asp:Button ID="BtnCancel" runat="server" Text="Cancel" OnClick="BtnCancel_Click" class="btn btn-danger" />
+                            <asp:Button ID="BtnAdd" runat="server" Text="Save" OnClick="BtnAdd_Click" class="btn btn-primary" />
+                            <asp:Button ID="BtnPickFromQuestionBank" runat="server" Text="PickFromQuestionBank" OnClick="BtnPickFromQuestionBank_Click" class="btn btn-warning" />
+                        </div>
+                    </div>
+                </div>
+
+<%--                <div class="light-component inner">
+                    <h5>
+                        <span class="text-info" style="text-decoration: underline;">
+                            <%=Resources.Resource.AddedQuestions %>
+                        </span>
+                    </h5>
+                    <div class="col-md-12">
+                        <table class="table" id="exportTable" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><%=Resources.Resource.QuestionsFormTitle %></th>
+                                    <th scope="col"><%=Resources.Resource.Description %></th>
+                                    <th scope="col"><%=Resources.Resource.QuestionType %></th>
+                                    <th scope="col"><%=Resources.Resource.QuestionText %></th>
+                                    <th scope="col"><%=Resources.Resource.QuestionGrade %></th>
+                                    <th scope="col"><%=Resources.Resource.Actions %></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <asp:Repeater ID="ReptFormsQuestionsList" runat="server">
+                                    <ItemTemplate>
+                                        <tr scope="row">
+                                            <td><%# Eval("QuestionsFormTitle") %></td>
+                                            <td><%# Eval("QuestionsFormDescription") %></td>
+                                            <td><%# Eval("QuestionTypeText") %></td>
+                                            <td><%# Eval("QuestionText") %></td>
+                                            <td><%# Eval("QuestionGrade") %></td>
+                                            <td>Actions</td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>--%>
+
+                <div class="light-component inner">
+                    <h5>
+                        <span class="text-info" style="text-decoration: underline;">
+                            <%=Resources.Resource.AddedQuestions %>
+                        </span>
+                    </h5>
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table" id="exportTable" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th><%=Resources.Resource.QuestionsFormTitle %></th>
+                                        <th><%=Resources.Resource.Description %></th>
+                                        <th><%=Resources.Resource.QuestionType %></th>
+                                        <th><%=Resources.Resource.QuestionText %></th>
+                                        <th><%=Resources.Resource.QuestionGrade %></th>
+                                        <%--<th><%=Resources.Resource.Actions %></th>--%>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:Repeater ID="ReptFormsQuestionsList" runat="server">
+                                        <ItemTemplate>
+                                            <tr scope="row">
+                                                <td><%# Eval("QuestionsFormTitle") %></td>
+                                                <td><%# Eval("QuestionsFormDescription") %></td>
+                                                <td><%# Eval("QuestionTypeText") %></td>
+                                                <td><%# Eval("QuestionText") %></td>
+                                                <td><%# Eval("QuestionGrade") %></td>
+                                                <%--<td>Actions</td>--%>
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-Contianer">
+            <section class="inner-row footer">
+                <div class="bg-pattern">
+                    <div class="shader"></div>
+                </div>
+                <p>
+                    Super-powered by Zlious Tech © 2016 - <%=DateTime.Now.Year.ToString() %>
+                </p>
+            </section>
+
+        </footer>
+        <!-- end footer -->
+        <!-- start js include path -->
+
+
+        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script type="text/javascript" src="http://www.w3cschool.cc/try/jeasyui/jquery.easyui.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+
+        <script src="../assets/plugins/summernote/summernote.js"></script>
+        <script src="../assets/js/pages/summernote/summernote-data.js"></script>
+
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+        <script src="../assets/plugins/jquery-toast/dist/toast.js"></script>
+        <script src="~/assets/plugins/material/material.min.js"></script>
+        <script src="~/assets/plugins/material-datetimepicker/moment-with-locales.min.js"></script>
+        <script src="~/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
+        <script src="~/assets/plugins/material-datetimepicker/datetimepicker.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js"></script>
+        <script src="~/Scripts/jquery.multi-select.js"></script>
+        <!-- summernote -->
+        <!-- end js include path -->
+        <%if (hdclutrueName.Value.Contains("en"))
+            {%>
+            <script src="../../Content/dtablesen.js"></script>
+        <%} %>
+        <%else
+        {%>
+            <script src="../../Content/dtables.js"></script>
+        <%} %>
+
+
+        <script>
+            $('.select2').select2();
+            var $loading = $('.shader').hide();
+
+            $(document).ajaxStart(function () {
+                $loading.show();
+            }).ajaxStop(function () {
+                $loading.hide();
+            });
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('.summernote').summernote();
+
+                $("#DrpQuestionType").on("change", function () {
+                    var selLang = document.getElementById('hdclutrueName').value;
+                    var msgTit = "الرجاء الانتظار";
+                    var msgBdy = "جاري معالجة المعلومات";
+                    if (selLang === "en") {
+                        msgTit = "Please wait";
+                        msgBdy = "The data is being processed";
+                    }
+
+                    swal({
+                        title: msgTit,
+                        text: msgBdy,
+                        timer: 600000,
+                        showConfirmButton: false
+                    });
+                });
+                
+                $("#DrpNumberofChoices").on("change", function () {
+                    var selLang = document.getElementById('hdclutrueName').value;
+                    var msgTit = "الرجاء الانتظار";
+                    var msgBdy = "جاري معالجة المعلومات";
+                    if (selLang === "en") {
+                        msgTit = "Please wait";
+                        msgBdy = "The data is being processed";
+                    }
+
+                    swal({
+                        title: msgTit,
+                        text: msgBdy,
+                        timer: 600000,
+                        showConfirmButton: false
+                    });
+                });
+
+                $("#BtnAdd").on("click", function () {
+                    var selLang = document.getElementById('hdclutrueName').value;
+                    var msgTit = "الرجاء الانتظار";
+                    var msgBdy = "جاري اضافة البيانات";
+                    if (selLang === "en") {
+                        msgTit = "Please wait";
+                        msgBdy = "The data is being added";
+                    }
+
+                    swal({
+                        title: msgTit,
+                        text: msgBdy,
+                        timer: 600000,
+                        showConfirmButton: false
+                    });
+                });
+            });
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script>
+        function Msg(title, msg, type) {
+            swal(title, msg, type);
+        }
+        </script>
+    </form>
+</body>
+</html>
+

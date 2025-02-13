@@ -1,0 +1,173 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+    }
+    else
+    {
+        pull = "pull-right";
+    }
+
+    <style>
+        .dashboardrp, .fullscreenbutton {
+            display: none !important;
+        }
+
+        .control-label {
+            font-weight: 600;
+        }
+
+        .labeltitle {
+            justify-content: center;
+            display: flex;
+            margin-top: 5px;
+        }
+        .inner-Container > .light-component.action > a {
+            width: 390px;
+        }
+
+        .light-component.inner {
+            padding: 20px;
+        }
+
+        .container::after{
+            display:none;
+        }
+    </style>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ElectronicRegistrationService")</h2>
+</div>
+
+
+<div class="inner-Container">
+
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-laptop" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Welcome") @Model.CompanyName @R.GetResource("inElectronicRegistrationService")
+            </h5>
+        </a>
+    </div>
+    <div class="light-component inner">
+        <div class="form-group">
+            <label class="control-label">@R.GetResource("Pleaseselectthenumberofschoolsyouwanttoregister")</label>
+            <input id="NumOfSchools" type="number" class="form-control" value="0" step="1">
+        </div>
+        <button style="margin-top:10px;" class="btn btn-info" onclick="BuildInputs()">@R.GetResource("Add")</button>
+        <div class="container setup-content" style="margin-top:20px;">
+            <form>
+                <div class="col-md-12">
+                    <div id="DivSchoolNames"></div>
+                </div>
+                <button id="AddSchools" type="button" class="btn btn-info" style="margin:0 auto; display:flex; display:none;">
+                    @R.GetResource("Save")
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $('body').on('click', '#remove', function () {
+
+
+            $(this).closest(".closelyDiv").remove();
+            if ($.trim($("#DivSchoolNames").html()).length == 0)
+            {
+                $("#AddSchools").css("display", "none");
+
+            }
+
+        });
+        $('body').on('click', '#AddSchools', function () {
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                debugger;
+                var numItems = $('.closelyDiv').length;
+                var SchoolsArray = [];
+                for (i = 1; i <= numItems; i++) {
+                    var SchoolName = $("#SchoolName" + i + "").val();
+                    SchoolsArray.push(SchoolName);
+                }
+                    $.ajax({
+                    type: "POST",
+                    url: "AddSchoolsToRegister",
+                    data: JSON.stringify(SchoolsArray),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3500,
+                                stack: 6
+                            });
+                                   window.setTimeout(function () {
+
+                            window.location.href = '@Url.Action("RegistrationStepTwo", "SchoolRegistration")';
+
+                        }, 3500);
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    traditional: true
+                });
+
+            }
+
+                    });
+
+    });
+    function BuildInputs() {
+        var NumOfSchools = $("#NumOfSchools").val();
+        var DivSchoolNames = $("#DivSchoolNames");
+        DivSchoolNames.html("");
+        var htmlscript = "";
+        for (i = 1; i <= NumOfSchools; i++) {
+            debugger;
+            htmlscript +='<div class="closelyDiv"><div class="row"><div class="col-md-2 labeltitle"><label class="control-label">اسم المدرسة</label></div>';
+            htmlscript += '<div class="col-md-6"><div class="form-group"><input type="text" class="form-control" id="SchoolName' + i + '"  required></div></div>';
+            htmlscript +='<img src="../../Images/remove.PNG" width="32" height="32" border="0" align="top" class="add" id="remove" /></div></div>';
+
+        }
+        if (htmlscript != "") {
+            DivSchoolNames.html(htmlscript);
+            $("#AddSchools").css("display", "block");
+        }
+    }
+
+</script>

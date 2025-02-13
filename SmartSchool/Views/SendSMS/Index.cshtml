@@ -1,0 +1,656 @@
+﻿@model  SmartSchool.Models.SMS.SmsViewModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<style>
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #ebeef3;
+        border: none;
+        border-radius: 10px;
+        display: inline-block;
+        margin-left: 5px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove,
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus,
+    .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+        background-color: #eb6177;
+        border: none;
+        border-radius: 10px;
+        border-right: none;
+        border-top-left-radius: none;
+        border-bottom-left-radius: none;
+        color: #ffff;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        padding: 0px 4px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .sorting_asc {
+        display: none;
+    }
+
+    .btn-primary {
+        background-image: none;
+    }
+
+        .btn-primary, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover,
+        .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover,
+        .btn-primary:focus, .btn-primary:hover {
+            color: #fff;
+            background-color: #3699ff;
+            border-color: #3699ff;
+            border: none;
+            outline: none;
+        }
+
+            .btn-primary:focus, .btn-primary:hover {
+                background-position: unset;
+            }
+
+            .btn-primary:hover {
+                color: #fff;
+                background-color: #3699ff;
+                border-color: #3699ff;
+            }
+
+    #Listrecipient {
+        height: auto;
+        max-height: 350px;
+        overflow: auto;
+    }
+
+    .Mail-holder {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+        .Mail-holder > button {
+            width: 100px;
+            margin: 0px 5px;
+            border-radius: 10px;
+            background-color: #3699ff;
+        }
+
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #d7c9c9 1px;
+    }
+
+    .select2-container--default.select2-container .select2-selection--multiple {
+        border-radius: 10px;
+        padding: 5px;
+    }
+    /* The holder-raido */
+    .holder-raido {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        /* Hide the browser's default checkbox */
+        .holder-raido input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border: solid 1px #ba9090;
+        border-radius: 5px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .holder-raido:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .holder-raido input:checked ~ .checkmark {
+        background-color: #3699ff;
+        border: none;
+        outline: none;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .holder-raido input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .holder-raido .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .item-holder {
+        width: 100%;
+        list-style: none;
+        padding: 10px 5px;
+    }
+
+        .item-holder > li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            border: solid 1px #ccc;
+            margin-bottom: 5px;
+            padding: 0px 10px;
+            transition: all ease 0.5s;
+            height: 80px;
+        }
+
+            .item-holder > li:hover {
+                transition: all ease 0.5s;
+                border: solid 1px #3699ff;
+                box-shadow: 1px 1px 5px 0 rgba(0,0,0,.26);
+            }
+
+            .item-holder > li > div > span {
+                padding: 7px;
+                letter-spacing: 2.5px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 15px;
+                box-shadow: 1px 1px 5px 0 rgba(0,0,0,.26);
+                background: #3699ff;
+                color: white;
+            }
+
+    item-holder > li:first-child {
+        background: #fff9f9;
+    }
+
+    .row.col {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btn-templpate {
+        background: transparent;
+        border: none;
+        background: #fcfcfc;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 7px #cacaca;
+    }
+</style>
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("SendSMS")</h2>
+</div>
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:200px">
+            <span>
+                <i class="fa fa-send" aria-hidden="true"></i>
+            </span>
+            <h4>
+                @R.GetResource("SendSms")
+            </h4>
+        </a>
+    </div>
+
+
+
+    <div class="light-component inner" id="Form-Mail">
+        <div class="Mail-holder">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">@R.GetResource("To")</button>
+            <select class="js-example-basic-multiple" name="recipient[]" multiple="multiple" id="recipientSelect"></select>
+        </div>
+        <div class="row col">
+            <div class="form-group">
+                <label class="control-label">@R.GetResource("Template")</label>
+                @Html.EditorFor(model => model.TemplateID, "SelectListRequired", new { List = Model.MailTemplateList, Disabled = false })
+
+            </div>
+        </div>
+        <div class="row col" style="display: flex;justify-content: flex-end; padding: 0px 10px;">
+
+            <button type="button" class="btn-templpate" data-toggle="modal" data-target="#ModalTemplate">
+                <i class="fa fa-plus" aria-hidden="true" style="color: blue;"></i>
+                @R.GetResource("AddTemplate")
+            </button>
+
+        </div>
+        <div class="row col">
+            <div class="form-group">
+                <label class="control-label">@R.GetResource("Body")</label>
+                <textarea class="form-control" id="TemplateBody" name="TemplateBody"></textarea>
+
+            </div>
+        </div>
+
+        <button class="btn btn-primary-custom forms" id="Send-Sms" style="padding:10px 20px;margin-bottom:20px" type="button">@R.GetResource("Send")</button>
+
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@R.GetResource("To")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Parent")</label>
+                            <select class="form-control select2" id="UserTypes">
+                                <option value="1" selected>@R.GetResource("Parent")</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Classes")</label>
+                            @Html.EditorFor(model => model.SchoolClassID, "SelectListWithAll", new { List = Model.SchoolClassList, Disabled = false})
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Sections")</label>
+                            <select name="sectionId" id="sectionId" class="form-control select2">
+                                <option value="0" selected>@R.GetResource("All")</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12" style="display: flex;justify-content: flex-end;">
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="btnFilterRec">@R.GetResource("Search")</button>
+
+                    </div>
+                </div>
+                <div class="row" id="Listrecipient">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="CloseModal">@R.GetResource("Close")</button>
+                <button class="btn btn-primary-custom" type="button" onclick="SetRecipient()">@R.GetResource("SaveAndcontinue")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Template -->
+<div class="modal" id="ModalTemplate" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@R.GetResource("Template")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>@R.GetResource("TemplateName(Ar)")</label>
+                            <input class="form-control" type="text" id="TemplateNameAr" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>@R.GetResource("TemplateName(En)")</label>
+                            <input class="form-control" type="text" id="TemplateNameEn" />
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>@R.GetResource("Body")</label>
+                            <textarea class="form-control" id="Template" name="Template"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="CloseModalTemplate">@R.GetResource("Close")</button>
+                <button class="btn btn-primary-custom" type="button" id="btnSaveTemplate">@R.GetResource("Save")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+
+<script>
+
+    $(function () {
+        var table;
+        var lang = '@ViewBag.CurrentLanguage';
+        $('.js-example-basic-multiple').select2();
+        var SchoolClassID = $('#SchoolClassID').val();
+        $('#SchoolClassID').on("change", function () {
+            debugger;
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { SchoolClassID: SchoolClassID };
+            AjaxCall('/Student/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0 || SchoolClassID == "0") {
+                    console.log(response);
+                    $('#sectionId').html('');
+                    var options = '';
+                    options += '<option value="0" selected>All</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        debugger;
+                        lang == "English" ? options += '<option value="' + response[i].ID + '">' + response[i].Description + '</option>' :
+                            options += '<option value="' + response[i].ID + '">' + response[i].DescriptionAR + '</option>';
+                    }
+                    $('#sectionId').append(options);
+                    $('#sectionId').removeAttr("disabled")
+                }
+                else if (response.length == 0 && SchoolClassID != "0") {
+                    debugger;
+                    $('#sectionId').empty();
+                    $('#sectionId').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $("#btnFilterRec").on("click", function () {
+            $("#Listrecipient").html("");
+            var SectionID = $("#sectionId").val();
+            if (SectionID == undefined) {
+                SectionID = 0;
+            }
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("Getrecipient")",
+                data: { ClassID: $("#SchoolClassID").val(), SectionID: SectionID },
+                dataType: "html",
+                success: function (response) {
+                    if (response != null) {
+                        $("#Listrecipient").html(response);
+                        BindCheckbox();
+                        BindDataTable(lang);
+                    }
+                }
+
+            })
+
+        });
+
+        $("#TemplateID").on("change", function () {
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetTemplate")",
+                data: { TemplateID: $("#TemplateID").val() },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.MailTemplates != null && response.Success) {
+                        console.log(response.MailTemplates.Template);
+
+                        CKEDITOR.instances['TemplateBody'].setData(response.MailTemplates.Template);
+                    }
+                }
+            })
+        });
+        $("#btnSaveTemplate").on("click", function () {
+            debugger;
+            var TemplateNameAr = $("#TemplateNameAr").val();
+            var TemplateNameEn = $("#TemplateNameEn").val()
+            var Template = CKEDITOR.instances['Template'].getData();
+            var DataObj = JSON.stringify({
+                'TemplateNameAr': TemplateNameAr,
+                'TemplateNameEn': TemplateNameEn,
+                'Template': Template
+            });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddMailTemplate")",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.Success) {
+                        var newOption = new Option(lang = "English" ? response.data.TemplateNameEn : response.data.TemplateNameAr, response.data.TemplateID, false, true);
+                        $('#TemplateID').append(newOption).trigger('change');
+                        $("#CloseModalTemplate").click();
+                      swal("@R.GetResource("successmessage")", "", "success");
+                    }
+                    else {
+                       swal("@R.GetResource("errorhasOccurred")", "", "error");
+                    }
+                }
+            })
+        });
+
+        $("#Send-Sms").on("click", function () {
+            debugger;
+            isValid = true;
+            var curInputs = $("#Form-Mail").find("input[type='text'],input[type='url'],input[type='number'],select");
+            $(".form-control").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).addClass("has-error");
+                }
+            }
+            if (isValid) {
+                var RecipientMobileNumbers = $(".js-example-basic-multiple").val();
+                var _CkBody = CKEDITOR.instances['TemplateBody'].getData()
+                var Body = _CkBody.replace(/(<([^>]+)>)/gi, "");
+                var DataObj = JSON.stringify({
+                    'Body': Body,
+                    'MobileNumbers': RecipientMobileNumbers,
+                    'TemplateName': $("#TemplateID option:selected").text()
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("SendSmsToParent")",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.Success) {
+                          swal("@R.GetResource("successmessage")", "", "success");
+                        }
+                        else {
+                            swal(response.Message, "", "error");
+                        }
+                    }
+
+                })
+           }
+            else {
+
+                swal(response.Message, "", "error");
+
+            }
+        });
+    });
+    function BindDataTable(lang) {
+
+        if (lang == "Arabic") {
+            table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                paging: false,
+                fixedHeader: true,
+                responsive: true,
+                'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "language": {
+                    "sEmptyTable": "ليست هناك بيانات متاحة في الجدول",
+                    "sLoadingRecords": "جارٍ التحميل...",
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "_MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": تفعيل لترتيب العمود تصاعدياً",
+                        "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+                    }
+                }
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+
+        }
+        else {
+            table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+
+
+
+        }
+
+    }
+
+    function BindCheckbox() {
+        // Header Master Checkbox Event
+        $("#masterCheck").on("click", function () {
+            debugger;
+            if ($("input:checkbox").prop("checked")) {
+                var rows = table.rows({ 'search': 'applied' }).nodes();
+                $('input[type="checkbox"]', rows).prop('checked', true);
+
+            } else {
+
+                var rows = table.rows({ 'search': 'applied' }).nodes();
+                $('input[type="checkbox"]', rows).prop('checked', false);
+            }
+        });
+
+        // Check event on each table row checkbox
+        $("input:checkbox[name='row-check']").on("change", function () {
+            var total_check_boxes = $("input:checkbox[name='row-check']").length;
+            var total_checked_boxes = $("input:checkbox[name='row-check']:checked").length;
+            console.log("total_checked_boxes::" + total_checked_boxes);
+            // If all checked manually then check master checkbox
+            if (total_check_boxes === total_checked_boxes) {
+                $("#masterCheck").prop("checked", true);
+            }
+            else {
+                $("#masterCheck").prop("checked", false);
+            }
+        });
+    }
+
+    function SetRecipient() {
+        //get all checked values
+        $("#SchoolClassID").val(0).trigger('change');
+        $("#Listrecipient").html("");
+        $('.js-example-basic-multiple').empty();
+
+        debugger;
+        var recipient;
+        var recipientArray = $(".js-example-basic-multiple").val();
+        var rows = table.rows({ 'search': 'applied' }).nodes();
+        var inputs = $("input:checkbox[name='row-check']:checked",rows);
+        inputs.each(function (i, v) {
+                recipient = {
+                    id: v.id,
+                    text: v.value
+                };
+                var newOption = new Option(recipient.text, recipient.id, false, true);
+                $('.js-example-basic-multiple').append(newOption).trigger('change');
+        });
+
+        $("#CloseModal").click();
+    }
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+    CKEDITOR.replace('TemplateBody');
+    CKEDITOR.replace('Template');
+    var lang = '@ViewBag.CurrentLanguage';
+
+    if (lang == "Arabic") {
+        debugger;
+        CKEDITOR.config.contentsLangDirection = 'rtl';
+    }
+
+</script>

@@ -1,0 +1,192 @@
+﻿@model SmartSchool.Models.Student.StudentModel
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+    }
+    else
+    {
+        pull = "pull-right";
+
+
+    }
+    <style>
+        .light-component.inner{
+            padding:20px;
+        }
+        form {
+            width:100%;
+        }
+    </style>
+}
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Students")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        @using (Html.BeginForm("PrepareSchoolStudents", "Student", FormMethod.Post, new { @class = "search-form" }))
+        {
+            @Html.HiddenFor(a => a.SectionID)
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>@R.GetResource("Class")</label>
+                        @Html.EditorFor(model => model.SchoolClassID, "SelectListRequired", new { List = Model.Classes, Disabled = false })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>@R.GetResource("Section")</label>
+                        <select name="sectionId" id="sectionId" class="form-control select2" required="required" Disabled="Disabled"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary-custom form" type="submit" id="Btnsearch" style="float:inline-end">@R.GetResource("Search")</button>
+            </div>
+        }
+
+
+
+
+        @if (Model.Students != null)
+        {
+            <table class="table" id="exportTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">@R.GetResource("StudentNumber")</th>
+                        <th scope="col">@R.GetResource("StudentName")</th>
+                        <th scope="col">@R.GetResource("Edit")</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Students)
+                    {
+                        <tr>
+                            @*<td class="patient-img"><img src=@imgSrc alt=""></td>*@
+                            <td>@item.StudentID</td>
+                            <td>@item.StudentArabicName</td>
+                            <td>
+                                <a href="@Url.Action("EditStudent","Student", new { StudentID=item.StudentID })"
+                                   class="padding">
+                                    <i class="fa fa-edit fa-s-15"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        var SchoolClassID = $('#SchoolClassID').val();
+        var SectionID = $('#SectionID').val();
+        var obj = { SchoolClassID: SchoolClassID };
+        AjaxCall('/Student/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#sectionId').html('');
+                var options = '';
+                if ('@CurrentLanguage' === 'English') {
+                    options += '<option value="0">Please Select</option>'
+                }
+                else {
+                    options += '<option value="0">الرجاء الإختيار</option>'
+                }
+                for (var i = 0; i < response.length; i++) {
+                    debugger;
+                    if (response[i].ID === parseInt(SectionID) && SectionID !== 0) {
+                        if ('@CurrentLanguage' === 'English') {
+                            options += '<option value="' + response[i].ID + '" selected>' + response[i].Description + '</option>';
+                        }
+                        else {
+                            options += '<option value="' + response[i].ID + '" selected>' + response[i].DescriptionAR + '</option>';
+                        }
+                    }
+                    else {
+                        if ('@CurrentLanguage' === 'English') {
+                            options += '<option value="' + response[i].ID + '">' + response[i].Description + '</option>';
+                        }
+                        else {
+                            options += '<option value="' + response[i].ID + '">' + response[i].DescriptionAR + '</option>';
+                        }
+                    }
+                }
+                $('#sectionId').append(options);
+                $('#sectionId').removeAttr("disabled")
+
+            }
+        }).fail(function (error) {
+        });
+        $('#sectionId').on('change', function () {
+            debugger;
+            $("#SectionID").val(this.value);
+        });
+        $('#SchoolClassID').on("change", function () {
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { SchoolClassID: SchoolClassID };
+            AjaxCall('/Student/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    console.log(response);
+                    $('#sectionId').html('');
+                    var options = '';
+                    if ('@CurrentLanguage' === 'English') {
+                        options += '<option value="0">Please Select</option>'
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الإختيار</option>'
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        if ('@CurrentLanguage' === 'English') {
+                            options += '<option value="' + response[i].ID + '">' + response[i].Description + '</option>';
+                        }
+                        else {
+                            options += '<option value="' + response[i].ID + '">' + response[i].DescriptionAR + '</option>';
+                        }
+                    }
+                    $('#sectionId').append(options);
+                    $('#sectionId').removeAttr("disabled")
+
+                }
+            }).fail(function (error) {
+            });
+        });
+    });
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+</script>

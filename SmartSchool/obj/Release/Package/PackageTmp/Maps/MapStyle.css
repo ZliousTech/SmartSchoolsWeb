@@ -1,0 +1,59 @@
+﻿html,
+body,
+#map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.search-panel {
+    direction: ltr;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    color: rgb(86, 86, 86);
+    font-family: Roboto, Arial, sans-serif;
+    user-select: none;
+    font-size: 11px;
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    min-width: 40px;
+    border-left: 0px;
+}
+
+.details-div .col-md-12 {
+    text-align: center;
+}
+
+#panel {
+    position: absolute;
+    top: 5px;
+    right: 1%;
+    margin-left: -180px;
+    z-index: 5;
+    background-color: #ffb052;
+    border: 1px solid #999;
+    color: #444;
+    font-family: Arial;
+}
+
+.hidden {
+    display: none
+}
+
+.w100 {
+    width: 100%;
+}
+
+.mt10 {
+    margin-top: 10px;
+}

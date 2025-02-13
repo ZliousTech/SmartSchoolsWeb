@@ -1,0 +1,134 @@
+﻿@model SmartSchool.Models.Settings.Curriculums
+@{
+    ViewBag.Title = "Add Curriculum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewCurriculum")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="EditSpcCurriculum" enctype="multipart/form-data" class="padding">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("CurriculumArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.CurriculumArabicName, new { @class = "form-control", Name = "CurriculumArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("CurriculumEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.CurriculumEnglishName, new { @class = "form-control", Name = "CurriculumEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label>@R.GetResource("Departments")</label>
+                            @Html.DropDownListFor(m => m.DepartmentID, Model.DepartmentTextName, @R.GetResource("SelectDepartment"), new { @class = "form-control  select2", Name = "Department", required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var Department = 0;
+
+        $("#DepartmentID").change(function () {
+            Department = $("#DepartmentID option:selected").val();
+        });
+
+        $(".btnsavedit").on("click", function () {
+            var isValid = true;
+            if ($('input[Name="CurriculumArabicName"]').length <= 0) { isValid = false; }
+            if ($('input[Name="CurriculumEnglishName"]').length <= 0) { isValid = false; }
+            if (Department == 0) { isValid = false; }
+
+            if (isValid) {
+                var formData = new FormData();
+                var CurriculumArabicName = $("#CurriculumArabicName").val();
+                var CurriculumEnglishName = $("#CurriculumEnglishName").val();
+
+                formData.append('CurriculumArabicName', CurriculumArabicName);
+                formData.append('CurriculumEnglishName', CurriculumEnglishName);
+                formData.append('Department', Department);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddNewCurriculum",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllCurriculums", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

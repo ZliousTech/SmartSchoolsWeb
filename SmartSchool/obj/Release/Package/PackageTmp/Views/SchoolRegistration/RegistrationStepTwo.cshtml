@@ -1,0 +1,271 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+@{
+
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+
+    }
+    else
+    {
+        pull = "pull-right";
+        modalpositon = "right";
+
+    }
+    <style>
+        .dashboardrp, .fullscreenbutton {
+            display: none !important;
+        }
+
+        .control-label {
+            font-weight: 600;
+        }
+
+        .labeltitle {
+            justify-content: center;
+            display: flex;
+            margin-top: 5px;
+        }
+
+        .label {
+            font-size: 13px;
+            text-shadow: none !important;
+            color: #fff;
+            font-family: Poppins,sans-serif;
+            font-weight: 700;
+            padding: 7px 16px;
+            background: #1ebdcc;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+            /*opacity:0 !important;*/
+        }
+    </style>
+
+}
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+@Html.HiddenFor(a => a.AllSchoolsRegistered)
+@Html.HiddenFor(a => a.OneSchoolsRegistered)
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-laptop" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ElectronicRegistrationService")</h2>
+</div>
+<div class="btn-group">
+    <button id="FinishRegister"
+            type="button" class=" btn btn-info">
+        @R.GetResource("Finishregistrationandgototheschoolaccount")
+    </button>
+
+</div>
+<div class="inner-Container">
+
+    <div class="light-component action">
+        <a href="javascript:void(0)" id="addRow" class="show-modal btn btn-info" data-toggle="modal" data-target="#myModal">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddSchool")
+            </h5>
+        </a>
+
+    </div>
+
+    <div class="light-component inner">
+
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">@R.GetResource("SchoolName")</th>
+                    <th scope="col">@R.GetResource("RegistrationStatus")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SchoolBranchList)
+                {
+                    var SchoolID = item.SchoolID;
+                    string RequestStatus = "";
+                    string lablinfo = "";
+                    string btnname = "";
+                    if (item.IsRegistered == false)
+                    {
+                        RequestStatus = CurrentLanguage == Languges.English ? "Not registered yet" : "لم يتم تسجيلها بعد";
+                        lablinfo = "label-warning";
+                        btnname = CurrentLanguage == Languges.English ? "Start Registration" : "بدء التسجيل";
+                    }
+                    else if (item.IsRegistered == true)
+                    {
+                        RequestStatus = CurrentLanguage == Languges.English ? "Registered" : "تم تسجيلها";
+                        lablinfo = "label-info";
+                        btnname = CurrentLanguage == Languges.English ? "Modify registration information" : "تعديل معلومات التسجيل";
+                    }
+
+                    <tr>
+
+                        @*<td>@item.StudentID</td>*@
+                        <td>@item.SchoolArabicName</td>
+                        <td><span class="label col-form-label-sm @lablinfo"> @RequestStatus </span></td>
+
+                        <td style="text-align:center;">
+                            <a class="btn btn-info" href="@Url.Action("SchoolRegistrationWizard","SchoolRegistration",new { SchoolID=item.SchoolID })">
+                                <i class="fa fa-id-card"></i> @btnname
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="setup-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6"><div class="form-group"><input type="text" class="form-control" id="SchoolName" placeholder="@R.GetResource("SchoolName")" required></div></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_end">
+                                <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                                <button type="button" id="saveSchool" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("Save")</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger;
+        $('body').on('click', '#FinishRegister', function () {
+            debugger;
+            //var AllSchoolsRegistered = $("#AllSchoolsRegistered").val();
+            var OneSchoolsRegistered = $("#OneSchoolsRegistered").val();
+            if (OneSchoolsRegistered == 'True') {
+                $.ajax({
+                    type: "GET",
+                    url: "FinishSchoolsRegistration",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تم إنهاء تسجيل المدارس بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 2000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+
+                                window.location.href = '@Url.Action("Login","Account")';
+
+                            }, 2000);
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    }
+
+                });
+
+            }
+            else {
+
+                $.toast({
+                    heading: 'الرجاء إستكمال تسجيل مدرسه واحده على الأقل !',
+
+                    text: '',
+                    position: 'top-center',
+                    loaderBg: '#ff6849',
+                    icon: 'error',
+                    hideAfter: 5000,
+                    stack: 6
+                });
+            }
+
+        });
+        $('body').on('click', '#saveSchool', function () {
+            debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+
+                    var SchoolName = $("#SchoolName").val();
+
+
+               $.ajax({
+                    type: "GET",
+                    url: "AddAdditionalSchoolToRegister",
+                    data: { 'SchoolName': SchoolName },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                                   window.setTimeout(function () {
+
+                                       location.reload();
+
+                        }, 3000);
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    }
+
+                });
+
+            }
+
+        });
+
+    });
+
+
+</script>
+

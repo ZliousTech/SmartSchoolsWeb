@@ -1,0 +1,376 @@
+﻿@model SmartSchool.Models.Settings.Exam
+@{
+    ViewBag.Title = "Add Exam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    input[type=checkbox], input[type=radio] {
+        float: inherit;
+        margin: 10px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddExam")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddExam" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(model => model.TeacherID, new { id = "HiddenTeacherID" })
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Semester")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SemesterID, Model.SemestersList, @R.GetResource("SelectSemester"), new { @class = "form-control  select2", id = "SemesterID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Classes")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassesList, @R.GetResource("SelectClass"), new { @class = "form-control  select2", id = "SchoolClassID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Sections")</label>
+                                <div class="form-control-wrapper">
+                                    <select name="SectionID" id="SectionID" class="form-control select2" Disabled="Disabled"></select>
+                                    @Html.HiddenFor(model => model.SectionID, new { id = "HiddenSectionID" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Subject")</label>
+                                <select name="SubjectID" id="SubjectID" class="form-control select2" Disabled="Disabled"></select>
+                                @Html.HiddenFor(model => model.SubjectID, new { id = "HiddenSubjectID" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ExamType")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.ExamTypeID, Model.ExamTypesList, @R.GetResource("SelectExamType"), new { @class = "form-control  select2", id = "ExamTypeID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Title")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.ExamTitleID, Model.ExamTitelsList, @R.GetResource("SelectExamTitle"), new { @class = "form-control select2", id = "ExamTitleID", required = "required", Disabled = "Disabled" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ExamDate")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.ExamDate, new { @class = "form-control", id = "ExamDate", required = "required", type = "date" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("TotalGrades")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.TotalGrades, new { @class = "form-control", id = "TotalGrades", required = "required", type = "number" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnAdd" style="padding:10px 20px;" type="button">@R.GetResource("Add")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section Scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/assets/js/pages/hubs/ExamHubConnection.js"></script>
+}
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+
+        $('#SubjectID').on('change', function () {
+            $("#HiddenSubjectID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#SemesterID').on('change', function () {
+            $("#SemesterID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#ExamTypeID').on('change', function () {
+            $("#ExamTypeID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            $("#SchoolClassID").val(this.value);
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { schoolClassID: SchoolClassID, staffID: '@Model.TeacherID' };
+            AjaxCall('/TeacherExam/GetTeacherSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SectionID').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SectionID').append(options);
+                    $('#SectionID').removeAttr("disabled");
+                }
+                else {
+                    $('#SectionID').empty();
+                    $('#SectionID').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections you teach on this Class',
+                        'info'
+                    );
+                }
+                $('#SubjectID').empty();
+                $('#SubjectID').attr("disabled", "disabled");
+            }).fail(function (error) {
+            });
+        });
+
+        $('#SectionID').on("change", function () {
+            $("#HiddenSectionID").val(this.value);
+            var SectionID = $('#HiddenSectionID').val();
+            var obj = { sectionID: SectionID, staffID: '@Model.TeacherID' };
+            AjaxCall('/TeacherExam/GetTeacherSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SubjectID').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SubjectID').append(options);
+                    $('#SubjectID').removeAttr("disabled");
+                }
+                else {
+                    $('#SubjectID').empty();
+                    $('#SubjectID').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Subjects you teach on this Section',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $("#btnAdd").on("click", function () {
+            debugger;
+            var isValid = true;
+            if ($("#SchoolClassID").val() == "") { isValid = false; }
+            if ($("#HiddenSectionID").val() == "") { isValid = false; }
+            if ($("#HiddenSubjectID").val() == "") { isValid = false; }
+            if ($("#SemesterID").val() == "") { isValid = false; }
+            if ($("#ExamTypeID").val() == "") { isValid = false; }
+            if ($("#ExamTitleID").val() == "") { isValid = false; }
+            if ($("#ExamDate").val() == "") { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var message = "";
+                var messageToPush = "";
+                var formData = new FormData();
+                var SchoolClassID = $("#SchoolClassID").val();
+                var SectionID = $("#HiddenSectionID").val();
+                var SubjectID = $("#SubjectID").val();
+                var SemesterID = $("#SemesterID").val();
+                var ExamTypeID = $("#ExamTypeID").val();
+                var ExamTitleID = $("#ExamTitleID").val();
+                var TotalGrades = $("#TotalGrades").val();
+                var IsCounted = false;
+                var TeacherID = '@Model.TeacherID';
+                var ExamDate = $("#ExamDate").val();
+
+                formData.append('SchoolClassID', SchoolClassID);
+                formData.append('SectionID', SectionID);
+                formData.append('SubjectID', SubjectID);
+                formData.append('SemesterID', SemesterID);
+                formData.append('ExamTypeID', ExamTypeID);
+                formData.append('ExamTitleID', ExamTitleID);
+                formData.append('TotalGrades', TotalGrades);
+                formData.append('IsCounted', IsCounted);
+                formData.append('TeacherID', TeacherID);
+                formData.append('ExamDate', ExamDate);
+
+                var obj = { staffID: TeacherID, schoolClassID: SchoolClassID, sectionID: SectionID, subjectID: SubjectID };
+                AjaxCall('/TeacherExam/GetDataForNotification', JSON.stringify(obj), 'POST').done(function (response) {
+                    if (response.Success) {
+                        var teacherArabicName = response.Informations[0].StaffArabicName;
+                        var teacherEnglishName = response.Informations[0].StaffEnglishName;
+                        var schoolClassArabicName = response.Informations[1].SchoolClassArabicName;
+                        var schoolClassEnglishName = response.Informations[1].SchoolClassEnglishName;
+                        var sectionArabicName = response.Informations[2].SectionArabicName;
+                        var sectionEnglishName = response.Informations[2].SectionEnglishName;
+                        var subjectArabicName = response.Informations[3].SubjectArabicName;
+                        var subjectEnglishName = response.Informations[3].SubjectEnglishName;
+                        message = currentLanguage == 1 ?
+                            "Mr / Mis " + teacherEnglishName + " Added new exam for " + schoolClassEnglishName +
+                            " " + sectionEnglishName + " for " + subjectEnglishName + " Subject" + " on " + ExamDate :
+                            "المعلم / المعلمة " + teacherArabicName + " أضاف إمتحان جديد على " + schoolClassArabicName +
+                            " " + sectionArabicName + " لمادة " + subjectArabicName + " للتاريخ " + ExamDate;
+                        messageToPush = "Mr / Mis " + teacherEnglishName + " Added new exam for " + schoolClassEnglishName +
+                            " " + sectionEnglishName + " for " + subjectEnglishName + " Subject" + " on " + ExamDate;
+                    }
+                }).fail(function (error) {
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "NewTeacherExam",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            var examGroup = "Exam group Section " + SectionID;
+                            joinToExamGroup(examGroup);
+                            sendExamNotification(examGroup, message);
+
+                            debugger;
+                            var notificationData = new FormData();
+                            notificationData.append('notificationText', messageToPush);
+                            notificationData.append('type', "Exam");
+                            notificationData.append('sectionId', SectionID);
+                            $.ajax({
+                                type: "POST",
+                                url: "AddPushNotification",
+                                data: notificationData,
+                                contentType: false,
+                                cache: false,
+                                processData: false,
+                                success: function (response) {
+                                    if (response.Success) {
+                                        $("#btnsave").attr("disabled", "disabled");
+                                        $.toast({
+                                            text: 'تمت عملية الحفظ بنجاح',
+                                            position: 'top-center',
+                                            loaderBg: '#ff6849',
+                                            icon: 'success',
+                                            hideAfter: 1000,
+                                            stack: 6
+                                        });
+                                    } else {
+                                        Swal.fire(
+                                            'Error',
+                                            response.Message,
+                                            'error'
+                                        );
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    Swal.fire(
+                                        'Error',
+                                        'An error occurred: ' + error,
+                                        'error'
+                                    );
+                                }
+                            });
+
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("PrepareTeacherExams", "TeacherExam", new {staffID = Model.TeacherID})';
+                            }, 1000);
+
+                        } else {
+                            Swal.fire(
+                                '@R.GetResource("Error")',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire(
+                    'Information',
+                    'Please Fill the required Data',
+                    'info'
+                );
+            }
+        });
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+</script>

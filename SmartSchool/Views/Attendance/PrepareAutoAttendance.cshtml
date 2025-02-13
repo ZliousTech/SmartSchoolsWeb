@@ -1,0 +1,190 @@
+﻿@model IEnumerable<SmartSchool.Models.Attendance.ReviewAutoAttendanceVM>
+@{
+    ViewBag.Title = "Automatic Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+
+    string presence = CurrentLanguage == Languges.English ? "True" : "حاضر";
+    string absence = CurrentLanguage == Languges.English ? "False" : "غائب";
+}
+
+<style>
+    .badge-light-success {
+        background-color: #dfffea;
+        color: #17c653;
+        padding: 0.25em 0.5em;
+        border-radius: 0.2rem;
+        font-size: 0.875em;
+        font-weight: 700;
+        display: inline-block;
+        line-height: 1;
+        text-align: center;
+        vertical-align: baseline;
+    }
+
+    .badge-light-danger {
+        background-color: #ffeef3;
+        color: #f8285a;
+        padding: 0.25em 0.5em;
+        border-radius: 0.2rem;
+        font-size: 0.875em;
+        font-weight: 700;
+        display: inline-block;
+        line-height: 1;
+        text-align: center;
+        vertical-align: baseline;
+    }
+
+    .required:after
+    {
+        content: "*";
+        position: relative;
+        font-size: inherit;
+        color: red;
+        padding-left: .25rem;
+        font-weight: 600;
+    }
+
+    .bd-callout-info {
+        border-left-color: #3699ff;
+    }
+
+    .bd-callout {
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        border: solid 1px #e6e7e8;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+        border-radius: 10px;
+        border-left-width: .50rem;
+        border-left-color: #3699ff;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+         @*back  icon*@
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ReviewAttendance")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+            </span>
+            <h5 style="margin: 16px 0 16px">
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+
+    <div class="light-component inner">
+        @using (Html.BeginForm("PrepareAutoAttendance", "Attendance", FormMethod.Post, new { @class = "search-form", style = "width: 100%;" }))
+        {
+            <div class="col-md-12" style="margin-top:10px">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="date" class="required">@R.GetResource("Date")</label>
+                        <input type="date" id="date" class="form-control" placeholder="dd/MM/yyyy" value="@ViewBag.Date">
+                    </div>
+                </div>
+            </div>
+        }
+
+        <table class="table" id="exportTable" style="width:100%">
+            <thead style="float:inherit;">
+                <tr>
+                    <th scope="col"> @R.GetResource("StudentName") </th>
+                    <th scope="col"> @R.GetResource("TimeIn")</th>
+                    <th scope="col"> @R.GetResource("TimeOut") </th>
+                    <th scope="col"> @R.GetResource("Presence") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var std in Model)
+                {
+                    <tr>
+                        <td>
+                            <span style="@(CurrentLanguage == Languges.Arabic? "margin-left:5px;" : "")">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3699ff" class="bi bi-person-vcard-fill" viewBox="0 0 20 20">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                                </svg>
+                            </span>
+                            @std.staffID
+                        </td>
+                        <td>
+                            <span style="@(CurrentLanguage == Languges.Arabic? "margin-left:5px;" : "")">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3699ff" class="bi bi-clock-history" viewBox="0 0 20 20">
+                                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z" />
+                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
+                                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </span>
+                            @std.timeIn
+                        </td>
+                        <td>
+                            <span style="@(CurrentLanguage == Languges.Arabic? "margin-left:5px;" : "")">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3699ff" class="bi bi-clock-history" viewBox="0 0 20 20">
+                                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z" />
+                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
+                                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </span>
+                            @std.timeOut
+                        </td>
+                        <td>
+                            <span class="@(std.isPresence == "true"? "badge-light-success" : "badge-light-danger")">
+                                @(std.isPresence == "true"? presence : absence)
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#date').on('change', function () {
+            var selectedDate = $(this).val();
+            var formattedDate = formatDate(selectedDate);
+            var url = '@Url.Action("PrepareAutoAttendance", "Attendance")' + '?date=' + formattedDate;
+            window.location.href = url;
+        });
+
+        function formatDate(date) {
+            var d = new Date(date);
+            var day = ('0' + d.getDate()).slice(-2);
+            var month = ('0' + (d.getMonth() + 1)).slice(-2);
+            var year = d.getFullYear();
+            return month + '-' + day + '-' + year;
+        }
+    });
+</script>

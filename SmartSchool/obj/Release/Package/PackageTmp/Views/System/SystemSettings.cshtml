@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "SystemSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+  
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("SystemSettings")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("SystemSchoolSettings","System")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("System_SchoolSettings")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/school-setting.jpg" />
+
+    </a>
+    <a href="@Url.Action("SystemSchoolBusSettings","System")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("System_SchoolBusSettings")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Bus3.jpg"/>
+    </a>
+    <a href="@Url.Action("SchoolSettings","System")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("SchoolSettings")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/edu-system.jpg" />
+    </a>
+
+</div>

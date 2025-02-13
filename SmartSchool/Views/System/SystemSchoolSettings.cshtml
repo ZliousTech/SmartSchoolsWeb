@@ -1,0 +1,352 @@
+﻿@model SmartSchool.Models.System.SystemSettingsModel
+
+@{
+    ViewBag.Title = "SystemSchoolSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<style>
+    .form-group{
+        padding:0px 10px;
+    }
+   
+</style>
+@Html.HiddenFor(m => m.SchoolID)
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>  @R.GetResource("SystemSettings")</h2>
+</div>
+
+<div class="inner-Container">
+
+
+    <div class="light-component inner">
+
+
+        <div class="inner-body-holder-forms">
+
+            <div class="form-group">
+                <div class="checkbox rtl checkbox-aqua">
+                    @Html.EditorFor(a => a.OptionalThirdName, "CheckBox", new { Value = Model.OptionalThirdName })
+                    <label for="OptionalThirdName">
+                        @R.GetResource("Allowtriplenames")
+                    </label>
+                </div>
+                <div class="checkbox rtl checkbox-aqua">
+                    @Html.EditorFor(a => a.OptionalFamilyDetails, "CheckBox", new { Value = Model.OptionalFamilyDetails })
+                    <label for="OptionalFamilyDetails">
+                        @R.GetResource("Familyinformationisoptional")
+                    </label>
+                </div>
+            </div>
+           
+            <div class="column-fixed">
+                <div class="form-group">
+
+                    <h4 class="htitles head">@R.GetResource("TimeTable")</h4>
+                    <hr />
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedtablemanual = "";
+                            var checkedtableauto = "";
+                            if (Model.TimetableType == -1)
+                            {
+                                checkedtablemanual = "checked";
+                            }
+                            if (Model.TimetableType == 0)
+                            {
+                                checkedtableauto = "checked";
+                            }
+                        }
+                        <div class="radio-aqua jc-fr">
+                            <input id="TimetableType0" name="TimeTable" value="-1" type="radio" @checkedtablemanual>
+                            <label for="TimetableType0">
+                                @R.GetResource("Preparingthescheduleofclassesmanually")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="TimetableType1" name="TimeTable" value="0" type="radio" @checkedtableauto>
+                            <label for="TimetableType1">
+                                @R.GetResource("Preparingthescheduleofclassesautomatically")
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedSubjectmanual = "";
+                            var checkedSubjectauto = "";
+                            if (Model.SubjectDistributionMethod == -1)
+                            {
+                                checkedSubjectmanual = "checked";
+                            }
+                            if (Model.SubjectDistributionMethod == 0)
+                            {
+                                checkedSubjectauto = "checked";
+                            }
+                        }
+                        <div class="radio-aqua jc-fr">
+                            <input id="SubjectDistributionMethod0" name="SubjectDistribution" value="-1" type="radio" @checkedSubjectmanual>
+                            <label for="SubjectDistributionMethod0">
+                                @R.GetResource("Distributionofmaterialstoteachersmanually")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="SubjectDistributionMethod1" name="SubjectDistribution" value="0" type="radio" @checkedSubjectauto>
+                            <label for="SubjectDistributionMethod1">
+                                @R.GetResource("Distributionofmaterialstoteachersautomatically")
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedSectionzero = "";
+                            var checkedSectionone = "";
+                            var checkedSectiontwo = "";
+
+                            if (Model.SubjectforClassorSection.Value == 0)
+                            {
+                                checkedSectionzero = "checked";
+                            }
+                            else if (Model.SubjectforClassorSection == 1)
+                            {
+                                checkedSectionone = "checked";
+
+                            }
+                            else if (Model.SubjectforClassorSection == 2)
+                            {
+                                checkedSectiontwo = "checked";
+
+                            }
+                        }
+
+                        <div class="radio-aqua jc-fr">
+                            <input id="SubjectforClassorSection0" name="SubjectforClassorSection" value="0" type="radio" @checkedSectionzero>
+                            <label for="SubjectforClassorSection0">
+                                @R.GetResource("Distributionofmaterialstotheclasses")
+
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="SubjectforClassorSection1" name="SubjectforClassorSection" value="1" type="radio" @checkedSectionone>
+                            <label for="SubjectforClassorSection1">
+                                @R.GetResource("Distributionofmaterialstothesections")
+
+
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="SubjectforClassorSection2" name="SubjectforClassorSection" value="2" type="radio" @checkedSectiontwo>
+                            <label for="SubjectforClassorSection2">
+                                @R.GetResource("Distributionofmaterialstotheclassesandsections")
+
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @{
+                        var multilangchecked = "";
+                        if (Model.OptionalArabicFields == 0 && Model.OptionalEnglishFields == 0)
+                        {
+                            multilangchecked = "checked";
+                        }
+                    }
+
+                    <h4 class="htitles head">@R.GetResource("Languagesetting")</h4>
+                    <hr />
+
+                    <div class="checkbox rtl checkbox-aqua">
+                        <input id="multilang" type="checkbox" @multilangchecked>
+                        <label for="multilang">
+                            @R.GetResource("Enteringtheinformationinbothlanguages")
+                        </label>
+                    </div>
+                    <div class="row-custom light-component">
+                        @{
+                            var arabicfieldchecked = "";
+                            var englishfieldchecked = "";
+                            if (Model.OptionalArabicFields == -1)
+                            {
+                                arabicfieldchecked = "checked";
+                            }
+                            if (Model.OptionalEnglishFields == -1)
+                            {
+                                englishfieldchecked = "checked";
+                            }
+
+                        }
+                        <div class="radio-aqua jc-fr">
+                            <input id="OptionalArabicFields" name="multilang" class="optionallang" value="@Model.OptionalArabicFields.Value" type="radio" @arabicfieldchecked>
+                            <label for="OptionalArabicFields">
+                                @R.GetResource("EnteringinformationinArabicisoptional")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="OptionalEnglishFields" class="optionallang" name="multilang" value="@Model.OptionalEnglishFields.Value" type="radio" @englishfieldchecked>
+                            <label for="OptionalEnglishFields">
+                                @R.GetResource("EnteringinformationinEnglishisoptional")
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <h4 class="htitles head">@R.GetResource("Currencyview")</h4>
+                    <hr />
+                    @{
+                        var CurrencyCheckedzero = "";
+                        var CurrencyCheckedone = "";
+                        var CurrencyCheckedtwo = "";
+
+                        if (Model.CurrencyOptions.Value == 0)
+                        {
+                            CurrencyCheckedzero = "checked";
+                        }
+                        else if (Model.CurrencyOptions == 1)
+                        {
+                            CurrencyCheckedone = "checked";
+
+                        }
+                        else if (Model.CurrencyOptions == 2)
+                        {
+                            CurrencyCheckedtwo = "checked";
+
+                        }
+                    }
+                    <div class="row-custom light-component">
+                        <div class="radio-aqua jc-fr">
+                            <input id="CurrencyOptions0" name="CurrencyOptions" value="0" type="radio" @CurrencyCheckedzero>
+                            <label for="CurrencyOptions0">
+                                @R.GetResource("Displaybyname")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="CurrencyOptions1" name="CurrencyOptions" value="1" type="radio" @CurrencyCheckedone>
+                            <label for="CurrencyOptions1">
+                                @R.GetResource("Symboldisplay")
+                            </label>
+                        </div>
+
+
+                        <div class="radio-aqua jc-fr">
+                            <input id="CurrencyOptions2" name="CurrencyOptions" value="2" type="radio" @CurrencyCheckedtwo>
+                            <label for="CurrencyOptions2">
+                                @R.GetResource("Viewbytag")
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="justify-center">
+                <button id="btnAddSystemSettingsPerSchool" class="btn btn-primary-custom forms">
+                    @R.GetResource("Save")
+                </button>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        //#####Remove Checked on optionals on click multilang####\\\\
+        $('input#multilang').on("click", function () {
+            debugger;
+            if ($(this).prop("checked") == true) {
+                $(".optionallang").prop('checked', false);
+
+            }
+
+        });
+        $('input.optionallang').on("click", function () {
+            if ($(this).prop("checked") == true) {
+                $("#multilang").prop('checked', false);
+            }
+
+        });
+        //######### Here Update System Settings Per School AJax Post###############\\
+        $("#btnAddSystemSettingsPerSchool").on("click", function () {
+            debugger;
+            var OptionalThirdName = 0;
+            var OptionalFamilyDetails = 0;
+            var OptionalArabicFields = 0;
+            var OptionalEnglishFields = 0;
+            var CurrencyOptions = $("input[name='CurrencyOptions']:checked").val();
+            var TimetableType = $("input[name='TimeTable']:checked").val();
+            var SubjectDistributionMethod = $("input[name='SubjectDistribution']:checked").val();
+            var SubjectforClassorSection = $("input[name='SubjectforClassorSection']:checked").val();
+            var SchoolID = $("#SchoolID").val();
+            if ($("#OptionalThirdName").prop("checked") == true) {
+                OptionalThirdName = -1;
+            }
+            if ($("#OptionalFamilyDetails").prop("checked") == true) {
+                OptionalFamilyDetails = -1;
+            }
+            if ($("#multilang").prop("checked") == true) {
+                OptionalArabicFields = 0;
+                OptionalEnglishFields = 0;
+            }
+            if ($("#OptionalArabicFields").prop("checked") == true) {
+                OptionalArabicFields = -1;
+            }
+            if ($("#OptionalEnglishFields").prop("checked") == true) {
+                OptionalEnglishFields = -1;
+            }
+            var dataObject = JSON.stringify({
+                'SchoolID': SchoolID,
+                'OptionalThirdName': OptionalThirdName,
+                'OptionalFamilyDetails': OptionalFamilyDetails,
+                'OptionalArabicFields': OptionalArabicFields,
+                'OptionalEnglishFields': OptionalEnglishFields,
+                'CurrencyOptions': CurrencyOptions,
+                'TimetableType': TimetableType,
+                'SubjectDistributionMethod': SubjectDistributionMethod,
+                'SubjectforClassorSection': SubjectforClassorSection,
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "UpdateSystemSettingsPerSchool",
+                data: dataObject,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        $.toast({
+                            text: 'تمت عملية الحفظ بنجاح',
+                            position: 'top-center',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    } else {
+                        alert("Something went wrong");
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Transportation")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("BusInfo","transportation")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("BusesSetting")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Bus3.jpg" />
+    </a>
+
+    <a href="@Url.Action("TourInfo","transportation")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("TourSetting")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Bus-tour.jpg" />
+    </a>
+
+    <a href="@Url.Action("ScheduledBusTrips","transportation")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("ScheduledBusTrips")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Map-search.jpg" style="object-fit:fill" />
+    </a>
+
+    @*<a href="@Url.Action("AddStudentToTour","transportation")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("AddStudentToTour")</h3>
+        </div>
+        <img src="~/AppContent/Images/AddStudent.png" style="object-fit:contain"/>
+    </a>*@
+
+</div>
+
+

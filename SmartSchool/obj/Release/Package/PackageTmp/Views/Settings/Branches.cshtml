@@ -1,0 +1,80 @@
+﻿@model List<SmartSchool.Models.Settings.BankBranchViewModel>
+@{
+    ViewBag.Title = "Bank Branches";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("BankBranches")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddNewBranch","Settings")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddNewBranch")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col" style="display:none">@R.GetResource("BranchCode")</th>
+                    <th scope="col"> @R.GetResource("BankName") </th>
+                    <th scope="col"> @R.GetResource("BranchArabicName") </th>
+                    <th scope="col"> @R.GetResource("BranchEnglishName") </th>
+                    <th scope="col"> @R.GetResource("BranchAddress") </th>
+                    <th scope="col"> @R.GetResource("BranchContactNumber") </th>
+                    <th scope="col"> @R.GetResource("CountryName") </th>
+                    <th scope="col"> @R.GetResource("Edit") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="display:none">@item.BranchCode</td>
+                        <td>@item.BankName</td>
+                        <td>@item.BranchArabicName</td>
+                        <td>@item.BranchEnglishName</td>
+                        <td>@item.BranchAddress</td>
+                        <td>@item.BranchContactNumber</td>
+                        <td>@item.CountryName</td>
+                        <td style="display:flex">
+                            <a href="@Url.Action("EditBranch","Settings", new { branchCode = item.BranchCode })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

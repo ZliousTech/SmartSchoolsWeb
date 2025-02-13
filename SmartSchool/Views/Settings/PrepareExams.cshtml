@@ -1,0 +1,312 @@
+﻿@model SmartSchool.Models.Settings.PrepareExam
+@{
+    ViewBag.Title = "HomeWork";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    input[type=checkbox], input[type=radio] {
+        float: inherit;
+        margin-right: 5px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("PrepareExam")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddExam","Settings")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddExam")
+            </h5>
+        </a>
+    </div>
+
+
+    <div class="light-component inner">
+        @using (Html.BeginForm("PrepareExams", "Settings", FormMethod.Post, new { @class = "search-form", style = "width: 100%;" }))
+        {
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("Semester")</label>
+                        @Html.DropDownListFor(m => m.SemesterID, Model.SemestersList, @R.GetResource("SelectSemester"), new { @class = "form-control  select2", id = "SemesterID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("Class")</label>
+                        @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassesList, @R.GetResource("SelectClass"), new { @class = "form-control  select2", id = "SchoolClassID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("Subject")</label>
+                        <select name="SubjectID" id="SubjectID" class="form-control select2" Disabled="Disabled"></select>
+                        @Html.HiddenFor(model => model.SubjectID, new { id = "HiddenSubjectID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("ExamType")</label>
+                        @Html.DropDownListFor(m => m.ExamTypeID, Model.ExamTypesList, @R.GetResource("SelectExamType"), new { @class = "form-control  select2", id = "ExamTypeID" })
+                    </div>
+                </div>
+            </div>
+
+            <button style="margin: 0px 15px 0px 15px; display:none;" class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+        }
+
+
+        @if (Model != null)
+        {
+            <table class="table" id="exportTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col" style="display: none"> @R.GetResource("ID") </th>
+                        <th scope="col"> @R.GetResource("Title") </th>
+                        @{
+                            if (Model.SchoolClassID == null || Model.SchoolClassID == 0)
+                            {
+                                <th scope="col"> @R.GetResource("ClassName") </th>
+                            }
+                            if (Model.SubjectID == null || Model.SubjectID == 0)
+                            {
+                                <th scope="col"> @R.GetResource("SubjectName") </th>
+                            }
+                            if (Model.SemesterID == null || Model.SemesterID == 0)
+                            {
+                                <th scope="col"> @R.GetResource("Semester")</th>
+                            }
+                            if (Model.ExamTypeID == null || Model.ExamTypeID == 0)
+                            {
+                                <th scope="col"> @R.GetResource("Type")</th>
+                            }
+                        }
+                        <th scope="col"> @R.GetResource("TotalGrades") </th>
+                        <th scope="col"> @R.GetResource("Edit") </th>
+                        <th scope="col"> @R.GetResource("Delete") </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Exams)
+                    {
+                        <tr name="table-tr" class="table-tr" id="@item.ID">
+                            <td style="display: none">@item.ID</td>
+                            <td> <label class="Driver-label">@item.ExamTitleName</label></td>
+                            @{
+                                if (Model.SchoolClassID == null || Model.SchoolClassID == 0)
+                                {
+                                    <td scope="col"> @item.SchoolClassName </td>
+                                }
+                                if (Model.SubjectID == null || Model.SubjectID == 0)
+                                {
+                                    <td scope="col"> <span><i class="fa fa-book fa-s-15" style="margin: 0px 5px;"></i></span> @item.SubjectName </td>
+                                }
+                                if (Model.SemesterID == null || Model.SemesterID == 0)
+                                {
+                                    <td scope="col">@item.SemesterName</td>
+                                }
+                                if (Model.ExamTypeID == null || Model.ExamTypeID == 0)
+                                {
+                                    <td scope="col"> @item.ExamTypeName</td>
+                                }
+                            }
+                            <td scope="col"> @item.TotalGrades</td>
+                            <td>
+                                <a href="@Url.Action("EditExam","Settings", new {ID = item.ID})" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                            </td>
+                            <td>
+                                <a class="padding" style="cursor: pointer;" onclick="deleteExam(@item.ID)"><i class="fa fa-trash fa-s-15"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    debugger
+
+    $(function () {
+        debugger;
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+
+        var SchoolClassID = $('#SchoolClassID').val();
+        var obj = { schoolClassID: SchoolClassID };
+
+        AjaxCall('/Settings/GetSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#SubjectID').html('');
+                var options = '';
+                if (currentLanguage == 1) {
+                    options += '<option value="0">Please select</option>';
+                }
+                else {
+                    options += '<option value="0">الرجاء الأختيار</option>';
+                }
+                for (var i = 0; i < response.length; i++) {
+                    options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                }
+                $('#SubjectID').append(options);
+                $('#SubjectID').removeAttr("disabled");
+                $('#Btnsearch').removeAttr("disabled");
+                $('#SubjectID').val("@Model.SubjectID");
+            }
+            else {
+                $('#exportTable tbody').find("tr").remove();
+                $('#SubjectID').empty();
+                $('#SubjectID').attr("disabled", "disabled");
+                $('#Btnsearch').attr("disabled", "disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Subjects on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        $('#SubjectID').on('change', function () {
+            $("#HiddenSubjectID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#SemesterID').on('change', function () {
+            $("#SemesterID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#ExamTypeID').on('change', function () {
+            $("#ExamTypeID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            $("#SchoolClassID").val(this.value);
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { schoolClassID: SchoolClassID };
+            AjaxCall('/Settings/GetSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SubjectID').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SubjectID').append(options);
+                    $('#SubjectID').removeAttr("disabled");
+                    $('#Btnsearch').removeAttr("disabled");
+                }
+                else {
+                    $('#exportTable tbody').find("tr").remove();
+                    $('#SubjectID').empty();
+                    $('#SubjectID').attr("disabled", "disabled");
+                    $('#Btnsearch').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Subjects on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+
+            $("#Btnsearch").click();
+        });
+    });
+
+    function deleteExam(ID) {
+        Swal.fire({
+            title: '@R.GetResource("Areyousure")?',
+            text: '@R.GetResource("Oncedeleted")!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: '@R.GetResource("OK")',
+            cancelButtonText: '@R.GetResource("Cancel")',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: "DeleteExam?ID=" + ID,
+                    success: function (response) {
+                        if (response.Success) {
+                            $.toast({
+                                text: 'تمت عملية الحذف بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            $("#" + ID).remove();
+                        } else {
+                            Swal.fire(
+                                '@R.GetResource("Error")',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+</script>

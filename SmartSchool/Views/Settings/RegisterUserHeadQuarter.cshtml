@@ -1,0 +1,129 @@
+﻿@model SmartSchool.Models.Settings.HeadQuarterRegisterModel
+
+@{
+
+    ViewBag.Title = "AllHeadquarters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string modalpositon = "";
+    string buttonpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        modalpositon = "left";
+    }
+    else
+    {
+        modalpositon = "right";
+
+    }
+}
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("SetUserheadquarter")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <div class="row">
+                    @if (CurrentLanguage == Languges.English)
+                    {<h3>@Model.CompanyEnglishName</h3>}
+                else
+                {<h3>@Model.CompanyArabicName</h3>}
+
+                    <hr />
+
+                </div>
+
+                <form id="editemployeedata" class="formtabs" enctype="multipart/form-data">
+                    @Html.HiddenFor(model => model.CompanyID)
+
+
+                    <div class="form-group">
+                        <label>@R.GetResource("Username")<span class="required" style="color:red;"> * </span></label>
+
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", required = "required" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>@R.GetResource("Password")</label>
+
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required" })
+                    </div>
+                    <div class="form-group">
+                        <label>@R.GetResource("Confirm")</label>
+                        @Html.PasswordFor(m => m.Confirm, new { @class = "form-control", required = "required" })
+                    </div>
+
+                    <button class="btnsaveuser btn btn-primary-custom" type="button" style="padding:8px 30px">@R.GetResource("Save")</button>
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(".btnsaveuser").on("click", function () {
+            debugger;
+
+            if ($("#UserName").val() == '' || $("#Password").val() == '' || $("#Confirm").val() == '') {
+                //alert("Please fill out the information");
+                return;
+            }
+
+            if ($("#Password").val() === $("#Confirm").val()) {
+                var formData = new FormData();
+                var CompanyID = $("#CompanyID").val();
+                var UserName = $("#UserName").val();
+                var Password = $("#Password").val();
+                var ConfirmPassword = $("#Confirm").val();
+
+                formData.append('CompanyID', CompanyID);
+                formData.append('UserName', UserName);
+                formData.append('Password', Password);
+                formData.append('Confirm', ConfirmPassword);
+
+                $.ajax({
+                    type: "POST",
+                    url: "RegisterUserHeadQuarter",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("ViewHeadQuarters", "Settings")';
+                            }, 3000);
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

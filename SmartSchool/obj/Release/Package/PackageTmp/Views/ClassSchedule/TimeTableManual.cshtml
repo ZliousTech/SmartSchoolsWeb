@@ -1,0 +1,68 @@
+﻿@model SmartSchool.Models.ClassSchedule.ManualScheduleModel
+@{
+
+    Layout = null;
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+    <style>
+    </style>
+}
+
+
+<div class="right">
+    <table class="calendar table table-bordered" style="border-radius:20px">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                @foreach (var Day in Model.WeekDaysList)
+                {
+                    <th width="20%">@(CurrentLanguage == Languges.English ? Day.Description : Day.DescriptionAR)</th>
+                }
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var Sessions in Model.SessionsPerDayWithStartTimeList)
+            {
+                var TeacherTimeTable = new Objects.DTO.ClassTimeTableDTO();
+
+                <tr>
+                    <td class="text-center">@(CurrentLanguage == Languges.English ? Sessions.Description : Sessions.DescriptionAR)</td>
+
+                    @foreach (var Day in Model.WeekDaysList)
+                    {
+                        //Day.ID - 1 to be compatible with weekday in stored proceder "201510060046"
+                        TeacherTimeTable = BaseController.GetClassManualTimetable(Model.SchoolClassID, Model.SectionID, Day.ID - 1, Sessions.ID, Model.SchoolID);
+
+                        if (TeacherTimeTable != null)
+                        {
+                            var HexColor = context.TimetableItems.Where(a => a.SubjectID == TeacherTimeTable.SubjectID).Select(a => a.ItemRGBColor).FirstOrDefault();
+                            <td id="@Day.ID$@Sessions.ID" class="has-events" rowspan="1">
+
+                                <div class="row-fluid practice"
+                                     style="width: 99%; height: 100%;display:flex;justify-content:center;align-items:center;flex-direction:column;background-color:@HexColor">
+                                    <span id="@TeacherTimeTable.TeacherID$@TeacherTimeTable.SubjectID$@Day.ID$@Sessions.ID" class="closebtn" onclick="RemoveSession(this)"><i class="fa fa-trash fa-s-13" style="color: white;"></i></span>
+                                    <span class="title">
+                                        @(CurrentLanguage == Languges.English ? TeacherTimeTable.StaffEnglishName : TeacherTimeTable.StaffArabicName)
+                                    </span> <span class="lecturer">
+                                        <a>
+                                            @(CurrentLanguage == Languges.English ? TeacherTimeTable.SubjectEnglishName : TeacherTimeTable.SubjectArabicName)
+
+                                        </a>
+                                    </span>
+                                    @*<span class="location">
+                                        @TeacherTimeTable.SectionCode
+                                    </span>*@
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td id="@Day.ID$@Sessions.ID" class="drop" rowspan="1"></td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

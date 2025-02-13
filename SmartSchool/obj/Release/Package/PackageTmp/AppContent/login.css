@@ -1,0 +1,128 @@
+
+.banner {
+   justify-content: flex-end;
+   margin-bottom: 85px;
+}
+.light-component.cover{
+   width: 35%;
+   min-height: 400px;
+   height: 400px;
+   overflow: hidden;
+   
+}
+.login-container{
+   width: 20%;
+   height: auto;
+   min-height: 400px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.inner-row.form{
+   display: flex;
+   justify-content: space-between;
+   max-height: 200px;
+}
+.inner-row.form > .light-component{
+   position: relative;
+   overflow: hidden;
+
+}
+form{
+   padding: 50px;
+   max-width: 600px;
+}
+
+.light-component.cover > img {
+    width: 100%;
+    height: 100%;
+}
+.body-container{
+   min-height: 500px;
+}
+.inner-row.footer{
+   margin: 0px;
+}
+.light-component{
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px !important;
+}
+.footer-Contianer{
+   min-height: 100px;
+}
+
+.Portal-Widget{
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+
+}
+.Portal-Widget > .image-holder{
+   position: absolute;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column-reverse;
+}
+.Portal-Widget > .image-holder > img{
+   width: 150px;
+   height: auto;
+}
+.Portal-Widget > .image-holder  > h2 {
+   padding: 10px;
+   text-align:center;
+}
+    .Portal-Widget > .image-holder > h2 > span {
+        color: #3699ff;
+        margin: 0px 5px
+    }
+#parent-Login{
+   display: none;
+}
+#Employee-Login{
+   display: none;
+}
+#Student-Login {
+    display: none;
+}
+/*responsive*/
+@media only screen and (max-width:991px) {
+    .inner-row.form{
+      flex-wrap: wrap;
+   }
+   .login-container{
+      width: 49%;
+   }
+   .light-component.cover{
+      width: 100%;
+      margin-top: 10px;
+   }
+   .inner-row.form{
+      max-height: 100%;
+   }
+   .banner{
+      margin: 0px;
+   }
+}
+
+
+
+@media only screen and (max-width:575px) {
+  
+}
+
+@media only screen and (max-width:420px) {
+   .header-container > .inner-row > .banner{
+      flex-direction: row ;
+   }
+   .login-container{
+      width: 100%;
+   }
+   
+}

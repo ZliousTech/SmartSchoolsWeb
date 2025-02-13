@@ -1,0 +1,30 @@
+﻿@model List<SmartSchool.Models.Teacher.TeacherSubjects>
+
+@{
+    Layout = null;
+}
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table" id="exportTable" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col"> @R.GetResource("Subjects") </th>
+                <th scope="col"> @R.GetResource("Class") </th>
+                @*<th scope="col">@R.GetResource("Sections")</th>*@
+                <th scope="col">@R.GetResource("NumberofSessins")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr scope="row">
+                    <td>@item.SubjectName</td>
+                    <td>@item.SchoolClassName</td>
+                    @*<td>@item.SectionCode</td>*@
+                    <td>@item.NumberOfSessionsPerWeek</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

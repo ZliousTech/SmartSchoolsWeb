@@ -1,0 +1,91 @@
+﻿
+   
+body {
+    
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.head-body-col > span {
+    margin-right: 0px;
+    margin-left: 5px;
+}
+.inner-row {
+    direction:rtl;
+    text-align:right;
+}
+.overlay-head {
+    left: auto;
+    right: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 0px;
+}
+.anchor-lang, .toolbar-nav > ul > li > div > .Avatar,
+.inner-Container > .light-component.action > a > span, .radio-aqua > input {
+    margin-left: 5px !important;
+    margin-right: 0px;
+}
+.light-component.widget > div > ul{
+    padding:0px;
+}
+.fa-arrow-left {
+    transform: rotate(180deg);
+}
+.checkbox label {
+    padding-right: 20px;
+    padding-left: 0px;
+}
+.row-reverse {
+    flex-direction: row-reverse;
+}
+.text-holder li::before {
+    margin-right: -1em;
+    margin-left: 0px;
+}
+.Portal-Widget > .image-holder > h2 > span{
+    float:left;
+}
+.header-logo-anchor {
+    margin-right:10px;
+}
+/*date*/
+.dtp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction:ltr;
+}
+.dtp > .dtp-content{
+    left:0 !important;
+    margin:0px !important;
+    top:0 !important;
+}
+.alertmax {
+    bottom: 0;
+    border-left: unset !important;
+    border-right: dashed #f8c4c4 !important;
+    right: auto;
+    border-top-right-radius: 30px;
+    left: 0;
+}
+.iw-holder {
+    transform: skewX(-42deg);
+}
+.icon-h {
+    transform: translate(-10px, 15px);
+}
+.container.left {
+    margin: 0px;
+    padding: 10px 40px;
+    width:100%;
+}
+.left::before {
+    right: 31px;
+    left:unset;
+    transform: none !important;
+}
+.container::after {
+    right: 0;
+    left:unset;
+    
+}

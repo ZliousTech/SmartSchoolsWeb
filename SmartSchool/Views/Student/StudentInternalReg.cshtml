@@ -1,0 +1,1185 @@
+﻿@model SmartSchool.Models.Student.StudentInternalRegModel
+@{
+    ViewBag.Title = "RegisterEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string buttonpull = "";
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        buttonpull = "pull-right";
+        modalpositon = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        buttonpull = "pull-left";
+        modalpositon = "right";
+
+    }
+
+    @*<link href="~/Content/Wizard/WizardStyle.css" rel="stylesheet" />*@
+}
+
+<style>
+    #mapnw {
+        background-color: transparent;
+        position: relative;
+        /*position: fixed;*/
+        top: 10px;
+        margin-left: 5%;
+        /*left: 0px;*/
+        /*padding-left:250px;*/
+        z-index: 5;
+        padding: 0px;
+        text-align: center;
+        width: 600px;
+        height: 400px;
+    }
+</style>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>نظام التسجيل الداخلي للطلاب</h2>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+@Html.Hidden("HD_GSState", "0")
+@Html.Hidden("HD_Gid", "0")
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="containers" style="margin-top:20px;width:100%">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box" style="background-color:white;">
+                        <div class="card-body" style="background-color:white;">
+                            <div class="mdl-tabs mdl-js-tabs">
+
+                                <div class="mdl-tabs__tab-bar">
+                                    <a href="#tab1-panel" class="mdl-tabs__tab is-active">ولي الأمر</a>
+                                    <a href="#tab2-panel" class="mdl-tabs__tab">معلومات الوالدين</a>
+                                    <a href="#tab3-panel" class="mdl-tabs__tab">معلومات الطالب</a>
+                                    <a href="#tab4-panel" class="mdl-tabs__tab">المعلومات المدرسية</a>
+                                    <a href="#tab5-panel" class="mdl-tabs__tab">العنوان</a>
+                                    <a href="#tab6-panel" class="mdl-tabs__tab">المعلومات الاجتماعية</a>
+                                    <a href="#tab7-panel" class="mdl-tabs__tab">المعلومات الصحية</a>
+                                    <a href="#tab8-panel" class="mdl-tabs__tab">الرسوم</a>
+                                </div>
+
+                                @*Tab ولي الأمر*@
+                                <div class="mdl-tabs__panel is-active p-t-20" id="tab1-panel">
+                                    @*Guardians TABs*@
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="borderBox light bordered card-box">
+                                                <div class="borderBox-title tabbable-line">
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="nav-item">
+                                                            <a href="#borderBox_tab1" data-toggle="tab" class="active">معلومات أولياء الأمر</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#borderBox_tab2" data-toggle="tab">العنوان</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="#borderBox_tab3" data-toggle="tab">بطاقة الائتمان</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="borderBox-body">
+                                                    <div class="tab-content">
+                                                        <br />
+                                                        @*Tab معلومات ولي الأمر*@
+                                                        <div class="tab-pane active" id="borderBox_tab1">
+                                                            <div class="col-xs-10">
+                                                                <div class="col-md-10">
+                                                                    @*<h4 class="htitles">ممعلومات ولي الأمر</h4>*@
+                                                                    <div class="row">
+                                                                        <div class="col-md-2 labeltitle">
+                                                                            <label></label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الرقم الوطني</label>
+                                                                                @Html.TextBoxFor(m => m.NationalNumber_Grdn, new { @class = "form-control", Name = "number", required = "required", value = (Model.NationalNumber_Grdn == null) ? "" : Model.NationalNumber_Grdn.ToString() })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">رقم الاقامة</label>
+                                                                                @Html.TextBoxFor(m => m.ResidencyNumber_Grdn, new { @class = "form-control", Name = "number", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">رقم جواز السفر</label>
+                                                                                @Html.TextBoxFor(m => m.PassportNo_Grdn, new { @class = "form-control", Name = "number", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <button class="btn btn-success form" type="button" id="BtnSearch_Grnd">بحث عن ولي الأمر</button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-10">
+                                                                                <div class="form-group">
+                                                                                    @*<label id="LblMsg" style="color:orangered;"></label>*@
+                                                                                    <div class="text-center p-t-30">
+                                                                                        <span id="LblMsg" class="label label-center label-danger" style="font-size:medium;"></span>
+                                                                                        <span id="LblNote" class="label label-center label-success" style="font-size:medium;"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="row">
+                                                                        <div class="col-md-2 labeltitle">
+                                                                            <label>باللغة العربية</label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الإسم الأول</label>
+                                                                                @Html.TextBoxFor(m => m.FirstArabicName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">اسم الأب</label>
+                                                                                @Html.TextBoxFor(m => m.SecondArabicName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">اسم الجد</label>
+                                                                                @Html.TextBoxFor(m => m.ThirdArabicName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">العائلة</label>
+                                                                                @Html.TextBoxFor(m => m.FourthArabicName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-2 labeltitle">
+                                                                            <label>باللغة الانجليزية</label>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                @*<label class="control-label">الإسم الأول</label>*@
+                                                                                @Html.TextBoxFor(m => m.FirstEnglishName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                @*<label class="control-label">اسم الأب</label>*@
+                                                                                @Html.TextBoxFor(m => m.SecondEnglishName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                @*<label class="control-label">اسم الجد</label>*@
+                                                                                @Html.TextBoxFor(m => m.ThirdEnglishName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                @*<label class="control-label">العائلة</label>*@
+                                                                                @Html.TextBoxFor(m => m.FourthEnglishName_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <label>الجنسية</label>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                @Html.EditorFor(model => model.Nationality_Grdn, "SelectListRequired", new { List = Model.NationalityList, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <label>الجنس</label>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">@R.GetResource("Male")</label>
+                                                                                @Html.RadioButtonFor(model => model.Gender_Grdn_M, "gender", new { Value = 0, @checked = true })
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">@R.GetResource("Female")</label>
+                                                                                @Html.RadioButtonFor(model => model.Gender_Grdn_F, "gender", new { Value = 1 })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <label>الديانة</label>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                @Html.EditorFor(model => model.Religion_Grdn, "SelectListRequired", new { List = Model.ReligionList, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <label>طريقة الدفع</label>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                @Html.EditorFor(model => model.PaymentMethod_Grdn, "SelectListRequired", new { List = Model.PaymentMethodList, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        @*Tab العنوان*@
+                                                        <div class="tab-pane" id="borderBox_tab2">
+                                                            <div class="col-xs-10">
+                                                                <div class="col-md-10">
+                                                                    <div class="row">
+                                                                        @*<button class="btn btn-success form" type="button" id="BtnNewAdd_Grnd">جديد</button>*@
+                                                                        <button class="btn btn-success form" type="button" id="BtnAddGPS_Grnd">اضافة احداثيات باستخدام الخرائط</button>
+                                                                        @*<button class="btn btn-success form" type="button" id="BtnAddToList_Grnd">اضافة الى القائمة</button>*@
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الدولة</label>
+                                                                                @Html.EditorFor(model => model.Country_Grdn, "SelectListRequired", new { List = Model.Countries, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">المدينة</label>
+                                                                                @Html.TextBoxFor(m => m.City_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الشارع</label>
+                                                                                @Html.TextBoxFor(m => m.Street_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">المبنى</label>
+                                                                                @Html.TextBoxFor(m => m.Building_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الشقة</label>
+                                                                                @Html.TextBoxFor(m => m.Floor_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">خط طول</label>
+                                                                                @Html.TextBoxFor(m => m.Longitude_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">خط عرض</label>
+                                                                                @Html.TextBoxFor(m => m.Latitude_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">رقم الجوال</label>
+                                                                                @Html.TextBoxFor(m => m.MobNo_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">البريد الالكتروني</label>
+                                                                                @Html.TextBoxFor(m => m.EMail_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        @*Tab بطاقة الائتمان*@
+                                                        <div class="tab-pane" id="borderBox_tab3">
+                                                            <div class="col-xs-10">
+                                                                <div class="col-md-10">
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">نوع بطاقة الائتمان</label>
+                                                                                @Html.EditorFor(model => model.CreditCardType_Grdn, "SelectListRequired", new { List = Model.CreditCardTypeList, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">رقم بطاقة الإئتمان</label>
+                                                                                @Html.TextBoxFor(m => m.CreditCardNo_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">الإسم على البطاقة</label>
+                                                                                @Html.TextBoxFor(m => m.NameOnCreditCard_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">ناريخ الإنتهاء</label>
+                                                                                @Html.EditorFor(model => model.CreditCardExpirationDateMonth_Grdn, "SelectListRequired", new { List = Model.CreditCardExpirationDateMonthList_Grdn, Disabled = false })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">السنة</label>
+                                                                                @Html.TextBoxFor(m => m.CreditCardExpirationDateYear_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label">رقم التحقق</label>
+                                                                                @Html.TextBoxFor(m => m.VerificationNo_Grdn, new { @class = "form-control", required = "required" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        @*Guardians Buttons Save and Cancel*@
+                                                        <div class="row">
+                                                            <div class="col-xs-10">
+                                                                <div class="col-md-10">
+                                                                    <button class="btn btn-primary form" type="button" id="BtnSave_Grnd">حفظ</button>
+                                                                    @*<button class="btn btn-danger form" type="button" id="BtnCancel_Grnd">إلغاء</button>*@
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab الوالدين*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab2-panel">
+                                    <h4 class="htitles">الوالدين</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>الرقم الوطني</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.FatherNationalNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>الرقم الوطني</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.MotherNationalNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم الإقامة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.FatherResidencyNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم الإقامة	</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.MotherResidencyNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم جواز السفر</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.FatherPassportNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم جواز السفر</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.MotherPassportNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>بحث</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success form" type="button" id="BtnSearch_Father">بحث عن معلونات الأب</button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label>بحث</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success form" type="button" id="BtnSearch_Mother">بحث عن معلونات الأم</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>اسم الأب</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.FatherName, "SelectListRequired", new { List = Model.FatherNameList, Disabled = false })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label>اسم الأم</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.MotherName, "SelectListRequired", new { List = Model.MotherNameList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab معلومات الطالب*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab3-panel">
+                                    <h4 class="htitles">معلومات الطالب</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>باللغة العربية</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">الإسم الأول</label>
+                                                        @Html.TextBoxFor(m => m.FirstArabicName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">اسم الأب</label>
+                                                        @Html.TextBoxFor(m => m.SecondArabicName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">اسم الجد</label>
+                                                        @Html.TextBoxFor(m => m.ThirdArabicName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="control-label">العائلة</label>
+                                                        @Html.TextBoxFor(m => m.FourthArabicName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>باللغة الانجليزية</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        @*<label class="control-label">الإسم الأول</label>*@
+                                                        @Html.TextBoxFor(m => m.FirstEnglishName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        @*<label class="control-label">اسم الأب</label>*@
+                                                        @Html.TextBoxFor(m => m.SecondEnglishName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        @*<label class="control-label">اسم الجد</label>*@
+                                                        @Html.TextBoxFor(m => m.ThirdEnglishName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        @*<label class="control-label">العائلة</label>*@
+                                                        @Html.TextBoxFor(m => m.FourthEnglishName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>صلة القرابة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.StdRelativeRelation, "SelectListRequired", new { List = Model.StdRelativeRelationList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>الجنسية</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.Nationality, "SelectListRequired", new { List = Model.NationalityList, Disabled = false })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label>الجنس</label>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label class="control-label">@R.GetResource("Male")</label>
+                                                        @Html.RadioButtonFor(model => model.Gender, "gender", new { Value = 0, @checked = true })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label class="control-label">@R.GetResource("Female")</label>
+                                                        @Html.RadioButtonFor(model => model.Gender, "gender", new { Value = 1 })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>الرقم الوطني</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.NationalNumber, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم الاقامة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.ResidencyNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم جواز السفر</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.PassportNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="control-label col-md-2">
+                                                    <label>تاريخ الميلاد</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-control-wrapper">
+                                                            @Html.TextBoxFor(model => model.DateofBirth, new { @class = "date floating-label mdl-textfield__input", placeholder = "dd/mm/yyyy", required = "required" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="profile-userpic">
+                                                        <img src="~/AppContent/Images/avatar.jpeg" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                                                        <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this);" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                                        <button type="button" style="width:200px;" onclick="showuploadfile();" class="btn btn-info btn-default "><i class="fa fa-upload"></i>Upload</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab المعلومات المدرسية*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab4-panel">
+                                    <h4 class="htitles">المعلومات المدرسية</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>المدرسة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.SchoolID, "SelectListRequired", new { List = Model.CompanySchooslList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="control-label col-md-2">
+                                                    <label>تاريخ الالتحاق</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-control-wrapper">
+                                                            @Html.TextBoxFor(model => model.JoinDate, new { @class = "date floating-label mdl-textfield__input", placeholder = "dd/mm/yyyy", required = "required" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>الصف</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.ClassID, "SelectListRequired", new { List = Model.SchoolClassesList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>الشعبة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.SectionID, "SelectListRequired", new { List = Model.ClassSectionsList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>التحصيل الدراسي</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.StdAcademicStatus, "SelectListRequired", new { List = Model.StdAcademicStatuslist, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>نوع اشتراك المواصلات</label>
+                                                </div>
+                                                <div class="checkbox checkbox-icon-black p-0">
+                                                    <input id="StdBusComeToSchool" type="checkbox">
+                                                    <label for="StdBusComeToSchool">
+                                                        القدوم بحافلة المدرسة
+                                                    </label>
+
+                                                    <input id="StdBusGoToHome" type="checkbox">
+                                                    <label for="StdBusGoToHome">
+                                                        الذهاب بحافلة المدرسة
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>اسم المدرسة السابقة</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.PreviousSchoolName, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab العنوان*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                                    <h4 class="htitles">العنوان</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>عرض على الخريطة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-success form" type="button" id="BtnShowOnMap">عرض على الخريطة</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="mapnw"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab المعلومات الاجتماعية*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                                    <h4 class="htitles">المعلومات الاجتماعية</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>يسكن مع</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.LiveWith, "SelectListRequired", new { List = Model.LiveWithList, Disabled = false })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label>نوعية الإقامة في البلد</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.TypeOfResidence, "SelectListRequired", new { List = Model.TypeOfResidenceList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>عدد الإخوة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.NumberOfBrother, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>عدد الأخوات</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.NumberOfSisters, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>الترتيب بين الإخوة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.BrothersOrder, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>الدخل الكلي الشهري للعائلة</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.FamilyTotIncome, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab المغلومات الصحية*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab7-panel">
+                                    <h4 class="htitles">المغلومات الصحية</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label>فصيلة الدم</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.BloodType, "SelectListRequired", new { List = Model.BloodTypeList, Disabled = false })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label>الحالة البدنية</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.EditorFor(model => model.PhysicalCondition, "SelectListRequired", new { List = Model.PhysicalConditionList, Disabled = false })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label> </label>
+                                                </div>
+                                                <div class="checkbox checkbox-icon-black p-0">
+                                                    <input id="ChkSpecialCare" type="checkbox">
+                                                    <label for="ChkSpecialCare">
+                                                        رعاية خاصة
+                                                    </label>
+
+                                                    <input id="ChkChronicDisease" type="checkbox">
+                                                    <label for="ChkChronicDisease">
+                                                        لديه مرض مزمن
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>نوع المرض</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.DiseaseType, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>ملاحظات</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.DiseaseNotes, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*Tab الرسوم*@
+                                <div class="mdl-tabs__panel p-t-20" id="tab8-panel">
+                                    <h4 class="htitles">الرسوم</h4>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>رقم الحساب</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.AccountNo, new { @class = "form-control", required = "required" })
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr />
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <table class="mdl-data-table ml-table-striped mdl-js-data-table mdl-data-table--selectable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>الرسم</th>
+                                                                <th>المبلغ</th>
+                                                                <th>نوع الخصم</th>
+                                                                <th>الخصم</th>
+                                                                <th>المبلغ الاجمالي</th>
+                                                                <th>مبالغ متأخرة</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <hr />
+
+                                            <div class="row">
+                                                <div class="col-md-2 labeltitle">
+                                                    <label>عدد الأقساط</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        @Html.TextBoxFor(m => m.Installments, new { @class = "form-control", disabled = true })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#BtnSearch_Grnd').click(function () {
+            var formData = new FormData();
+            var GrdnI = "";
+            var NationalNumber_Grdn = $("#NationalNumber_Grdn").val();
+            var ResidencyNumber_Grdn = $("#ResidencyNumber_Grdn").val();
+            var PassportNo_Grdn = $("#PassportNo_Grdn").val();
+            if (NationalNumber_Grdn.trim().length > 0) {
+                GrdnI = $("#NationalNumber_Grdn").val();
+                document.getElementById('LblNote').innerHTML = 'تم البحث من خلال الرقم الوطني';
+            }
+            if (ResidencyNumber_Grdn.trim().length > 0) {
+                GrdnI = $("#ResidencyNumber_Grdn").val();
+                document.getElementById('LblNote').innerHTML = 'تم البحث من خلال رقم الاقامة';
+            }
+            if (PassportNo_Grdn.trim().length > 0) {
+                GrdnI = $("#PassportNo_Grdn").val();
+                document.getElementById('LblNote').innerHTML = 'تم البحث من خلال رقم جواز السفر';
+            }
+
+            if (GrdnI.trim().length == 0) {
+                $("#BtnSave_Grnd").removeAttr('disabled');
+                $("#HD_GSState").val('0');
+                document.getElementById('LblMsg').innerHTML = 'جميع حقول البحث فارغة';
+                document.getElementById('LblNote').innerHTML = '';
+                return;
+            }
+            document.getElementById('LblMsg').innerHTML = '';
+
+            formData.append('GrdnID', GrdnI);
+
+            $.ajax({
+                type: "POST",
+                url: "GuardianExistance",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response != null) {
+                        $("#BtnSave_Grnd").removeAttr('disabled');
+                        $("#HD_GSState").val('0');
+
+                        var Resp = response.split('|');
+                        if (Resp != '') {
+                            $("#BtnSave_Grnd").attr('disabled', 'disabled');
+                            $("#HD_GSState").val('1');
+                            $("#HD_Gid").val(Resp[25]);
+
+                            $("#NationalNumber_Grdn").val(Resp[0]);
+                            $("#ResidencyNumber_Grdn").val(Resp[1]);
+                            $("#PassportNo_Grdn").val(Resp[2]);
+                            $("#MobNo_Grdn").val(Resp[3]);
+                            $("#FirstArabicName_Grdn").val(Resp[4]);
+                            $("#SecondArabicName_Grdn").val(Resp[5]);
+                            $("#ThirdArabicName_Grdn").val(Resp[6]);
+                            $("#FourthArabicName_Grdn").val(Resp[7]);
+                            $("#FirstEnglishName_Grdn").val(Resp[8]);
+                            $("#SecondEnglishName_Grdn").val(Resp[9]);
+                            $("#ThirdEnglishName_Grdn").val(Resp[10]);
+                            $("#FourthEnglishName_Grdn").val(Resp[11]);
+                            if (Resp[12] == "0") {
+                                $("#Gender_Grdn_M").attr('checked', true); $("#Gender_Grdn_F").attr('checked', false);
+                            }
+                            if (Resp[13] == "0") {
+                                $("#Gender_Grdn_M").attr('checked', false); $("#Gender_Grdn_F").attr('checked', true);
+                            }
+
+                            $("#Country_Grdn").val(Resp[14]).change();
+                            $("#City_Grdn").val(Resp[15]);
+                            $("#Street_Grdn").val(Resp[16]);
+                            $("#Building_Grdn").val(Resp[17]);
+                            $("#Floor_Grdn").val(Resp[18]);
+                            $("#Latitude_Grdn").val(Resp[19]);
+                            $("#Longitude_Grdn").val(Resp[20]);
+                            $("#EMail_Grdn").val(Resp[21]);
+                            $("#Nationality_Grdn").val(Resp[22]).change();
+                            $("#Religion_Grdn").val(Resp[23]).change();
+                            $("#PaymentMethod_Grdn").val(Resp[24]).change();
+                            $("#SecondArabicName").val(Resp[4]);
+                            $("#ThirdArabicName").val(Resp[5]);
+                            $("#FourthArabicName").val(Resp[7]);
+                            $("#SecondEnglishName").val(Resp[8]);
+                            $("#ThirdEnglishName").val(Resp[9]);
+                            $("#FourthEnglishName").val(Resp[11]);
+                        } else {
+                            document.getElementById('LblMsg').innerHTML = 'لم يتم العثور على نتائج';
+                        }
+                    } else {
+                        $("#BtnSave_Grnd").removeAttr('disabled');
+                        $("#HD_GSState").val('0');
+                        alert('Somthing went error');
+                    }
+                },
+                error: function (request, status, error) {
+                    $("#BtnSave_Grnd").removeAttr('disabled');
+                    $("#HD_GSState").val('0');
+                    document.getElementById('LblMsg').innerHTML = 'لم يتم العثور على نتائج';
+
+                    ClearData('y');
+                }
+            });
+        });
+
+        $('#BtnSave_Grnd').click(function () {
+            alert('The save was clicked...');
+
+        });
+
+        $('#BtnShowOnMap').click(function () {
+            alert('Clicked...');
+        });
+
+        function ClearData(cls) {
+            if (cls == 'y') {
+                $("#BtnSave_Grnd").removeAttr('disabled');
+                $("#HD_GSState").val('0');
+
+                $("#NationalNumber_Grdn").val('');
+                $("#ResidencyNumber_Grdn").val('');
+                $("#PassportNo_Grdn").val('');
+                $("#MobNo_Grdn").val('');
+                $("#FirstArabicName_Grdn").val('');
+                $("#SecondArabicName_Grdn").val('');
+                $("#ThirdArabicName_Grdn").val('');
+                $("#FourthArabicName_Grdn").val('');
+                $("#FirstEnglishName_Grdn").val('');
+                $("#SecondEnglishName_Grdn").val('');
+                $("#ThirdEnglishName_Grdn").val('');
+                $("#FourthEnglishName_Grdn").val('');
+                $("#Gender_Grdn_M").attr('checked', true);
+                $("#Gender_Grdn_F").attr('checked', false);
+                $("#City_Grdn").val('');
+                $("#Street_Grdn").val('');
+                $("#Building_Grdn").val('');
+                $("#Floor_Grdn").val('');
+                $("#Latitude_Grdn").val('');
+                $("#Longitude_Grdn").val('');
+                $("#EMail_Grdn").val('');
+                $("#Nationality_Grdn").val('0').change();
+                $("#Religion_Grdn").val('0').change();
+                $("#PaymentMethod_Grdn").val('0').change();
+                $("#Country_Grdn").val('0').change();
+
+                $("#SecondArabicName").val('');
+                $("#ThirdArabicName").val('');
+                $("#FourthArabicName").val('');
+                $("#SecondEnglishName").val('');
+                $("#ThirdEnglishName").val('');
+                $("#FourthEnglishName").val('');
+            }
+        }
+    }); //Document ready
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+
+

@@ -1,0 +1,16 @@
+﻿@model int?
+   
+@if (Model.Value == 0)
+{
+    <input type="checkbox" value="1" name="@Html.IdForModel()" id="@Html.IdForModel()">
+
+}
+        @if (Model.Value == -1 || Model.Value == 1)
+        {
+            <input type="checkbox" value="@Model.Value" name="@Html.IdForModel()" id="@Html.IdForModel()" checked="checked" > 
+        }
+        else
+        {
+            <input type="checkbox" value="@Model.Value" name="@Html.IdForModel()" id="@Html.IdForModel()" >
+        }
+    

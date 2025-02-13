@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Manual Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("ManualAttendance")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("PrepareAttendance","Attendance")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("PrepareAttendance")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Attendances.jpeg" />
+    </a>
+    <a href="@Url.Action("ReviewAttendance","Attendance")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("ReviewAttendance")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Review-Attendance.jpeg" />
+    </a>
+</div>

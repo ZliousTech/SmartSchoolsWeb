@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Settings")</h2>
+</div>
+
+<div class="Dashboard-widget">
+    <a href="@Url.Action("ViewHeadQuarters","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("ViewHeadQuarters")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/HeadQ.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Headquarter and its school(s) Information")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllDepartments","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Departments")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Departments.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Departments")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllCurriculums","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Curriculums")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Curriculums.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Curriculums")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllClassRooms","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("ClassRooms")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/ClassRooms.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("ClassRooms")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllClasses","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Classes")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Classes.png" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Classes")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllSections","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Sections")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/ClassSections.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Sections")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllSubjects","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Subjects")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Subjects.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Subjects")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("GetAllSemesters","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Semesters")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Semester.jpeg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Semesters")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("PrepareExams","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Exams")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Exams.jpeg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Exams")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    @if (Session["CompanyID"].ToString() == "1000000")
+    {
+        <a href="@Url.Action("BanksIndex","Settings")" class="light-component widget">
+
+            <div class="overlay-head">
+                <h3>@R.GetResource("BanksSettings")</h3>
+            </div>
+
+            <img src="~/AppContent/WidgetImages/BankLogo.png" />
+            <div>
+                <ul>
+                    <li>
+                        <span class="light-component counter">
+                            @R.GetResource("BanksAndBranchesSettings")
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </a>
+    }
+
+    @*<a href="@Url.Action("PrepareCalendar","Calendar")" class="light-component widget">
+
+            <div class="overlay-head">
+                <h3>@R.GetResource("Calendar")</h3>
+            </div>
+
+            <img src="~/AppContent/WidgetImages/calendar.jpg" />
+            <div>
+                <ul>
+                    <li>
+                        <span class="light-component counter">
+                            @R.GetResource("To adding the calendar data")
+                        </span>
+                    </li>
+                    <li>
+                        <span class="light-component counter">
+                            @R.GetResource("for all schools in each country")
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </a>*@
+
+    @*<a href="javascript:void(0)" class="light-component widget">
+
+            <div class="overlay-head">
+                <h3> @R.GetResource("SchoolSettings")</h3>
+            </div>
+
+            <img src="~/AppContent/WidgetImages/edu-system.jpg" />
+        </a>*@
+</div>
+
+

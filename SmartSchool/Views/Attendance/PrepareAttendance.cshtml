@@ -1,0 +1,432 @@
+﻿@model SmartSchool.Models.Attendance.PrepareAttendanceView
+@{
+    ViewBag.Title = "Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    input[type=checkbox], input[type=radio] {
+        float: inherit;
+        margin-right: 5px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("PrepareAttendance")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+
+    <div class="light-component inner">
+        @using (Html.BeginForm("PrepareAttendance", "Attendance", FormMethod.Post, new { @class = "search-form", style = "width: 100%;" }))
+        {
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("Class")</label>
+                        @Html.DropDownListFor(m => m.Attendance.SchoolClassID, Model.Attendance.SchoolClassesList, @R.GetResource("SelectClass"), new { @class = "form-control  select2", id = "SchoolClassID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("Section")</label>
+                        <select name="SectionID" id="SectionID" class="form-control select2" Disabled="Disabled"></select>
+                        @Html.HiddenFor(model => model.Attendance.SectionID, new { id = "HiddenSectionID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>@R.GetResource("AttendanceType")</label>
+                        <select name="AttendanceType" id="AttendanceType" class="form-control select2">
+                            <option value="0">@R.GetResource("All")</option>
+                            <option value="1">@R.GetResource("FullAttendance")</option>
+                            <option value="2">@R.GetResource("Absent")</option>
+                        </select>
+                        @Html.HiddenFor(model => model.Attendance.AttendanceType, new { id = "HiddenTypeID" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="date" class="required">@R.GetResource("Date")</label>
+                        <input type="date" id="date" class="form-control" placeholder="dd/MM/yyyy" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                    </div>
+                </div>
+            </div>
+
+            <button style="margin: 0px 15px 0px 15px; display:none;" class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+        }
+
+
+        @if (Model != null)
+        {
+            <table class="table" id="exportTable" style="width:100%">
+                <thead style="float:inherit;">
+                    <tr>
+                        <th scope="col" style="display: none"> @R.GetResource("StudentID") </th>
+                        <th scope="col"> @R.GetResource("StudentName") </th>
+                        @if (Model.Attendance.SectionID == null)
+                        {
+                            <th scope="col"> @R.GetResource("ClassName") </th>
+                            <th scope="col"> @R.GetResource("SectionName") </th>
+                        }
+                        <th scope="col"> @R.GetResource("TotalAbsence") </th>
+                        <th scope="col"> @R.GetResource("LeavesDays") </th>
+                        <th scope="col"> <span style="color:red">@R.GetResource("IsAbsence")</span> </th>
+                        <th scope="col"> <span style="color:green">@R.GetResource("ParentInform")</span> </th>
+                        <th scope="col"> @R.GetResource("AddDetails") </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.StudentAttendances)
+                    {
+                        <tr>
+                            <td style="display: none">@item.StudentID</td>
+                            <td>@item.StudentName</td>
+                            @if (Model.Attendance.SectionID == null)
+                            {
+                                <td>@item.StudentClass</td>
+                                <td>@item.StudentSection</td>
+                            }
+                            <td>@item.StudentTotalAbsence</td>
+                            <td>@item.StudenTotalPartialAttendace</td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.Attendance.IsAbsence, new { @class = "IsAbsencenameCheckbox", id = @item.StudentID + "$" + @item.StudentEnglishName + "$" + @item.StudentEnglisClass + "$" + @item.StudentEnglisSection + ",IsAbsence", style = "cursor:pointer; transform:scale(1.7); margin-left:10px;" })
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.Attendance.ParentInformed, new { @class = "ParentInformnameCheckbox", id = @item.StudentID + ",ParentInform", disabled = "disabled", style = "cursor:pointer; transform:scale(1.7); margin-left:10px;" })
+                            </td>
+                            <td style="display:flex">
+                                <a href="@Url.Action("AddAttendance","Attendance", new {StudentID = BaseController.Encrypt(item.StudentID)})" class="padding"><i class="fa fa-plus fa-s-15"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <button style="font-size:15px;" class="btn btn-primary-custom form" type="submit" id="BtnAddAbsences">@R.GetResource("Submit")</button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    debugger
+
+    $(function () {
+        debugger;
+        // this value is comming from the AddAttendance Page.
+        var refreshNeeded = sessionStorage.getItem('refreshNeeded');
+        if (refreshNeeded) {
+            // Clear the flag
+            sessionStorage.removeItem('refreshNeeded');
+            // Reload the page
+            location.reload();
+        }
+
+        if ("@Model.Attendance.AttendanceType" != "" && "@Model.Attendance.AttendanceType" != null) {
+            $("#AttendanceType").val('@Model.Attendance.AttendanceType').trigger('change.select2');
+        }
+        else {
+            $("#AttendanceType").val('0').trigger('change.select2');
+        }
+
+        var SchoolClassID = $('#SchoolClassID').val();
+        var obj = { SchoolClassID: SchoolClassID };
+
+        AjaxCall('/Attendance/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#SectionID').html('');
+                var options = '';
+                var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+                var optiontext = "";
+                for (var i = 0; i < response.length; i++) {
+                    if (response[i].ID === parseInt(SectionID)) {
+                        if (currentLanguage == 1) {
+                            if (response[i].Description == "") {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                            else {
+                                optiontext = response[i].Description;
+                            }
+                        }
+                        else {
+                            if (response[i].DescriptionAR == "") {
+                                optiontext = response[i].Description;
+                            }
+                            else {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                        }
+                        options += '<option value="' + response[i].ID + '" selected>' + optiontext + '</option>';
+                    }
+                    else {
+                        if (currentLanguage == 1) {
+                            if (response[i].Description == "") {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                            else {
+                                optiontext = response[i].Description;
+                            }
+                        }
+                        else {
+                            if (response[i].DescriptionAR == "") {
+                                optiontext = response[i].Description;
+                            }
+                            else {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                        }
+                        options += '<option value="' + response[i].ID + '">' + optiontext + '</option>';
+                    }
+                }
+                $('#SectionID').append(options);
+                $('#SectionID').removeAttr("disabled")
+                $('#SectionID').val("@Model.Attendance.SectionID");
+
+            }
+            else {
+                $('#SectionID').empty();
+                $('#SectionID').attr("disabled", "disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Sections on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        $('#SectionID').on('change', function () {
+            $("#HiddenSectionID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#AttendanceType').on('change', function () {
+            $("#HiddenTypeID").val(this.value);
+            $("#Btnsearch").click();
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            $("#SchoolClassID").val(this.value);
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { SchoolClassID: SchoolClassID };
+            AjaxCall('/Attendance/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SectionID').html('');
+                    var options = '';
+                    var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    var optiontext = "";
+                    for (var i = 0; i < response.length; i++) {
+                        if (currentLanguage == 1) {
+                            if (response[i].Description == "") {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                            else {
+                                optiontext = response[i].Description;
+                            }
+                        }
+                        else {
+                            if (response[i].DescriptionAR == "") {
+                                optiontext = response[i].Description;
+                            }
+                            else {
+                                optiontext = response[i].DescriptionAR;
+                            }
+                        }
+                        options += '<option value="' + response[i].ID + '">' + optiontext + '</option>';
+                    }
+                    $('#SectionID').append(options);
+                    $('#SectionID').removeAttr("disabled");
+                    $('#Btnsearch').removeAttr("disabled");
+                }
+                else {
+                    $('#exportTable tbody').find("tr").remove();
+                    $('#SectionID').empty();
+                    $('#SectionID').attr("disabled", "disabled");
+                    $('#Btnsearch').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $('.IsAbsencenameCheckbox').on('change', function () {
+            debugger;
+            var ItemID = $(this).attr('id');
+            var StudentID = ItemID.split(',')[0].split('$')[0];
+            var isChecked = $(this).prop('checked');
+            if (isChecked) {
+                $('.ParentInformnameCheckbox').each(function () {
+                    if ($(this).attr('id').split(',')[0] == StudentID) {
+                        $(this).removeAttr("disabled");
+                    }
+                });
+            }
+            else {
+                $('.ParentInformnameCheckbox').each(function () {
+                    if ($(this).attr('id').split(',')[0] == StudentID) {
+                        $(this).prop('checked', false);
+                        $(this).attr("disabled", "disabled");
+                    }
+                });
+            }
+        });
+
+        $("#BtnAddAbsences").click(function () {
+            var IsAbsenceList = [];
+            var IsParentInformList = [];
+
+            
+            var table = $('#exportTable').DataTable();
+            table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+                var $row = $(this.node());
+
+                var $absencCheckbox = $row.find('.IsAbsencenameCheckbox');
+                if ($absencCheckbox.prop('checked')) {
+                    IsAbsenceList.push($absencCheckbox.attr('id').split(',')[0]);
+                }
+
+                var $parentCheckbox = $row.find('.ParentInformnameCheckbox');
+                if ($parentCheckbox.prop('checked')) {
+                    IsParentInformList.push($parentCheckbox.attr('id').split(',')[0]);
+                }
+            });
+
+
+            //$('.IsAbsencenameCheckbox').each(function () {
+            //    if ($(this).prop('checked')) {
+            //        IsAbsenceList.push($(this).attr('id').split(',')[0]);
+            //    }
+            //});
+            //$('.ParentInformnameCheckbox').each(function () {
+            //    if ($(this).prop('checked')) {
+            //        IsParentInformList.push($(this).attr('id').split(',')[0]);
+            //    }
+            //});
+
+            var isValid = false;
+            if (IsAbsenceList.length > 0) { isValid = true };
+
+            if (isValid) {
+                debugger;
+                var formData = new FormData();
+                var AbsenceList = IsAbsenceList;
+                var ParentInformList = IsParentInformList;
+                var attendanceDate = formatDate($('#date').val());
+
+                formData.append('AbsenceList', AbsenceList);
+                formData.append('ParentInformList', ParentInformList);
+                formData.append('date', attendanceDate);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddQuickAttendance",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#BtnAddAbsences").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+
+                        }
+                        else {
+                            Swal.fire(
+                                'Error',
+                                'Something went wrong\n ' + response.Message + '',
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire(
+                    'Warning',
+                    'Please select at least one student as absent!',
+                    'warning'
+                );
+            }
+        });
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+    function formatDate(date) {
+        var d = new Date(date);
+        var day = ('0' + d.getDate()).slice(-2);
+        var month = ('0' + (d.getMonth() + 1)).slice(-2);
+        var year = d.getFullYear();
+        return day + '/' + month + '/' + year;
+    }
+</script>

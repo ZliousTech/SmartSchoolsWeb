@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZLIOUS | SMART-SCHOOL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/207b7392fc.js"></script>
+</head>
+
+<body>
+   
+    <header class="header-container">
+
+        <section class="inner-row">
+            <div class="banner light-component">
+                <div class="logo-holder">
+                    <a href="javascript:void(0)" class="header-logo-anchor">
+                        <img src="./Images/smartschoollogo.png" alt="smart school logo">
+                    </a>
+                </div>
+
+                <nav class="toolbar-nav">
+                    <ul>
+
+                        <li>
+                            <a href="javascript:void(0)" class="anchor-lang">
+                                <span>
+                                    <i class="fa fa-language" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </section>
+    </header>
+    <main class="body-container">
+        <div class="inner-row form">
+            <div class="login-container light-component">
+                <div class="Portal-Widget" id="EmployeePortal" onclick="showForm(this,'Employee-Login')">
+                    <div class="image-holder">
+                        <img src="Images/Employee-icon.png" alt="">
+                        <h2><span>Employee</span> system </h2>
+                    </div>
+                </div>
+                <form id="Employee-Login">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">UserName</label>
+                        <input type="text" class="form-control" id="exampleInputUserName" placeholder="UserName">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        login
+                    </button>
+                </form>
+            </div>
+            <div class="login-container light-component">
+                <div class="Portal-Widget" id="parentPortal" onclick="showForm(this,'parent-Login')">
+                    <div class="image-holder">
+                        <img src="Images/family.svg" alt="">
+                        <h2><span>parent</span> system </h2>
+                    </div>
+
+                </div>
+                <form id="parent-Login">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">UserName</label>
+                        <input type="text" class="form-control" id="exampleInputUserName" placeholder="UserName">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-custom">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        login
+                    </button>
+                </form>
+            </div>
+            <div class="light-component cover">
+                <img src="Images/banner1.png" alt="">
+            </div>
+
+    </main>
+
+    <footer class="footer-Contianer">
+
+        <section class="inner-row footer">
+            <div class="bg-pattern">
+                <div class="shader"></div>
+            </div>
+            <p>
+                Super-powered by Zlious Tech ©2020-2021.
+            </p>
+        </section>
+
+    </footer>
+    <script>
+
+        function showForm(target, form) {
+            $('#' + target.id).remove();
+            $('#' + target.id).fadeOut();
+            $('#' + form).fadeIn();
+        };
+
+    </script>
+
+</body>
+
+</html>

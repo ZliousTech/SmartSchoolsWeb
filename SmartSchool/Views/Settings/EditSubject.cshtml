@@ -1,0 +1,219 @@
+﻿@model SmartSchool.Models.Settings.Subjects
+
+@{
+    ViewBag.Title = "Edit Subject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("EditSubject")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddClassRoom" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(model => model.SubjectID, new { Name = "SubjectID" })
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SchoolClasses")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassTextName, @R.GetResource("SelectClass"), new { @class = "form-control  select2", Name = "SchoolClassID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SubjectArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SubjectArabicName, new { @class = "form-control", Name = "SubjectArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SubjectEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SubjectEnglishName, new { @class = "form-control", Name = "SubjectEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SchedulingConditions")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SchedulingCondition, Model.SchedulingConditionTextName, @R.GetResource("SelectCondition"), new { @class = "form-control  select2", Name = "SchedulingCondition", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("MaxMark")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.MaxMark, new { @class = "form-control", Name = "MaxMark", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("FailMark")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.FailMark, new { @class = "form-control", Name = "FailMark", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("NumberOfSessionsPerWeek")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.NumberOfSessionsPerWeek, new { @class = "form-control", Name = "NumberOfSessionsPerWeek", type = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SubjectType")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.IsOptional, new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Text = CurrentLanguage == Languges.English? "Compulsory" : "إجباري", Value = "false" },
+                                        new SelectListItem { Text = CurrentLanguage == Languges.English? "Optional" : "إختياري", Value = "true" }
+                                    }, @R.GetResource("SelectType"), new { @class = "form-control  select2", Name = "IsOptional", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        
+
+        $(".btnsavedit").on("click", function () {
+            debugger;
+            var isValid = true;
+
+            if ($("#SchoolClassID").val() == "") { isValid = false; }
+            if ($("#SchedulingCondition").val() == "") { isValid = false; }
+            if ($("#IsOptional").val() == "") { isValid = false; }
+            if ($('input[name="SubjectArabicName"]').length <= 0) { isValid = false; }
+            if ($('input[name="SubjectEnglishName"]').length <= 0) { isValid = false; }
+            if ($('input[name="MaxMark"]').length <= 0) { isValid = false; }
+            if ($('input[name="FailMark"]').length <= 0) { isValid = false; }
+            if ($('input[name="NumberOfSessionsPerWeek"]').length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var SchoolClassID = $("#SchoolClassID").val();
+                var SubjectArabicName = $("#SubjectArabicName").val();
+                var SubjectEnglishName = $("#SubjectEnglishName").val();
+                var SchedulingCondition = $("#SchedulingCondition").val();
+                var MaxMark = $("#MaxMark").val();
+                var FailMark = $("#FailMark").val();
+                var NumberOfSessionsPerWeek = $("#NumberOfSessionsPerWeek").val();
+                var IsOptional = $("#IsOptional").val() === "true";
+                var SubjectID = $("#SubjectID").val();
+
+                formData.append('SchoolClassID', SchoolClassID);
+                formData.append('SubjectArabicName', SubjectArabicName);
+                formData.append('SubjectEnglishName', SubjectEnglishName);
+                formData.append('SchedulingCondition', SchedulingCondition);
+                formData.append('MaxMark', MaxMark);
+                formData.append('FailMark', FailMark);
+                formData.append('NumberOfSessionsPerWeek', NumberOfSessionsPerWeek);
+                formData.append('IsOptional', IsOptional);
+                formData.append('SubjectID', SubjectID);
+
+                $.ajax({
+                    type: "POST",
+                    url: "EditSubject",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllSubjects", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+            else {
+                alert("Please Enter the all data");
+            }
+        });
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        };
+    });
+</script>

@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = null;
+    <style>
+        html,
+        body,
+        #map-canvas {
+            height: 100%;
+                margin: 0px;
+                padding: 0px
+        }
+
+        .mr10 {
+            margin-right: 10px;
+        }
+
+        .search-panel {
+            direction: ltr;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            color: rgb(86, 86, 86);
+        font-family: Roboto, Arial, sans-serif;
+            user-select: none;
+            font-size: 11px;
+            background-color: rgb(255, 255, 255);
+        padding: 8px;
+            border-bottom-right-radius: 2px;
+            border-top-right-radius: 2px;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+            min-width: 40px;
+            border-left: 0px;
+        }
+
+        .details-div .col-md-12 {
+            text-align: center;
+        }
+
+        #panel {
+            position: absolute;
+            top: 5px;
+            right: 1%;
+            margin-left: -180px;
+            z-index: 5;
+            background-color: #ffb052;
+            border: 1px solid #999;
+            color: #444;
+            font-family: Arial;
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .w100 {
+            width: 100%;
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+    </style>
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+
+<div id="panel">
+    <div class="search-panel">
+        <input type="PickupAddress" value="Amman, Jordan" class="form-control mr10" name="PickupAddress" placeholder="Sublocality" id="searchTextField" autocomplete="on" runat="server" required="" data-msg-required="Please enter Pick up Address" aria-required="true"><button onclick="createMap();">Locate Me</button>
+        <div class="details-div mt10">
+            <div class="col-md-12">
+                <div> ADDRESS: <input id="address" value="شارع مسعود بن ناصر، شارع مسعود بن ناصر الدوار السابع مقابل البنك العربي مجمع سامي خواجا عمّان،، Amman, Jordan" name="address" type="text" class="form-control border" /></div>
+                <div class="mt10"> LATITUDE: <input type="text" value="31.9539494"   name="latitude" id="latitude"></div>
+                <div class="mt10"> LONGITUDE: <input type="text" value="35.910635" name="longitude" id="longitude"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div id="myMap" style="height:100%;width:100%;"></div>
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            $('#latitude').val(place.geometry.location.lat());
+            $('#longitude').val(place.geometry.location.lng());
+        });
+        createMap();
+    });
+
+    function createMap() {
+        var lat = $('#latitude').val();
+        var lng = $('#longitude').val();
+        var map;
+        var marker;
+        var myLatlng = new google.maps.LatLng(lat, lng);
+        var geocoder = new google.maps.Geocoder();
+        var infowindow = new google.maps.InfoWindow();
+
+        var mapOptions = {
+            zoom: 18,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("myMap"), mapOptions);
+
+        marker = new google.maps.Marker({
+            map: map,
+            position: myLatlng,
+            draggable: true,
+            icon:'../../Images/standingmanmarker.png'
+           
+        });
+
+        geocoder.geocode({
+            'latLng': myLatlng
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    $('#address').val(results[0].formatted_address);
+                    $('#latitude').val(marker.getPosition().lat());
+                    $('#longitude').val(marker.getPosition().lng());
+                    infowindow.setContent(results[0].formatted_address);
+                    infowindow.open(map, marker);
+                }
+            }
+        });
+
+       google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng);
+        });
+
+        function placeMarker(location) {
+
+
+
+            if (marker == undefined){
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map, 
+                    animation: google.maps.Animation.DROP,
+                });
+            }
+            else{
+                marker.setPosition(location);
+            }
+            map.setCenter(location);
+
+        }
+
+        google.maps.event.addListener(marker, 'dragend', function () {
+
+            geocoder.geocode({
+                'latLng': marker.getPosition()
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                        $('#address').val(results[0].formatted_address);
+                        $('#latitude').val(marker.getPosition().lat());
+                        $('#longitude').val(marker.getPosition().lng());
+                        infowindow.setContent(results[0].formatted_address);
+                        infowindow.open(map, marker);
+                    }
+                }
+            });
+        });
+    }
+</script>

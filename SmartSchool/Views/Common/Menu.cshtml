@@ -1,0 +1,415 @@
+﻿@model SmartSchool.Models.Common.MenuModel
+@{
+    Layout = null;
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string slimscroll = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        slimscroll = "slimscroll-style";
+    }
+    else
+    {
+        slimscroll = "";
+    }
+    <style>
+        .sidemenu-container .sidemenu > li > a > i, .sidemenu-closed.sidemenu-container-fixed .sidemenu-container:hover .sidemenu > li > a > i 
+        {
+            color: #4ABAD2;
+        }
+        .white-sidebar-color .sidemenu-container .sidemenu .sub-menu > li > a > i {
+            color: #4ABAD2;
+        }
+    </style>
+}
+
+
+<div class="sidebar-container">
+    <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+        <div id="remove-scroll" class="left-sidemenu">
+          
+            <ul class="sidemenu  page-header-fixed @slimscroll" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+            
+                
+                <li class="sidebar-toggler-wrapper hide">
+                    <div class="sidebar-toggler">
+                        <span></span>
+                    </div>
+                </li>
+                <li class="sidebar-user-panel">
+                    <div class="user-panel">
+                       <div class="pull-left image">
+                            <img src="../../Images/logo.jpg" class="img-circle user-img-circle"
+                                 alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>@R.GetResource("welcome") @HttpContext.Current.User.Identity.Name</p> 
+                            <a href="#">
+                                <i class="fa fa-circle user-online"></i><span class="txtOnline">
+                                    @R.GetResource("online")
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item start ">
+                    <a href="@Url.Action("Index","Home")" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/chart.png" height="30" width="30" /></i>
+                        <span class="title">@R.GetResource("Dashboard")</span>
+                    </a>
+                </li>
+                @if (Model.Employees)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/Employees.png" height="30" width="30" /></i>
+                        @*<i class="material-icons">group</i>*@
+                        <span class="title">@R.GetResource("Employees")</span>
+                    </a>
+                </li>
+                }
+    
+                @if (Model.Teachers)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/Teachers.png" height="30" width="30"/></i>
+                        @*<i class="fas fa-chalkboard-teacher"></i>*@
+                        <span class="title">@R.GetResource("Teachers")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.Students)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/Students.png" height="30" width="30"/></i>
+                        @*<i class="fas fa-user-graduate"></i>*@
+                        <span class="title">@R.GetResource("Students")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.TimeAttendees)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/TimeAtttIcn.png" height="30" width="30" /></i>
+                        @*<i class="fas fa-user-clock"></i>*@
+                        <span class="title">@R.GetResource("Attendees")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.TimeTableTeacher)
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-toggle">
+                            <i><img src="../../Images/MainItemImg/TimeTbl.png" height="30" width="30" /></i>
+                            @*<i class="fa fa-calendar"></i>*@
+                            <span class="title">@R.GetResource("TimeTableTeacher")</span>
+                        </a>
+                    </li>
+                }
+                @if (Model.TimeTableStudent)
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-toggle">
+                            <i><img src="../../Images/MainItemImg/TimeTbl.png" height="30" width="30" /></i>
+                            @*<i class="fa fa-calendar"></i>*@
+                            <span class="title">@R.GetResource("TimeTableStudent")</span>
+                        </a>
+                    </li>
+                }
+                @if (Model.TimeTable)
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-toggle">
+                            <i><img src="../../Images/MainItemImg/TimeTbl.png" height="30" width="30" /></i>
+                            @*<i class="fa fa-calendar"></i>*@
+                            <span class="title">@R.GetResource("TimeTable")</span>
+                        </a>
+                    </li>
+                }
+                @if (Model.Pay)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/Pay.png" height="30" width="30" /></i>
+                        @*<i class="far fa-money-bill-alt"></i>*@
+                        <span class="title">@R.GetResource("PayingOff")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.Map)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/MapIcn.png" height="30" width="30"/></i>
+                        @*<i class="fas fa-map"></i>*@
+                        <span class="title">@R.GetResource("Map")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.Calendar)
+                {
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/Calendar.png" height="30" width="30"/></i>
+                        <span class="title">@R.GetResource("Calendar")</span>
+                    </a>
+                </li>
+                }
+                @if (Model.SystemManagment)
+                {
+                <li class="nav-item">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/SysMangIcn.png" height="30" width="30"/></i>
+                        @*<i class="fa fa-desktop" aria-hidden="true"></i>*@
+                        <span class="title">@R.GetResource("System")</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-id-card" aria-hidden="true"></i> @R.GetResource("UsersCards")
+                                <span class="arrow "></span>
+
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="material-icons">group</i> @R.GetResource("Groups")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                      <i class="fa fa-users" aria-hidden="true"></i> @R.GetResource("Users")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-user-secret"></i> @R.GetResource("Privileges")
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                               <i class="fa fa-key" aria-hidden="true"></i>@R.GetResource("ChangePassword") 
+                            </a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("SystemSettings","System")" class="nav-link">
+                           <i class="fas fa-cog"></i>@R.GetResource("SystemSettings") 
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i><img src="../../Images/MainItemImg/SysMangIcn.png" height="30" width="30" /></i>
+
+                        @*<i class="fas fa-cog"></i>*@
+                        <span class="title">@R.GetResource("Settings")</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                               <i class="fas fa-school"></i>@R.GetResource("SchoolSettings")
+                                <span class="arrow "></span>
+
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-book" aria-hidden="true"></i> @R.GetResource("Thecurriculum")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-sitemap" aria-hidden="true"></i> @R.GetResource("Departments")
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-door-open"></i> @R.GetResource("ClassRooms")
+
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-users-class"></i> @R.GetResource("Classes")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-puzzle-piece"></i> @R.GetResource("Sections")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="far fa-calendar-alt"></i> @R.GetResource("schedule")
+                                        <span class="arrow "></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link nav-toggle">
+                                                <i class="fas fa-chalkboard"></i> @R.GetResource("LessonsSections")
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link nav-toggle">
+                                                <i class="fa fa-sort" aria-hidden="true"></i> @R.GetResource("Automatedarrangement")
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-user-graduate"></i> @R.GetResource("Students")
+                                        <span class="arrow "></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link nav-toggle">
+                                                <i class="fas fa-sitemap"></i> @R.GetResource("Distributionstudents")
+                                            </a>
+                                        </li>
+                                    
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fas fa-book-open"></i> @R.GetResource("Subjects")
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-users-class"></i> @R.GetResource("SubjectsClass")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-puzzle-piece"></i> @R.GetResource("SubjectsSections")
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                               <i class="fas fa-user-friends"></i>@R.GetResource("Superiors")
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-user"></i> @R.GetResource("Superior")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="material-icons">group</i> @R.GetResource("StudentsFamily")
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fas fa-money-check-alt"></i> @R.GetResource("Fees")
+                            </a>
+                        
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-bus"></i> @R.GetResource("Transportation")
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-bus" aria-hidden="true"></i> @R.GetResource("Busses")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i> @R.GetResource("StudentsPlaces")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-planet-moon"></i> @R.GetResource("BussesJawlat")
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fas fa-calculator"></i> @R.GetResource("calculations")
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-clipboard-list"></i> @R.GetResource("calculationslist")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-wpforms" aria-hidden="true"></i> @R.GetResource("Forms")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-warehouse-alt"></i> @R.GetResource("Banks")
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-code-branch"></i> @R.GetResource("Banksbranches")
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-area-chart" aria-hidden="true"></i> @R.GetResource("Specialties")
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fas fa-briefcase"></i> @R.GetResource("Jobs")
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-book" aria-hidden="true"></i> @R.GetResource("Books")
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fas fa-book-reader"></i> @R.GetResource("BooksInfo")
+                                    </a>
+                                </li>
+                           
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-file" aria-hidden="true"></i> @R.GetResource("documents")
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                }
+            </ul>
+        
+        </div>
+    </div>
+</div>

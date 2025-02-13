@@ -1,0 +1,154 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("GenerateUsers")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="javascript:void(0)" id="btn-GenrateStudent" class="light-component widget">
+
+        <div class="icon-widget">
+            <div class="iw-holder">
+
+            </div>
+            <div class="icon-h">
+                <span style="font-size:20px;"><i class="fa fa-key" aria-hidden="true"></i></span>
+
+            </div>
+            <div style="width: 80%;padding: 0px 5px;">
+                <h3>
+                    @R.GetResource("GenerateStudentUser")
+                </h3>
+
+            </div>
+
+        </div>
+
+    </a>
+
+    <a href="javascript:void(0)" id="btn-GenrateTeacher" class="light-component widget">
+
+        <div class="icon-widget">
+            <div class="iw-holder">
+
+            </div>
+            <div class="icon-h">
+                <span style="font-size:20px;"><i class="fa fa-key" aria-hidden="true"></i></span>
+
+            </div>
+            <div style="width: 80%;padding: 0px 5px;">
+                <h3>
+                    @R.GetResource("GenrateTeacherUser")
+                </h3>
+
+            </div>
+
+        </div>
+
+    </a>
+
+</div>
+@section scripts{
+
+    <script>
+        $("#btn-GenrateStudent").on("click", function () {
+        //debugger;
+         swal({
+            title: "@R.GetResource("DoYouWantToSendSms")",
+            icon: "warning",
+            buttons: true,
+         })
+             .then((willDelete) => {
+                 if (willDelete) {
+                     //debugger;
+                     $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GenrateStudentUser")",
+                         data: {SendSms : true},
+                         success: function (response) {
+                            if (response.Success) {
+                                swal("@R.GetResource("successmessage")", "", "success");
+                            }
+                            else {
+                                swal("@R.GetResource("errorhasOccurred")", "", "error");
+                            }
+                        }
+                    })
+                    
+                }
+                else {
+                     $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GenrateStudentUser")",
+                         data: {SendSms : false},
+                         success: function (response) {
+                            if (response.Success) {
+
+                                swal("@R.GetResource("successmessage")", "", "success");
+                            }
+                            else {
+                                swal("@R.GetResource("errorhasOccurred")", "", "error");
+                            }
+                        }
+                    })
+                }
+            });
+
+    });
+
+        $("#btn-GenrateTeacher").on("click", function () {
+        //debugger;
+         swal({
+            title: "@R.GetResource("DoYouWantToSendSms")",
+            icon: "warning",
+            buttons: true,
+         })
+             .then((willDelete) => {
+                 if (willDelete) {
+                     //debugger;
+                     $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GenrateTeacherUser")",
+                         data: {SendSms : true},
+                         success: function (response) {
+                            if (response.Success) {
+                                swal("@R.GetResource("successmessage")", "", "success");
+                            }
+                            else {
+                                swal("@R.GetResource("errorhasOccurred")", "", "error");
+                            }
+                        }
+                    })
+                    
+                }
+                else {
+                     $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GenrateTeacherUser")",
+                         data: {SendSms : false},
+                         success: function (response) {
+                            if (response.Success) {
+
+                                swal("@R.GetResource("successmessage")", "", "success");
+                            }
+                            else {
+                                swal("@R.GetResource("errorhasOccurred")", "", "error");
+                            }
+                        }
+                    })
+                }
+            });
+
+        });
+    </script>
+}

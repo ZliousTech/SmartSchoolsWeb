@@ -1,0 +1,217 @@
+﻿@model SmartSchool.Models.transportation.TransportatioModel
+<style>
+    #student-content {
+        height: auto;
+        max-height: 280px;
+        overflow: auto;
+    }
+
+    #viewStudent {
+        border-radius: 10px;
+        border: solid 1px #3699ff;
+        text-decoration: none !important;
+    }
+
+        #viewStudent > i {
+            margin: 0px 5px;
+        }
+</style>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>
+        @R.GetResource("deleteStudentFromTour")
+    </h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>@R.GetResource("TourName")</label>
+                @Html.EditorFor(model => model.TourIDE, "SelectList", new { List = Model.TourList, Disabled = false })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @*<a href="javascript:0" id="aGetStudentInTour" class="btn btn-primary">@R.GetResource("Search")</a>*@
+                @*<a href="@Url.Action("deleteStudentFromTour","transportation")" class="btn btn-primary">@R.GetResource("Search")</a>*@
+                @*<button type="button" class="btn btn-primary" id="btnGetStudentInTour">@R.GetResource("Search")</button>*@
+            </div>
+        </div>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    @*<th>@R.GetResource("StudentID")</th>*@
+                    <td>@R.GetResource("StudentName")</td>
+                    <th>@R.GetResource("Delete")</th>
+                </tr>
+            </thead>
+            <tbody id="studentsTourData">
+                @*@if (Model.ScheduledStudents != null)
+                    {
+                        foreach (var item in Model.ScheduledStudents)
+                        {
+                            <tr>
+                                <td>
+                                    @item.StudentID
+                                </td>
+                                <td>
+                                    @item.StudentName
+                                </td>
+                                <td>@R.GetResource("Delete")</td>
+                            </tr>
+                        }
+                    }*@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#TourIDE").on("change", function () {
+            //Getting Value
+            var selValue = $("#TourIDE").val();
+            if (selValue == "-1") {
+                swal("@R.GetResource("PleaseSelectTour")", "", "error");
+            }
+            var result = GetStudentInTour(selValue);
+            if (!result) {
+                swal("@R.GetResource("Somethingwentwrong")", "", "error");
+            }
+        });
+    });
+
+    function GetStudentInTour(TourID) {
+        var result;
+        $.ajax({
+            type: "GET",
+            url: "GetStudentInTour",
+            data: { TourID: TourID },
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    //alert(response);
+                    var jData = $.parseJSON(response);
+                    //alert(jData.length);
+                    //var jData = JSON.stringify(response)
+                    //alert(jData.length);
+                    //for (var i = 0; i < jData.length; i++) {
+                    //    alert(jData[i].StudentID);
+                    //}
+
+                    var output = jData.map(i =>
+                        "<tr>" +
+                            //"<td>" + i.StudentID + "</td>" +
+                            "<td>" + i.StudentName + "</td>" +
+                        "<td><a href=\"javascript:void(0)\" class=\"btn btn-danger\" onclick=\"deleteStd('" + i.StudentID + "|" + i.SchoolID + "|" + i.LastDate + "|" + i.StudentName + "|" + TourID + "')\">@R.GetResource("Delete")</a></td>" +
+                        "</tr>");
+
+                    $("#studentsTourData").html(output);
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+        })
+        return result;
+    }
+
+    function deleteStd(stdInfo) {
+        const _stdInfo = stdInfo.split("|");
+        let StdID = _stdInfo[0];
+        let SchID = _stdInfo[1];
+        let LstDte = _stdInfo[2];
+        let stdNm = _stdInfo[3];
+        let TourID = _stdInfo[4];
+
+        swal({
+            title: "@R.GetResource("Areyousure")",
+            text: "@R.GetResource("TheStudentWillDeletedFromThisTour"): (" + stdNm + ").",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                var result = deleteStdFromTour(SchID, StdID, LstDte, TourID);
+                if (result) {
+                    swal("@R.GetResource("TheStudentHasBeenDeletedFromThisTour").", {
+                        icon: "success",
+                    });
+                    GetStudentInTour(TourID);
+                } else {
+                    swal("@R.GetResource("TheDeletionHasBeenInterrupted").", "", "error");
+                }
+            } else {
+                swal("@R.GetResource("TheDeletionHasBeenCanceled").");
+            }
+        });
+    }
+
+    function deleteStdFromTour(SchID, StdID, LstDte, TourID) {
+        var result;
+        $.ajax({
+            type: "GET",
+            url: "ProffStdDeletedFromTour",
+            data: { SchID: SchID, StdID: StdID, LstDte: LstDte, TourID: TourID },
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response != null && response.isDeleted) {
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+        })
+        return result;
+    }
+
+    ////function GetStudentInTour(TourID) {
+    ////    var result;
+    ////    $.ajax({
+    ////        type: "GET",
+    ////        url: "GetStudentInTour",
+    ////        data: { TourID: TourID },
+    ////        async: false,
+    ////        contentType: "application/json; charset=utf-8",
+    ////        dataType: "json",
+    ////        success: function (response) {
+    ////            if (response != null) {
+    ////                //alert(response);
+    ////                var jData = $.parseJSON(response);
+    ////                //alert(jData.length);
+    ////                //var jData = JSON.stringify(response)
+    ////                //alert(jData.length);
+    ////                //for (var i = 0; i < jData.length; i++) {
+    ////                //    alert(jData[i].StudentID);
+    ////                //}
+
+    ////                var output = jData.map(i => "<tr><td>" + i.StudentID + "</td><td>" + i.StudentName + "</td><td>Delete</td></tr>");
+    ////                $("#studentsTourData").html(output);
+
+    ////                result = true;
+    ////            }
+    ////            else {
+    ////                result = false;
+    ////            }
+    ////        }
+    ////    })
+    ////    return result;
+    ////}
+</script>

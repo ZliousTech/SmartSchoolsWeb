@@ -1,0 +1,149 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+
+    <link href="../../assets/plugins/jquery-tags-input/jquery-tags-input.css" rel="stylesheet">
+    string buttonpull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        buttonpull = "pull-right";
+    }
+    else
+    {
+        buttonpull = "pull-left";
+    }
+}
+
+
+
+@{List<string> DepNames = new List<string>();
+    string DepValues = "";
+}
+<div class="row setup-content" id="step-2">
+    <div class="col-xs-12">
+        <div class="col-md-12">
+            <h4>الأقسام</h4>
+            <br />
+            <br />
+            <div class="row" id="DivDepartments">
+
+                @foreach (var item in Model.Departments)
+                {
+                    if (!DepNames.Contains(item.DepartmentArabicName))
+                    {
+                        if (item.IsAcademic == false)
+                        {
+                            DepValues += item.DepartmentArabicName + ",";
+                            DepNames.Add(item.DepartmentArabicName);
+
+                        }
+                    }
+                }
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الأقسام الادارية :</label>
+                        <input type="text" id="DepTag" class="tags tags-input" data-type="Dep-tags"
+                               data-highlight-color="#00C0EF" value="@DepValues" />
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="DivAcademicDepartments">
+                <br />
+                <br />
+                @{List<string> AcademicDepNames = new List<string>();
+                    string AcdDepValues = "";
+                }
+                @foreach (var item in Model.AcademicDepartments)
+                {
+                    if (!AcademicDepNames.Contains(item.DepartmentArabicName))
+                    {
+
+                        AcdDepValues += item.DepartmentArabicName + ",";
+                        AcademicDepNames.Add(item.DepartmentArabicName);
+
+                    }
+                }
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">الأقسام الاكاديمية :</label>
+                        <input type="text" id="AcdDepTag" class="tags tags-input" data-type="AcdDep-tags"
+                               data-highlight-color="#00C0EF" value="@AcdDepValues" />
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-info DepartmentInfonextBtn btn-sm @buttonpull" type="button">@R.GetResource("Next")</button>
+        </div>
+    </div>
+
+</div>
+<script src="../../Content/Wizard/wizardJS.js"></script>
+<script src="../../Content/Wizard/SchoolRegistrationWizard.js"></script>
+<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../../assets/plugins/jquery-tags-input/jquery-tags-input.js"></script>
+<script src="../../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+<script src="../../assets/plugins/jquery-toast/dist/toast.js"></script>
+
+<script>
+    $('.tags-input').each(function () {
+        debugger;
+        var tagsType = $(this).data('type')
+        if (tagsType === 'Dep-tags') {
+
+            $(this).tagsInput({
+                width: 'auto',
+                defaultText: "إضافة قسم"
+                , onAddTag: function (elem, elem_tags) {
+                    debugger;
+                    $.ajax({
+                        type: "POST",
+                        url: "AddUpdateDepartment",
+                        data: { 'DepartmentName': elem, 'DepType': 1, 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+
+                    });
+                }
+                , onRemoveTag: function (elem, elem_tags) {
+                    debugger;
+                    $.ajax({
+                        type: "POST",
+                        url: "DeleteDepartment",
+                        data: { 'DepartmentName': elem, 'DepType': 1, 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+
+                    });
+                }
+            });
+        }
+        if (tagsType === 'AcdDep-tags') {
+
+            $(this).tagsInput({
+                width: 'auto',
+                defaultText: "إضافة قسم"
+                , onAddTag: function (elem, elem_tags) {
+                    debugger;
+                    $.ajax({
+                        type: "POST",
+                        url: "AddUpdateDepartment",
+                        data: { 'DepartmentName': elem, 'DepType': 2, 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+
+                    });
+                }
+                , onRemoveTag: function (elem, elem_tags) {
+                    debugger;
+                    $.ajax({
+                        type: "POST",
+                        url: "DeleteDepartment",
+                        data: { 'DepartmentName': elem, 'DepType': 2, 'SchoolID': $("#schoolBranch_SchoolID").val() }
+
+
+                    });
+                }
+
+            });
+        }
+    });
+
+</script>

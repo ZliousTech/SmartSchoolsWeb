@@ -1,0 +1,67 @@
+﻿@model List<Objects.DTO.TeacherDTO>
+@{
+    ViewBag.Title = "AllTeachers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+       <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Teachers")</h2>
+</div>
+
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("RegisterTeacher","Teacher")" style="width:195px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("RegisteranewTeacher")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        <table class="table" id="exportTable" style="width:100%">
+
+            <thead>
+                <tr>
+
+                    @*<th scope="col"> @R.GetResource("JobNumber") </th>*@
+                    <th scope="col"> @R.GetResource("TeacherName") </th>
+                    <th scope="col"> @R.GetResource("NumberofSessins") </th>
+                    <th scope="col">@R.GetResource("TimeTableSessions")</th>
+                    <th scope="col">@R.GetResource("Edit")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr scope="row">
+                        @*<td>@item.StaffID</td>*@
+                        <td>@item.TeacherName</td>
+                        <td>@item.NumberofSessins</td>
+                        <td>@item.TimeTableSessions</td>
+                        <td style="display:flex">
+                            <a href="@Url.Action("EditTeacher","Teacher",new { StaffID= BaseController.Encrypt(item.StaffID )})" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

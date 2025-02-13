@@ -1,0 +1,53 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    Layout = null;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+
+}
+<script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+<link href="~/AppContent/style.css" rel="stylesheet">
+
+<table class="table" id="StudentRequestTable" style="width:100% !important">
+    <thead>
+        <tr>
+            <th scope="col">@R.GetResource("Descriptionofthediscount")</th>
+            <th scope="col">@R.GetResource("DiscountPercentage")</th>
+            <th scope="col">@R.GetResource("DiscountType")</th>
+            <th scope="col">@R.GetResource("Edit")</th>
+            <th scope="col">@R.GetResource("Delete")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Discounts)
+        {
+            var DiscountTypeRes = (from DiscountType in context.DiscountTypes where DiscountType.DiscountTypeID == item.DiscountTypeID select DiscountType).FirstOrDefault();
+            <tr>
+
+                @*<td>@item.StudentID</td>*@
+                <td>@item.DiscountDescription</td>
+                <td><span class="label col-form-label-lg" style="color:black;"> @item.DiscountPercentage </span></td>
+                @{
+                    var dTypeName = CurrentLanguage == Languges.English ?
+                        DiscountTypeRes.DiscountTypeEnglish : DiscountTypeRes.DiscountTypeArabic;
+                }
+                <td><span class="label col-form-label-lg" style="color:black;"> @dTypeName </span></td>
+                <td style="text-align:center;">
+                    <a id="editButton" class="padding" style="cursor:pointer;" value="@item.DiscountID" onclick="EditDiscount(@item.DiscountID)">
+                        <i class="fa fa-edit fa-s-15"></i>
+                    </a>
+                </td>
+                <td style="text-align:center;">
+                    <a id="deletebtn" class="padding" style="cursor:pointer;" value="@item.DiscountID" onclick="DeleteDiscount(@item.DiscountID)">
+                        <i class="fa fa-trash fa-s-15"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>*@
+
+
+
+

@@ -1,0 +1,279 @@
+﻿@model IEnumerable<SmartSchool.Models.Attendance.AttendanceTrackingVM>
+@{
+    ViewBag.Title = "Automatic Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    .badge-light-success {
+        background-color: #dfffea;
+        color: #17c653;
+        padding: 0.25em 0.5em;
+        border-radius: 0.2rem;
+        font-size: 0.875em;
+        font-weight: 700;
+        display: inline-block;
+        line-height: 1;
+        text-align: center;
+        vertical-align: baseline;
+    }
+
+    .badge-light-danger {
+        background-color: #ffeef3;
+        color: #f8285a;
+        padding: 0.25em 0.5em;
+        border-radius: 0.2rem;
+        font-size: 0.875em;
+        font-weight: 700;
+        display: inline-block;
+        line-height: 1;
+        text-align: center;
+        vertical-align: baseline;
+    }
+
+    .required:after {
+        content: "*";
+        position: relative;
+        font-size: inherit;
+        color: red;
+        padding-left: .25rem;
+        font-weight: 600;
+    }
+
+    .bd-callout-info {
+        border-left-color: #3699ff;
+    }
+
+    .bd-callout {
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        border: solid 1px #e6e7e8;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+        border-radius: 10px;
+        border-left-width: .50rem;
+        border-left-color: #3699ff;
+    }
+
+    .borderless-btn {
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+
+        .borderless-btn:focus,
+        .borderless-btn:active {
+            border: none;
+            outline: none;
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+    .dropdown-menu-scrollable {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+        .dropdown-menu-scrollable .dropdown-item {
+            margin-top: 1px;
+        }
+
+    .selected-column {
+        background-color: #3699ff !important;
+        color: white !important;
+    }
+
+    .btn-theme {
+        color: #fff !important;
+        background-color: #3699ff !important;
+        border-color: #3699ff !important;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        @*back  icon*@
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("AttendanceFollowUp")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+            </span>
+            <h5 style="margin: 16px 0 16px">
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+
+    <div class="light-component inner">
+        @using (Html.BeginForm("AttendanceTraking", "Attendance", FormMethod.Post, new { @class = "search-form", style = "width: 100%;" }))
+        {
+            <div class="col-md-12" style="margin-top:10px">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="date" class="required">@R.GetResource("Date")</label>
+                        <input type="date" id="trakingdate" class="form-control" placeholder="dd/MM/yyyy" value="@ViewBag.Date">
+                    </div>
+                </div>
+            </div>
+
+            <button style="margin: 0px 15px 0px 15px; display:none;" class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+        }
+
+        <div class="row" style="width: 100%;">
+            <div class="col-md-3">
+                <div class="dropdown">
+                    <button class="btn btn-theme dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @R.GetResource("CustomizeColumns")
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-scrollable" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item column-toggle selected-column" data-column="1" href="#">@R.GetResource("StudentName")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="2" href="#">@R.GetResource("SensorID")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="3" href="#">@R.GetResource("Time")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="4" href="#">@R.GetResource("Building")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="5" href="#">@R.GetResource("Floor")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="6" href="#"> @R.GetResource("Room")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="7" href="#">@R.GetResource("Zone")</a>
+                        <a class="dropdown-item column-toggle selected-column" data-column="8" href="#"> @R.GetResource("AntenaName")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col"> @R.GetResource("StudentName") </th>
+                    <th scope="col"> @R.GetResource("SensorID")</th>
+                    <th scope="col"> @R.GetResource("Time")</th>
+                    <th scope="col"> @R.GetResource("Building") </th>
+                    <th scope="col"> @R.GetResource("Floor") </th>
+                    <th scope="col"> @R.GetResource("Room") </th>
+                    <th scope="col"> @R.GetResource("Zone") </th>
+                    <th scope="col"> @R.GetResource("AntenaName") </th>
+                    <th class="text-center" scope="col"> @R.GetResource("Actions") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <span style="@(CurrentLanguage == Languges.Arabic? "margin-left:5px;" : "")">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#3699ff" class="bi bi-person-vcard-fill" viewBox="0 0 20 20">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                                </svg>
+                            </span>
+                            @item.name
+                        </td>
+                        <td>
+                            <span style="@(CurrentLanguage == Languges.Arabic? "margin-left:5px;" : "")">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="25" height="25" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#3699ff" stroke="none">
+                                        <path d="M841 4603 c-436 -216 -710 -1490 -575 -2668 48 -422 141 -778 274 -1050 125 -254 256 -381 406 -393 77 -6 149 24 223 93 96 90 213 288 276 470 l28 80 -36 130 c-61 219 -110 492 -139 790 -20 197 -16 815 5 1031 31 311 103 690 161 852 15 43 15 45 -20 140 -160 428 -392 631 -603 525z" />
+                                        <path d="M1250 4594 c81 -73 203 -280 279 -471 l33 -83 520 0 519 0 -7 23 c-3 12 -27 69 -53 127 -86 194 -212 356 -318 411 l-48 24 -483 3 -483 3 41 -37z" />
+                                        <path d="M1600 3937 c0 -7 7 -36 15 -63 144 -485 198 -1280 129 -1909 -26 -243 -82 -524 -150 -753 l-6 -22 523 2 524 3 28 95 c39 132 93 405 116 590 34 261 44 482 38 800 -6 308 -20 477 -63 745 -23 143 -90 438 -114 501 l-10 24 -515 0 c-420 0 -515 -2 -515 -13z m772 -157 c75 -28 160 -106 198 -179 57 -115 102 -468 116 -916 13 -420 -43 -1003 -109 -1149 -33 -71 -111 -150 -185 -184 -50 -24 -69 -27 -162 -27 -96 0 -110 3 -165 29 -74 37 -144 108 -182 183 -26 54 -28 67 -28 173 0 63 8 179 18 256 44 362 44 826 0 1188 -10 77 -18 193 -18 256 0 103 3 121 26 170 88 189 296 273 491 200z" />
+                                        <path d="M2165 3701 c-129 -34 -219 -147 -219 -276 0 -33 7 -125 17 -205 28 -234 37 -399 37 -660 0 -261 -9 -426 -37 -660 -10 -80 -17 -172 -17 -205 0 -108 59 -201 159 -253 67 -35 177 -37 246 -6 54 25 111 80 138 133 35 67 70 309 92 626 28 411 -18 1157 -82 1330 -22 60 -84 126 -145 156 -48 23 -141 33 -189 20z m170 -105 c21 -11 53 -40 69 -64 26 -37 31 -54 34 -115 3 -61 0 -79 -21 -117 -105 -197 -391 -120 -391 105 0 169 163 270 309 191z" />
+                                        <path d="M4348 3693 l-57 -58 58 -61 c32 -34 88 -106 124 -161 230 -345 307 -769 216 -1190 -54 -250 -171 -481 -345 -679 l-53 -61 55 -54 56 -54 72 76 c188 198 331 492 388 797 32 172 32 470 0 631 -64 317 -199 588 -409 819 l-48 53 -57 -58z" />
+                                        <path d="M4011 3376 l-54 -55 39 -43 c128 -139 222 -329 265 -533 21 -97 16 -305 -9 -407 -44 -181 -129 -349 -243 -480 l-49 -56 57 -56 58 -57 32 38 c198 227 296 446 324 730 33 322 -86 670 -315 923 -22 25 -43 46 -46 48 -3 1 -30 -22 -59 -52z" />
+                                        <path d="M3694 3049 l-51 -51 46 -62 c88 -116 131 -245 131 -391 0 -146 -48 -285 -133 -381 l-40 -46 57 -56 57 -57 39 45 c118 137 180 309 180 500 0 151 -36 280 -111 406 -35 57 -105 144 -117 144 -4 0 -30 -23 -58 -51z" />
+                                        <path d="M3374 2728 l-51 -53 23 -40 c30 -51 32 -118 3 -164 l-20 -34 52 -53 c51 -51 54 -53 72 -36 63 56 92 194 63 293 -15 53 -67 139 -84 139 -4 0 -31 -24 -58 -52z" />
+                                        <path d="M1540 1028 c-73 -203 -165 -362 -274 -476 l-60 -63 485 3 484 3 52 29 c127 70 250 240 346 479 l35 87 -522 0 -523 0 -23 -62z" />
+                                    </g>
+                                </svg>
+                            </span>
+                            @item.tagID
+                        </td>
+                        <td>@item.tagTime12</td>
+                        <td>@(CurrentLanguage == Languges.English? item.buildingNameEn : item.buildingNameNative)</td>
+                        <td>@(CurrentLanguage == Languges.English? item.floorNameEn : item.floorNameNative)</td>
+                        <td>@(CurrentLanguage == Languges.English? item.roomNameEn : item.roomNameNative)</td>
+                        <td>@item.antennaZone</td>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" id="mdi-antenna" width="20" height="20" fill="#3699ff" viewBox="0 0 24 24"><path d="M12 7.5C12.69 7.5 13.27 7.73 13.76 8.2S14.5 9.27 14.5 10C14.5 11.05 14 11.81 13 12.28V21H11V12.28C10 11.81 9.5 11.05 9.5 10C9.5 9.27 9.76 8.67 10.24 8.2S11.31 7.5 12 7.5M16.69 5.3C17.94 6.55 18.61 8.11 18.7 10C18.7 11.8 18.03 13.38 16.69 14.72L15.5 13.5C16.5 12.59 17 11.42 17 10C17 8.67 16.5 7.5 15.5 6.5L16.69 5.3M6.09 4.08C4.5 5.67 3.7 7.64 3.7 10S4.5 14.3 6.09 15.89L4.92 17.11C3 15.08 2 12.7 2 10C2 7.3 3 4.94 4.92 2.91L6.09 4.08M19.08 2.91C21 4.94 22 7.3 22 10C22 12.8 21 15.17 19.08 17.11L17.91 15.89C19.5 14.3 20.3 12.33 20.3 10S19.5 5.67 17.91 4.08L19.08 2.91M7.31 5.3L8.5 6.5C7.5 7.42 7 8.58 7 10C7 11.33 7.5 12.5 8.5 13.5L7.31 14.72C5.97 13.38 5.3 11.8 5.3 10C5.3 8.2 5.97 6.64 7.31 5.3Z" /></svg>
+                            @(CurrentLanguage == Languges.English? item.antennaNameEn : item.antennaNameNative)
+                        </td>
+                        <td class="text-center">
+                            <a href="@Url.Action("TrakingDetails","Attendance", new {userId = BaseController.EncryptUrl(item.staffID), studentName = item.name, tagId = item.tagID, fromDate = DateTime.Now.ToString("MM/dd/yyyy"), toDate = DateTime.Now.ToString("MM/dd/yyyy")})" class="borderless-btn">
+                                <span style="cursor:pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="#3699ff" class="bi bi-eye" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('.column-toggle').on('click', function (e) {
+            e.preventDefault();
+            var column = $(this).data('column');
+
+            $(this).toggleClass('selected-column');
+
+            $('#exportTable').find('tr').each(function () {
+                var cell = $(this).find('th:nth-child(' + column + '), td:nth-child(' + column + ')');
+                cell.toggle();
+            });
+        });
+
+        $('#trakingdate').on('change', function () {
+            var date = formatDate($(this).val());
+
+            var url = '@Url.Action("AttendanceTraking", "Attendance")?date=' + date;
+            window.location.href = url;
+        });
+
+        function formatDate(date) {
+            var d = new Date(date);
+            var day = ('0' + d.getDate()).slice(-2);
+            var month = ('0' + (d.getMonth() + 1)).slice(-2);
+            var year = d.getFullYear();
+            return month + '/' + day + '/' + year;
+        }
+    });
+</script>

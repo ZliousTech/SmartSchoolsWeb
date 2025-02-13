@@ -1,0 +1,402 @@
+﻿@model SmartSchool.Models.System.SystemSettingsModel
+
+@{
+    ViewBag.Title = "SchoolSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+@Html.HiddenFor(m => m.SchoolID)
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("SchoolSettings")</h2>
+</div>
+
+<div class="inner-Container">
+
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Classroomnumber")</label>
+                            <div class="input-group spinner">
+                           
+                                @Html.TextBoxFor(m => m.NumberofClassRooms, new { @type = "number", min = 0, @class = "form-control text-center" })
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Maximumnumberoflessonsperday")</label>
+                            <div class="input-group spinner">
+                               
+                                @Html.TextBoxFor(m => m.NumberofSessionsPerDay, new { @type = "number", min = 0, @class = "form-control text-center" })
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Thenumberofchairsineachroom")</label>
+                            <div class="input-group spinner">
+                                
+                                @Html.TextBoxFor(m => m.NumberofChairsPerClass, new { @type = "number", min = 0, @class = "form-control text-center" })
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Maximumnumberoflessonsperteacher")</label>
+                            <div class="input-group spinner">
+                              
+                                @Html.TextBoxFor(m => m.NumberofSessionsPerTeacher, new { @type = "number", min = 0, @class = "form-control text-center" })
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("AllowedNumberofStudentsPerYardArea")
+                            </label>
+                            <div class="input-group spinner">
+                               
+                                @Html.TextBoxFor(m => m.AllowedNumberofStudentsPerYardArea, new { @type = "number", min = 0, @class = "form-control text-center" })
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Thenumberofstudentsallowedpersquaremeterofclassspace")</label>
+                            <div class="input-group spinner">
+                              
+                                @Html.TextBoxFor(m => m.AllowedNumberofStudentsPerClassroomArea, new { @type = "number", min = 0, @class = "form-control text-center" })
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="font-weight-bold">@R.GetResource("Thedayofthebeginningoftheweek")</label>
+                <hr />
+
+                <div class="days-section">
+                    @{
+                        var sunday = "";
+                        var monday = "";
+                        var tuesday = "";
+                        var wenesday = "";
+                        var thursday = "";
+                        var friday = "";
+                        var saturday = "";
+                        if (Model.WeekStartingDay.Value == 1)
+                        {
+                            sunday = "checked";
+                        }
+                        else if (Model.WeekStartingDay.Value == 2)
+                        {
+                            monday = "checked";
+
+                        }
+                        else if (Model.WeekStartingDay.Value == 3)
+                        {
+                            tuesday = "checked";
+
+                        }
+                        else if (Model.WeekStartingDay.Value == 4)
+                        {
+                            wenesday = "checked";
+                        }
+                        else if (Model.WeekStartingDay.Value == 5)
+                        {
+                            thursday = "checked";
+                        }
+                        else if (Model.WeekStartingDay.Value == 6)
+                        {
+                            friday = "checked";
+                        }
+                        else if (Model.WeekStartingDay.Value == 7)
+                        {
+                            saturday = "checked";
+                        }
+                    }
+
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay1" name="WeekStartingDay" value="1" type="radio" @sunday>
+                        <label for="WeekStartingDay1">
+                            @R.GetResource("Sunday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay2" name="WeekStartingDay" value="2" type="radio" @monday>
+                        <label for="WeekStartingDay2">
+                            @R.GetResource("Monday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay3" name="WeekStartingDay" value="3" type="radio" @tuesday>
+                        <label for="WeekStartingDay3">
+                            @R.GetResource("Tuesday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay4" name="WeekStartingDay" value="4" type="radio" @wenesday>
+                        <label for="WeekStartingDay4">
+                            @R.GetResource("Wenesday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay5" name="WeekStartingDay" value="5" type="radio" @thursday>
+                        <label for="WeekStartingDay5">
+                            @R.GetResource("Thursday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay6" name="WeekStartingDay" value="6" type="radio" @friday>
+                        <label for="WeekStartingDay6">
+                            @R.GetResource("Friday")
+                        </label>
+                    </div>
+                    <div class="radio-aqua">
+                        <input id="WeekStartingDay7" name="WeekStartingDay" value="7" type="radio" @saturday>
+                        <label for="WeekStartingDay7">
+                            @R.GetResource("Saturday")
+                        </label>
+                    </div>
+
+                </div>
+
+                <hr />
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Morningtiming")</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="time" value="@Model.StartingTime" class="Startingtime floating-label mdl-textfield__input" placeholder="Time" data-dtp="dtp_dEiDR">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>@R.GetResource("Classstarttime")</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="time2" value="@Model.FirstClassStartingTime" class="FirstClassStartingTime floating-label mdl-textfield__input" placeholder="Time" data-dtp="dtp_dEiDR">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>@R.GetResource("DurationofSession")</label>
+                            <div class="input-group spinner">
+
+                                @Html.TextBoxFor(m => m.SessionDuration, new { @type = "number", min = 0, @class = "form-control text-center" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("BreakBetweenSessionsDuration")
+                            </label>
+                            <div class="input-group spinner">
+
+                                @Html.TextBoxFor(m => m.BreakBetweenSessionsDuration, new { @type = "number", min = 0, @class = "form-control text-center" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("BreakDuration")
+                            </label>
+                            <div class="input-group spinner">
+
+                                @Html.TextBoxFor(m => m.BreakDuration, new { @type = "number", min = 0, @class = "form-control text-center" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("BreakAfterSession")
+                            </label>
+                            <div class="input-group spinner">
+
+                                @Html.TextBoxFor(m => m.BreakAfterSession, new { @type = "number", min = 0, @class = "form-control text-center" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("NumberofSemesters")
+                            </label>
+                            <div class="input-group spinner">
+                                @Html.TextBoxFor(m => m.NumberofSemesters, new { @type = "number", min = 0, @class = "form-control text-center" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("MultiDependantsDiscount")
+                                %
+                            </label>
+                            <div class="input-group spinner">
+                                @Html.TextBoxFor(m => m.MultiDependantsDiscount, new { @type = "number", min = 0, @class = "form-control text-center" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("NumberofExamsPerSemester")
+                                %
+                            </label>
+                            <div class="input-group spinner">
+                                @Html.TextBoxFor(m => m.NumberofExamsPerSemester, new { @type = "number", min = 0, @class = "form-control text-center" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                @R.GetResource("MaxDiscountNumber")
+                            </label>
+                            <div class="input-group spinner">
+
+                                @Html.TextBoxFor(m => m.MaxDiscountNumber, new { @type = "number", min = 0, @class = "form-control text-center" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <button id="btnAddSchoolSettings" type="button" class="btn btn-primary-custom forms">
+            @R.GetResource("Save")
+        </button>
+
+
+
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+
+
+        //######### Here Update School Settings AJax POST ###############\\
+
+        $("#btnAddSchoolSettings").on("click", function () {
+            debugger;
+            var NumberofClassRooms = $("#NumberofClassRooms").val();
+            var NumberofSessionsPerDay = $("#NumberofSessionsPerDay").val();
+            var NumberofChairsPerClass = $("#NumberofChairsPerClass").val();
+            var NumberofSessionsPerTeacher = $("#NumberofSessionsPerTeacher").val();
+            var AllowedNumberofStudentsPerYardArea = $("#AllowedNumberofStudentsPerYardArea").val();
+            var AllowedNumberofStudentsPerClassroomArea = $("#AllowedNumberofStudentsPerClassroomArea").val();
+            var StartingTime = $(".Startingtime").val();
+            var FirstClassStartingTime = $(".FirstClassStartingTime").val();
+            var SessionDuration = $("#SessionDuration").val();
+            var BreakBetweenSessionsDuration = $("#BreakBetweenSessionsDuration").val();
+            var BreakDuration = $("#BreakDuration").val();
+            var NumberofSemesters = $("#NumberofSemesters").val();
+            var NumberofExamsPerSemester = $("#NumberofExamsPerSemester").val();
+            var MultiDependantsDiscount = $("#MultiDependantsDiscount").val();
+            var BreakAfterSession = $("#BreakAfterSession").val();
+            var MaxDiscountNumber = $("#MaxDiscountNumber").val();
+            var WeekStartingDay = $("input[name='WeekStartingDay']:checked").val();
+            var SchoolID = $("#SchoolID").val();
+
+            var dataObject = JSON.stringify({
+                'NumberofClassRooms': NumberofClassRooms,
+                'NumberofSessionsPerDay': NumberofSessionsPerDay,
+                'NumberofChairsPerClass': NumberofChairsPerClass,
+                'NumberofSessionsPerTeacher': NumberofSessionsPerTeacher,
+                'AllowedNumberofStudentsPerYardArea': AllowedNumberofStudentsPerYardArea,
+                'AllowedNumberofStudentsPerClassroomArea': AllowedNumberofStudentsPerClassroomArea,
+                'StartingTime': StartingTime,
+                'FirstClassStartingTime': FirstClassStartingTime,
+                'SessionDuration': SessionDuration,
+                'BreakBetweenSessionsDuration': BreakBetweenSessionsDuration,
+                'BreakDuration': BreakDuration,
+                'NumberofSemesters': NumberofSemesters,
+                'NumberofExamsPerSemester': NumberofExamsPerSemester,
+                'MultiDependantsDiscount': MultiDependantsDiscount,
+                'BreakAfterSession': BreakAfterSession,
+                'MaxDiscountNumber': MaxDiscountNumber,
+                'WeekStartingDay': WeekStartingDay,
+                'SchoolID': SchoolID
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "UpdateSchoolSettings",
+                data: dataObject,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        $.toast({
+                            text: 'تمت عملية الحفظ بنجاح',
+                            position: 'top-center',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    } else {
+                        alert("Something went wrong");
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+    });
+</script>

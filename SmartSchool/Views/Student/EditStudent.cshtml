@@ -1,0 +1,1933 @@
+﻿@model SmartSchool.Models.Student.EditStudentViewModel
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    string buttonpull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+        buttonpull = "pull-right";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+        buttonpull = "pull-left";
+
+    }
+    <style>
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+            /*opacity:0 !important;*/
+        }
+
+        .inner-Container > .light-component.action > a {
+        width:187px;
+        }
+
+        .mdl-tabs__panel{
+            padding:25px;
+        }
+
+        input[type=radio].radio {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: -5px;
+        }
+
+        input[type=checkbox], input[type=radio] {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: -5px;
+            line-height: normal;
+            float: inherit;
+        }
+
+    </style>
+}
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="../../Maps/MapStyle.css" rel="stylesheet" />
+
+<div class="head-body-col">
+    <span onclick="goBack();">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Students")</h2>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+<div class="inner-Container">
+    @Html.HiddenFor(m => m.StudentIDNumber)
+    @Html.HiddenFor(m => m.SchoolDetail.SchoolID)
+    @Html.HiddenFor(m => m.SchoolDetail.ClassID)
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-edit" aria-hidden="true"></i>
+            </span>
+            <h4>
+                @R.GetResource("Editstudentinformations")
+            </h4>
+        </a>
+    </div>
+    <div class="light-component inner">
+
+        <div class="mdl-tabs mdl-js-tabs is-upgraded">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#tab1-panel" class="mdl-tabs__tab is-active">@R.GetResource("StudentInformation")</a>
+                <a href="#tab2-panel" class="mdl-tabs__tab">@R.GetResource("SchoolInformation")</a>
+                <a href="#tab3-panel" class="mdl-tabs__tab">@R.GetResource("ParentInformation")</a>
+                <a href="#tab4-panel" class="mdl-tabs__tab">@R.GetResource("Address")</a>
+                <a href="#tab5-panel" class="mdl-tabs__tab">@R.GetResource("SocialInformation")</a>
+                <a href="#tab6-panel" class="mdl-tabs__tab">@R.GetResource("HealthInformation")</a>
+
+            </div>
+            <div class="mdl-tabs__panel p-t-20 is-active" id="tab1-panel">
+                @{ var base64 = "";
+                    var imgSrc = "../../Images/camera2.png";
+                    if (Model.student != null)
+                    {
+                        if (Model.student.Photo != null)
+                        {
+                            base64 = Convert.ToBase64String(Model.student.Photo);
+                            imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                        }
+                    }
+
+                }
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2 labeltitle">
+                                    <label>@R.GetResource("StudentName")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("GivenName")</label>
+                                        @Html.TextBoxFor(m => m.FirstArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("FatherName")</label>
+                                        @Html.TextBoxFor(m => m.SecondArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("ThirdName")</label>
+                                        @Html.TextBoxFor(m => m.ThirdArabicName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("FamilyName")</label>
+                                        @Html.TextBoxFor(m => m.FourthArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            @*Hamza01*@
+                            @{
+                                var checkmale = "";
+                                var checkfemale = "";
+                                if (Model.student != null)
+                                {
+                                    if (Model.student.Gender == 0)
+                                    {
+                                        checkmale = "checked";
+                                    }
+                                    else if (Model.student.Gender == 1)
+                                    {
+                                        checkfemale = "checked";
+                                    }
+                                }
+                            }
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Gender")</label>
+                                </div>
+                                <div class="col-md-2" style="display: flex; align-items: center;">
+                                    <div class="form-group" style="display: flex; align-items: center;">
+                                        <label class="control-label">@R.GetResource("Male")</label>
+                                        <input class="radio" id="male" name="student.Gender" value="0" type="radio" @checkmale>
+                                    </div>
+                                </div>
+                                <div class="col-md-2" style="display: flex; align-items: center;">
+                                    <div class="form-group" style="display: flex; align-items: center;">
+                                        <label class="control-label">@R.GetResource("Female")</label>
+                                        <input class="radio" id="female" name="student.Gender" value="1" type="radio" @checkfemale>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Nationality")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.student.Nationality, "SelectListRequired", new { List = Model.NationalityList, Disabled = false })
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("NationalNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.student.NationalNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("ResidencyNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.student.ResidencyNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("DateOfBirth")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            @Html.TextBoxFor(model => model.DateofBirth, new { @class = "date floating-label mdl-textfield__input", placeholder = "dd/mm/yyyy", required = "required" })
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("BirthPlace")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            @Html.TextBoxFor(model => model.BirthPlace, new { @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 labeltitle">
+                                    <label>@R.GetResource("StudentDocuments")</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("BirthCertificatePhoto")</label>
+                                        @{ var BCPbase64 = "";
+                                            var BCFimgSrc = "../../Images/BrithCertificate.jpeg";
+                                            if (Model.student != null)
+                                            {
+                                                if (Model.student.BirthCertificatePhoto != null)
+                                                {
+                                                    BCPbase64 = Convert.ToBase64String(Model.student.BirthCertificatePhoto);
+                                                    BCFimgSrc = String.Format("data:image/*;base64,{0}", BCPbase64);
+                                                }
+                                            }
+                                        }
+                                        <div class="profile-userpic">
+                                            <img src="@BCFimgSrc" id="BCPImage" style="border-radius: unset; width: 200px; height: 200px; " class="img-responsive" alt="">
+                                            <input id="BCPfileuploader" name="BCPfileuploader" type="file" onchange="readURL(this,'#BCPImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                            <button type="button" style="width:161px;" onclick="showuploadfile('#BCPfileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                                        </div>
+
+                                        <div class="row">
+                                            <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("FamilyBookPhoto")</label>
+                                        @{ var FBPbase64 = "";
+                                            var FBPimgSrc = "../../Images/FamilyBook.jpeg";
+                                            if (Model.student != null)
+                                            {
+                                                if (Model.student.FamilyBookPhoto != null)
+                                                {
+                                                    FBPbase64 = Convert.ToBase64String(Model.student.FamilyBookPhoto);
+                                                    FBPimgSrc = String.Format("data:image/*;base64,{0}", FBPbase64);
+                                                }
+                                            }
+                                        }
+                                        <div class="profile-userpic">
+                                            <img src="@FBPimgSrc" id="FBPImage" style="border-radius: unset; width: 200px; height: 200px; " class="img-responsive" alt="">
+                                            <input id="FBPfileuploader" name="FBPfileuploader" type="file" onchange="readURL(this,'#FBPImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                            <button type="button" style="width:161px;" onclick="showuploadfile('#FBPfileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i>@R.GetResource("Upload")</button>
+                                        </div>
+
+                                        <div class="row">
+                                            <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("LastYearCertificate")</label>
+                                        @{ var LYCbase64 = "";
+                                            var LYCimgSrc = "../../Images/LastYearCertificate.jpeg";
+                                            if (Model.student != null)
+                                            {
+                                                if (Model.student.LastYearCertificate != null)
+                                                {
+                                                    LYCbase64 = Convert.ToBase64String(Model.student.LastYearCertificate);
+                                                    LYCimgSrc = String.Format("data:image/*;base64,{0}", LYCbase64);
+                                                }
+                                            }
+                                        }
+                                        <div class="profile-userpic">
+                                            <img src="@LYCimgSrc" id="LYCImage" style="border-radius: unset; width: 200px; height: 200px; " class="img-responsive" alt="">
+                                            <input id="LYCfileuploader" name="LYCfileuploader" type="file" onchange="readURL(this,'#LYCImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                            <button type="button" style="width:161px;" onclick="showuploadfile('#LYCfileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                                        </div>
+
+                                        <div class="row">
+                                            <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary-custom forms StudentInfonextBtn" type="button">@R.GetResource("Save")</button>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="profile-userpic">
+                                <img src="@imgSrc" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                                <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this,'#profileImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                                <button type="button" style="width:161px;" onclick="showuploadfile('#fileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                            </div>
+
+                            <div class="row">
+                                <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdl-tabs__panel p-t-20" id="tab2-panel">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("AcceptedDate")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.SchoolDetail.DateofAdmission, new { @class = "date floating-label mdl-textfield__input", placeholder = "dd/mm/yyyy", required = "required" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Class")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.SchoolDetail.ClassID, "SelectListRequired", new { List = Model.classes, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Section")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.SchoolDetail.SectionID, "SelectListRequired", new { List = Model.Sections, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Status")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.SchoolDetail.Status, "SelectListRequired", new { List = Model.StudentStatusList, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Academicachievement")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.SchoolDetail.Results, "SelectListRequired", new { List = Model.StudentResultList, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @if (Model.student.ComingTourOrder != null && Model.SchoolDetail.ComingTourOrder != 0)
+                                {
+                                <input id="ComingTourOrder" name="ComingTourOrder" value="-1" type="checkbox" checked>
+
+                                }
+                                else
+                                {
+                                <input id="ComingTourOrder" name="ComingTourOrder" value="0" type="checkbox">
+
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @if (Model.SchoolDetail.GoingTourOrder != null && Model.SchoolDetail.GoingTourOrder != 0)
+                            {
+                                <input id="GoingTourOrder" name="GoingTourOrder" value="-1" type="checkbox" checked>
+
+                            }
+                            else
+                            {
+                                <input id="GoingTourOrder" name="GoingTourOrder" value="0" type="checkbox">
+
+                            }
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Homecomingtour")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.SchoolDetail.GoingBusTourID, "SelectListRequired", new { List = Model.GoingTourList, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>@R.GetResource("Comingtoschooltour")</label>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.SchoolDetail.ComingBusTourID, "SelectListRequired", new { List = Model.ComingTourList, Disabled = false })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">@R.GetResource("Arrangeloadingincomingtoschool")</label>
+                            @Html.TextBoxFor(m => m.SchoolDetail.ComingTourOrder, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">@R.GetResource("Arrangetheloadingonthegohome")</label>
+                            @Html.TextBoxFor(m => m.SchoolDetail.GoingTourOrder, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary-custom forms SchoolInfonextBtn " type="button">@R.GetResource("Save")</button>
+
+            </div>
+            
+            <div class="mdl-tabs__panel p-t-20" id="tab3-panel">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("ParentInformation")</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Parent")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(model => model.GuardianName, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>@R.GetResource("RelativeRelation")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        @Html.EditorFor(model => model.student.GuardianRelationship, "SelectListRequired", new { List = Model.GuardianRelationshipList, Disabled = false })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("ParentMobileNumber")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.GuardianMobileNumber, new { @class = "form-control", Name = "number", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>
+                                    @R.GetResource("MessagesPhone")
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.smsNumber, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>
+                                    @R.GetResource("FatherName")
+                                </label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control", required = "required" })
+                                </div>
+                                <label>
+                                    @R.GetResource("EducationalLevel")
+                                </label>
+                                <div class="form-control-wrapper">
+                                    @Html.EditorFor(model => model.FatherQualification, "SelectListRequired", new { List = Model.QualificationList, Disabled = false })
+                                </div>
+                                @*<label>
+                    التخصص
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.EditorFor(model => model.FatherSpecialization, "SelectList", new { List = Model.SpecializationList, Disabled = false })
+                </div>*@
+                            <label>
+                                @R.GetResource("Occupation")
+
+                            </label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.FatherJob, new { @class = "form-control" })
+                                </div>
+                                @*<label>
+                    رقم الموبايل
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.FatherMobile, new { @class = "form-control", Name = "number" })
+                </div>
+                <label>
+                    هاتف العمل
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.FatherWorkPhone, new { @class = "form-control", Name = "number" })
+                </div>
+                <label>
+                    البريد الألكتروني
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.FatherEmail, new { @class = "form-control" })
+                </div>
+                <label>
+                    صندوق البريد
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.mailBox, new { @class = "form-control" })
+                </div>*@
+
+                            </div>
+                            <div class="col-md-6">
+                                <label>
+                                    @R.GetResource("MotherName")
+                                </label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", required = "required" })
+                                </div>
+                                <label>
+                                    @R.GetResource("EducationalLevel")
+                                </label>
+                                <div class="form-control-wrapper">
+                                    @Html.EditorFor(model => model.MotherQualification, "SelectListRequired", new { List = Model.QualificationList, Disabled = false })
+                                </div>
+                                @*<label>
+                    التخصص
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.EditorFor(model => model.MotherSpecialization, "SelectList", new { List = Model.SpecializationList, Disabled = false })
+                </div>*@
+                            <label>
+                                @R.GetResource("Occupation")
+
+                            </label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.MotherJob, new { @class = "form-control" })
+                                </div>
+                                @*<label>
+                    رقم الموبايل
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.MotherMobile, new { @class = "form-control", Name = "number" })
+                </div>
+                <label>
+                    هاتف العمل
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.MotherWorkPhone, new { @class = "form-control", Name = "number" })
+                </div>
+                <label>
+                    البريد الألكتروني
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.MotherEmail, new { @class = "form-control" })
+                </div>
+                <label>
+                    الرمز البريدي
+                </label>
+                <div class="form-control-wrapper">
+                    @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control" })
+                </div>*@
+                            </div>
+                        </div>
+                        <button class="btn btn-primary-custom forms ParentsInfonextBtn" type="button" style="margin-top:5px;">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mdl-tabs__panel p-t-20" id="tab4-panel">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        @{
+                            var checkgo = "";
+                            var checkreturn = "";
+                            var checktwoway = "";
+                            var checkno = "";
+                            if (Model.student != null)
+                            {
+                                if (Model.student.TransportDirectionID == 1)
+                                {
+                                    checkno = "checked";
+                                }
+                                else if (Model.student.TransportDirectionID == 0)
+                                {
+                                    checkgo = "checked";
+                                }
+                                else if (Model.student.TransportDirectionID == 3)
+                                {
+                                    checkreturn = "checked";
+                                }
+                                else if (Model.student.TransportDirectionID == 2)
+                                {
+                                    checktwoway = "checked";
+                                }
+                            }
+                        }
+                        <h4 class="htitles">@R.GetResource("Address")</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Country")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.StudentAddress.CountryID, "SelectListRequired", new { List = Model.Countries, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("City")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.StudentAddress.City, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Street")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.StudentAddress.Street, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Longitude")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.StudentAddress.Longitude, new { @class = "form-control", Name = "number", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="show-modal btn btn-info" id="openMapModal">
+                                    <i class="fa fa-globe" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Latitude")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.StudentAddress.Latitude, new { @class = "form-control", Name = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Building")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.StudentAddress.Building, new { @class = "form-control", Name = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="row">
+            <div class="col-md-2">
+                <label>الشقة </label>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.StudentAddress.Building, new { @class = "form-control", Name = "number" })
+                </div>
+            </div>
+        </div>*@
+                        <div class="row">
+                            <p>@R.GetResource("Subscriptiontotransportation") </p>
+                            <div class="col-md-2" style="display: flex; align-items: center;">
+                                <div class="form-group" style="display: flex; align-items: center;">
+                                    <input class="radio" id="go" name="UseBus" value="0" type="radio" @checkgo>
+                                    <label>@R.GetResource("Go")</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="display: flex; align-items: center;">
+                                <div class="form-group" style="display: flex; align-items: center;">
+                                    <input class="radio" id="return" name="UseBus" value="1" type="radio" @checkreturn>
+                                    <label>@R.GetResource("Return")</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="display: flex; align-items: center;">
+                                <div class="form-group" style="display: flex; align-items: center;">
+                                    <input class="radio" id="twoway" name="UseBus" value="2" type="radio" @checktwoway>
+                                    <label>@R.GetResource("GoandReturn")</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="display: flex; align-items: center;">
+                                <div class="form-group" style="display: flex; align-items: center;">
+                                    <input class="radio" id="no" name="UseBus" value="3" type="radio" @checkno>
+                                    <label>@R.GetResource("Doesn'twanttoparticipate")</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary-custom forms AddressInfonextBtn" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("SocialInformation")</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("LiveWith")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.OtherStudentDetail.LivesWith, "SelectListRequired", new { List = Model.LiveWithTypesList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("NumberofBrothers")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.OtherStudentDetail.NumberofBrothers, new { @class = "form-control", Name = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("NumberofSisters")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.OtherStudentDetail.NumberofSisters, new { @class = "form-control", Name = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Arrangementamongthefamily")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.OtherStudentDetail.FamilyOrder, new { @class = "form-control", Name = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Familytotalmonthllyincome")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.OtherStudentDetail.FamilyTotalMonthlyIncome, new { @class = "form-control", Name = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("Residencetypeinthecountry")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.OtherStudentDetail.SpecialResidenceConditions, "SelectListRequired", new { List = Model.ResidenceConditionsList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary-custom forms SocialnextBtn" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("HealthInformation")</h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("BloodType")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.OtherStudentDetail.BloodType, "SelectListRequired", new { List = Model.BloodTypesList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("PhysicalCondition")</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.OtherStudentDetail.PhysicalStatus, "SelectListRequired", new { List = Model.physicalStatusList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("SpecialCare")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @if (Model.OtherStudentDetail != null)
+                                    {
+                                        if (Model.OtherStudentDetail.SpecialCare != null && Model.OtherStudentDetail.SpecialCare != 0)
+                                        {
+                                            <input id="SpecialCare" name="SpecialCare" value="-1" type="checkbox" checked>
+
+                                        }
+                                        else
+                                        {
+                                            <input id="SpecialCare" name="SpecialCare" value="0" type="checkbox">
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <input id="SpecialCare" name="SpecialCare" value="0" type="checkbox">
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("HasaChronicIllness")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @if (Model.OtherStudentDetail != null)
+                                    {
+                                        if (Model.OtherStudentDetail.HasChronicDisease != null && Model.OtherStudentDetail.HasChronicDisease != 0)
+                                        {
+                                            <input id="HasChronicDisease" name="HasChronicDisease" value="-1" type="checkbox" checked>
+
+                                        }
+                                        else
+                                        {
+                                            <input id="HasChronicDisease" name="HasChronicDisease" value="0" type="checkbox">
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <input id="HasChronicDisease" name="HasChronicDisease" value="0" type="checkbox">
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@R.GetResource("DiseaseType")</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.OtherStudentDetail.DiseaseType, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p>@R.GetResource("Hasthestudenteverhadoneofthefollowingdiseases?")</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    @Html.CheckBoxFor(m => m.StudentDiseas.Mumps.Value, false)
+                                    <label>@R.GetResource("Mumps")<label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="form-group">
+                                    @Html.CheckBoxFor(m => m.StudentDiseas.Chickenpox.Value, false)
+                                    <label>@R.GetResource("Chickenpox")<label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="form-group">
+                                    @Html.CheckBoxFor(m => m.StudentDiseas.rubella.Value, false)
+                                    <label>@R.GetResource("rubella")<label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="form-group">
+                                    @Html.CheckBoxFor(m => m.StudentDiseas.Rheumaticfever.Value, false)
+                                    <label>@R.GetResource("RheumaticFever")<label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <p>@R.GetResource("Doesthestudentsufferfromoneofthefollowingdiseases?")</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Diabetes")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Diabetes.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("HeartDisease")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Heartdiseases.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <label>@R.GetResource("Pissingoff")</label>
+                                        </label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Pissingoff.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Jointbonediseases")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Jointbonediseases.Value)
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Isaninhalerused(ifyes,pleaseprovideittotheschool)forasthma?")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.sprayer.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Hearingimpairment")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Hearingimpairment.Value)
+                                    </div>
+                                    @*<div class="form-group">
+                        <label>ضعف في البصر</label>
+                        @Html.CheckBoxFor(m => m.StudentDiseas.Visualimpairment.Value)
+                    </div>*@
+                                <div class="form-group">
+                                    <label>@R.GetResource("Speechimpairment")</label>
+                                    @Html.CheckBoxFor(m => m.StudentDiseas.Speechimpairment.Value)
+                                </div>
+                                    @*<div class="form-group">
+                        <label>أمراض المثانة</label>
+                        @Html.CheckBoxFor(m => m.StudentDiseas.Bladderdiseases.Value)
+                    </div>*@
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Epilepsy")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Epilepsy.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Hepatitis")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Hepatitis.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Shakika")</label>
+
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Shakika.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Fainting")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Fainting.Value)
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Kidneydisease")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Kidneydisease.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Surgery")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Surgery.Value)
+                                    </div>
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Urinarysystemdiseases")</label>
+                                        @Html.CheckBoxFor(m => m.StudentDiseas.Urinarysystemdiseases.Value)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary-custom forms HealthInfonextBtn" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="float:@modalpositon;" id="myModalLabel">@R.GetResource("Determinetheemployeeresidencelocation")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content">
+
+                    </div>
+                </div>
+                <div class="row">
+                    @{
+                        var lng = "";
+                        var ltd = "";
+                        if (Model.StudentAddress != null)
+                        {
+                            if (!string.IsNullOrEmpty(Model.StudentAddress.Longitude.ToString()) && !string.IsNullOrEmpty(Model.StudentAddress.Latitude.ToString()))
+                            {
+                                lng = Model.StudentAddress.Longitude.Value.ToString();
+                                ltd = Model.StudentAddress.Latitude.Value.ToString();
+                            }
+                        }
+                    }
+                    <div class="col-md-12 modal_body_map">
+                        <div id="panel">
+                            <div class="search-panel">
+                                <div class="details-div mt10">
+                                    <div class="col-md-12">
+                                        <input type="PickupAddress" value="" onkeyup="setnewlocation();" class="form-control mr10" name="PickupAddress" placeholder="@R.GetResource("Enterthenameoftheareaandclicksearch")" id="searchTextField" autocomplete="on" runat="server" required="" data-msg-required="Please enter Pick up Address" aria-required="true">
+                                        <button id="btnFindLoc" class="btn btn info" onclick="createMap();"><i class="fa fa-search" aria-hidden="true"></i>@R.GetResource("Search")</button>
+
+                                        <div><label class="control-label">@R.GetResource("Address"): </label> <input id="address" value="" name="address" type="text" class="form-control border" /></div>
+                                        <div class="mt10"><label class="control-label">@R.GetResource("Latitude"):</label>  <input type="text" value="@ltd" class="form-control" name="latitudemap" id="latitudemap"></div>
+                                        <div class="mt10"><label class="control-label"> @R.GetResource("Longitude"):</label> <input type="text" value="@lng" class="form-control" name="longitudemap" id="longitudemap"></div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-map" id="location-map">
+
+                            <div style="width: 600px; height: 400px;" id="myMap"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_end">
+                        <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                        <button type="button" id="savelocation" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("SaveLocation")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("select[name='SchoolDetail_ClassID']").on("change", function () {
+            //debugger;
+            var _clsID = $('select[name="SchoolDetail_ClassID"]').find(":selected").val(); //DropdownList element.
+            if (_clsID != "") {
+                $('#SchoolDetail_ClassID').val(_clsID); //HiddenFor element.
+                $.ajax({
+                    url: 'GetSectionsBySchoolClsID',
+                    method: 'GET',
+                    data: { SchoolClassID: _clsID },
+                    success: function (response) {
+                        if (response != null) {
+                            var jObj = $.parseJSON(response);
+                            $("#SchoolDetail_SectionID").empty();
+                            for (var i = 0; i < jObj.length; i++) {
+                                $('#SchoolDetail_SectionID').append(`<option value="${jObj[i].sectionID}"> ${jObj[i].sectionCode} </option>`); 
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        if ($("#student_NationalNumber").val().length > 0) {
+            $("#student_ResidencyNumber").attr("disabled", "disabled");
+        }
+        $('#openMapModal').click(function () {
+            $('#myModal').modal();
+        });
+        var CountryID = $("#SchoolDetail_CountryID").val();
+        var CompanyID = $("#SchoolDetail_CompanyID").val();
+        var SchoolID = $("#SchoolDetail_SchoolID").val();
+        if (CountryID != "") {
+            GetHeadQuartersByCountryID(CountryID);
+        }
+        if (CompanyID != "") {
+            GetSchoolBranchsByCompanyID(CompanyID);
+        }
+        if (SchoolID != "") {
+            GetClassesBySchoolID(SchoolID);
+        }
+        $('body').on('change', '#SchoolDetail_CountryID', function () {
+            //debugger;
+
+            var CountryID = $("select[name='SchoolDetail_CountryID'] option:selected").val();
+            GetHeadQuartersByCountryID(CountryID);
+            return false;
+
+        });
+        $('body').on('change', '#CompanyID', function () {
+            //debugger;
+            var CompanyID = $("#CompanyID option:selected").val();
+            GetSchoolBranchsByCompanyID(CompanyID);
+            return false;
+        });
+
+        $('body').on('change', '#CompanySchoolID', function () {
+            //debugger;
+            var SchoolID = $("#CompanySchoolID option:selected").val();
+            GetClassesBySchoolID(SchoolID);
+            return false;
+
+        });
+        var nationalnumber = $("#student_NationalNumber").val();
+        if ($("#StudentIDNumber").val() != 0 && $("#StudentIDNumber").val() != null) {
+            if (nationalnumber != null && nationalnumber != "") {
+                $("#student_ResidencyNumber").removeAttr('required');
+            }
+            else {
+                $("#student_NationalNumber").removeAttr('required');
+            }
+        }
+        $('#myModal').on('show.bs.modal', function (event) {
+            //debugger;
+            var input = document.getElementById('StudentAddress_Latitude');
+            if (input.value === "") {
+                CreateCurrentLocationMap();
+            }
+            else {
+                var autocomplete = new google.maps.places.Autocomplete(input);
+                google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                    var place = autocomplete.getPlace();
+                    $('#latitudemap').val(place.geometry.location.lat());
+                    $('#longitudemap').val(place.geometry.location.lng());
+                });
+                createMap();
+            }
+            $("#location-map").css("width", "100%");
+            $("#myMap").css("width", "100%");
+        });
+
+        // Trigger map resize event after modal shown
+        $(".show-modal").click(function () {
+            $("#myModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+
+        $("#savelocation").on('click', function (e) {
+            longitudemap = $("#longitudemap").val();
+            latitudemap = $("#latitudemap").val();
+            $("#StudentAddress_Longitude").val(longitudemap);
+            $("#StudentAddress_Latitude").val(latitudemap);
+            $(".closemodal").click();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+        });
+
+
+        $('#student_NationalNumber').on('input', function (e) {
+            var txtNational = $('#student_NationalNumber');
+            if (txtNational.val() != null && txtNational.val() != '') {
+                $("#student_ResidencyNumber").attr("disabled", "disabled");
+                $("#student_CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#student_ResidencyNumber").removeAttr("disabled");
+                $("#student_CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('#student_ResidencyNumber').on('input', function (e) {
+            var txtResidencyNumber = $('#student_ResidencyNumber');
+            if (txtResidencyNumber.val() != null && txtResidencyNumber.val() != '') {
+                $("#student_NationalNumber").attr("disabled", "disabled");
+                $("#student_CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#student_NationalNumber").removeAttr("disabled");
+                $("#student_CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('input[name="number"]').keyup(function (e) {
+            //debugger;
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+                if ($('#student_NationalNumber').val() == '') {
+                    $("#student_ResidencyNumber").removeAttr("disabled");
+                    $("#student_CivilNumber").removeAttr("disabled");
+                }
+                if ($('#student_ResidencyNumber').val() == '') {
+                    $("#student_NationalNumber").removeAttr("disabled");
+                    $("#student_CivilNumber").removeAttr("disabled");
+                }
+            }
+
+        });
+
+
+        //************************* Save Student Data ***********************************//
+
+        var StudentInfonextBtn = $('.StudentInfonextBtn');
+        var SchoolInfonextBtn = $('.SchoolInfonextBtn');
+        var ParentsInfonextBtn = $('.ParentsInfonextBtn');
+        var AddressInfonextBtn = $('.AddressInfonextBtn');
+        var SocialnextBtn = $('.SocialnextBtn');
+        var HealthInfonextBtn = $('.HealthInfonextBtn');
+
+        StudentInfonextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if ($("#profileImage").attr('src').includes('camera2.png') && $("#fileuploader").get(0).files.length === 0) {
+                //debugger;
+                $.toast({
+                    heading: 'الرجاء تحميل الصورة الشخصية',
+                    text: '',
+                    position: 'top-center',
+                    loaderBg: '#ff6849',
+                    icon: 'error',
+                    hideAfter: 4000,
+                    stack: 6
+                });
+                isValid = false;
+            }
+            //Hamza01
+            if ($("#BCPImage").attr('src').includes('BrithCertificate.jpeg') && $("#BCPfileuploader").get(0).files.length === 0) {
+                //debugger;
+                $.toast({
+                    heading: 'الرجاء تحميل صورة شهادة الميلاد',
+                    text: '',
+                    position: 'top-center',
+                    loaderBg: '#ff6849',
+                    icon: 'error',
+                    hideAfter: 4000,
+                    stack: 6
+                });
+                isValid = false;
+            }
+            if ($("#FBPImage").attr('src').includes('FamilyBook.jpeg') && $("#FBPfileuploader").get(0).files.length === 0) {
+                //debugger;
+                $.toast({
+                    heading: 'الرجاء تحميل صورة دفتر العائلة',
+                    text: '',
+                    position: 'top-center',
+                    loaderBg: '#ff6849',
+                    icon: 'error',
+                    hideAfter: 4000,
+                    stack: 6
+                });
+                isValid = false;
+            }
+            if ($("#LYCImage").attr('src').includes('LastYearCertificate.jpeg') && $("#LYCfileuploader").get(0).files.length === 0) {
+                //debugger;
+                $.toast({
+                    heading: 'الرجاء تحميل صورة شهادة اخر سنه دراسية',
+                    text: '',
+                    position: 'top-center',
+                    loaderBg: '#ff6849',
+                    icon: 'error',
+                    hideAfter: 4000,
+                    stack: 6
+                });
+                isValid = false;
+            }
+            //Hamza01
+            if (isValid) {
+                //debugger;
+
+                var FirstArabicName = $("#FirstArabicName").val();
+                var SecondArabicName = $("#SecondArabicName").val();
+                var ThirdArabicName = $("#ThirdArabicName").val();
+                var FourthArabicName = $("#FourthArabicName").val();
+                var Gender = $("input[name='student.Gender']:checked").val();
+                var NationalNumber = $("#student_NationalNumber").val();
+                var ResidencyNumber = $("#student_ResidencyNumber").val();
+                var DateofBirth = $("#DateofBirth").val();
+                var Nationality = $("#student_Nationality option:selected").val();
+                var BirthPlace = $("#BirthPlace").val();
+                var BirthCertificateNumber = $("#BirthCertificateNumber").val();
+
+                var formData = new FormData();
+                formData.append('file', $('#fileuploader')[0].files[0]);
+                formData.append('BCPfileuploader', $('#BCPfileuploader')[0].files[0]);
+                formData.append('FBPfileuploader', $('#FBPfileuploader')[0].files[0]);
+                formData.append('LYCfileuploader', $('#LYCfileuploader')[0].files[0]);
+                formData.append('FirstArabicName', FirstArabicName);
+                formData.append('SecondArabicName', SecondArabicName);
+                formData.append('ThirdArabicName', ThirdArabicName);
+                formData.append('FourthArabicName', FourthArabicName);
+                formData.append('student.Gender', Gender);
+                formData.append('student.NationalNumber', NationalNumber);
+                formData.append('student.ResidencyNumber', ResidencyNumber);
+                formData.append('DateofBirth', DateofBirth);
+                formData.append('student.Nationality', Nationality);
+                formData.append('BirthPlace', BirthPlace);
+                formData.append('BirthCertificateNumber', BirthCertificateNumber);
+                formData.append('StudentIDNumber', $("#StudentIDNumber").val());
+                formData.append('GurdianID', $("#GurdianID").val());
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "StudentInfoStepOne",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success == true) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1500,
+                                stack: 6
+                            });
+
+                            nextStepWizard.removeAttr('disabled').trigger('click');
+
+                        } else {
+                            $.toast({
+                                text: response.Message,
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 5000,
+                                stack: 6
+                            });
+                        }
+                    }
+
+                });
+            }
+        });
+
+        SchoolInfonextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                //debugger;
+                //public Nullable< int > SchoolID { get; set; }
+                //public Nullable< System.DateTime > DateofAdmission { get; set; }
+                //public Nullable< int > ClassID { get; set; }
+                //public Nullable< int > SectionID { get; set; }
+                //public Nullable< int > Status { get; set; }
+                //public Nullable< int > Results { get; set; }
+                //public Nullable< int > ComingBusTourID { get; set; }
+                //public Nullable< int > GoingBusTourID { get; set; }
+                //public string PreviousSchool { get; set; }
+                //public Nullable< int > ComingTourOrder { get; set; }
+                //public Nullable< int > GoingTourOrder { get; set; }
+                debugger;
+                var dataObject = JSON.stringify({
+                    'SchoolDetail.ClassID': $("#SchoolDetail_ClassID").val(),
+                    'SchoolDetail.SectionID': $("#SchoolDetail_SectionID").val(),
+                    'SchoolDetail.Status': $("#SchoolDetail_Status").val(),
+                    'SchoolDetail.Results': $("#SchoolDetail_Results").val(),
+                    'SchoolDetail.ComingBusTourID': $("#SchoolDetail_ComingBusTourID").val(),
+                    'SchoolDetail.GoingBusTourID': $("#SchoolDetail_GoingBusTourID").val(),
+                    'SchoolDetail.ComingTourOrder': $("#SchoolDetail_ComingTourOrder").val(),
+                    'SchoolDetail.GoingTourOrder': $("#SchoolDetail_GoingTourOrder").val(),
+                    'StudentIDNumber': $("#StudentIDNumber").val()
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "SchoolInfoStepTwo",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1500,
+                                stack: 6
+                            });
+                            nextStepWizard.removeAttr('disabled').trigger('click');
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+
+        ParentsInfonextBtn.click(function () {
+            //debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                //debugger;
+                var dataObject = JSON.stringify({
+                    'student.GuardianRelationship': $("#student_GuardianRelationship").val(),
+                    'GuardianMobileNumber': $("#GuardianMobileNumber").val(),
+                    'smsNumber': $("#smsNumber").val(),
+                    'FatherName': $("#FatherName").val(),
+                    'MotherName': $("#MotherName").val(),
+                    'FatherQualification': $("#FatherQualification").val(),
+                    'MotherQualification': $("#MotherQualification").val(),
+                    'FatherSpecialization': $("#FatherSpecialization").val(),
+                    'MotherSpecialization': $("#MotherSpecialization").val(),
+                    'FatherJob': $("#FatherJob").val(),
+                    'MotherJob': $("#MotherJob").val(),
+                    'FatherMobile': $("#FatherMobile").val(),
+                    'MotherMobile': $("#MotherMobile").val(),
+                    'FatherWorkPhone': $("#FatherWorkPhone").val(),
+                    'MotherWorkPhone': $("#MotherWorkPhone").val(),
+                    'FatherEmail': $("#FatherEmail").val(),
+                    'MotherEmail': $("#MotherEmail").val(),
+                    'mailBox': $("#mailBox").val(),
+                    'PostalCode': $("#PostalCode").val(),
+                    'GuardianName': $("#GuardianName").val(),
+                    'StudentIDNumber': $("#StudentIDNumber").val()
+
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "ParentsInfoStepThree",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1500,
+                                stack: 6
+                            });
+                            nextStepWizard.removeAttr('disabled').trigger('click');
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+
+        AddressInfonextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                var dataObject = JSON.stringify({
+                    'StudentAddress.CountryID': $("#StudentAddress_CountryID").val(),
+                    'StudentAddress.City': $("#StudentAddress_City").val(),
+                    'StudentAddress.Street': $("#StudentAddress_Street").val(),
+                    'StudentAddress.Longitude': $("#StudentAddress_Longitude").val(),
+                    'StudentAddress.Latitude': $("#StudentAddress_Latitude").val(),
+                    'StudentAddress.Latitude': $("#StudentAddress_Latitude").val(),
+                    'StudentAddress.Building': $("#StudentAddress_Building").val(),
+                    'StudentAddress.TransportDirectionID': $("input[name='UseBus']:checked").val(),
+                    'StudentIDNumber': $("#StudentIDNumber").val()
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddressInfoStepFour",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.ajax({
+                                type: "GET",
+                                url: "GetDiscountsStep",
+                                cache: false,
+                                data: { 'SchoolID': response.SchoolID, 'StudentID': response.StudentID }
+
+
+                            }).done(function (result) {
+                                //debugger;
+                                $('#DivStudentQuestion').html(result);
+                                $.toast({
+                                    text: 'تمت عملية الحفظ بنجاح',
+                                    position: 'top-center',
+                                    loaderBg: '#ff6849',
+                                    icon: 'success',
+                                    hideAfter: 1500,
+                                    stack: 6
+                                });
+                                nextStepWizard.removeAttr('disabled').trigger('click');
+                            });
+
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+
+        SocialnextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+
+                var dataObject = JSON.stringify({
+                    'OtherStudentDetail.LivesWith': $("#OtherStudentDetail_LivesWith").val(),
+                    'OtherStudentDetail.NumberofBrothers': $("#OtherStudentDetail_NumberofBrothers").val(),
+                    'OtherStudentDetail.NumberofSisters': $("#OtherStudentDetail_NumberofSisters").val(),
+                    'OtherStudentDetail.FamilyOrder': $("#OtherStudentDetail_FamilyOrder").val(),
+                    'OtherStudentDetail.FamilyTotalMonthlyIncome': $("#OtherStudentDetail_FamilyTotalMonthlyIncome").val(),
+                    'OtherStudentDetail.SpecialResidenceConditions': $("#OtherStudentDetail_SpecialResidenceConditions").val(),
+                    'StudentIDNumber': $("#StudentIDNumber").val()
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "SocialInfoStepSex",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1500,
+                                stack: 6
+                            });
+                            nextStepWizard.removeAttr('disabled').trigger('click');
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+
+        HealthInfonextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],select"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                var SpecialCare = 0;
+                var HasChronicDisease = 0;
+                if ($("#SpecialCare").prop("checked") == true) {
+                    SpecialCare = -1;
+                }
+
+                if ($("#HasChronicDisease").prop("checked") == true) {
+                    HasChronicDisease = -1;
+                }
+                var dataObject = JSON.stringify({
+                    'OtherStudentDetail.BloodType': $("#OtherStudentDetail_BloodType").val(),
+                    'OtherStudentDetail.PhysicalStatus': $("#OtherStudentDetail_PhysicalStatus").val(),
+                    'OtherStudentDetail.SpecialCare': SpecialCare,
+                    'OtherStudentDetail.HasChronicDisease': HasChronicDisease,
+                    'OtherStudentDetail.DiseaseType': $("#OtherStudentDetail_DiseaseType").val(),
+                    'StudentDiseas.Mumps': $("#StudentDiseas_Mumps_Value").is(":checked"),
+                    'StudentDiseas.Chickenpox': $("#StudentDiseas_Chickenpox_Value").is(":checked"),
+                    'StudentDiseas.rubella': $("#StudentDiseas_rubella_Value").is(":checked"),
+                    'StudentDiseas.Rheumaticfever': $("#StudentDiseas_Rheumaticfever_Value").is(":checked"),
+                    'StudentDiseas.Epilepsy': $("#StudentDiseas_Epilepsy_Value").is(":checked"),
+                    'StudentDiseas.Hepatitis': $("#StudentDiseas_Hepatitis_Value").is(":checked"),
+                    'StudentDiseas.Shakika': $("#StudentDiseas_Shakika_Value").is(":checked"),
+                    'StudentDiseas.Fainting': $("#StudentDiseas_Fainting_Value").is(":checked"),
+                    'StudentDiseas.Kidneydisease': $("#StudentDiseas_Kidneydisease_Value").is(":checked"),
+                    'StudentDiseas.Surgery': $("#StudentDiseas_Surgery_Value").is(":checked"),
+                    'StudentDiseas.Urinarysystemdiseases': $("#StudentDiseas_Urinarysystemdiseases_Value").is(":checked"),
+                    'StudentDiseas.Diabetes': $("#StudentDiseas_Diabetes_Value").is(":checked"),
+                    'StudentDiseas.Heartdiseases': $("#StudentDiseas_Heartdiseases_Value").is(":checked"),
+                    'StudentDiseas.Pissingoff': $("#StudentDiseas_Pissingoff_Value").is(":checked"),
+                    'StudentDiseas.Jointbonediseases': $("#StudentDiseas_Jointbonediseases_Value").is(":checked"),
+                    'StudentDiseas.sprayer': $("#StudentDiseas_sprayer_Value").is(":checked"),
+                    'StudentDiseas.Hearingimpairment': $("#StudentDiseas_Hearingimpairment_Value").is(":checked"),
+                    'StudentDiseas.Visualimpairment': $("#StudentDiseas_Visualimpairment_Value").is(":checked"),
+                    'StudentDiseas.Speechimpairment': $("#StudentDiseas_Speechimpairment_Value").is(":checked"),
+                    'StudentDiseas.Bladderdiseases': $("#StudentDiseas_Bladderdiseases_Value").is(":checked"),
+                    'StudentIDNumber': $("#StudentIDNumber").val()
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "HealthInfoStepSeven",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                          
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1500,
+                                stack: 6
+                            });
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+    });
+
+    function GetHeadQuartersByCountryID(CountryID) {
+        var CompanyID = $("#SchoolDetail_CompanyID").val();
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "GetCompaniesByCountryID",
+            data: { 'CountryID': CountryID },
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    if (response.lang == "en") {
+                        var s;
+                        s += '<option value="">Please Select<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+
+                            if (response.result[i].ID == CompanyID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].Description + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].Description + '</option>';
+                        }
+                    }
+
+                    else {
+                        var s;
+                        s += '<option value="">الرجاء الأختيار<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+                            if (response.result[i].ID == CompanyID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].DescriptionAR + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].DescriptionAR + '</option>';
+                        }
+                    }
+
+                    $("#CompanyID").html(s);
+
+                    $("#CompanyID").removeAttr("disabled");
+                }
+            }
+        });
+    }
+
+    function GetSchoolBranchsByCompanyID(CompanyID) {
+        var SchoolID = $("#SchoolDetail_SchoolID").val();
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "GetSchoolBranchsByCompanyID",
+            data: { 'CompanyID': CompanyID },
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    if (response.lang == "en") {
+                        var s;
+                        s += '<option value="">Please Select<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+
+                            if (response.result[i].ID == SchoolID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].Description + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].Description + '</option>';
+                        }
+                    }
+
+                    else {
+                        var s;
+                        s += '<option value="">الرجاء الأختيار<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+                            if (response.result[i].ID == SchoolID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].DescriptionAR + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].DescriptionAR + '</option>';
+                        }
+                    }
+
+                    $("#CompanySchoolID").html(s);
+
+                    $("#CompanySchoolID").removeAttr("disabled");
+                }
+            }
+        });
+    }
+
+    function GetClassesBySchoolID(SchoolID) {
+        var SchoolClassID = $("#SchoolDetail_ClassID").val();
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "GetClassesBySchoolID",
+            data: { 'SchoolID': SchoolID },
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    //debugger;
+                    if (response.lang == "en") {
+                        var s;
+                        s += '<option value="">Please Select<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+
+                            if (response.result[i].ID == SchoolClassID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].Description + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].Description + '</option>';
+                        }
+                    }
+
+                    else {
+                        var s;
+                        s += '<option value="">الرجاء الأختيار<option>';
+                        for (var i = 0; i < response.result.length; i++) {
+
+                            if (response.result[i].ID == SchoolClassID) {
+                                s += '<option value="' + response.result[i].ID + '" selected="selected">' + response.result[i].DescriptionAR + '</option>';
+                            }
+                            s += '<option value="' + response.result[i].ID + '">' + response.result[i].DescriptionAR + '</option>';
+                        }
+                    }
+
+                    $("#SchoolClassID").html(s);
+
+                    $("#SchoolClassID").removeAttr("disabled");
+                }
+            }
+        });
+    }
+
+    function readURL(input, id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id)
+                    .attr('src', e.target.result).width(200)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function showuploadfile(id) {
+        $(id).click();
+    }
+
+    function setnewlocation() {
+
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            $('#latitudemap').val(place.geometry.location.lat());
+            $('#longitudemap').val(place.geometry.location.lng());
+        });
+        createMap();
+        $("#location-map").css("width", "100%");
+        $("#myMap").css("width", "100%");
+    }
+
+</script>

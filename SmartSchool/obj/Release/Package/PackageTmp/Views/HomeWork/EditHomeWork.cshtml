@@ -1,0 +1,430 @@
+﻿@model SmartSchool.Models.HomeWork.HomeWork
+@{
+    ViewBag.Title = "Add Home Work";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+
+    .note-textarea{
+        height:105px;
+    }
+
+    textarea.form-control {
+        height: 105px;
+    }
+
+    .button-Download {
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #3B3B3B;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0;
+        min-height: 30px;
+        min-width: 0;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 100%;
+        will-change: transform;
+    }
+
+        .button-Download:disabled {
+            pointer-events: none;
+        }
+
+        .button-Download:hover {
+            color: #fff;
+            background-color: #3699ff;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+            border: 2px solid #3699ff;
+        }
+
+        .button-Download:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("EditHomeWork")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddHomeWork" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(m => m.HomeWorkID, new { id = "HomeWorkID" })
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Classes")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassesList, @R.GetResource("SelectClass"), new { @class = "form-control  select2", id = "SchoolClassID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Section")</label>
+                                <select name="SectionID" id="SectionID" class="form-control select2" Disabled="Disabled"></select>
+                                @Html.HiddenFor(model => model.SectionID, new { id = "HiddenSectionID" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Subject")</label>
+                                <select name="SubjectID" id="SubjectID" class="form-control select2" Disabled="Disabled"></select>
+                                @Html.HiddenFor(model => model.SubjectID, new { id = "HiddenSubjectID" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Title")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.HomeWorkTitle, new { @class = "form-control", id = "HomeWorkTitle", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("DeadLine")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.HomeWorkDeadLine, new { @class = "form-control", id = "HomeWorkDeadLine", required = "required", type = "date", Value = Model.HomeWorkDeadLine.ToString("yyyy-MM-dd") })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Note")</label>
+                                <div class="form-control-wrapper note-textarea">
+                                    @Html.TextAreaFor(m => m.HomeWorkNote, new { @class = "form-control note-textarea", id = "HomeWorkNote", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("Attachment")</label>
+                                <div class="form-control-wrapper">
+                                    <input type="file" class="form-control" name="HomeWorkAttachment" id="HomeWorkAttachment" onchange="readFile(this)">
+                                </div>
+                            </div>
+                            @{
+                                if (Model.HomeWorkAttachment != null && !string.IsNullOrEmpty(Model.Ext))
+                                {
+                                    <a href="@Url.Action("DownloadFile", "HomeWork", new { homeWorkID = Model.HomeWorkID })" class="button-Download">@R.GetResource("DownloadFile")</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button style="margin: 15px;width: 13vh;" class="btnsavedit btn btn-primary-custom" id="btnEdit" style="padding:10px 20px;" type="button">@R.GetResource("Edit")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    var fileContent = null;
+    $(document).ready(function () {
+
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+
+        debugger;
+        var SchoolClassID = $('#SchoolClassID').val();
+        var StaffID = '@Model.TeacherID';
+        var obj = { schoolClassID: SchoolClassID, staffID: StaffID };
+        AjaxCall('/HomeWork/GetTeacherSections', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#SectionID').html('');
+                var options = '';
+                if (currentLanguage == 1) {
+                    options += '<option value="0">Please select</option>';
+                }
+                else {
+                    options += '<option value="0">الرجاء الأختيار</option>';
+                }
+                for (var i = 0; i < response.length; i++) {
+                    options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                }
+                $('#SectionID').append(options);
+                $('#SectionID').removeAttr("disabled");
+                $('#SectionID').val('@Model.SectionID');
+            }
+            else {
+                $('#SectionID').empty();
+                $('#SectionID').attr("disabled", "disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Sections on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        AjaxCall('/HomeWork/GetTeacherSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#SubjectID').html('');
+                var options = '';
+                if (currentLanguage == 1) {
+                    options += '<option value="0">Please select</option>';
+                }
+                else {
+                    options += '<option value="0">الرجاء الأختيار</option>';
+                }
+                for (var i = 0; i < response.length; i++) {
+                    options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                }
+                $('#SubjectID').append(options);
+                $('#SubjectID').removeAttr("disabled");
+                $('#Btnsearch').removeAttr("disabled");
+                $('#SubjectID').val("@Model.SubjectID");
+            }
+            else {
+                $('#SubjectID').empty();
+                $('#SubjectID').attr("disabled", "disabled");
+                $('#Btnsearch').attr("disabled", "disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Subjects on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            $("#SchoolClassID").val(this.value);
+            var SchoolClassID = $('#SchoolClassID').val();
+            var StaffID = '@Model.TeacherID';
+            var obj = { schoolClassID: SchoolClassID, staffID: StaffID };
+            AjaxCall('/HomeWork/GetTeacherSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SectionID').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SectionID').append(options);
+                    $('#SectionID').removeAttr("disabled");
+                }
+                else {
+                    $('#SectionID').empty();
+                    $('#SectionID').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+
+            AjaxCall('/HomeWork/GetTeacherSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SubjectID').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SubjectID').append(options);
+                    $('#SubjectID').removeAttr("disabled");
+                    $('#Btnsearch').removeAttr("disabled");
+                    $('#SubjectID').val("@Model.SubjectID");
+                }
+                else {
+                    $('#SubjectID').empty();
+                    $('#SubjectID').attr("disabled", "disabled");
+                    $('#Btnsearch').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Subjects on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $('#SectionID').on("change", function () {
+            $('#HiddenSectionID').val($(this).val());
+        });
+
+        
+        $("#btnEdit").on("click", function () {
+            var isValid = true;
+            debugger;
+            if ($("#SchoolClassID").val() == "") { isValid = false; }
+            if ($("#HiddenSectionID").val() == "") { isValid = false; }
+            if ($("#HiddenSubjectID").val() == "") { isValid = false; }
+            if ($("#HomeWorkTitle").length <= 0) { isValid = false; }
+            if ($("#HomeWorkDeadLine").val() == "") { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var HomeWorkID = $("#HomeWorkID").val();
+                var SchoolClassID = $("#SchoolClassID").val();
+                var SectionID = $("#SectionID").val();
+                var SubjectID = $("#SubjectID").val();
+                var HomeWorkTitle = $("#HomeWorkTitle").val();
+                var HomeWorkDeadLine = $("#HomeWorkDeadLine").val();
+                var HomeWorkNote = $("#HomeWorkNote").val();
+                var HomeWorkAttachment = fileContent;
+                var Ext = $("#HomeWorkAttachment").val();
+
+                formData.append('HomeWorkID', HomeWorkID);
+                formData.append('SchoolClassID', SchoolClassID);
+                formData.append('SectionID', SectionID);
+                formData.append('SubjectID', SubjectID);
+                formData.append('HomeWorkTitle', HomeWorkTitle);
+                formData.append('HomeWorkDeadLine', HomeWorkDeadLine);
+                formData.append('HomeWorkNote', HomeWorkNote);
+                formData.append('HomeWorkAttachment', HomeWorkAttachment);
+                formData.append('Ext', Ext);
+
+                $.ajax({
+                    type: "POST",
+                    url: "UpdateHomeWork",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("PrepareHomeWork", "HomeWork", new {staffID = Model.TeacherID})';
+                            }, 1000);
+
+                        } else {
+                            Swal.fire(
+                                'Error',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 413) {
+                            Swal.fire(
+                                'Information',
+                                'The file you are trying to upload exceeds the maximum allowed size.',
+                                'info'
+                            );
+                        } else {
+                            Swal.fire(
+                                'Error',
+                                'An error occurred: ' + error,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire(
+                    'Information',
+                    'Please Fill the required Data',
+                    'info'
+                );
+            }
+        });
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                fileContent = event.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

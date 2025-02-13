@@ -1,0 +1,372 @@
+﻿@model SmartSchool.Models.transportation.TransportatioModel
+@{
+
+
+    ViewBag.Title = "RegisterEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        modalpositon = "left";
+    }
+    else
+    {
+        modalpositon = "right";
+
+    }
+
+}
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+@section SectionHead{
+    <link href="../../Content/Wizard/WizardStyle.css" rel="stylesheet" />
+}
+
+<style>
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+    }
+
+    .form-holder {
+        width: 100%;
+        padding: 10px 25px;
+    }
+
+
+    .success-box {
+        padding: 10px;
+    }
+
+
+        .success-box img {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .success-box > div {
+            vertical-align: top;
+            display: inline-block;
+            color: #888;
+        }
+
+
+    /* Rating Star Widgets Style */
+    .rating-stars > ul {
+        padding: 9px 0px !important;
+        margin: 0px;
+    }
+
+    .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .rating-stars ul > li.star {
+            display: inline-block;
+        }
+
+            /* Idle State of the stars */
+            .rating-stars ul > li.star > i.fa {
+                font-size: 2.5em; /* Change the size of the stars */
+                color: #ccc; /* Color on idle state */
+            }
+
+            /* Hover state of the stars */
+            .rating-stars ul > li.star.hover > i.fa {
+                color: #FFCC36;
+            }
+
+            /* Selected state of the stars */
+            .rating-stars ul > li.star.selected > i.fa {
+                color: #FF912C;
+            }
+
+    table.calendar {
+        margin-bottom: 0;
+    }
+
+        table.calendar > thead > tr > th {
+            text-align: center;
+        }
+
+        table.calendar > tbody > tr > td {
+            height: 20px;
+        }
+
+            table.calendar > tbody > tr > td > div {
+                //padding: 8px;
+                height: 40px;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                float: left;
+            }
+
+            table.calendar > tbody > tr > td.has-events {
+                color: white;
+                cursor: pointer;
+                padding: 0;
+                border-radius: 4px;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div {
+                    background-color: #08C;
+                    border-left: 1px solid white;
+                }
+
+                    table.calendar > tbody > tr > td.has-events > div:first-child {
+                        border-left: 0;
+                        margin-left: 1px;
+                    }
+
+                    table.calendar > tbody > tr > td.has-events > div.practice {
+                        opacity: 0.7;
+                    }
+
+            table.calendar > tbody > tr > td.conflicts > div > span.title {
+                //color: red;
+            }
+
+            table.calendar > tbody > tr > td.max-conflicts > div {
+                background-color: red;
+                color: white;
+            }
+
+            table.calendar > tbody > tr > td.has-events > div > span {
+                display: block;
+                text-align: center;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div > span a {
+                    color: white;
+                }
+
+                table.calendar > tbody > tr > td.has-events > div > span.title {
+                    font-weight: bold;
+                }
+
+    table.table-borderless > thead > tr > th, table.table-borderless > tbody > tr > td {
+        border: 0;
+    }
+
+    .table tbody tr.hover td, .table tbody tr.hover th {
+        background-color: whiteSmoke;
+    }
+</style>
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>
+        @R.GetResource("AddBus")
+    </h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component inner">
+
+        <div class="form-holder">
+   
+            <div class="row ">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("BusInformation")</h4>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("School")</label>
+                                    @Html.EditorFor(model => model.schoolID, "SelectListRequired", new { List = Model.schoolList, Disabled = true })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("BusNo")</label>
+                                    @Html.TextBoxFor(m => m.BusNo, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("PlateNumber")</label>
+                                    @Html.TextBoxFor(m => m.PlateNumber, new { @class = "form-control", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("driver")</label>
+                                    @Html.EditorFor(model => model.DriverID, "SelectList", new { List = Model.DriverList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("FirstEscort")</label>
+                                    @Html.EditorFor(model => model.AttendantID, "SelectList", new { List = Model.EscortList, Disabled = false })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("SecondEscort")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.EditorFor(model => model.SecondAttendantID, "SelectList", new { List = Model.EscortList, Disabled = false })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("NumberOfseats")</label>
+                                    @Html.TextBoxFor(m => m.NumberOfseats, new { @class = "form-control", Name = "number", Type = "number", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("BusLicenseDate")</label>
+                                    @Html.TextBoxFor(m => m.BusLicenseDate, new { @class = "form-control date", placeholder = "dd/mm/yyyy", required = "required" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label>@R.GetResource("ParkingArea")</label>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <div class="radio-aqua jc-fr">
+                                                <input id="ParkingSchool" name="ParkingArea" value="-1" type="radio" checked>
+                                                <label for="ParkingArea">
+                                                    @R.GetResource("school")
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="radio-aqua jc-fr">
+                                                <input id="ParkingArea" name="ParkingArea" value="0" type="radio">
+                                                <label for="ParkingArea">
+                                                    @R.GetResource("driver")
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusInfoBtn">@R.GetResource("Save")</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../Content/Wizard/TeacherWizard.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#saveBusInfoBtn").on("click", function () {
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+
+                var DataObj = JSON.stringify({
+                    'BusNo': $("#BusNo").val(),
+                    'PlateNumber': $("#PlateNumber").val(),
+                    'DriverID': $("#DriverID").val(),
+                    'AttendantID': $('#AttendantID').val(),
+                    'SecondAttendantID': $('#SecondAttendantID').val(),
+                    'NumberOfseats': $('#NumberOfseats').val(),
+                    'BusLicenseDate': $('#BusLicenseDate').val(),
+                    'ParkingArea': $('input[name="ParkingArea"]:checked').val()
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "AddBus",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null && !response.Exist && response.Success == true) {
+                            $.toast({
+                                text: response.Message,
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                $(".select2").select2({
+                                    width: 'resolve'
+                                });
+                             window.location.href = '@Url.Action("ListBus", "transportation")';
+                            }, 3000);
+                        }
+                        else {
+                            $.toast({
+                                heading: response.Message,
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 5000,
+                                stack: 6
+                            });
+                        }
+                    }
+
+                })
+            }
+        });
+    });
+</script>
+
+
+
+

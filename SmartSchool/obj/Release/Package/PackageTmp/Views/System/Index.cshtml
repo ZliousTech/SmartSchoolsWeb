@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+  
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("System")</h2>
+</div>
+<div class="Dashboard-widget">
+
+    @*Staff Users*@
+    <a href="#" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("UsersCards")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Identity.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Note: To add, edit and delete the school")
+                    </span>
+                </li>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("users (admins and staff),") 
+                    </span>
+                </li>
+                <li>
+                    <span class="light-component counter">
+                       @R.GetResource("privilege, groups and etc...")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    <a href="@Url.Action("SystemSettings","System")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("SystemSettings")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/settings2.jpg" />
+    </a>
+
+    @*Generate users for students and teachers*@
+    <a href="@Url.Action("Index", "GenerateUser")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("GenerateUsers")</h3>
+        </div>
+        <img src="~/AppContent/Images/AuthPassword.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Note: Generate users for")
+                    </span>
+                </li>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("students and teachers")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+    @*To show the guardiants and students and teachers users info*@
+    <a href="@Url.Action("Index", "SystemUsers")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("SystemUsers")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/users.jpg" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("Note: To show the")
+                    </span>
+                </li>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("guardians, students and teachers users info")
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+
+</div>

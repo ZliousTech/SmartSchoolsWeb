@@ -1,0 +1,131 @@
+﻿@model SmartSchool.Models.SystemUser.SystemUserModel
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+    }
+    else
+    {
+        pull = "pull-right";
+
+
+    }
+    <style>
+        .light-component.inner {
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+        }
+    </style>
+}
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("SystemUsers")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        @using (Html.BeginForm("Index", "SystemUsers", FormMethod.Post, new { @class = "search-form" }))
+        {
+
+            <div class="col-md-12">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>@R.GetResource("Users")</label>
+                        @Html.EditorFor(model => model.GroupID, "SelectListRequired", new { List = Model.Groups, Disabled = false })
+                    </div>
+                </div>
+
+            </div>
+
+
+            <button class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+
+        }
+
+        @if (Model.Users != null)
+        {
+            <table class="table" id="exportTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th scope="col">@R.GetResource("ID")</th>
+                        <th scope="col">@R.GetResource("Name")</th>
+                        <th scope="col">@R.GetResource("Username") </th>
+                        <th scope="col">@R.GetResource("Password") </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            @if (string.IsNullOrEmpty(item.ID))
+                            {
+                                <td>@item.id</td>
+
+                            }
+                            else
+                            {
+                                <td>@item.ID</td>
+                            }
+
+                            <td>@item.Name</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Password</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+
+    <div class="light-component inner">
+        <div class="col-md-12">
+            <span class="text-warning bold"><i class="fa fa-minus"></i> @R.GetResource("LinkToUpdateGuardianData")</span>
+        </div>
+        <div class="col-md-12">
+            <span class="text-info bold"><i class="fa fa-link"></i> https://smartschool.zlioustech.com/luginf/uginf.aspx</span>
+        </div>
+
+        <div class="col-md-12">
+            <hr />
+        </div>
+
+        <div class="col-md-12">
+            <span class="text-warning bold"><i class="fa fa-minus"></i> @R.GetResource("LinkToUpdateTeacherData")</span>
+        </div>
+        <div class="col-md-12">
+            <span class="text-info bold"><i class="fa fa-link"></i> https://smartschool.zlioustech.com/luginf/utinf.aspx</span>
+        </div>
+    </div>
+
+</div>

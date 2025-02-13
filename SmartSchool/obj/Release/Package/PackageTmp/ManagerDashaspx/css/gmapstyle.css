@@ -1,0 +1,14 @@
+#map {
+    background-color: transparent;
+    position: fixed;
+    top: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
+    /*left: 0px;*/
+    /*padding-left:250px;*/
+    z-index: 5;
+    padding: 0px;
+    text-align: center;
+    width: 99%;
+    height: 400px;
+}

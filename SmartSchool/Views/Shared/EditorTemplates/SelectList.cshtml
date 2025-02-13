@@ -1,0 +1,76 @@
+﻿@model int?
+@using SmartSchool.Models.Common;
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+    var list = (List<LookupDTO>)ViewData["List"];
+    var Disabled = (bool)ViewData["Disabled"] ? true : false;
+}
+<select name="@Html.IdForModel()" id="@Html.IdForModel()" class="form-control select2"  Disabled="@Disabled">
+    <option value="-1">@R.GetResource("Pleaseselect")</option>
+    @if (list != null)
+    {
+        foreach (var item in list)
+        {
+            if (!string.IsNullOrEmpty(item.id))
+            {
+                if (Model.HasValue && !string.IsNullOrEmpty(item.id))
+                {
+
+                    if (CurrentLanguage == Languges.English)
+                    {
+                        <option value="@item.id" selected="selected">@item.Description</option>
+                    }
+                    else
+                    {
+                        <option value="@item.id" selected="selected">@item.DescriptionAR</option>
+
+                    }
+                }
+                else
+                {
+                    if (CurrentLanguage == Languges.English)
+                    {
+                        <option value="@item.id">@item.Description</option>
+
+                    }
+                    else
+                    {
+                        <option value="@item.id">@item.DescriptionAR</option>
+
+                    }
+                }
+            }
+            else
+            {
+                if (Model.HasValue && item.ID == Model.Value)
+                {
+
+                    if (CurrentLanguage == Languges.English)
+                    {
+                    <option value="@item.ID" selected="selected">@item.Description</option>
+                }
+                else
+                {
+                    <option value="@item.ID" selected="selected">@item.DescriptionAR</option>
+
+                }
+            }
+            else
+            {
+                if (CurrentLanguage == Languges.English)
+                {
+                    <option value="@item.ID">@item.Description</option>
+
+                }
+                else
+                {
+                    <option value="@item.ID">@item.DescriptionAR</option>
+
+                    }
+                }
+            }
+        }
+    }
+</select>
+

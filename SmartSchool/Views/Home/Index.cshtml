@@ -1,0 +1,1299 @@
+﻿@model SmartSchool.Models.Home.Dashboardstatisticsmodel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .notification-col {
+        margin: 0px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0px 10px !important
+    }
+
+    .active-notification {
+        border: solid 2px #5ee75e;
+    }
+
+    .Active-session {
+        padding: 5px 20px;
+        border: solid 2px #3699ff;
+        color: #000000;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+        transition: all ease 0.3s;
+    }
+
+        .Active-session:hover {
+            padding: 5px 20px;
+            background: #3699ff;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+            color: #fff;
+            transition: all ease 0.3s;
+        }
+
+    .InActive-session {
+        padding: 5px 20px;
+        border: solid 2px #ed5252;
+        color: #000000;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+        transition: all ease 0.3s;
+    }
+
+        .InActive-session:hover {
+            padding: 5px 20px;
+            background: #ed5252;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+            color: #fff;
+            transition: all ease 0.3s;
+        }
+
+    .active-arrow:before {
+        border-color: transparent transparent transparent #15e515 !important;
+    }
+
+    .notification-span {
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #dbdb40;
+    }
+
+    .notification-list {
+        width: 100%;
+    }
+
+    .content > h3 {
+        margin: 0px 5px;
+    }
+
+    .content > p {
+        margin: 0px;
+        padding: 5px;
+    }
+
+    #chveron {
+        width: 50%;
+        height: 50%;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    .overlay-head-clendar {
+        color: white;
+        background-color: #3699ff;
+        border-radius: 5px;
+        height: 100%;
+        left: 10px;
+        right: 15px;
+        font-weight: bolder;
+    }
+
+    .warpper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .collapsible {
+        width: 100%;
+        overflow: hidden;
+        font-weight: 500;
+    }
+
+        .collapsible input {
+            display: none;
+        }
+
+        .collapsible label {
+            text-align: inherit;
+            display: flex;
+            position: relative;
+            font-weight: 200;
+            background-color: #fff;
+            color: #3699ff;
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding-top: 5px;
+            padding-right: 15px;
+            padding-left: 15px;
+            z-index: 1;
+        }
+
+            .collapsible label:after {
+                content: " ";
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                width: 18px;
+                height: 18px;
+                transition: all 0.3s ease;
+            }
+
+        .collapsible input:checked + label:after {
+            rotate: (90deg);
+        }
+
+    .collapsible-text {
+        max-height: 1px;
+        overflow: hidden;
+        border-radius: 4px;
+        line-height: 1.4;
+        position: relative;
+        top: -100%;
+        opacity: 0.5;
+        transition: all 0.3s ease;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .collapsible input:checked ~ .collapsible-text {
+        max-height: 600px;
+        padding-bottom: 25px;
+        background: #FFF;
+        box-shadow: 0 5px 11px 0 rgb(0, 0, 0, .1), 0 4px 11px 0 rgb(0, 0, 0, .08);
+        opacity: 1;
+        top: 0;
+    }
+
+
+    .collapsible-text table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 15px 15px 0;
+        color: #1c1c6b;
+        width: 100%;
+        text-align: center;
+        border: 3px solid #3699ff;
+        border-collapse: collapse;
+        direction: inherit;
+    }
+
+    .horizontal-line {
+        width: 35vw;
+        height: 3px;
+        background-color: #3699ff;
+        border-radius: 50%;
+        flex-grow: 3;
+    }
+
+    th {
+        border-bottom: 2px solid #3699ff;
+        text-align: center;
+        background-color: #3699ff;
+        color: lightgray;
+        font-size: 15px;
+        cursor: pointer;
+        padding: 20px;
+    }
+
+    tr {
+        text-align: center;
+    }
+
+    td {
+        padding: 15px;
+    }
+
+    .circle-line-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
+
+    .line {
+        width: 10px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: lightgray;
+    }
+
+    .circle-line-container .line {
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    th:hover {
+        color: white;
+    }
+
+        th:hover .circle {
+            background-color: white;
+        }
+
+        th:hover .line {
+            background-color: white;
+        }
+
+    .calendartable {
+        text-align: inherit;
+    }
+
+    .calendarsdates:hover {
+        font-size: 18px;
+        font-weight: 500;
+        cursor: default;
+    }
+
+    .calendar-more {
+        color: #3699ff;
+        font-family: GESSTextLight-Light;
+        font-size: 20px;
+    }
+
+        .calendar-more:hover {
+            font-size: 25px;
+            text-decoration: none;
+            color: #3699ff;
+        }
+
+    .img-responsive-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 100%;
+    }
+</style>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+@Html.HiddenFor(m => m.StaffID)
+@Html.HiddenFor(m => m.CompanyID)
+@Html.HiddenFor(m => m.StaffType)
+@Html.HiddenFor(m => m.SchoolID)
+@Html.HiddenFor(m => m.AcademicYear)
+@Html.Hidden("hdnAvailWH")
+
+<!-- start widget -->
+@if (Model.PrevSchoolID == -1)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <header class="panel-heading panel-heading-blue">
+                    @R.GetResource("ChooseSchool")
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("School")</label>
+                                @Html.EditorFor(model => model.CompanySchoolID, "SelectListRequired", new { List = Model.SchoolList, Disabled = false })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <br />
+                            <button class="btn btn-info" id="btnChooseSchool">@R.GetResource("Choose")</button>
+                            <button class="btn btn-info" id="btnHQSettings">@R.GetResource("HeadQuarter Settings")</button>
+                            <button class="btn btn-primary" id="btnGoToManagerDash">@R.GetResource("Manager Dashboard")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.SchoolID != -1)
+{
+    <div class="inner-row" style="justify-content:center">
+        <div class="banner light-component">
+            <div class="warpper">
+                <div class="collapsible">
+                    <input type="checkbox" id="collapsible-head">
+                    <label for="collapsible-head">
+                        <p style="font-family: GESSTextLight-Light; font-size: 35px; margin-top: 10px; ">@R.GetResource("Calendar")</p>
+                        <div class="row" style="direction:inherit;display:inline-flex; width:100%">
+                            <div class="col-md-7">
+                                <div class="horizontal-line"></div>
+                            </div>
+                            <div class="col-md-1" style="margin-top:-10px">
+                                <i id="arrow-icon" class="fas fa-chevron-down fa-1x"></i>
+                            </div>
+                            <div class="col-md-4" style="margin-top:-10px">
+                                <a class="calendar-more" href="@Url.Action("CalendarMore", "Calendar")">
+                                    @R.GetResource("More")
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="collapsible-text">
+                        <table>
+                            <thead>
+                                <tr>
+                                    @{
+                                        string[] monthAbbreviations = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+                                        int index = 1;
+                                        foreach (var m in monthAbbreviations)
+                                        {
+                                            <th class="theaders" id="@m$@index">
+                                                @R.GetResource(m)
+                                                <div class="circle-line-container">
+                                                    <div id="c1$@index" class="circle"></div>
+                                                    <div id="l$@index" class="line"></div>
+                                                    <div id="c2$@index" class="circle"></div>
+                                                </div>
+                                            </th>
+                                            index++;
+                                        }
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="12">
+                                        <div class="row">
+                                            <div class="col-md-3 img-responsive-container">
+                                                <img src="~/AppContent/Images/Calendar.jpg" alt="CalendarEvent" style="border-radius: unset; width: 280px; height: 170px; border-radius: 5px; transform: scale(0.8);" class="img-responsive">
+                                            </div>
+                                            <div id="calendartable" class="col-md-9">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="head-body-col" style="margin-bottom:50px">
+            <span>
+                <i class="fa fa-tachometer" aria-hidden="true"></i>
+            </span>
+            <h2>@R.GetResource("Dashboard")</h2>
+        </div>*@
+
+    if (Model.ShowQeustionsForms)
+    {
+        <div class="Dashboard-widget">
+            <div class="light-component widget notification-col">
+                <div class="header-notification" style="display: flex; align-items: center;width: 100%;border-bottom: solid 2px #efeaea;border-radius: 10px">
+                    <span class="notification-span">
+                        <i class="fa fa-question" aria-hidden="true" id="question-icon"></i>
+                    </span>
+                    <h3>
+                        <a href="~/questionsweb/StudentQuestionsForms.aspx" style="color: black; text-decoration: none;">
+                            @R.GetResource("QuestionsForms")
+                        </a>
+                    </h3>
+                </div>
+                <div class="notification-list">
+                    <label></label>
+                </div>
+            </div>
+        </div>
+    }
+
+    if (Model.ShowNotification)
+    {
+        <div class="Dashboard-widget">
+            <div class="light-component widget notification-col">
+                <div class="header-notification" style="display: flex; align-items: center;width: 100%;border-bottom: solid 2px #efeaea;border-radius: 10px">
+                    <span class="notification-span">
+                        <i class="fa fa-bell" aria-hidden="true" id="bell-icon"></i>
+                    </span>
+                    <h3>
+                        @R.GetResource("Notification")
+                    </h3>
+                </div>
+                <div class="notification-list">
+                    <div class="timeline">
+                        @if (Model.NotifcationWeb != null)
+                        {
+                            foreach (var item in Model.NotifcationWeb)
+                            {
+                                <div class="container left @(item.IsActive ? "active-arrow" : "") ">
+                                    <div class="content @(item.IsActive ? "active-notification" : "")">
+                                        <div>
+                                            <h3>@item.ArabicDescription</h3>
+                                            <p>
+                                                <span style="color: #6a40db;font-size: 25px;">
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                </span>
+                                                <span style="font-weight: bold;">
+                                                    @item.CreationDate
+                                                </span>
+                                            </p>
+                                            @if (item.IsActive)
+                                            {
+                                                <label class="Active-session"> @R.GetResource("Active")</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="InActive-session"> @R.GetResource("NotActive")</label>
+
+                                            }
+                                        </div>
+                                        @if (item.IsActive)
+                                        {
+                                            <a target="_blank" href="@item.Link" class="JoinMS-btn">
+                                                <img src="~/AppContent/Images/microsoft-teams-logo.png" style="width: 50px;" />
+                                                @R.GetResource("JoinMetting")
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a target="_blank" href="@item.Link" class="JoinMS-btn" style="pointer-events:none">
+                                                <img src="~/AppContent/Images/microsoft-teams-logo.png" style="width: 50px;" />
+                                                @R.GetResource("JoinMetting")
+                                            </a>
+                                        }
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="container left">
+                                <div class="content">
+                                    <div>
+                                        <h3>@R.GetResource("Nonewnotifcations")</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="Dashboard-widget" style="justify-content:center">
+        @if (Model.Employees)
+        {
+            int emppercent;
+            int teacherpercent = 0;
+            int Administrativepercent = 0;
+            int BusEscortspercent = 0;
+            int cleanworkerpercent = 0;
+            int Accountantspercent = 0;
+
+            if (Model.NumOfEmployees > 100)
+            {
+                emppercent = Convert.ToInt32(((decimal)Model.NumOfEmployees / (decimal)1000) * 100);
+            }
+            else
+            {
+                emppercent = Model.NumOfEmployees;
+            }
+
+            if (Model.NumOfEmployees != 0)
+            {
+                teacherpercent = Convert.ToInt32(((decimal)Model.NumOfTeachers / (decimal)Model.NumOfEmployees) * 100);
+                Administrativepercent = Convert.ToInt32(((decimal)Model.NumOfAdministrative / (decimal)Model.NumOfEmployees) * 100);
+                BusEscortspercent = Convert.ToInt32(((decimal)Model.NumOfBusEscort / (decimal)Model.NumOfEmployees) * 100);
+                cleanworkerpercent = Convert.ToInt32(((decimal)Model.NumOfCleanWorker / (decimal)Model.NumOfEmployees) * 100);
+                Accountantspercent = Convert.ToInt32(((decimal)Model.NumOfAccountants / (decimal)Model.NumOfEmployees) * 100);
+            }
+
+            <a href="@Url.Action("Index", "Employee")" class="light-component widget" style="margin: 6px 5px">
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Employees")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Employee.jpeg" alt="">
+                <div>
+                    <ul>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Employees"):
+                                <span class="itemCounter">
+                                    @Model.NumOfEmployees
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Teachers"):
+                                <span class="itemCounter">@teacherpercent%</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Administrative"):
+                                <span class="itemCounter">@Administrativepercent%</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Busescorts"):
+                                <span class="itemCounter">
+                                    @BusEscortspercent%
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Cleanworker"):
+                                <span class="itemCounter">
+                                    @cleanworkerpercent%
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Accountants"):
+                                <span class="itemCounter">
+                                    @Accountantspercent%
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        }
+
+
+        @if (Model.Teachers)
+        {
+            int TeacherPercent = 0;
+            int firstteacherpercent = 0;
+            int supervisorteacher = 0;
+            if (Model.NumOfTeachers > 100)
+            {
+                TeacherPercent = Convert.ToInt32(((decimal)Model.NumOfTeachers / (decimal)1000) * 100);
+            }
+            else
+            {
+                TeacherPercent = Model.NumOfTeachers;
+            }
+            if (Model.NumOfTeachers != 0)
+            {
+                firstteacherpercent = Convert.ToInt32(((decimal)Model.NumOfFirstTeacher / (decimal)Model.NumOfTeachers) * 100);
+                supervisorteacher = Convert.ToInt32(((decimal)Model.NumOfSupervisorTeacher / (decimal)Model.NumOfTeachers) * 100);
+            }
+            <a href="@Url.Action("Index", "Teacher")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Teachers")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Teachers.jpeg" alt="" />
+                <div>
+                    <ul>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Teachers"):
+                                <span class="itemCounter">
+                                    @Model.NumOfTeachers
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Firstteacher"):
+                                <span class="itemCounter">@firstteacherpercent%</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Supervisorteacher"):
+                                <span class="itemCounter">@supervisorteacher%</span>
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+            </a>
+        }
+
+
+        @if (Model.Students)
+        {
+            int Numofstudentpercent = 0;
+            int youngpercent = 0;
+            int elderpercent = 0;
+            if (Model.NumOfStudents > 100)
+            {
+                Numofstudentpercent = Convert.ToInt32(((decimal)Model.NumOfStudents / (decimal)1000) * 100);
+            }
+            else
+            {
+                Numofstudentpercent = Model.NumOfStudents;
+            }
+            if (Model.NumOfStudents != 0)
+            {
+                youngpercent = Convert.ToInt32(((decimal)Model.NumOfYoungerStudents / (decimal)Model.NumOfStudents) * 100);
+                elderpercent = Convert.ToInt32(((decimal)Model.NumOfElderStudents / (decimal)Model.NumOfStudents) * 100);
+            }
+            <a href="@Url.Action("Index", "Student")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Students")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Students.jpeg" alt="">
+                <div>
+                    <ul>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Students"):
+                                <span class="itemCounter">
+                                    @Model.NumOfStudents
+                                </span>
+                            </span>
+                        </li>
+
+                        @*<li>
+                                <span class="light-component counter">
+                                    @R.GetResource("Youngs"):
+                                    <span class="itemCounter">@youngpercent%</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="light-component counter">
+                                    @R.GetResource("Adults"):
+                                    <span class="itemCounter">@elderpercent%</span>
+                                </span>
+                            </li>*@
+
+                    </ul>
+                </div>
+            </a>
+        }
+
+
+        @if (Model.VirtualClassRoom)
+        {
+            <a href="@Url.Action("Index","VirtualClassRoom")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("VirtualClassRoom")</h3>
+                </div>
+
+                <img src="~/AppContent/MSTeamsImages/msteams2020.jpg" />
+            </a>
+        }
+
+
+        @if (Model.Buses)
+        {
+            <a href="@Url.Action("Index","transportation")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("transportation")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/Bus3.jpg" />
+                <div>
+                    <ul>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("NumberOfBus"):
+                                <span class="itemCounter">
+                                    @*@Model.NumberOfBuses*@
+                                </span>
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+            </a>
+        }
+
+
+        @if (Model.TimeAttendees)
+        {
+            int numofstudentpercent = 0;
+            int fullattendacepercent = 0;
+            int partialattendancepercent = 0;
+            int numofabsentpercent = 0;
+            if (Model.NumOfStudents > 100)
+            {
+                numofstudentpercent = Convert.ToInt32(((decimal)Model.NumOfStudents / (decimal)1000) * 100);
+            }
+            else
+            {
+                numofstudentpercent = Model.NumOfStudents;
+            }
+            if (Model.NumOfStudents != 0)
+            {
+                fullattendacepercent = Convert.ToInt32(((decimal)Model.NumOfFullAttendance / (decimal)Model.NumOfStudents) * 100);
+                partialattendancepercent = Convert.ToInt32(((decimal)Model.NumOfPartialAttendance / (decimal)Model.NumOfStudents) * 100);
+                numofabsentpercent = Convert.ToInt32(((decimal)Model.NumOfAbsent / (decimal)Model.NumOfStudents) * 100);
+            }
+            <a href="@Url.Action("Index", "Attendance")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Attendance")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Attendance.jpeg" alt="">
+                <div>
+                    <ul>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Students"):
+                                <span class="itemCounter">
+                                    @Model.NumOfStudents
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Fullattendance"):
+                                <span class="itemCounter">@fullattendacepercent%</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Partialattendance"):
+                                <span class="itemCounter">@partialattendancepercent%</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="light-component counter">
+                                @R.GetResource("Absence"):
+                                <span class="itemCounter">@numofabsentpercent%</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        }
+
+        @if (Model.TimeTableTeacher)
+        {
+            <a href="@Url.Action("IndexAttendanceByTeacher","Attendance",new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Attendance")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Attendance.jpeg" alt="">
+            </a>
+
+            <a href="@Url.Action("Index","TeacherClassSchedule",new { StaffID = BaseController.Encrypt(Model.StaffID)})" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("TimeTableTeacher")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/schedule.jpg" alt="">
+            </a>
+
+            <a href="@Url.Action("PrepareHomeWork","HomeWork",new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+                <div class="overlay-head">
+                    <h3>@R.GetResource("HomeWork")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/HomeWork.jpeg" alt="">
+            </a>
+
+            <a href="@Url.Action("PrepareTeacherExams","TeacherExam",new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Exams")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Exams.jpeg" alt="">
+            </a>
+
+            <a href="@Url.Action("PrepareGrades","Grades",new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Grades")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/Grades.jpeg" alt="">
+            </a>
+
+            <a href="@Url.Action("PrepareTeacherActivity","TeacherActivity", new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Activities")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/Activities.jpg" />
+            </a>
+        }
+
+
+        @if (Model.TimeTableStudent)
+        {
+            <a href="javascript:void(0)" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("TimeTableStudent")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/schedule.jpg" alt="">
+
+            </a>
+
+        }
+
+
+        @if (Model.TimeTable)
+        {
+            <a href="@Url.Action("Index","ClassSchedule")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("TimeTable")</h3>
+                </div>
+                <img src="~/AppContent/WidgetImages/schedule.jpg" alt="">
+
+            </a>
+        }
+
+
+        @if (Model.Pay)
+        {
+            <a href="javascript:void(0)" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("PayingOff")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/payingoff.jpg" />
+            </a>
+        }
+
+
+        @if (Model.Calendar && !Model.TimeTableTeacher)
+        {
+            <a href="@Url.Action("PrepareCalendar","Calendar")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Calendar")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/calendar.jpg" />
+            </a>
+        }
+
+
+        @if (Model.Map)
+        {
+            <a href="javascript:void(0)" onclick="openMap()" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Map")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/map.png" />
+            </a>
+        }
+
+        @if (Model.SendSms)
+        {
+            <a href="@Url.Action("Index", "SendSMS")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("SendSms")</h3>
+                </div>
+                <img src="~/AppContent/Images/SMS.jpg" />
+            </a>
+        }
+
+
+        @if (Model.SystemManagment)
+        {
+            <a href="@Url.Action("Index", "System")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("System")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/system.jpg" />
+
+            </a>
+            <a href="@Url.Action("Index", "Settings")" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("Settings")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/sys-setting.jpg" />
+                @*<div>
+                        <ul>
+                            <li>
+                                <span class="light-component counter">
+                                    For SmartSchool Admin User
+                                </span>
+                            </li>
+                        </ul>
+                    </div>*@
+            </a>
+        }
+        @if (Model.QuestionsBank)
+        {
+            <a href="~/questionsweb/quesbank.aspx" class="light-component widget" style="margin: 6px 5px">
+
+                <div class="overlay-head">
+                    <h3>@R.GetResource("QuestionsBank")</h3>
+                </div>
+
+                <img src="~/AppContent/WidgetImages/Quesbank.png" />
+            </a>
+        }
+
+    </div>
+}
+
+<audio controls="controls" id="notification" style="display:none">
+    <source src="~/AppContent/juntos.mp3" type="audio/mpeg" />
+</audio>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section Scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/assets/js/pages/hubs/HomeworkHubConnection.js"></script>
+    <script src="~/assets/js/pages/hubs/ExamHubConnection.js"></script>
+}
+
+<script>
+    $(document).ready(function () {
+        if (@Model.StudentSectionID != 0) {
+            var homeworkGroup = "Homework group Section " + @Model.StudentSectionID;
+            joinToGroup(homeworkGroup);
+            getHomeworkNotification();
+
+            var examGroup = "Exam group Section " + @Model.StudentSectionID;
+            joinToExamGroup(examGroup);
+            getExamNotification();
+        }
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+
+        //$(".notification-col").hover(function () {
+        //    document.getElementById("notification").play();
+        //    $("#bell-icon").addClass("bell");
+        //});
+        $(".notification-col").mouseleave(function () {
+            $("#bell-icon").removeClass("bell");
+        });
+
+        $("#btnChooseSchool").on("click", function () {
+            $.ajax({
+                url: "Home/ChangeSchool",
+                type: "POST",
+                data: { 'SchoolID': $("#CompanySchoolID").val() },
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        location.reload();
+                    }
+                }
+            });
+        });
+
+        $("#btnGoToManagerDash").on("click", function () {
+            //window.open("ManagerDashaspx/ManagerDash.aspx", '_self', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes').blur();
+            //location.reload();
+            location.replace("ManagerDashaspx/ManagerDash.aspx");
+        });
+
+        $("#btnHQSettings").on("click", function () {
+            location.replace("Settings");
+        });
+
+        $("#btnHQSettings").on("click", function () {
+            $.ajax({
+                url: "Home/ChangeSchool",
+                type: "POST",
+                data: { 'SchoolID': $("#CompanySchoolID").val() },
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        location.reload();
+                    }
+                }
+            });
+        });
+
+        $(".theaders").each(function () {
+            $(this).on('click', function () {
+                var month = $(this).attr('id').split('$')[1];
+                $(this).css('color', 'white');
+                $(this).css('font-size', '20px');
+                $(".theaders").each(function () {
+                    if ($(this).attr('id').split('$')[1] != month) {
+                        $(this).css('color', 'lightgray');
+                        $(this).css('font-size', '15px');
+                    }
+                });
+                $(".circle").each(function () {
+                    if ($(this).attr('id').split('$')[1] == month) {
+                        $(this).css('background-color', 'white');
+                    }
+                    else {
+                        $(this).css('background-color', 'lightgray');
+                    }
+                });
+                $(".line").each(function () {
+                    if ($(this).attr('id').split('$')[1] == month) {
+                        $(this).css('background-color', 'white');
+                    }
+                    else {
+                        $(this).css('background-color', 'lightgray');
+                    }
+                });
+
+                $("#calendartable").empty();
+                var calendartable = '';
+
+                debugger;
+                var obj = { month: month, staffID: '@Model.StaffID', studentID: '@Model.StudentID' };
+                $.ajax({
+                    url: '/Calendar/GetCalenadarsByMonth',
+                    method: 'POST',
+                    data: JSON.stringify(obj),
+                    contentType: 'application/json'
+                }).always(function (response) {
+                    debugger;
+                    if (response.Success) {
+                        var index = 0;
+                        if (response.AcademicCalendar.length >= 1) {
+                            var calendarArray = response.AcademicCalendar;
+                            for (var i = 0; i < calendarArray.length; i++) {
+                                var dateMilliseconds = parseInt(calendarArray[i].StartingDate.substr(6));
+                                var date = new Date(dateMilliseconds);
+                                var formattedDate = moment(date).format('YYYY-MM-DD');
+                                var header = currentLanguage == 1 ? calendarArray[i].EnglishHeader : calendarArray[i].ArabicHeader;
+                                calendartable += '<div style="margin:20px;text-align: initial" class="row" ><a data-calendar-index="' + i + '" style="color:#3699ff; cursor:pointer;font-family: GESSTextLight-Light;font-size: 30px">' + header + '</a><br>';
+                                calendartable += '<span style="font-family: GESSTextLight-Light" class="calendarsdates">' + formattedDate + '</span><br></div>';
+                            }
+                            index = calendarArray.length;
+                            $("#calendartable").append(calendartable);
+
+                            if (response.AcademicCalendar != null) {
+                                var academicPhoto = response.AcademicCalendar[0].Photo;
+
+                                var base64 = "";
+                                var imgSrc = "../../Images/Calendar.jpg";
+                                if (academicPhoto != null) {
+                                    base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                    imgSrc = "data:image/*;base64," + base64;
+                                }
+
+                                var img = $('.img-responsive');
+                                img.fadeOut(300, function () {
+                                    img.attr('src', imgSrc).fadeIn(300);
+                                });
+                            }
+
+                            $('a').on('click', function () {
+                                debugger;
+                                var calendarIndex = $(this).data('calendar-index');
+
+                                if (response.AcademicCalendar != null) {
+                                    var academicPhoto = response.AcademicCalendar[calendarIndex].Photo;
+
+                                    var base64 = "";
+                                    var imgSrc = "../../Images/Calendar.jpg";
+                                    if (academicPhoto != null) {
+                                        base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                        imgSrc = "data:image/*;base64," + base64;
+                                    }
+
+                                    var img = $('.img-responsive');
+                                    img.fadeOut(300, function () {
+                                        img.attr('src', imgSrc).fadeIn(300);
+                                    });
+                                }
+                            });
+                        }
+                        if (response.TeacherActivity.length >= 1) {
+                            calendartable = '';
+                            var activityArray = response.TeacherActivity;
+                            for (var j = 0; j < activityArray.length; j++) {
+                                var dateMilliseconds = parseInt(activityArray[j].StartingDate.substr(6));
+                                var date = new Date(dateMilliseconds);
+                                var formattedDate = moment(date).format('YYYY-MM-DD');
+                                var header = currentLanguage == 1 ? activityArray[j].EnglishHeader : activityArray[j].ArabicHeader;
+                                header += ' - ' + '@R.GetResource("SchoolActivity")';
+                                calendartable += '<div style="margin:20px;text-align: initial" class="row" ><a data-activity-index="' + j + '" style="color:#3699ff; cursor:pointer;font-family: GESSTextLight-Light;font-size: 30px">' + header + '</a><br>';
+                                calendartable += '<span style="font-family: GESSTextLight-Light" class="calendarsdates">' + formattedDate + '</span><br></div>';
+                            }
+                            $("#calendartable").append(calendartable);
+
+                            if (response.AcademicCalendar.length >= 1) {
+                                var academicPhoto = response.AcademicCalendar[0].Photo;
+
+                                var base64 = "";
+                                var imgSrc = "../../Images/Calendar.jpg";
+                                if (academicPhoto != null) {
+                                    base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                    imgSrc = "data:image/*;base64," + base64;
+                                }
+
+                                var img = $('.img-responsive');
+                                img.fadeOut(300, function () {
+                                    img.attr('src', imgSrc).fadeIn(300);
+                                });
+                            }
+                            else if (response.TeacherActivity.length >= 1) {
+                                var academicPhoto = response.TeacherActivity[0].Photo;
+
+                                var base64 = "";
+                                var imgSrc = "../../Images/Activities.jpg";
+                                if (academicPhoto != null) {
+                                    base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                    imgSrc = "data:image/*;base64," + base64;
+                                }
+
+                                var img = $('.img-responsive');
+                                img.fadeOut(300, function () {
+                                    img.attr('src', imgSrc).fadeIn(300);
+                                });
+                            }
+
+                            $('a').on('click', function () {
+                                var activityIndex = $(this).data('activity-index');
+
+                                if (response.TeacherActivity != null) {
+                                    var academicPhoto = response.TeacherActivity[activityIndex].Photo;
+
+                                    var base64 = "";
+                                    var imgSrc = "../../Images/Activities.jpg";
+                                    if (academicPhoto != null) {
+                                        base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                        imgSrc = "data:image/*;base64," + base64;
+                                    }
+
+                                    var img = $('.img-responsive');
+                                    img.fadeOut(300, function () {
+                                        img.attr('src', imgSrc).fadeIn(300);
+                                    });
+                                }
+                            });
+                        }
+                        if (response.StudentActivity.length >= 1) {
+                            calendartable = '';
+                            var activityArray = response.StudentActivity;
+                            for (var j = 0; j < activityArray.length; j++) {
+                                var dateMilliseconds = parseInt(activityArray[j].StartingDate.substr(6));
+                                var date = new Date(dateMilliseconds);
+                                var formattedDate = moment(date).format('YYYY-MM-DD');
+                                var header = currentLanguage == 1 ? activityArray[j].EnglishHeader : activityArray[j].ArabicHeader;
+                                header += ' - ' + '@R.GetResource("SchoolActivity")';
+                                calendartable += '<div style="margin:20px;text-align: initial" class="row" ><a data-activity-index="' + j + '" style="color:#3699ff; cursor:pointer;font-family: GESSTextLight-Light;font-size: 30px">' + header + '</a><br>';
+                                calendartable += '<span style="font-family: GESSTextLight-Light" class="calendarsdates">' + formattedDate + '</span><br></div>';
+                            }
+                            $("#calendartable").append(calendartable);
+
+                            if (response.AcademicCalendar.length >= 1) {
+                                var academicPhoto = response.AcademicCalendar[0].Photo;
+
+                                var base64 = "";
+                                var imgSrc = "../../Images/Calendar.jpg";
+                                if (academicPhoto != null) {
+                                    base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                    imgSrc = "data:image/*;base64," + base64;
+                                }
+
+                                var img = $('.img-responsive');
+                                img.fadeOut(300, function () {
+                                    img.attr('src', imgSrc).fadeIn(300);
+                                });
+                            }
+                            else if (response.StudentActivity.length >= 1) {
+                                var academicPhoto = response.StudentActivity[0].Photo;
+
+                                var base64 = "";
+                                var imgSrc = "../../Images/Activities.jpg";
+                                if (academicPhoto != null) {
+                                    base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                    imgSrc = "data:image/*;base64," + base64;
+                                }
+
+                                var img = $('.img-responsive');
+                                img.fadeOut(300, function () {
+                                    img.attr('src', imgSrc).fadeIn(300);
+                                });
+                            }
+
+                            $('a').on('click', function () {
+                                var activityIndex = $(this).data('activity-index');
+
+                                if (response.StudentActivity != null) {
+                                    var academicPhoto = response.StudentActivity[activityIndex].Photo;
+
+                                    var base64 = "";
+                                    var imgSrc = "../../Images/Activities.jpg";
+                                    if (academicPhoto != null) {
+                                        base64 = btoa(String.fromCharCode.apply(null, academicPhoto));
+                                        imgSrc = "data:image/*;base64," + base64;
+                                    }
+
+                                    var img = $('.img-responsive');
+                                    img.fadeOut(300, function () {
+                                        img.attr('src', imgSrc).fadeIn(300);
+                                    });
+                                }
+                            });
+                        }
+                        if (response.TeacherActivity.length < 1 && response.AcademicCalendar.length < 1 && response.StudentActivity.length < 1) {
+                            var head = currentLanguage == 1 ? '<h3 style="font-family: GESSTextLight-Light">There are no activities this month</h3>' : '<h3>لا يوجد نشاطات في هذا الشهر</h3>';
+                            $("#calendartable").append(head);
+                            var img = $('.img-responsive');
+                            img.fadeOut(300, function () {
+                                img.attr('src', '/AppContent/Images/Calendar.jpg').fadeIn(300);
+                            });
+                        }
+                        var collapsibleText = document.querySelector('.collapsible-text');
+                        var contentHeight = collapsibleText.scrollHeight;
+                        collapsibleText.style.maxHeight = contentHeight + 'px';
+                    }
+                    else {
+                        alert("error");
+                    }
+                });
+            });
+        });
+    });
+
+    function openMap() {
+        debugger;
+        var screensize = screen.availWidth + "," + screen.availHeight;
+
+        //CompanyID* SchoolID*AcademicYear * StaffID * StaffType * scrWidth,scrHeight
+        var Params = $("#CompanyID").val() + "*" + $("#SchoolID").val() + "*" + $("#AcademicYear").val() + "*" + $("#StaffID").val() + "*" + $("#StaffType").val() + "*" + screensize
+        $.ajax({
+            type: "GET",
+            url: "Home/GetEncryptedUrl",
+            data: { 'Params': Params },
+            dataType: "json",
+            success: function (response) {
+
+                if (response.result != null) {
+                    debugger;
+                    var url = 'http://zlioustech.com:83/MAPsBusStatus.aspx?cs=' + response.result + '';
+                    var win = window.open(url, '_blank');
+                    win.focus();
+                }
+
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+    $("#collapsible-head").on('click', function () {
+        var collapsibleText = document.querySelector('.collapsible-text');
+
+        if ($("#arrow-icon").attr('class') == 'fas fa-chevron-down fa-1x') {
+            $("#arrow-icon").removeClass('fas fa-chevron-down fa-1x').addClass('fas fa-chevron-up fa-1x');
+            var currentMonth = new Date().getMonth() + 1;
+            $('.theaders[id$="$' + currentMonth + '"]').trigger('click');
+            var contentHeight = collapsibleText.scrollHeight;
+            collapsibleText.style.maxHeight = contentHeight + 'px';
+        }
+        else {
+            $("#arrow-icon").removeClass('fas fa-chevron-up fa-1x').addClass('fas fa-chevron-down fa-1x');
+            collapsibleText.style.maxHeight = '1px';
+        }
+    });
+</script>

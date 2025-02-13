@@ -1,0 +1,17 @@
+﻿@model int?
+@{
+//var value = ViewData["value"];
+
+}
+
+
+    @if (Model.Value == -1 || Model.Value == 1)
+    {
+        <input type="radio" id="@Html.IdForModel()"  checked value="@Model.Value" />
+    }
+    else
+    {
+        <input type="radio"   value="@Model.Value" />
+    }
+
+

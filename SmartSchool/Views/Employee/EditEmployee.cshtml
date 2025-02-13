@@ -1,0 +1,1354 @@
+﻿@model SmartSchool.Models.Employee.EmployeeRegisterModel
+
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+    @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
+    <link href="../../Maps/MapStyle.css" rel="stylesheet" />
+    <style>
+        .stepwizard-step > p {
+            text-align: unset;
+        }
+
+        .labeltitle {
+            margin-top: 28px;
+        }
+
+        .htitles {
+            margin-bottom: 25px;
+        }
+
+        .pac-container {
+            background-color: #FFF;
+            z-index: 20;
+            position: fixed;
+            display: inline-block;
+            float: left;
+        }
+
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+            /*opacity:0 !important;*/
+        }
+
+        input[type=file] {
+            height: auto;
+        }
+
+        input[type=file]::file-selector-button {
+            margin-right: 20px;
+            border: none;
+            background: #3699ff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+        }
+
+        input[type=file]::file-selector-button:hover {
+            filter: brightness(0.9);
+        }
+
+        .button-Download {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: #3B3B3B;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0;
+            min-height: 30px;
+            min-width: 0;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100%;
+            will-change: transform;
+        }
+
+        .button-Download:disabled {
+            pointer-events: none;
+        }
+
+        .button-Download:hover {
+            color: #fff;
+            background-color: #3699ff;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+            border: 2px solid #3699ff;
+        }
+
+        .button-Download:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+    </style>
+}
+
+
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Employees")</h2>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="mdl-tabs mdl-js-tabs is-upgraded">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#tab1-panel" class="mdl-tabs__tab is-active">@R.GetResource("PersonalInformation")</a>
+                <a href="#tab2-panel" class="mdl-tabs__tab">@R.GetResource("JobDetails")</a>
+                <a href="#tab3-panel" class="mdl-tabs__tab">@R.GetResource("Bus")</a>
+                <a href="#tab4-panel" class="mdl-tabs__tab">@R.GetResource("Address")</a>
+                <a href="#tab5-panel" class="mdl-tabs__tab">@R.GetResource("SalaryDetails")</a>
+                <a href="#tab6-panel" class="mdl-tabs__tab">@R.GetResource("BankDetails")</a>
+
+            </div>
+            <form id="editemployeedata" class="formtabs" enctype="multipart/form-data">
+                @Html.HiddenFor(model => model.StaffID)
+                <div class="mdl-tabs__panel p-t-20 is-active" id="tab1-panel">
+                    @{   var base64 = "";
+                             var imgSrc = "";
+                             var Flagimgrc = "";
+                             if (Model.Photo != null)
+                             {
+                                 base64 = Convert.ToBase64String(Model.Photo);
+                                 imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                             }
+                             else
+                             {
+                                 imgSrc = "../../Images/camera2.png";
+                             }
+                             if (Model.Flag != null)
+                             {
+                                 base64 = Convert.ToBase64String(Model.Flag);
+                                 Flagimgrc = String.Format("data:image/*;base64,{0}", base64);
+                             }
+                             else
+                             {
+                                 Flagimgrc = "";
+                             }
+                    }
+                    <div class="col-md-2">
+                        <div class="profile-userpic">
+                            <img src="@imgSrc" id="profileImage" style="border-radius:unset; width:300px; height:175px;" class="img-responsive" alt="">
+                            <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this);" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                            <button type="button" style="width:208px;" onclick="showuploadfile(this);" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                        </div>
+
+                        <div class="row">
+                            <img id="FlagImg" height="100" width="200" src="@Flagimgrc" style="margin-top:100px;" />
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="col-md-10">
+                            <h4 class="htitles">@R.GetResource("PersonalInformation")</h4>
+                            <div class="row">
+                                <div class="col-md-2 labeltitle">
+                                    <label>@R.GetResource("StaffArabicName")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("GivenName")</label>
+                                        @Html.TextBoxFor(m => m.FirstArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("FatherName")</label>
+                                        @Html.TextBoxFor(m => m.SecondArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("ThirdName")</label>
+                                        @Html.TextBoxFor(m => m.ThirdArabicName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">@R.GetResource("FamilyName")</label>
+                                        @Html.TextBoxFor(m => m.FourthArabicName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("StaffEnglishName")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.FirstEnglishName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.SecondEnglishName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.ThirdEnglishName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.FourthEnglishName, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Gender")</label>
+                                </div>
+                                @{ var checkedmale = "";
+                                    var checkedfemale = "";
+                                    if (Model.Gender == 0)
+                                    {
+                                        checkedmale = "checked";
+                                    }
+                                    else
+                                    {
+                                        checkedfemale = "checked";
+                                    }
+                                }
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            @R.GetResource("Male")
+                                        </label>
+                                        <input id="Gendermale" name="staffgender" value="0" type="radio" @checkedmale>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            @R.GetResource("Female")
+                                        </label>
+                                        <input id="Genderfemale" name="staffgender" value="1" type="radio" @checkedfemale>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Nationality")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Nationality, "SelectListRequired", new { List = Model.NationalityList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("NationalNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.NationalNumber, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("ResidencyNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.ResidencyNumber, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("CivilRegisterNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.CivilNumber, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("DateOfBirth")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            @Html.TextBoxFor(model => model.DateofBirth, new { @class = "date floating-label mdl-textfield__input", type = "date", placeholder = "dd/mm/yyyy", required = "required", Value = DateTime.Parse(Model.DateofBirth).ToString("yyyy-MM-dd") })
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("MaritalStatus")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.MaritalStatus, "SelectListRequired", new { List = Model.MaritalStatusList, Disabled = false })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Attachment")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            <input type="file" class="form-control" name="Attachment" id="Attachment" accept=".pdf" onchange="readFile(this)">
+                                        </div>
+                                    </div>
+                                    @{
+                                        if (Model.Attachment != null&& !string.IsNullOrEmpty(Model.Ext))
+                                        {
+                                            <a href="@Url.Action("DownloadFile", "Employee", new { staffID = Model.StaffID })" class="button-Download">@R.GetResource("DownloadFile")</a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mdl-tabs__panel p-t-20" id="tab2-panel">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("JobDetails")</h4>
+                            @*<div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("SchoolStaffNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.SchoolStaffNumber, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Department")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Department, "SelectList", new { List = Model.DepartmentsList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Designation")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Designation, "SelectListRequired", new { List = Model.DesignationList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("JoiningDate")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            @Html.TextBoxFor(model => model.DateOfJoining, new { @class = "date floating-label mdl-textfield__input", type = "date", placeholder = "dd/mm/yyyy", required = "required", Value = DateTime.Parse(Model.DateOfJoining).ToString("yyyy-MM-dd")})
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Qualification")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Qualification, "SelectListRequired", new { List = Model.QualificationList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Specialization")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Specialization, "SelectListRequired", new { List = Model.SpecializationList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("YearsOfExperience")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.YearOfExperience, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("YearOfGraduation")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.YearofGraduation, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Institution")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Institution, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mdl-tabs__panel p-t-20" id="tab3-panel">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h3 class="htitles">@R.GetResource("Bus")</h3>
+                            <div class="row">
+
+                                <div class="checkbox rtl checkbox-aqua">
+                                    @Html.EditorFor(a => a.BusAttendance, "CheckBox", new { Value = Model.BusAttendance })
+                                    <label for="BusAttendance">
+                                        @R.GetResource("BusAttendance")
+                                    </label>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+
+                                <div class="checkbox rtl checkbox-aqua">
+                                    @Html.EditorFor(a => a.UseSchoolTransportation, "CheckBox", new { Value = Model.UseSchoolTransportation })
+                                    <label for="UseSchoolTransportation">
+                                        @R.GetResource("ComesWithSchoolBus")
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="checkbox rtl checkbox-aqua">
+
+                                    @Html.EditorFor(a => a.LeaveswithSchoolBus, "CheckBox", new { Value = Model.LeaveswithSchoolBus })
+                                    <label for="LeaveswithSchoolBus">
+                                        @R.GetResource("Leaveswithschoolbus")
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("ComingToShoolTour")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.ComingTourID, "SelectList", new { List = Model.ComingTourList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("GoingHomeTour")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.GoingTourID, "SelectList", new { List = Model.GoingTourList, Disabled = false })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>@R.GetResource("ComingToSchoolPickup")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.ComingTourOrder, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>@R.GetResource("GoingHomeDropdownOrder")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.GoingTourOrder, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-tabs__panel p-t-20" id="tab4-panel">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("Address")</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Country")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Country, "SelectListRequired", new { List = Model.CountriesList, Disabled = false })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("City")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.City, new { @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Street")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Longitude")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="show-modal btn btn-info" id="openMapModal">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Latitude")</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("MobileNumber")</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", Name = "number", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Email")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("PermanentAddress")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextAreaFor(m => m.PermanentAddress, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mdl-tabs__panel p-t-20" id="tab5-panel">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("SalaryDetails")</h4>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("BasicSalary")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.BasicSalary, new { @class = "form-control", Name = "number", required = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("HousingAllowence")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.HousingAllowence, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("TransportationStaff")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.TransportationAllowence, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("OtherAllowence")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.OtherAllowence, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("SocialInsuranceNumber")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.SocialInsuranceNumber, new { @class = "form-control", Name = "number", required = "requireds" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("SocialInsuranceValue")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.SocialInsuranceValue, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("IncomeTaxNumber")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.IncomeTaxNumber, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>@R.GetResource("IncomeTaxValue")</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.IncomeTaxValue, new { @class = "form-control", Name = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+                    </div>
+
+                </div>
+                <div class="mdl-tabs__panel p-t-20" id="tab6-panel">
+                    <div class="col-xs-12">
+                        <div class="col-md-12">
+                            <h4 class="htitles">@R.GetResource("BankDetails")</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("AccountName")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.AccountName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("AccountNumber")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.AccountNumber, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Bank")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.Bank, new SelectList(ViewBag.Banks, "BankCode", CurrentLanguage == Languges.English? "BankEnglishName" : "BankArabicName"),new { @Class="form-control select2" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("Branch")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.EditorFor(m => m.Branch, "SelectList", new { List=Model.BranchList, Disabled = true })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>@R.GetResource("IbanCode")</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.IBANCode, new { @class = "form-control", Name = "number" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btnsavedit btn btn-primary-custom forms" style="float:@buttonpositon" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="float:@modalpositon;" id="myModalLabel">@R.GetResource("Determinetheemployeeresidencelocation")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_map">
+                        <div id="panel">
+                            <div class="search-panel">
+                                <div class="details-div mt10">
+                                    <div class="col-md-12">
+                                        <input type="PickupAddress" value="Amman, Jordan" class="form-control mr10" name="PickupAddress" placeholder="Sublocality" id="searchTextField" autocomplete="on" runat="server" required="" data-msg-required="Please enter Pick up Address" aria-required="true">
+                                        <button class="btn btn info" onclick="createMap();"><i class="fa fa-search" aria-hidden="true"></i>@R.GetResource("Search")</button>
+
+                                        <div><label class="control-label">@R.GetResource("Address"): </label> <input id="address" value="" name="address" type="text" class="form-control border" /></div>
+                                        <div class="mt10"><label class="control-label">@R.GetResource("Latitude"):</label>  <input type="text" value="@Model.Latitude" class="form-control" name="latitudemap" id="latitudemap"></div>
+                                        <div class="mt10"><label class="control-label"> @R.GetResource("Longitude"):</label> <input type="text" value="@Model.Longitude" class="form-control" name="longitudemap" id="longitudemap"></div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-map" id="location-map">
+
+                            <div style="width: 600px; height: 400px;" id="myMap"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_end">
+                        <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                        <button type="button" id="savelocation" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("SaveLocation")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    var fileContent = null;
+    $(document).ready(function () {
+        var isCountryHaveBanks = false;
+
+        //GetBankCodeByStaffID();
+        $('#openMapModal').click(function () {
+            $('#myModal').modal();
+        });
+
+        $('#myModal').on('show.bs.modal', function (event) {
+            var input = document.getElementById('searchTextField');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                $('#latitudemap').val(place.geometry.location.lat());
+                $('#longitudemap').val(place.geometry.location.lng());
+            });
+            createMap();
+
+            $("#location-map").css("width", "100%");
+            $("#myMap").css("width", "100%");
+        });
+
+        // Trigger map resize event after modal shown
+        $(".show-modal").click(function () {
+            $("#myModal").modal({
+                show:'true',
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+
+        $("#savelocation").on('click', function (e) {
+            longitudemap = $("#longitudemap").val();
+            latitudemap = $("#latitudemap").val();
+            $("#Longitude").val(longitudemap);
+            $("#Latitude").val(latitudemap);
+            $(".closemodal").click();
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '0px');
+            $('.modal-backdrop').remove();
+        });
+
+        $('#Nationality').on('change', function (e) {
+            var CountryID = $("#Nationality option:selected").val();
+
+            $.ajax({
+                type: "GET",
+                url: "GetCountryFlagByCountryID",
+                data: { 'CountryID': CountryID },
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        $('#FlagImg').css('display', 'block');
+                        $("#FlagImg").attr("src", "");
+                        $("#FlagImg").attr("src", response.src);
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+        $('#NationalNumber').on('input', function (e) {
+            var txtNational = $('#NationalNumber');
+            if (txtNational.val() != null && txtNational.val() != '') {
+                $("#ResidencyNumber").val('');
+
+                $("#ResidencyNumber").attr("disabled", "disabled");
+                $("#CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#ResidencyNumber").removeAttr("disabled");
+                $("#CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('#ResidencyNumber').on('input', function (e) {
+            var txtResidencyNumber = $('#ResidencyNumber');
+            if (txtResidencyNumber.val() != null && txtResidencyNumber.val() != '') {
+                $("#NationalNumber").val('');
+                $("#NationalNumber").attr("disabled", "disabled");
+                $("#CivilNumber").attr("disabled", "disabled");
+            }
+            else {
+                $("#NationalNumber").removeAttr("disabled");
+                $("#CivilNumber").removeAttr("disabled");
+            }
+        });
+        $('input[name="number"]').keyup(function (e) {
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+                if ($('#NationalNumber').val() == '') {
+                    $("#ResidencyNumber").removeAttr("disabled");
+                    $("#CivilNumber").removeAttr("disabled");
+                }
+                if ($('#ResidencyNumber').val() == '') {
+                    $("#NationalNumber").removeAttr("disabled");
+                    $("#CivilNumber").removeAttr("disabled");
+                }
+            }
+
+        });
+
+        $('#Country').on('change', function (e) {
+            isCountryHaveBanks = false;
+            $("#Bank").empty();
+            var countryId = $("#Country option:selected").val();
+
+            $.ajax({
+                type: "GET",
+                url: "GetBankByCountryId",
+                data: { 'countryId': countryId },
+                dataType: "json",
+                success: function (response) {
+                    if (response.Success) {
+                        debugger;
+                        if (response.Banks.length !== 0) {
+                            var s = '';
+                            if ('@CurrentLanguage' === 'English') {
+                                s += '<option value="0">Select Bank</option>';
+                                for (var i = 0; i < response.Banks.length; i++) {
+                                    s += '<option value="' + response.Banks[i].BankCode + '">' + response.Banks[i].BanKEnglishName + '</option>';
+                                }
+                            }
+                            else {
+                                s += '<option value="0">إختار بنك</option>';
+                                for (var i = 0; i < response.Banks.length; i++) {
+                                    s += '<option value="' + response.Banks[i].BankCode + '">' + response.Banks[i].BankArabicName + '</option>';
+                                }
+                            }
+
+                            $("#Bank").html(s);
+                            $("#Bank").removeAttr("disabled");
+                            $("#Branch").empty();
+                            $("#Branch").attr("disabled", "disabled");
+                            isCountryHaveBanks = true;
+                        }
+                        else {
+                            isCountryHaveBanks = false;
+                            $("#Bank").empty();
+                            $("#Branch").empty();
+                            $("#Bank").attr("disabled", "disabled");
+                            $("#Branch").attr("disabled", "disabled");
+                            Swal.fire({
+                                title: "Warning",
+                                text: "@R.GetResource("Thechosencountrydoesthaveanybankspleaseselectcountrythathavebankstofillthebankdetails.")",
+                                icon: "warning"
+                            });
+                        }
+                    }
+                },
+                failure: function (response) {
+                    alert(response.Message);
+                },
+                error: function (response) {
+                    alert(response.Message);
+                }
+            });
+        });
+
+        $('#Bank').on('change', function (e) {
+            var BankCode = $("#Bank").val();
+            GetBranchsByBankCode(BankCode);
+        });
+
+        $(".btnsavedit").on("click", function () {
+            var curStep = $(this).closest(".formtabs");
+            var curStepBtn = curStep.attr("id");
+            var isvalid = true;
+            var curInputs = curStep.find("input[type='text'],input[type='url'],select");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isvalid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isvalid) {
+                var formData = new FormData();
+                var files = $("#fileuploader").get(0).files;
+                var StaffID = $("#StaffID").val();
+                var FirstArabicName = $("#FirstArabicName").val();
+                var SecondArabicName = $("#SecondArabicName").val();
+                var ThirdArabicName = $("#ThirdArabicName").val();
+                var FourthArabicName = $("#FourthArabicName").val();
+                var FirstEnglishName = $("#FirstEnglishName").val();
+                var SecondEnglishName = $("#SecondEnglishName").val();
+                var ThirdEnglishName = $("#ThirdEnglishName").val();
+                var FourthEnglishName = $("#FourthEnglishName").val();
+                var Gender = $("input[name='staffgender']:checked").val();
+                var NationalNumber = $("#NationalNumber").val();
+                var ResidencyNumber = $("#ResidencyNumber").val();
+                var DateofBirth = $("#DateofBirth").val();
+                var MaritalStatus = $("#MaritalStatus").val();
+                var Nationality = $("#Nationality option:selected").val();
+                var Attachment = fileContent;
+                var Ext = $("#Attachment").val();
+                var Department = $("#Department").val();
+                var Designation = $("#Designation").val();
+                var DateOfJoining = $("#DateOfJoining").val();
+                var Qualification = $("#Qualification").val();
+                var Specialization = $("#Specialization").val();
+                var YearOfExperience = $("#YearOfExperience").val();
+                var YearofGraduation = $("#YearofGraduation").val();
+                var Institution = $("#Institution").val();
+                var UseSchoolTransportation = 0;
+                var BusAttendance = 0;
+                var LeaveswithSchoolBus = 0;
+                if ($("#UseSchoolTransportation").prop("checked") == true) {
+                    UseSchoolTransportation = -1;
+                }
+                if ($("#BusAttendance").prop("checked") == true) {
+                    BusAttendance = -1;
+                }
+                if ($("#LeaveswithSchoolBus").prop("checked") == true) {
+                    LeaveswithSchoolBus = -1;
+                }
+                var ComingTourID = $("#ComingTourID option:selected").val();
+                var GoingTourID = $("#GoingTourID option:selected").val();
+                var ComingTourOrder = $("#ComingTourOrder").val();
+                var GoingTourOrder = $("#GoingTourOrder").val();
+                var PermanentAddress = $("#PermanentAddress").val();
+                var MobileNo = $("#MobileNo").val();
+                var Email = $("#Email").val();
+                var Country = $("#Country").val();
+                var City = $("#City").val();
+                var Street = $("#Street").val();
+                var Longitude = $("#Longitude").val();
+                var Latitude = $("#Latitude").val();
+                var BasicSalary = $("#BasicSalary").val();
+                var HousingAllowence = $("#HousingAllowence").val();
+                var TransportationAllowence = $("#TransportationAllowence").val();
+                var OtherAllowence = $("#OtherAllowence").val();
+                var SocialInsuranceNumber = $("#SocialInsuranceNumber").val();
+                var SocialInsuranceValue = $("#SocialInsuranceValue").val();
+                var IncomeTaxNumber = $("#IncomeTaxNumber").val();
+                var IncomeTaxValue = $("#IncomeTaxValue").val();
+                var AccountName = $("#AccountName").val();
+                var AccountNumber = $("#AccountNumber").val();
+                var Bank = $("#Bank").val();
+                var Branch = $("#Branch").val();
+                var IBANCode = $("#IBANCode").val();
+                //var SchoolStaffNumber = $("#SchoolStaffNumber").val();
+
+                formData.append('file', files[0]);
+                formData.append('FirstArabicName', FirstArabicName);
+                formData.append('SecondArabicName', SecondArabicName);
+                formData.append('ThirdArabicName', ThirdArabicName);
+                formData.append('FourthArabicName', FourthArabicName);
+                formData.append('FirstEnglishName', FirstEnglishName);
+                formData.append('SecondEnglishName', SecondEnglishName);
+                formData.append('ThirdEnglishName', ThirdEnglishName);
+                formData.append('FourthEnglishName', FourthEnglishName);
+                formData.append('Gender', Gender);
+                formData.append('NationalNumber', NationalNumber);
+                formData.append('Nationality', Nationality);
+                formData.append('ResidencyNumber', ResidencyNumber);
+                formData.append('DateofBirth', DateofBirth);
+                formData.append('MaritalStatus', MaritalStatus);
+                formData.append('Attachment', Attachment);
+                formData.append('Ext', Ext);
+                formData.append('Department', Department);
+                formData.append('Designation', Designation);
+                formData.append('DateOfJoining', DateOfJoining);
+                formData.append('Qualification', Qualification);
+                formData.append('Specialization', Specialization);
+                formData.append('YearOfExperience', YearOfExperience);
+                formData.append('YearofGraduation', YearofGraduation);
+                formData.append('Institution', Institution);
+                formData.append('UseSchoolTransportation', UseSchoolTransportation);
+                formData.append('BusAttendance', BusAttendance);
+                formData.append('LeaveswithSchoolBus', LeaveswithSchoolBus);
+                formData.append('ComingTourID', ComingTourID);
+                formData.append('GoingTourID', GoingTourID);
+                formData.append('ComingTourOrder', ComingTourOrder);
+                formData.append('GoingTourOrder', GoingTourOrder);
+                formData.append('PermanentAddress', PermanentAddress);
+                formData.append('MobileNo', MobileNo);
+                formData.append('Email', Email);
+                formData.append('Country', Country);
+                formData.append('City', City);
+                formData.append('Street', Street);
+                formData.append('Longitude', Longitude);
+                formData.append('Latitude', Latitude);
+                formData.append('BasicSalary', BasicSalary);
+                formData.append('HousingAllowence', HousingAllowence);
+                formData.append('TransportationAllowence', TransportationAllowence);
+                formData.append('OtherAllowence', OtherAllowence);
+                formData.append('SocialInsuranceNumber', SocialInsuranceNumber);
+                formData.append('SocialInsuranceValue', SocialInsuranceValue);
+                formData.append('IncomeTaxNumber', IncomeTaxNumber);
+                formData.append('IncomeTaxValue', IncomeTaxValue);
+                formData.append('AccountName', AccountName);
+                formData.append('AccountNumber', AccountNumber);
+                formData.append('Bank', Bank);
+                formData.append('Branch', Branch);
+                formData.append('IBANCode', IBANCode);
+                formData.append('StaffID', StaffID);
+                //formData.append('SchoolStaffNumber', SchoolStaffNumber);
+
+                $.ajax({
+                    type: "POST",
+                    url: "EditEmployee",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        $(".btnsavedit").attr("disabled", "disabled");
+                        if (response.Success) {
+
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 2000,
+                                stack: 6
+                            });
+                            setTimeout(function () {// wait for 2 secs(2)
+                                location.reload();
+                            }, 2000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+        });
+
+        GetBankCodeByStaffID();
+    });
+
+    function GetBankCodeByStaffID() {
+        $.ajax({
+            type: "GET",
+            url: "GetBankCodebyStaffID",
+            data: { 'StaffID': $("#StaffID").val() },
+            dataType: "json",
+            success: function (response) {
+
+                if (response != null && response.BankCode != "") {
+                    //$("#Bank").find('option[value=' + response.BankCode + ']').attr('selected', 'selected');
+                    $("#Bank").val(response.BankCode).change();
+                    $("form select[name=Bank]").val(response.BankCode).change();
+                    GetBranchsByBankCode(response.BankCode);
+                    GetBranchCodeByStaffID();
+
+                }
+                if (response.BankCode == "") {
+                    //$("#Bank").find('option[value=""]').attr('selected', 'selected');
+                    $("#Bank").attr("disabled", "disabled");
+                    $("#Branch").attr("disabled", "disabled");
+                    $("#Bank").val("").change();
+                    $("form select[name=Bank]").val("").change();
+
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+    function GetBranchCodeByStaffID() {
+        $.ajax({
+            type: "GET",
+            url: "GetBranchCodebyStaffID",
+            data: { 'StaffID': $("#StaffID").val() },
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    $("#Branch").find('option[value=' + response.BranchCode + ']').attr('selected', 'selected');
+                    $("form select[name=Branch]").val(response.BranchCode).change();
+
+                    //$("#Branch option:selected").val(response.BranchCode);
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+    function GetBranchsByBankCode(bankcode) {
+        $.ajax({
+            type: "GET",
+            url: "GetBankBranchesByBankCode",
+            data: { 'BankCode': bankcode },
+            dataType: "json",
+            success: function (response) {
+                if (response.Success) {
+                    var s = '';
+                    if ('@CurrentLanguage' === 'English') {
+                        s += '<option value="0">Select Branch</option>';
+                        for (var i = 0; i < response.result.length; i++) {
+                            s += '<option value="' + response.result[i].BranchCode + '">' + response.result[i].BranchEnglishName + ' - ' + response.result[i].BranchAddress + '</option>';
+                        }
+                    }
+                    else {
+                        s += '<option value="0">إختار فرع</option>';
+                        for (var i = 0; i < response.result.length; i++) {
+                            s += '<option value="' + response.result[i].BranchCode + '">' + response.result[i].BranchArabicName + ' - ' + response.result[i].BranchAddress + '</option>';
+                        }
+                    }
+                    //for (var i = 0; i < response.result.length; i++) {
+                    //    var s;
+                    //    s += '<option value="' + response.result[i].BranchCode + '">' + response.result[i].BranchArabicName + '</option>';
+
+                    //    //$('#Branch').append('<option value="' + arrraylist[i].BranchCode + '">' + arrraylist[i].BranchArabicName + '</option>');
+                    //}
+                    $("#Branch").html(s);
+
+                    $("#Branch").removeAttr("disabled");
+
+                }
+            },
+            failure: function (response) {
+                alert(response.Message);
+            },
+            error: function (response) {
+                alert(response.Message);
+            }
+        });
+    }
+    function readURL(input) {
+        debugger;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profileImage')
+                    .attr('src', e.target.result).width(130)
+                    .height(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function showuploadfile(e) {
+        $("#fileuploader").click();
+        e.preventDefault();
+
+    }
+    function validateFile(input) {
+        var allowedExtensions = /(\.pdf)$/i;
+        if (!allowedExtensions.exec(input.value)) {
+            input.value = '';
+            return false;
+        }
+        return true;
+    }
+
+    function readFile(input) {
+        if (validateFile(input)) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (event) {
+                    fileContent = event.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        else {
+            Swal.fire(
+                'Information',
+                'Please Upload PDF File',
+                'info'
+            );
+        }
+    }
+</script>

@@ -1,0 +1,58 @@
+﻿@model SmartSchool.Models.Student.StudentModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Students")</h2>
+</div>
+
+<div class="Dashboard-widget">
+    <a href="@Url.Action("SchoolStudents","Student")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("Students")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Students.jpeg" />
+    </a>
+
+    <!--<a href="@Url.Action("StudentRegistrationWizard", "Student")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("نظام تسجيل الطلاب")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/onlineregistration.jpg" />
+    </a>-->
+    @*AbuHammad 001*@
+    <!--<a href="@Url.Action("StudentInternalReg", "Student")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("نظام التسجيل الداخلي للطلاب")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/onlineregistration.jpg" />
+    </a>-->
+
+    <a href="@Url.Action("RegisterationRequests","Student")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("RegistrationRequests")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/admission.png" />
+        <div>
+            <ul>
+                <li>
+                    <span class="light-component counter">
+                        @R.GetResource("NumberOfNewRequests"):
+                        <span class="itemCounter">
+                            @Model.PendingRequests
+                        </span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </a>
+</div>
+

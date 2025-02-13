@@ -1,0 +1,31 @@
+﻿@model DateTime?
+
+<div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-calendar">
+        </i>
+    </div>
+    @*<input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text">*@
+    @Html.TextBox("", (Model.HasValue && Model.Value != DateTime.MinValue) ? Model.Value.ToString("d") : String.Empty, new { @class = "form-control date" })
+</div>
+
+@*<div class="input-group date" data-provide="datepicker" data-format="dd/mm/yyyy">
+    @Html.TextBox("", (Model.HasValue && Model.Value != DateTime.MinValue) ? Model.Value.ToString("d") : String.Empty, new { @class = "form-control" })
+   
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+<div class='input-group date datePicker' data-provide="datepicker" data-format="dd/mm/yyyy">
+    <span class="input-group-sm">
+    </span>
+</div>*@
+@*<script type="text/javascript">
+    $(function() {
+        // target only the input in this editor template
+        @*$('#@Html.IdForModel()').datetimepicker({
+            pickTime: false
+        });
+    });
+</script>*@
+

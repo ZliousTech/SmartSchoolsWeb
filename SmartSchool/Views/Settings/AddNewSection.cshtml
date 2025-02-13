@@ -1,0 +1,220 @@
+﻿@model SmartSchool.Models.Settings.Sections
+@{
+    ViewBag.Title = "Add Section";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewSection")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddClassRoom" enctype="multipart/form-data" class="padding">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SchoolClasses")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassTextName, @R.GetResource("SelectClass"), new { @class = "form-control  select2", Name = "SchoolClassID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ClassRoom")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.ClassroomID, Model.RoomTextName, @R.GetResource("SelectRoom"), new { @class = "form-control  select2", Name = "ClassroomID", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SectionCode")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SectionCode, new { @class = "form-control", Name = "SectionCode", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SectionEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SectionEnglishName, new { @class = "form-control", Name = "SectionEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("SectionArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.SectionArabicName, new { @class = "form-control", Name = "SectionArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("MaxStudentsNumber")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.MaxNumberofStudents, new { @class = "form-control", Name = "MaxNumberofStudents", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#ClassroomID").attr("disabled","disabled");
+        $("#MaxNumberofStudents").attr("disabled","disabled");
+        $("#SectionCode").attr("disabled","disabled");
+
+        $("#SchoolClassID").on("change", function () {
+            var SchoolClassID = $(this).val();
+
+            if (SchoolClassID != "") {
+                $("#ClassroomID").removeAttr("disabled");
+            }
+            else {
+                $("#ClassroomID").val("");
+                $("#ClassroomID").attr("disabled", "disabled");
+            }
+
+            debugger;
+            $.ajax({
+                url: 'GetSectionCode',
+                method: 'GET',
+                data: { SchoolClassID: SchoolClassID },
+                success: function (response) {
+                    if (response.Success) {
+                        $("#SectionCode").val(response.SectionCode)
+                    }
+                    else {
+                        alert("Something went wrong\n" + response.Message);
+                    }
+                }
+            });
+        });
+        $("#ClassroomID").on("change", function () {
+            var ClassRoom = $(this).val();
+
+            if (ClassRoom != "") {
+                $.ajax({
+                    url: '/Settings/GetClassRoomMaxStdNumber',
+                    method: 'GET',
+                    data: { ClassRoomID: ClassRoom },
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#MaxNumberofStudents").val(response.MaxNumberofStudents);
+                        }
+                        else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+        });
+
+        $(".btnsavedit").on("click", function () {
+            debugger;
+            var isValid = true;
+            if ($("#SchoolClassID").val() == "") { isValid = false; }
+            if ($("#ClassroomID").val() == "") { isValid = false; }
+            if ($('input[name="SectionCode"]').length <= 0) { isValid = false; }
+            if ($('input[name="SectionEnglishName"]').length <= 0) { isValid = false; }
+            if ($('input[name="SectionArabicName"]').length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var SchoolClassID = $("#SchoolClassID").val();
+                var ClassroomID = $("#ClassroomID").val();
+                var SectionCode = $("#SectionCode").val();
+                var SectionEnglishName = $("#SectionEnglishName").val();
+                var SectionArabicName = $("#SectionArabicName").val();
+
+                formData.append('SchoolClassID', SchoolClassID);
+                formData.append('ClassroomID', ClassroomID);
+                formData.append('SectionCode', SectionCode);
+                formData.append('SectionEnglishName', SectionEnglishName);
+                formData.append('SectionArabicName', SectionArabicName);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddNewSection",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("GetAllSections", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+            else {
+                alert("Please Enter the all data");
+            }
+        });
+    });
+</script>

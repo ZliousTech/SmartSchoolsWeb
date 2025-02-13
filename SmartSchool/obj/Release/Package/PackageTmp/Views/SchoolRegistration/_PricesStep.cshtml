@@ -1,0 +1,281 @@
+﻿@model SmartSchool.Models.SchoolRegistration.SchoolRegistrationModel
+
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+    List<string> CurriculumNames = new List<string>();
+    string buttonpull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        buttonpull = "pull-right";
+    }
+    else
+    {
+        buttonpull = "pull-left";
+    }
+}
+<script src="../../Content/Wizard/wizardJS.js"></script>
+<script src="../../Content/Wizard/SchoolRegistrationWizard.js"></script>
+<div class="row setup-content" id="step-5">
+    <div class="col-xs-12">
+        <div class="col-md-12">
+            <h4 class="htitles">@R.GetResource("Prices")</h4>
+            <br />
+            <br />
+            <div class="row" style="background-color:cornflowerblue">
+                <h4 class="ColoredTitle">@R.GetResource("Books")</h4>
+            </div>
+            <br />
+            <div class="row">
+                <p>@R.GetResource("Samepriceforallclasses?")</p>
+                @{
+                    var Booksyes = "";
+                    var Booksno = "";
+                    var Uniformyes = "";
+                    var Uniformno = "";
+                    if (Model.BookFees != null)
+                    {
+                        if (Model.BookYes)
+                        {
+                            Booksyes = "checked";
+                        }
+                        else
+                        {
+                            Booksno = "checked";
+                        }
+                    }
+                    if (Model.UniformFees != null)
+                    {
+                        if (Model.UniformYes)
+                        {
+                            Uniformyes = "checked";
+                        }
+                        else
+                        {
+                            Uniformno = "checked";
+                        }
+                    }
+                }
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>@R.GetResource("Yes")</label>
+                        <input id="Bookyes" name="RadioBookPrice" value="1" type="radio" @Booksyes>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>@R.GetResource("No")</label>
+                        <input id="Bookno" name="RadioBookPrice" value="0" type="radio" @Booksno>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-md-2" id="DivBooksPrice" style="display:none;">
+                    @foreach (var item in Model.Curriculum)
+                    {
+                        double BookFeeAll = 0;
+                        if (Model.BookYes)
+                        {
+                            BookFeeAll = (from Fee in context.Fees where Fee.CurriculumID == item.CurriculumID && Fee.SchoolID == Model.schoolBranch.SchoolID && Fee.FeeType == 5 select Fee.FeeAmount.Value).FirstOrDefault();
+                        }
+                        if (!CurriculumNames.Contains(item.CurriculumArabicName))
+                        {
+                            <div class="row" style="background-color:#e91e63">
+                                @{
+                                    var curName = CurrentLanguage == Languges.English ?
+                                        "Curriculum " + item.CurriculumEnglishName : "المنهاج " + item.CurriculumArabicName;
+                                }
+                                <h4 class="ColoredTitle">@curName</h4>
+                            </div>
+                            <div class="row">
+                                <input id="booksPrice_@item.CurriculumID" type="text" value="@BookFeeAll" class="form-control" name="realnumber" placeholder=@R.GetResource("Price") />
+                            </div>
+                            CurriculumNames.Add(item.CurriculumArabicName);
+
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="row" id="DivBookPricePerClass" style="display:none;">
+                @{ List<string> CurriculumNames2 = new List<string>();}
+                <div class="col-md-12">
+                    @foreach (var item in Model.Curriculum)
+                    {
+
+
+                        if (!CurriculumNames2.Contains(item.CurriculumArabicName))
+                        {
+                            <div class="row" style="background-color:#e91e63">
+                                @{
+                                    var curName = CurrentLanguage == Languges.English ?
+                                        "Curriculum " + item.CurriculumEnglishName : "المنهاج " + item.CurriculumArabicName;
+                                }
+                                <h4 class="ColoredTitle">@curName</h4>
+                            </div>
+                            <br />
+                            <div class="row">
+
+                                @{
+                                    var Schoolclass = (from s in context.SchoolClasses where s.SchoolID == Model.schoolBranch.SchoolID && s.CurriculumID == item.CurriculumID select s).ToList();
+                                }
+                                @foreach (var c in Schoolclass)
+                                {
+                                    var BookFee = (from Fee in context.Fees where Fee.ClassID == c.ClassID && Fee.CurriculumID == c.CurriculumID && Fee.SchoolID == Model.schoolBranch.SchoolID && Fee.FeeType == 5 select Fee.FeeAmount).FirstOrDefault();
+
+                                    var classs = (from Class in context.Classes where Class.ClassID == c.ClassID select Class).FirstOrDefault();
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @{ 
+                                                var className = CurrentLanguage == Languges.English ?
+                                                    classs.ClassEnglishName : classs.ClassArabicName;
+                                            }
+                                            <label class="control-label">@className</label>
+
+                                            <div class="col-md-2">
+                                                <input id="Book_@c.ClassID$@c.CurriculumID" class="form-control" value="@BookFee" type="text" name="realnumber" placeholder=@R.GetResource("Price") />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+
+
+                            </div>
+                            CurriculumNames2.Add(item.CurriculumArabicName);
+
+                        }
+                    }
+                </div>
+
+            </div>
+            <br />
+            <br />
+            <div class="row" style="background-color:cornflowerblue">
+                <h4 class="ColoredTitle">@R.GetResource("SchoolUniform")</h4>
+            </div>
+            <br />
+            <div class="row">
+                <p>@R.GetResource("Samepriceforallclasses?")</p>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>@R.GetResource("Yes")</label>
+                        <input id="Uniformyes" name="RadioUniformPrice" value="1" type="radio" @Uniformyes>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>@R.GetResource("No")</label>
+                        <input id="Uniformno" name="RadioUniformPrice" value="0" type="radio" @Uniformno>
+                    </div>
+                </div>
+                @{
+                    double UniformFeeAll = 0;
+                    if (Model.UniformYes)
+                    {
+                        UniformFeeAll = (from Fee in context.Fees where Fee.SchoolID == Model.schoolBranch.SchoolID && Fee.FeeType == 4 select Fee.FeeAmount.Value).FirstOrDefault();
+                    }
+                }
+                <div class="col-md-2" id="DivUniformPrice" style="display:none;">
+                    <input id="UniformPrice" type="text" value="@UniformFeeAll" class="form-control" name="realnumber" placeholder=@R.GetResource("Price") />
+                </div>
+            </div>
+            <div class="row" id="DivUniformPricePerClass" style="display:none;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            @{
+                                var SchoolclassIDS = (from s in context.SchoolClasses where s.SchoolID == Model.schoolBranch.SchoolID select s.ClassID).Distinct().ToList();
+
+                                var UniClasses = (from c in context.Classes where SchoolclassIDS.Contains(c.ClassID) select c).ToList();
+                            }
+                            @foreach (var c in UniClasses)
+                            {
+
+                                var UniformFee = (from Fee in context.Fees where Fee.ClassID == c.ClassID && Fee.SchoolID == Model.schoolBranch.SchoolID && Fee.FeeType == 4 select Fee.FeeAmount).FirstOrDefault();
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @{
+                                            var className = CurrentLanguage == Languges.English ?
+                                                c.ClassEnglishName : c.ClassArabicName;
+                                        }
+                                        <label class="control-label">@className</label>
+
+                                        <div class="col-md-3">
+                                            <input id="Uniform_@c.ClassID" class="form-control" value="@UniformFee" type="text" name="realnumber" placeholder=@R.GetResource("Price") />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary-custom forms PricesnextBtn  @buttonpull" type="button">@R.GetResource("Next")</button>
+        </div>
+    </div>
+</div>
+<script>
+
+    var $j = jQuery.noConflict();
+    $j(document).ready(function () {
+        var RadioBookPrice = $("input[name='RadioBookPrice']:checked").val();
+        var RadioUniformPrice = $("input[name='RadioUniformPrice']:checked").val();
+        if (RadioBookPrice == "1") {
+            $("#DivBooksPrice").css("display", "");
+            $("#DivBookPricePerClass").css("display", "none");
+        }
+        else if (RadioBookPrice == "0") {
+            $("#DivBooksPrice").css("display", "none");
+            $("#DivBookPricePerClass").css("display", "");
+        }
+        if (RadioUniformPrice == "1") {
+            $("#DivUniformPrice").css("display", "");
+            $("#DivUniformPricePerClass").css("display", "none");
+        }
+        else if (RadioUniformPrice == "0") {
+            $("#DivUniformPrice").css("display", "none");
+            $("#DivUniformPricePerClass").css("display", "");
+        }
+        $('input[type=radio][name=RadioBookPrice]').change(function () {
+            debugger;
+            if (this.value == '1') {
+                $("#DivBooksPrice").css("display", "");
+                $("#DivBookPricePerClass").css("display", "none");
+
+            }
+            else if (this.value == '0') {
+                $("#DivBooksPrice").css("display", "none");
+                $("#DivBookPricePerClass").css("display", "");
+
+
+            }
+        });
+        $('input[type=radio][name=RadioUniformPrice]').change(function () {
+            debugger;
+            if (this.value == '1') {
+                $("#DivUniformPrice").css("display", "");
+                $("#DivUniformPricePerClass").css("display", "none");
+
+            }
+            else if (this.value == '0') {
+                $("#DivUniformPrice").css("display", "none");
+                $("#DivUniformPricePerClass").css("display", "");
+
+            }
+        });
+        $('input[Name="realnumber"]').keyup(function (e) {
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

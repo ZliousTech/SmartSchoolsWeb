@@ -1,0 +1,683 @@
+﻿@model SmartSchool.Models.ClassSchedule.ManualScheduleModel
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+    }
+    else
+    {
+        pull = "pull-right";
+    }
+
+    <style>
+        .closebtn {
+            float: right;
+            display: inline-block;
+            padding: 2px 5px;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        .closebtn:hover {
+            float: right;
+            display: inline-block;
+            padding: 2px 5px;
+            background: #ccc;
+            color: #fff;
+        }
+
+        #close {
+            float: right;
+            display: inline-block;
+            padding: 2px 5px;
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        #close:hover {
+            float: right;
+            display: inline-block;
+            padding: 2px 5px;
+            background: #ccc;
+            color: #fff;
+        }
+
+        .light-component.inner {
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .list-group {
+            height: auto;
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .badge {
+            background-color: #337ab7;
+        }
+
+        /*TimeTable/////////////////////*/
+
+
+        .right td.over {
+            background: #08C;
+        }
+
+        .item {
+            text-align: center;
+            background: #08C;
+            color: #ffffff;
+        }
+
+        .assigned {
+            width: 99%;
+        }
+        /*.assigned {
+            width: 99%;
+            height: 100% !important;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #08C;
+            color:#ffffff;
+        }*/
+
+        .tablediv {
+            width: 99% !important;
+            height: 100% !important;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column
+        }
+
+        table.calendar > tbody > tr > td.has-events > div.practice {
+            opacity: unset;
+        }
+
+        .left::before {
+            display: none;
+        }
+    </style>
+}
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("PrepareManualClassSchedule")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)">
+            <span>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Search")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        @using (Html.BeginForm("PrepareClassSchedule", "ClassSchedule", FormMethod.Post, new { @class = "search-form" }))
+        {
+            @Html.HiddenFor(a => a.SectionID)
+            <div class="col-md-12">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>@R.GetResource("Class")</label>
+                        @Html.EditorFor(model => model.SchoolClassID, "SelectListRequired", new { List = Model.Classes, Disabled = false })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>@R.GetResource("Section")</label>
+                        <select name="sectionId" id="sectionId" class="form-control select2" required="required" Disabled="Disabled"></select>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+
+
+            @*<div id="testDiv">
+                    <table class="tblTeachers1 table table-hover table-bordered">
+                        <thead style="background-color:#337ab7;color:#ffffff">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th width="20%">Sunday</th>
+                                <th width="20%">Monday</th>
+                                <th width="20%">Tuesday</th>
+                                <th width="20%">Wednesday</th>
+                                <th width="20%">Thursday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">First class 08:00 </td>
+                                <td id="1$1" class="drop" rowspan="1"></td>
+                                <td id="2$1" class="drop" rowspan="1"></td>
+                                <td id="3$1" class="drop" rowspan="1"></td>
+                                <td id="4$1" class="drop" rowspan="1"></td>
+                                <td id="5$1" class="drop" rowspan="1"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>*@
+
+        }
+
+    </div>
+    @if (Model.ManualScheduleDTO != null)
+    {
+        <div class="light-component inner" id="contentdiv">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="list-group" id="DivSubjects">
+                        <a href="#" style="color:#337ab7; font-weight:bold;" class="list-group-item d-flex justify-content-between align-items-center">
+
+                            @R.GetResource("Subjects")
+
+                            <span class="badge badge-primary badge-pill">@R.GetResource("numberOfSession")</span>
+                        </a>
+                        @foreach (var item in Model.ManualScheduleDTO)
+                        {
+                            <a href="javascript:void(0)" id="@item.SubjectID" class="SubjectAnchor list-group-item d-flex justify-content-between align-items-center">
+                                @item.SubjectName
+                                <span class="badge badge-primary badge-pill">@item.SubjectNumOfSession</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left" id="DivTeachers" style="height: 200px; overflow: auto;">
+                        <table class="tblTeachers table table-hover table-bordered">
+                            <thead style="background-color:#337ab7;color:#ffffff">
+                                <tr>
+                                    <th scope="col">@R.GetResource("Teachers")</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        @*<a href="javascript:void(0)" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="drop12">
+                @Html.Action("TimeTableManual", "ClassSchedule", new { SchoolClassID = Model.SchoolClassID, SectionID = Model.SectionID })
+            </div>
+        </div>
+    }
+</div>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>*@
+@*<script src="https://code.jquery.com/jquery-3.5.0.js"></script>*@
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+    var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+
+    $(function () {
+
+        var SchoolClassID = $('#SchoolClassID').val();
+        var SectionID = $('#SectionID').val();
+        var obj = { SchoolClassID: SchoolClassID };
+
+        AjaxCall('/ClassSchedule/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#sectionId').html('');
+                var options = '';
+                debugger;
+                var optiontext = "";
+                for (var i = 0; i < response.length; i++) {
+                    if (response[i].ID === parseInt(SectionID)) {
+                        if (currentLanguage == 1) {
+                            optiontext = response[i].Description;
+                        }
+                        else {
+                            optiontext = response[i].DescriptionAR
+                        }
+                        options += '<option value="' + response[i].ID + '" selected>' + optiontext + '</option>';
+                    }
+                    else {
+                        if (currentLanguage == 1) {
+                            optiontext = response[i].Description;
+                        }
+                        else {
+                            optiontext = response[i].DescriptionAR
+                        }
+                        options += '<option value="' + response[i].ID + '">' + optiontext + '</option>';
+                    }
+                }
+                $('#sectionId').append(options);
+                $('#sectionId').removeAttr("disabled")
+
+            }
+            else {
+                $('#sectionId').empty();
+                $('#sectionId').attr("disabled", "disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Sections on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        $('#sectionId').on('change', function () {
+            $("#SectionID").val(this.value);
+        });
+
+        $('.SubjectAnchor').on("click", function () {
+            debugger;
+            var SubjectID = this.id;
+            var SchoolClassID = $('#SchoolClassID').val();
+
+            var SubjectTitle = this.innerHTML;
+            SubjectTitle = SubjectTitle.replace(/<\/?span[^>]*>/g, "").replace(/[0-9]/g, '');
+            console.log(SubjectTitle);
+
+            var obj = { SubjectID: SubjectID, SchoolClassID: SchoolClassID };
+
+            AjaxCall('/ClassSchedule/GetTeachersBysubjectID', JSON.stringify(obj), 'POST').done(function (response) {
+                $(".tblTeachers tbody").html('')
+                var color = "#08C";
+                debugger;
+                if (response.HexColor != null)
+                {
+                    color = response.HexColor;
+                }
+                if (response.Teachers.length >= 1) {
+                    var TeachersArray = response.Teachers;
+                    for (var i = 0; i < TeachersArray.length; i++) {
+                        var DivTeachers = $(".tblTeachers tbody");
+
+                        var _html = '';
+                        _html += '<tr><td id="' + TeachersArray[i].StaffID + '"><div style="background-color:' + color + '; cursor:pointer" id="' + TeachersArray[i].StaffID + '$' + SubjectID + '" class="item">' + TeachersArray[i].TeacherName + " - " + '<br>' + SubjectTitle + '<br>' + TeachersArray[i].TimeTableSessions + ' / ' + TeachersArray[i].NumberofSessins + '</div></td></tr>';
+                        DivTeachers.append(_html);
+                    }
+
+                    $('.left .item').draggable({
+                        revert: true,
+                        proxy: 'clone',
+                        cursor: 'default'
+                    });
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $('.left  .item').draggable({
+            revert: true,
+            proxy: 'clone',
+            cursor: 'default'
+        });
+
+        $('.right td.drop').droppable({
+            //onDragEnter
+            over: function () {
+                $(this).addClass('over');
+            },
+            //onDragLeave
+            out: function () {
+                $(this).removeClass('over');
+            },
+            //onDrop
+            drop: function (e, source) {
+                debugger;
+                //alert($(source.draggable).attr('id'));
+
+                if (!$(source.draggable).find('span').hasClass('closebtn')) {
+                    var _html = '';
+                    _html += '<span id="close" class="closebtn" onclick="RemoveDiv(this)">x</span>';
+                    //console.log(source);
+                    //$(source).prepend(_html);
+                    $(source.draggable).prepend(_html);
+                }
+                //AddSession($(this), $(source));
+                AddSession($(this), source);
+
+                $(this).removeClass('over');
+
+                if ($(source).hasClass('assigned')) {
+                    $(this).append(source);
+                    var b = $(source);
+                    b.draggable({
+                        disabled: true
+                    });
+
+                    $(this).addClass('has-events');
+                }
+                else {
+                    $(this).addClass('has-events');
+                    var c = $(source).clone().removeClass('item').addClass('assigned').addClass('tablediv').addClass('row-fluid practice');
+                    $(this).empty().append(c);
+                    $('.item').find('span').remove();
+                    c.draggable({
+                        revert: true,
+                        disabled: true
+                    });
+                }
+            }
+        });
+
+        //$(function () {
+        //    $(".right td.drop").droppable({
+        //        drop: function () {
+        //            alet('Drag Over');
+        //        }
+        //    });
+        //});
+
+        $('#SchoolClassID').on("change", function () {
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { SchoolClassID: SchoolClassID };
+            debugger;
+            AjaxCall('/ClassSchedule/GetSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    console.log(response);
+                    $('#sectionId').html('');
+                    var options = '';
+                    if (currentLanguage == 1) {
+                        options += '<option value="0">Please select</option>';
+                    }
+                    else {
+                        options += '<option value="0">الرجاء الأختيار</option>';
+                    }
+                    var optiontext = "";
+                    for (var i = 0; i < response.length; i++) {
+                        if (currentLanguage == 1) {
+                            optiontext = response[i].Description;
+                        }
+                        else {
+                            optiontext = response[i].DescriptionAR;
+                        }
+                        options += '<option value="' + response[i].ID + '">' + optiontext + '</option>';
+                    }
+                    $('#sectionId').append(options);
+                    $('#sectionId').removeAttr("disabled");
+                    $('#Btnsearch').removeAttr("disabled");
+                }
+                else {
+                    $('#contentdiv').remove();
+                    $('#sectionId').empty();
+                    $('#sectionId').attr("disabled", "disabled");
+                    $('#Btnsearch').attr("disabled", "disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+    });
+
+    function AddSession(td, div) {
+        debugger;
+
+        var Tdid = td.attr("id");
+        var Divid = $(div.draggable).attr("id");
+        var SectionID = $("#sectionId").val();
+        var SchoolClassID = $("#SchoolClassID").val();
+        var StaffSubjectArray = Divid.split("$");
+        var DaySessionArray = Tdid.split("$");
+        var StaffID = StaffSubjectArray[0];
+        var SubjectID = StaffSubjectArray[1];
+        var DayID = DaySessionArray[0];
+        var SessionID = DaySessionArray[1];
+        var SharedSession = false;
+        var obj = { StaffID: StaffID, SubjectID: SubjectID, DayID: DayID, SessionID: SessionID, SectionID: SectionID, SchoolClassID: SchoolClassID, SharedSession: SharedSession };
+
+        AjaxCall('/ClassSchedule/AddSession', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.TeacherMaxNumberOfSession)
+            {
+                swal("@R.GetResource("TheTeacherhasexceededthelimitofsessionsperweek")", "", "error");
+                $(td).find("div").remove();
+                return;
+            }
+            if (response.MaxNumberOfSession)
+            {
+                swal("@R.GetResource("Thesubjecthasexceededthelimitofsessionsperweek")", "", "error");
+                $(td).find("div").remove();
+                return;
+            }
+            if (response.HaveSession) {
+                debugger;
+                var schoolClassName = currentLanguage === 1 ?
+                    response.TeacherSession.SchoolClassEnglishName : response.TeacherSession.SchoolClassArabicName;
+                var sectionName = currentLanguage === 1 ?
+                    response.TeacherSession.SectionEnglishName : response.TeacherSession.SectionArabicName;
+                swal({
+                    title: "@R.GetResource("ShareSession")",
+                    text: "@R.GetResource("Thereisanothersessionatthistimein") " + schoolClassName + " " + sectionName,
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+                }).then((willShare) => {
+                    if (willShare) {
+                        obj.SharedSession = SharedSession;
+                        AjaxCall('/ClassSchedule/AddSession', JSON.stringify(obj), 'POST').done(function (shareResponse) {
+                            if (shareResponse.TeacherMaxNumberOfSession) {
+                                swal("@R.GetResource("TheTeacherhasexceededthelimitofsessionsperweek")", "", "error");
+                                return;
+                            }
+                            if (shareResponse.MaxNumberOfSession) {
+                                swal("@R.GetResource("Thesubjecthasexceededthelimitofsessionsperweek")", "", "error");
+                                return;
+                            }
+                            if (!shareResponse.HaveSession) {
+                                swal("@R.GetResource("thesessionhasbeenaddedsuccessfully")!", { icon: "success" });
+                                return;
+                            }
+                            $(td).find("div").css("background-color", shareResponse.HexColor);
+                            $(div).css("background-color", shareResponse.HexColor);
+
+                        }).fail(function (error) {
+                        });
+                    }
+                    else {
+                        $(td).find("div").remove();
+                    }
+                });
+            }
+            else {
+                location.reload();
+            }
+
+            $(td).find("div").css("background-color", response.HexColor);
+            $(div).css("background-color", response.HexColor);
+
+        }).fail(function (error) {
+        });
+    }
+
+
+
+    function RemoveSession(el) {
+        debugger;
+        var isDeleteScope = false;
+
+        var SectionID = $("#sectionId").val();
+        var SchoolClassID = $("#SchoolClassID").val();
+        var Session = $(el).attr("id");
+        var SessionArray = Session.split("$");
+        var StaffID = SessionArray[0];
+        var SubjectID = SessionArray[1];
+        var DayID = SessionArray[2];
+        var SessionID = SessionArray[3];
+        var obj = { StaffID: StaffID, SubjectID: SubjectID, DayID: DayID, SessionID: SessionID, SectionID: SectionID, SchoolClassID: SchoolClassID };
+
+
+        swal({
+            title: "@R.GetResource("Areyousure")?",
+            text: "@R.GetResource("Oncedeleted")!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+
+                    AjaxCall('/ClassSchedule/DeleteSession', JSON.stringify(obj), 'POST').done(function (response) {
+                        $(el).parent().parent().removeClass("has-events").addClass("drop").addClass("droppable");
+                        $(el).closest('div').remove();
+
+                        $('.left  .item').draggable({
+                            revert: true,
+                            proxy: 'clone',
+                            cursor: 'default'
+
+                        });
+                        $('.right td.drop').droppable({
+
+                            onDragEnter: function () {
+                                $(this).addClass('over');
+
+                            },
+                            onDragLeave: function () {
+                                $(this).removeClass('over');
+
+                            },
+                            onDrop: function (e, source) {
+
+                                if (!$(source).find('span').hasClass('closebtn')) {
+
+                                    var _html = '';
+                                    _html += '<span id="close" class="closebtn" onclick="RemoveDiv(this)">x</span>';
+                                    $(source).prepend(_html);
+
+                                }
+                                AddSession($(this), $(source));
+
+                                $(this).removeClass('over');
+
+
+                                if ($(source).hasClass('assigned')) {
+                                    $(this).append(source);
+                                    var b = $(source);
+                                    b.draggable({
+                                        disabled: true
+                                    });
+
+                                    $(this).addClass('has-events');
+
+
+                                } else {
+
+                                    $(this).addClass('has-events');
+                                    var c = $(source).clone().removeClass('item').addClass('assigned').addClass('tablediv').addClass('row-fluid practice');
+                                    $(this).empty().append(c);
+                                    $('.item').find('span').remove();
+                                    c.draggable({
+                                        revert: true,
+                                        disabled: true
+                                    });
+                                }
+
+                            }
+                        });
+                        Swal.fire({
+                            title: "@R.GetResource("thesessionhasbeendeleted")!",
+                            icon: "success",
+                            showConfirmButton: true
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            }
+                        });
+                    }).fail(function (error) {
+                    });
+
+                } else {
+                    swal({
+                        title: "@R.GetResource("Yoursessionissafe")!",
+                        icon: "success",
+                        showCancelButton: false,
+                    });
+                }
+        });
+    }
+
+    function RemoveDiv(el) {
+        debugger;
+
+        var Divid = $(el).parent().attr("id");
+        var Tdid = $(el).parent().parent().attr("id");
+        console.log(Tdid, Divid);
+        var SectionID = $("#sectionId").val();
+        var SchoolClassID = $("#SchoolClassID").val();
+        var StaffSubjectArray = Divid.split("$");
+        var DaySessionArray = Tdid.split("$");
+        var StaffID = StaffSubjectArray[0];
+        var SubjectID = StaffSubjectArray[1];
+        var DayID = DaySessionArray[0];
+        var SessionID = DaySessionArray[1];
+        var obj = { StaffID: StaffID, SubjectID: SubjectID, DayID: DayID, SessionID: SessionID, SectionID: SectionID, SchoolClassID: SchoolClassID };
+
+        swal({
+            title: "@R.GetResource("Areyousure")?",
+            text: "@R.GetResource("Oncedeleted")!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+                if (willDelete) {
+
+                    AjaxCall('/ClassSchedule/DeleteSession', JSON.stringify(obj), 'POST').done(function (response) {
+                        $(el).parent().remove();
+                        $(el).remove();
+                        Swal.fire({
+                            title: "@R.GetResource("thesessionhasbeendeleted")!",
+                            icon: "success",
+                            showConfirmButton: true
+                        });
+                    }).fail(function (error) {
+                    });
+
+                } else {
+                     swal({
+                         title: "@R.GetResource("Yoursessionissafe")!",
+                         icon: "success",
+                         showCancelButton: false,
+                     });
+                }
+        });
+    }
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+</script>

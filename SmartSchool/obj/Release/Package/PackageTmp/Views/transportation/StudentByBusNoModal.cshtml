@@ -1,0 +1,77 @@
+﻿@model  List<Objects.DTO.ScheduledBus>
+@{
+    Layout = null;
+}
+<style>
+    .student-ul {
+        list-style-type: none;
+        padding: 0px;
+    }
+
+        .student-ul > li {
+            background: #E3F2FD;
+            padding: 0px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+            .student-ul > li > span {
+                background: #1b81e9;
+                width: 30px;
+                padding: 11px;
+                margin: 8px;
+                color: #ffff;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 25px;
+                height: 30px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+            }
+    .No-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        height: 100%;
+    }
+        .No-data > img {
+            height: 190px;
+        }
+        .No-data > h3 >  strong {
+            color: #1b81e9;
+        }
+
+</style>
+@if (Model.Count > 0)
+{
+    <ul class="student-ul">
+        @{
+            var i = 1;
+        }
+        @foreach (var item in Model)
+        {
+
+        <li>
+            @*<span>@item.TransportCategoryName</span>*@
+            <span>@(i++)</span>
+            <h3>@item.PassengerName</h3>
+
+        </li>
+          
+        }
+
+    </ul>
+}
+else
+{
+    <div class="No-data">
+        <img src="~/Images/No-Data.png" />
+        <h3>No data <strong>available</strong> </h3>
+    </div>
+}
+

@@ -1,0 +1,44 @@
+﻿@model SmartSchool.Models.Account.Encryption
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Encryption</title>
+</head>
+<body>
+@using (Html.BeginForm("Encryption", "Account", FormMethod.Post, new { @id = "DecryptionForm" }))
+{
+    @Html.Label("input")
+    <br />
+    @Html.TextBoxFor(a => a.input)
+    <br />
+    @Html.Label("key")
+    <br />
+    @Html.TextBoxFor(a => a.key)
+
+    <br />
+    <br />
+    @Html.RadioButtonFor(model => model.value, 1) @Html.Label("decrypt")
+
+   <br />
+   <br />
+    @Html.RadioButtonFor(model => model.value, 2) @Html.Label("encrypt")
+    <br /><br />
+    <button type="submit">OK</button>
+    <br /><br/>
+    if (Model != null)
+    {
+        if (!string.IsNullOrEmpty(Model.result))
+        {
+    <label style="background-color:white;color:darkblue">@Model.result</label>
+        }
+    }
+}
+
+</body>
+</html>

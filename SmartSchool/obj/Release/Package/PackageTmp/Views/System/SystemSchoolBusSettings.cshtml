@@ -1,0 +1,239 @@
+﻿@model SmartSchool.Models.System.SystemSettingsModel
+
+@{
+    ViewBag.Title = "SystemSchoolBusSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+@Html.HiddenFor(m => m.SchoolID)
+
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>  @R.GetResource("System_SchoolBusSettings")</h2>
+</div>
+
+<div class="inner-Container">
+    
+
+    <div class="light-component inner">
+
+
+        <div class="inner-body-holder-forms">
+
+            <div class="column-fixed">
+                <div class="form-group">
+
+                    <h4 class="htitles head">@R.GetResource("Bustourschedulesettings")</h4>
+                    <hr />
+
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedBusSchedulemanual = "";
+                            var checkedBusScheduleauto = "";
+                            if (Model.BusScheduleType == -1)
+                            {
+                                checkedBusScheduleauto = "checked";
+                            }
+                            if (Model.BusScheduleType == 0)
+                            {
+                                checkedBusSchedulemanual = "checked";
+                            }
+                        }
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusScheduleType0" name="BusSchedule" value="0" type="radio" @checkedBusSchedulemanual>
+                            <label for="BusScheduleType0">
+                                @R.GetResource("Setupbusschedulemanually")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusScheduleType1" name="BusSchedule" value="-1" type="radio" @checkedBusScheduleauto>
+                            <label for="BusScheduleType1">
+                                @R.GetResource("Setupbusscheduleautomatically")
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedBusDatezero = "";
+                            var checkedBusDateone = "";
+                            var checkedBusDatetwo = "";
+
+                            if (Model.BusScheduleDateType.Value == 0)
+                            {
+                                checkedBusDatezero = "checked";
+                            }
+                            else if (Model.BusScheduleDateType.Value == 1)
+                            {
+                                checkedBusDateone = "checked";
+
+                            }
+                            else if (Model.BusScheduleDateType.Value == 2)
+                            {
+                                checkedBusDatetwo = "checked";
+
+                            }
+                        }
+
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusScheduleDateType0" name="BusScheduleDateType" value="0" type="radio" @checkedBusDatezero>
+                            <label for="BusScheduleDateType0">
+                                @R.GetResource("Preparethebusschedulewithtodaydate")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusScheduleDateType1" name="BusScheduleDateType" value="1" type="radio" @checkedBusDateone>
+                            <label for="BusScheduleDateType1">
+                                @R.GetResource("Preparingthebusscheduleontomorrow")
+
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusScheduleDateType2" name="BusScheduleDateType" value="2" type="radio" @checkedBusDatetwo>
+                            <label for="BusScheduleDateType2">
+                                @R.GetResource("Allowselectionofbusscheduledate")
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row-custom light-component">
+                        <div class="jc-fd padding">
+                            <label>@R.GetResource("Thenumberofbustripsperround")</label>
+                            <div class="input-group spinner">
+                                
+                                @Html.TextBoxFor(m => m.NumberofBusTrips, new { @type = "number", min = 0, @class = "form-control text-center" })
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <h4 class="htitles head">@R.GetResource("Howtoscheduleabusescort")</h4>
+                    <hr />
+
+                    <div class="row-custom light-component">
+                        @{
+                            var checkedBusAttendantzero = "";
+                            var checkedBusAttendantone = "";
+                            var checkedBusAttendanttwo = "";
+
+                            if (Model.BusAttendantAssigningMethod.Value == 0)
+                            {
+                                checkedBusAttendantzero = "checked";
+                            }
+                            else if (Model.BusAttendantAssigningMethod.Value == 1)
+                            {
+                                checkedBusAttendantone = "checked";
+
+                            }
+                            else if (Model.BusAttendantAssigningMethod.Value == 2)
+                            {
+                                checkedBusAttendanttwo = "checked";
+
+                            }
+                        }
+
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusAttendantAssigningMethod0" name="BusAttendantAssigning" value="0" type="radio" @checkedBusAttendantzero>
+                            <label for="BusAttendantAssigningMethod0">
+                                @R.GetResource("Determinetheescortforeachbus")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusAttendantAssigningMethod1" name="BusAttendantAssigning" value="1" type="radio" @checkedBusAttendantone>
+                            <label for="BusAttendantAssigningMethod1">
+                                @R.GetResource("Determinetheescortforeachbustour")
+                            </label>
+                        </div>
+                        <div class="radio-aqua jc-fr">
+                            <input id="BusAttendantAssigningMethod2" name="BusAttendantAssigning" value="2" type="radio" @checkedBusAttendanttwo>
+                            <label for="BusAttendantAssigningMethod2">
+                                @R.GetResource("Determinethebusescortaccordingtoaperiodicschedule")
+
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="justify-center">
+                <button id="btnAddBusSystemSettings" class="btn btn-primary-custom forms">
+                    @R.GetResource("Save")
+                </button>
+            </div>
+           
+
+        </div>
+
+
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        //######### Here Update Bus System Settings per school AJax POST ###############\\
+        $("#btnAddBusSystemSettings").on("click", function () {
+            debugger;
+            var NumberofBusTrips = $("#NumberofBusTrips").val();
+            var BusScheduleType = $("input[name='BusSchedule']:checked").val();
+            var BusScheduleDateType = $("input[name='BusScheduleDateType']:checked").val();
+            var BusAttendantAssigningMethod = $("input[name='BusAttendantAssigning']:checked").val();
+            var SchoolID = $("#SchoolID").val();
+
+            var dataObject = JSON.stringify({
+                'SchoolID': SchoolID,
+                'NumberofBusTrips': NumberofBusTrips,
+                'BusScheduleType': BusScheduleType,
+                'BusScheduleDateType': BusScheduleDateType,
+                'BusAttendantAssigningMethod': BusAttendantAssigningMethod
+
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "UpdateBusSystemSettings",
+                data: dataObject,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        $.toast({
+                            text: 'تمت عملية الحفظ بنجاح',
+                            position: 'top-center',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500,
+                            stack: 6
+                        });
+                    } else {
+                        alert("Something went wrong");
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+
+
+
+
+
+    });
+</script>

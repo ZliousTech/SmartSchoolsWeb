@@ -1,0 +1,646 @@
+﻿@model SmartSchool.Models.TransportMAPs.TransportMAPs
+
+@{
+    ViewBag.Title = "AllHeadquarters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../../Maps/MapStyle.css" rel="stylesheet" />
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #mapContainer {
+            height: 98%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .stepwizard-step > p {
+            text-align: unset;
+        }
+
+        .labeltitle {
+            margin-top: 28px;
+        }
+
+        .htitles {
+            margin-bottom: 25px;
+        }
+
+        .pac-container {
+            background-color: #FFF;
+            z-index: 20;
+            position: fixed;
+            display: inline-block;
+            float: left;
+        }
+
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+        }
+        .page-header{
+            display:none;
+        }
+    </style>
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&libraries=places"></script>
+<script src="../../Maps/GoogleMaps.js"></script>
+
+@Html.Hidden("HDNCircles")
+@Html.HiddenFor(a => a.SchoolID)
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-head">
+                <header>@R.GetResource("Aerodynamic distance")</header>
+            </div>
+            <div class="card-body " style="text-align:@textalign;">
+                
+                    <form id="MapAttr">
+                        <div class="setup-content">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("Longitude")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.SChoolLatitude, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label>@R.GetResource("Latitude")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.SchoolLongitude, new { @class = "form-control", required = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label style="color:blue">@R.GetResource("DistanceinM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinmeters1, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="color:blue">@R.GetResource("DistanceinKM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinkilometers1, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label style="color:green">@R.GetResource("DistanceinM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinmeters2, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="color:green">@R.GetResource("DistanceinKM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinkilometers2, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label style="color:red">@R.GetResource("DistanceinM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinmeters3, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="color:red">@R.GetResource("DistanceinKM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinkilometers3, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label style="color:orange">@R.GetResource("DistanceinM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinmeters4, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="color:orange">@R.GetResource("DistanceinKM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinkilometers4, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label style="color:black">@R.GetResource("DistanceinM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinmeters5, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label style="color:black">@R.GetResource("DistanceinKM")</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.Distanceinkilometers5, new { @class = "form-control", required = "required", Name = "realnumber" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                @{ int i = 0;
+                                    var labelColor = "";
+                                }
+                                @foreach (var T in Model.TransportCategoryTypes)
+                                {
+                                    i++;
+                                    if (i == 1)
+                                    {
+                                        labelColor = "Blue";
+                                    }
+                                    else if (i == 2)
+                                    {
+                                        labelColor = "Green";
+                                    }
+                                    else if (i == 3)
+                                    {
+                                        labelColor = "Red";
+                                    }
+                                    else if (i == 4)
+                                    {
+                                        labelColor = "Orange";
+                                    }
+                                    else if (i == 5)
+                                    {
+                                        labelColor = "Black";
+                                    }
+                                    var TransportRes = (from TransportCategory in context.TransportCategories where TransportCategory.SchoolID == Model.SchoolID && TransportCategory.TransportCategoryTypeID == T.TransportCategoryTypeID && TransportCategory.TransportTypeID == 2 select TransportCategory).FirstOrDefault();
+                                    var GoValue = 0.0;
+                                    var ReturnValue = 0.0;
+                                    var TwoWayValue = 0.0;
+                                    if (TransportRes != null)
+                                    {
+                                        GoValue = TransportRes.TransportCategoryCostGo.Value;
+                                        ReturnValue = TransportRes.TransportCategoryCostReturn.Value;
+                                        TwoWayValue = TransportRes.TransportCategoryCostTwoWay.Value;
+                                    }
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("Round trip cost") </label>
+                                                    <input type="text" class="form-control" id="TwoWay_@T.TransportCategoryTypeID" value="@TwoWayValue" name="realnumber" placeholder="@R.GetResource("Cost")" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("Return cost")</label>
+                                                    <input type="text" class="form-control" id="ReturnCost_@T.TransportCategoryTypeID" value="@ReturnValue" name="realnumber" placeholder="@R.GetResource("Cost")" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">@R.GetResource("Going cost")</label>
+                                                    <input type="text" class="form-control" id="GoCost_@T.TransportCategoryTypeID" value="@GoValue" name="realnumber" placeholder="@R.GetResource("Cost")" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <br /><br />
+                                                    <label style="color:@labelColor">@T.TransportCategoryArabicName</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="row" style="justify-content:center;">
+                                <button type="button" class="btn btn-info" id="btnAirMapSave">@R.GetResource("Save")</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="height:700px;">
+                                    <label>@R.GetResource("PresentsintheMAP")</label>
+                                    <br />
+                                    <div id="mapContainer"></div>
+                                </div>
+                            </div>
+                        </div>
+  
+                    </form>
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#btnAirMapSave").on("click", function () {
+            debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("input[type='text']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                var Distance1 = $("#Distanceinmeters1").val();
+                var Distance2 = $("#Distanceinmeters2").val();
+                var Distance3 = $("#Distanceinmeters3").val();
+                var Distance4 = $("#Distanceinmeters4").val();
+                var Distance5 = $("#Distanceinmeters5").val();
+                var GoCost_1 = $("#GoCost_1").val();
+                var GoCost_2 = $("#GoCost_2").val();
+                var GoCost_3 = $("#GoCost_3").val();
+                var GoCost_4 = $("#GoCost_4").val();
+                var GoCost_5 = $("#GoCost_5").val();
+                var ReturnCost_1 = $("#ReturnCost_1").val();
+                var ReturnCost_2 = $("#ReturnCost_2").val();
+                var ReturnCost_3 = $("#ReturnCost_3").val();
+                var ReturnCost_4 = $("#ReturnCost_4").val();
+                var ReturnCost_5 = $("#ReturnCost_5").val();
+                var TwoWay_1 = $("#TwoWay_1").val();
+                var TwoWay_2 = $("#TwoWay_2").val();
+                var TwoWay_3 = $("#TwoWay_3").val();
+                var TwoWay_4 = $("#TwoWay_4").val();
+                var TwoWay_5 = $("#TwoWay_5").val();
+                var SchoolID = $("#SchoolID").val();
+
+                var dataObject = JSON.stringify({
+                    'Distanceinmeters1': Distance1,
+                    'Distanceinmeters2': Distance2,
+                    'Distanceinmeters3': Distance3,
+                    'Distanceinmeters4': Distance4,
+                    'Distanceinmeters5': Distance5,
+
+                    'GoCost_1': GoCost_1,
+                    'GoCost_2': GoCost_2,
+                    'GoCost_3': GoCost_3,
+                    'GoCost_4': GoCost_4,
+                    'GoCost_5': GoCost_5,
+
+                    'ReturnCost_1': ReturnCost_1,
+                    'ReturnCost_2': ReturnCost_2,
+                    'ReturnCost_3': ReturnCost_3,
+                    'ReturnCost_4': ReturnCost_4,
+                    'ReturnCost_5': ReturnCost_5,
+
+                    'TwoWay_1': TwoWay_1,
+                    'TwoWay_2': TwoWay_2,
+                    'TwoWay_3': TwoWay_3,
+                    'TwoWay_4': TwoWay_4,
+                    'TwoWay_5': TwoWay_5,
+                    'SchoolID': SchoolID
+
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddUpdateTransportCategories",
+                    data: dataObject,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+
+                                window.top.close();
+
+
+                            }, 3500);
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+        $('input[name="number"]').keyup(function (e) {
+            debugger;
+            if (/\D/g.test(this.value)) {
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+
+            }
+
+        });
+        var center = new google.maps.LatLng($("#SChoolLatitude").val(), $("#SchoolLongitude").val());
+        var map, marker;
+
+        function initialize() {
+            var mapAttr = {
+                center: center,
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("mapContainer"), mapAttr);
+
+            marker = new google.maps.Marker({
+                map: map,
+                position: center
+            });
+
+            marker.addListener('click', function () {
+                map.setZoom(12);
+                map.setCenter(marker.getPosition());
+            });
+            map.addListener('center_changed', function () {
+                window.setTimeout(function () {
+                    map.panTo(marker.getPosition());
+                }, 3000);
+            });
+
+
+            DrawCircle1(marker, map, $("#Distanceinmeters1").val());
+            DrawCircle2(marker, map, $("#Distanceinmeters2").val());
+            DrawCircle3(marker, map, $("#Distanceinmeters3").val());
+            DrawCircle4(marker, map, $("#Distanceinmeters4").val());
+            DrawCircle5(marker, map, $("#Distanceinmeters5").val());
+        }
+
+        function DrawCircle1(marker, map, radiusVal) {
+            CircleObj1 = new google.maps.Circle({
+                center: center,
+                map: map,
+                radius: parseInt(radiusVal),  // IN METERS.
+                //fillColor: '#980a0a',
+                fillOpacity: 0,
+                strokeColor: "BLUE",
+                strokeWeight: 2,
+                editable: true
+            });
+
+            google.maps.event.addListener(CircleObj1, 'center_changed', function () {
+                CircleObj1.center = center;
+            });
+            google.maps.event.addListener(CircleObj1, 'radius_changed', function () {
+                $("#Distanceinmeters1").val(Math.round(CircleObj1.getRadius()));
+                $("#Distanceinkilometers1").val(Math.round(CircleObj1.getRadius()) / 1000);
+            });
+
+            CircleObj1.bindTo(center, marker, 'position');
+
+            $('#Distanceinmeters1').on("change", function () {
+                if (document.getElementById('Distanceinmeters1').value.length === 0 || parseInt($('#Distanceinmeters1').val()) === 0) {
+                    $("#Distanceinkilometers1").val(0);
+                    CircleObj1.setMap(null);
+                }
+                else {
+                    CircleObj1.setMap(null);
+                    DrawCircle1(marker, map, $("#Distanceinmeters1").val());
+                    $("#Distanceinkilometers1").val(Math.round(CircleObj1.getRadius()) / 1000);
+                }
+            });
+        } //Function DrawCircle1
+        function DrawCircle2(marker, map, radiusVal) {
+            CircleObj2 = new google.maps.Circle({
+                center: center,
+                map: map,
+                radius: parseInt(radiusVal),  // IN METERS.
+                //fillColor: '#980a0a',
+                fillOpacity: 0,
+                strokeColor: "GREEN",
+                strokeWeight: 2,
+                editable: true
+            });
+
+            google.maps.event.addListener(CircleObj2, 'center_changed', function () {
+                CircleObj2.center = center;
+            });
+            google.maps.event.addListener(CircleObj2, 'radius_changed', function () {
+                $("#Distanceinmeters2").val(Math.round(CircleObj2.getRadius()));
+                $("#Distanceinkilometers2").val(Math.round(CircleObj2.getRadius()) / 1000);
+            });
+
+            CircleObj2.bindTo(center, marker, 'position');
+
+            $('#Distanceinmeters2').on("change", function () {
+                if (document.getElementById('Distanceinmeters2').value.length === 0 || parseInt($('#Distanceinmeters2').val()) === 0) {
+                    $("#Distanceinkilometers2").val(0);
+                    CircleObj2.setMap(null);
+                }
+                else {
+                    CircleObj2.setMap(null);
+                    DrawCircle2(marker, map, $("#Distanceinmeters2").val());
+                    $("#Distanceinkilometers2").val(Math.round(CircleObj2.getRadius()) / 1000);
+                }
+            });
+        } //Function DrawCircle2
+        function DrawCircle3(marker, map, radiusVal) {
+            CircleObj3 = new google.maps.Circle({
+                center: center,
+                map: map,
+                radius: parseInt(radiusVal),  // IN METERS.
+                //fillColor: '#980a0a',
+                fillOpacity: 0,
+                strokeColor: "RED",
+                strokeWeight: 2,
+                editable: true
+            });
+
+            google.maps.event.addListener(CircleObj3, 'center_changed', function () {
+                CircleObj3.center = center;
+            });
+            google.maps.event.addListener(CircleObj3, 'radius_changed', function () {
+                $("#Distanceinmeters3").val(Math.round(CircleObj3.getRadius()));
+                $("#Distanceinkilometers3").val(Math.round(CircleObj3.getRadius()) / 1000);
+            });
+
+            CircleObj3.bindTo(center, marker, 'position');
+
+            $('#Distanceinmeters3').on("change", function () {
+                if (document.getElementById('Distanceinmeters3').value.length === 0 || parseInt($('#Distanceinmeters3').val()) === 0) {
+                    $("#Distanceinkilometers3").val(0);
+                    CircleObj3.setMap(null);
+                }
+                else {
+                    CircleObj3.setMap(null);
+                    DrawCircle3(marker, map, $("#Distanceinmeters3").val());
+                    $("#Distanceinkilometers3").val(Math.round(CircleObj3.getRadius()) / 1000);
+                }
+            });
+        } //Function DrawCircle3
+        function DrawCircle4(marker, map, radiusVal) {
+            CircleObj4 = new google.maps.Circle({
+                center: center,
+                map: map,
+                radius: parseInt(radiusVal),  // IN METERS.
+                //fillColor: '#980a0a',
+                fillOpacity: 0,
+                strokeColor: "ORANGE",
+                strokeWeight: 2,
+                editable: true
+            });
+
+            google.maps.event.addListener(CircleObj4, 'center_changed', function () {
+                CircleObj4.center = center;
+            });
+            google.maps.event.addListener(CircleObj4, 'radius_changed', function () {
+                $("#Distanceinmeters4").val(Math.round(CircleObj4.getRadius()));
+                $("#Distanceinkilometers4").val(Math.round(CircleObj4.getRadius()) / 1000);
+            });
+
+            CircleObj4.bindTo(center, marker, 'position');
+
+            $('#Distanceinmeters4').on("change", function () {
+                if (document.getElementById('Distanceinmeters4').value.length === 0 || parseInt($('#Distanceinmeters4').val()) === 0) {
+                    $("#Distanceinkilometers4").val(0);
+                    CircleObj4.setMap(null);
+                }
+                else {
+                    CircleObj4.setMap(null);
+                    DrawCircle4(marker, map, $("#Distanceinmeters4").val());
+                    $("#Distanceinkilometers4").val(Math.round(CircleObj4.getRadius()) / 1000);
+                }
+            });
+        } //Function DrawCircle4
+        function DrawCircle5(marker, map, radiusVal) {
+            CircleObj5 = new google.maps.Circle({
+                center: center,
+                map: map,
+                radius: parseInt(radiusVal),  // IN METERS.
+                //fillColor: '#980a0a',
+                fillOpacity: 0,
+                strokeColor: "BLACK",
+                strokeWeight: 2,
+                editable: true
+            });
+
+            google.maps.event.addListener(CircleObj5, 'center_changed', function () {
+                CircleObj5.center = center;
+            });
+            google.maps.event.addListener(CircleObj5, 'radius_changed', function () {
+                $("#Distanceinmeters5").val(Math.round(CircleObj5.getRadius()));
+                $("#Distanceinkilometers5").val(Math.round(CircleObj5.getRadius()) / 1000);
+            });
+
+            CircleObj5.bindTo(center, marker, 'position');
+
+            $('#Distanceinmeters5').on("change", function () {
+                if (document.getElementById('Distanceinmeters5').value.length === 0 || parseInt($('#Distanceinmeters5').val()) === 0) {
+                    $("#Distanceinkilometers5").val(0);
+                    CircleObj5.setMap(null);
+                }
+                else {
+                    CircleObj5.setMap(null);
+                    DrawCircle5(marker, map, $("#Distanceinmeters5").val());
+                    $("#Distanceinkilometers5").val(Math.round(CircleObj5.getRadius()) / 1000);
+                }
+            });
+        } //Function DrawCircle5
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        $('input[Name="realnumber"]').keyup(function (e) {
+            $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+            if ((e.which != 46 || $(this).val().indexOf('.') != -1) && (e.which < 48 || e.which > 57)) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

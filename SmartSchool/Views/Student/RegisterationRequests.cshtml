@@ -1,0 +1,174 @@
+﻿@model List<Objects.DTO.RegistrationRequestsDTO>
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Students")</h2>
+</div>
+
+@if (CurrentLanguage == Languges.Arabic)
+{
+    <script src="//cdn.datatables.net/plug-ins/1.10.20/i18n/Arabic.json"></script>
+}
+@Html.Action("AdmissionDashboard", "Student")
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:fit-content">
+            <h5>
+                @R.GetResource("RegistrationRequests")
+            </h5>
+        </a>
+    </div>
+
+    
+        <div class="light-component inner">
+
+            <table class="table" id="exportTable" style="width:100%">
+                @using (Html.BeginForm("RegisterationRequests", "Student", new { isPending = true }, FormMethod.Post, new { @class = "search-form", id = "registrationForm" }))
+                {
+                    <thead>
+                        <tr>
+                            <th scope="col">@R.GetResource("StudentNumber")</th>
+                            <th scope="col">@R.GetResource("StudentName")</th>
+                            <th scope="col">@R.GetResource("Class")</th>
+                            <th scope="col">@R.GetResource("GuardianMobile")</th>
+                            @if( ViewBag.isPending == "True")
+                            {
+                                <th scope="col">@R.GetResource("Details")</th>
+                                <th scope="col">@R.GetResource("Accept")</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr scope="row">
+
+                                <td>@item.studentID</td>
+                                <td>@item.StudentName</td>
+                                <td>@item.ClassName</td>
+                                <td>
+                                    <a href="tel:4444565756">
+                                        @item.GudrianMobileNo
+                                    </a>
+                                </td>
+
+                                @if (ViewBag.isPending == "True")
+                                {
+                                    <td style="display:flex">
+                                        <a href="@Url.Action("StudentRegistrationDetails", "Student", new { StudentID = item.studentID })" class="padding">
+                                            @R.GetResource("OrderDetials")   <i class="fa fa-info"></i>
+                                        </a>
+                                    </td>
+
+                                    <td><button class="btn btn-primary-custom" onclick="AcceptStd('@item.studentID')">@R.GetResource("Accept")</button></td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
+        </div>
+    
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#PendingRequests").on('click', function () {
+            $("#registrationForm").attr("action", "/Student/RegisterationRequests?isPending=true");
+            $("#registrationForm").submit();
+        });
+
+        $("#RejectedRequests").on('click', function () {
+            $("#registrationForm").attr("action", "/Student/RegisterationRequests?isPending=false");
+            $("#registrationForm").submit();
+        });
+    });
+</script>
+
+<script>
+    function AcceptStd(studentID) {
+          var isValid = true;
+          @*var DiscountValue = $("#DiscountValue").val();
+          var maxDiscountNumber = @((Model.MaxDiscountNumber != null) ? Model.MaxDiscountNumber.ToString() : "null");*@
+
+          //if (maxDiscountNumber != "null" && DiscountValue > maxDiscountNumber) {
+          //    isValid = false;
+          //    Swal.fire(
+          //        'Information',
+          //        'The max Discount Value is: ' + maxDiscountNumber,
+          //        'info'
+          //    );
+          //}
+
+          if (isValid) {
+              var CheckedDiscounts = [];
+              $("input[type=radio]").each(function () {
+                  if ($(this).is(":checked")) {
+                      CheckedDiscounts.push($(this).attr('id'));
+                  }
+              });
+
+              $.ajax({
+                  url: "AcceptStudent",
+                  type: "POST",
+                  data: { 'StudentID': studentID, 'CheckedDiscounts': CheckedDiscounts, 'SpecialDiscount': 0 },
+                  dataType: "json",
+                  success: function (response) {
+                      if (response.Success) {
+                          $("#Accept").attr("disabled", "disabled");
+                          $("#addRow").attr("disabled", "disabled");
+                          $.toast({
+                              text: 'تمت عملية القبول بنجاح',
+                              position: 'top-center',
+                              loaderBg: '#ff6849',
+                              icon: 'success',
+                              hideAfter: 3000,
+                              stack: 6
+                          });
+                          window.setTimeout(function () {
+
+                              // Move to a new location or you can do something else
+                              window.location.href = '@Url.Action("RegisterationRequests", "Student")';
+
+                          }, 3000);
+                      }
+                      else {
+                          $("#Accept").attr("disabled", "disabled");
+                          $("#addRow").attr("disabled", "disabled");
+                          $.toast({
+                              heading: response.Message,
+                              text: '',
+                              position: 'top-center',
+                              loaderBg: '#ff6849',
+                              icon: 'error',
+                              hideAfter: 4000,
+                              stack: 6
+                          });
+                           window.setTimeout(function () {
+                              // Move to a new location or you can do something else
+                              window.location.href = '@Url.Action("RegisterationRequests", "Student")';
+
+                          }, 3000);
+                      }
+                  }
+              });
+          }
+    }
+</script>
+
+
+
+
+

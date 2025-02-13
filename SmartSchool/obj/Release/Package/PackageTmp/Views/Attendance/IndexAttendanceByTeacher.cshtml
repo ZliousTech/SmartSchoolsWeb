@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "IndexAttendanceByTeacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Attendance")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("PrepareAttendanceByTeacher","Attendance",new { staffID = Model.StaffID})" class="light-component widget" style="margin: 6px 5px">
+        <div class="overlay-head">
+            <h3>@R.GetResource("Attendance")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Attendance.jpeg" alt="">
+    </a>
+    <a href="@Url.Action("ReviewAttendanceByTeacher","Attendance", new { staffID = Model.StaffID})" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("ReviewAttendance")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Attendances.jpeg" />
+    </a>
+</div>

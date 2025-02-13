@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Automatic Attendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("AutomaticAttendance")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("PrepareAutoAttendance","Attendance")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("ReviewAttendance")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Review-Attendance.jpeg" />
+    </a>
+    <a href="@Url.Action("AttendanceTraking","Attendance")" class="light-component widget">
+        <div class="overlay-head">
+            <h3>@R.GetResource("AttendanceFollowUp")</h3>
+        </div>
+        <img src="~/AppContent/WidgetImages/Tracking-Attendance.jpeg" />
+    </a>
+</div>

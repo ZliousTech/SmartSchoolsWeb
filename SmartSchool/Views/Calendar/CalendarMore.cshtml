@@ -1,0 +1,218 @@
+﻿@model SmartSchool.Models.Calendar.AcademicCalendarView
+@{
+    ViewBag.Title = "AcademicCalendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    .content-inner{
+        text-align:inherit;
+    }
+    #events {
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .p-eventdate {
+        display: inline-block;
+        font-size: 15px;
+        font-family: GESSTextLight-Light;
+    }
+
+    .p-eventrow {
+        display: inline-block;
+        font-size: 15px;
+        font-family: GESSTextLight-Light;
+    } 
+
+    .vertical-line {
+        width: 2px;
+        height: 35px;
+        background-color: #3699ff;
+        border-radius: 50%;
+        display: inline-block;
+        margin-top: 15px;
+        margin-right: 8px;
+        margin-left: 8px;
+        margin-bottom: -10px;
+    }
+
+    .sapn-date {
+        font-family: GESSTextLight-Light;
+        font-size: 25px;
+    }
+
+    .span-header {
+        font-family: GESSTextLight-Light;
+        font-size: 20px;
+    }
+
+        .span-header:hover {
+            cursor: pointer;
+            font-family: GESSTextLight-Light;
+            font-size: 25px;
+            color: #3699ff;
+        }
+</style>
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AcademicCalendar")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <div class="col-md-12" style="margin-top:10px;">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>@R.GetResource("EventDate")</label>
+                    @Html.TextBox("EventDate", null, new { @class = "form-control", type = "date" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>@R.GetResource("EventHeader")</label>
+                    @Html.TextBox("EventHeader", null, new { @class = "form-control", placeholder = R.GetResource("EnterEventHeader") })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>@R.GetResource("EventMonth")</label>
+                    @Html.TextBox("EventMonth", null, new { @class = "form-control", type = "month", placeholder = "mm/yyyy" })
+                </div>
+            </div>
+            <div class="col-md-3" style="text-align:center;">
+                <div class="form-group">
+                    <button style="margin-top:23px" class="btn btn-primary-custom form" type="submit" id="Btnsearch">@R.GetResource("Search")</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="light-component inner" style="align-items: inherit; padding: 15px;">
+        <div class="content-inner">
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        var currentLanguage = @Html.Raw(Json.Encode(ViewBag.CurrentLanguage));
+        var monthEnglishNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        var monthArabicNames = [
+            'يناير', 'فبراير', 'مارس', 'ابريل', 'مايو', 'يونيو',
+            'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفبر', 'ديسمبر'
+        ];
+        $.ajax({
+            url: '/Calendar/GetCalenadarsbySchoolID',
+            method: 'POST',
+            success: function (response) {
+                debugger;
+                if (response.AcademicCalendar.length >= 1) {
+                    var contentinner = '';
+                    $(".content-inner").empty();
+                    var calendarArray = response.AcademicCalendar;
+                    for (var i = 0; i < calendarArray.length; i++) {
+                        var dateMilliseconds = parseInt(calendarArray[i].StartingDate.substr(6));
+                        var date = new Date(dateMilliseconds);
+                        var formattedDate = moment(date).format('MMMM DD');
+                        var monthname = currentLanguage == 1 ?
+                            monthEnglishNames[monthEnglishNames.indexOf(formattedDate.split(' ')[0])] :
+                            monthArabicNames[monthEnglishNames.indexOf(formattedDate.split(' ')[0])];
+                        var header = currentLanguage == 1 ? calendarArray[i].EnglishHeader : calendarArray[i].ArabicHeader;
+                        contentinner += '<div id="events" class="row"><p class="p-eventrow" ><span class="sapn-date" > ' + monthname + ' ' + formattedDate.split(' ')[1] +'</span>';
+                        contentinner += '<div class="vertical-line"></div>';
+                        contentinner += '<span id="' + calendarArray[i].OccasionID +'" class="span-header">' + header +'</span ></p ></div><br>';
+                    }
+                    $(".content-inner").append(contentinner);
+                    var contentInnerText = document.querySelector('.content-inner');
+                    var contentHeight = contentInnerText.scrollHeight;
+                    contentInnerText.style.maxHeight = contentHeight + 'px';
+                }
+                else {
+                    var head = currentLanguage == 1 ? '<h3 style="font-family: GESSTextLight-Light">There are no activities</h3>' : '<h3>لا يوجد نشاطات </h3>';
+                    $("#content-inner").append(head);
+                }
+            },
+            error: function (error) {
+            }
+        });
+
+        $("#Btnsearch").on("click", function () {
+            var eventDate = $("#EventDate").val();
+            var eventHeader = $("#EventHeader").val();
+            var eventMonth = $("#EventMonth").val();
+
+            var obj = { eventDate: eventDate, eventHeader: eventHeader, eventMonth: eventMonth };
+            $.ajax({
+                url: '/Calendar/GetFilteredCalenadar',
+                method: 'POST',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    var contentinner = '';
+                    $(".content-inner").empty();
+                    if (response.AcademicCalendar.length >= 1) {
+                        var calendarArray = response.AcademicCalendar;
+                        for (var i = 0; i < calendarArray.length; i++) {
+                            var dateMilliseconds = parseInt(calendarArray[i].StartingDate.substr(6));
+                            var date = new Date(dateMilliseconds);
+                            var formattedDate = moment(date).format('MMMM DD');
+                            var monthname = currentLanguage == 1 ?
+                                monthEnglishNames[monthEnglishNames.indexOf(formattedDate.split(' ')[0])] :
+                                monthArabicNames[monthEnglishNames.indexOf(formattedDate.split(' ')[0])]
+                            var header = currentLanguage == 1 ? calendarArray[i].EnglishHeader : calendarArray[i].ArabicHeader;
+                            contentinner += '<div id="events" class="row"><p class="p-eventrow" ><span class="sapn-date" > ' + monthname + ' ' + formattedDate.split(' ')[1] + '</span>';
+                            contentinner += '<div class="vertical-line"></div>';
+                            contentinner += '<span id="' + calendarArray[i].OccasionID +'" class="span-header">' + header + '</span ></p ></div><br>';
+                        }
+                        $(".content-inner").append(contentinner);
+                        var contentInnerText = document.querySelector('.content-inner');
+                        var contentHeight = contentInnerText.scrollHeight;
+                        contentInnerText.style.maxHeight = contentHeight + 'px';
+                    }
+                    else {
+                        var head = currentLanguage == 1 ? '<h3 style="font-family: GESSTextLight-Light; text-align: center">There are no activities</h3>' : '<h3 style="font-family: GESSTextLight-Light; text-align: center">لا يوجد نشاطات </h3>';
+                        $(".content-inner").append(head);
+                    }
+                },
+                error: function (error) {
+                }
+            });
+        });
+    });
+
+    $(document).on('click', '.span-header', function () {
+        var OccasionID = $(this).attr('id');
+        var url = '@Url.Action("CalendarDetails", "Calendar")' + '?OccasionID=' + OccasionID;
+        window.location.href = url;
+    });
+</script>

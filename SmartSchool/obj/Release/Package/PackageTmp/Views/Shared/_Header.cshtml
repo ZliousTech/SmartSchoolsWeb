@@ -1,0 +1,71 @@
+﻿@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string navbarposition = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        navbarposition = "navbar-left";
+    }
+    else
+    {
+        navbarposition = "navbar-right";
+
+    }
+}
+<header class="header-container">
+    <section class="inner-row">
+        <div class="banner light-component">
+            <div class="logo-holder">
+                <a href="@Url.Action("Index","Home")" class="header-logo-anchor">
+                    <img src="~/AppContent/Images/smartschoollogo.png" alt="smart school logo">
+                </a>
+            </div>
+
+            <nav class="toolbar-nav">
+                <ul>
+                    <li>
+                        <div href="javascript:void(0)" class="User-info">
+                            <div class="Avatar">
+                                @{
+                                    string userImage = Session["UserImage"] as string;
+                                    if (string.IsNullOrEmpty(userImage))
+                                    {
+                                        userImage = "../../AppContent/Images/avatar.jpeg";
+                                    }
+                                }
+                                <img id="userProfileImg" src="@userImage" alt="avatar">
+                            </div>
+                            <span>
+                                @HttpContext.Current.User.Identity.Name
+                            </span>
+                            <div class="chveron-holder">
+                                <img src="~/AppContent/Images/chveron.png" alt="chveron">
+                            </div>
+                            <div class="Dropdwon-item-setting">
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </span>
+                                        <a href="@Url.Action("Logout", "Account")">
+                                            @R.GetResource("Logout")
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("SwitchLanguage","Common")" class="anchor-lang">
+                            <span>
+                                <i class="fa fa-language" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+</header>

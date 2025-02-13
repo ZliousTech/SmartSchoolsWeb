@@ -1,0 +1,70 @@
+﻿@model SmartSchool.Models.Registration.DiscountsModel
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+}
+
+<style>
+    input[type=radio].radio {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: -5px;
+    }
+</style>
+
+@Html.HiddenFor(a => a.InternalStudentID)
+@if (Model.SchoolDiscounts.Count > 0)
+{
+    foreach (var item in Model.SchoolDiscounts)
+    {
+        var studentDiscount = Model.StudentDiscounts.Where(a => a.DiscountID == item.DiscountID).FirstOrDefault();
+        var ischeckedYes = "";
+        var ischeckedNo = "";
+        if (studentDiscount != null)
+        {
+            if (studentDiscount.IsYes)
+            {
+                ischeckedYes = "checked";
+            }
+            else
+            {
+                ischeckedNo = "checked";
+            }
+        }
+    <br />
+    <br />
+    <div class="row">
+        @{
+            var checkQuestions = Model.SchoolDiscounts.Where(a => a.DiscountQuestion != null).ToList();
+        }
+        <p style="margin-top:20px;">@item.DiscountQuestion</p>
+        @if (checkQuestions != null)
+        {
+            if (item.DiscountQuestion != null)
+            {
+                <div class="col-md-2" style="display: flex; align-items: center;">
+                    <div class="form-group" style="display: flex; align-items: center;">
+                        <label>@R.GetResource("Yes")</label>
+                        <input class="radio" type="radio" id="yes$@item.DiscountID" name="DiscountRadio$@item.DiscountID" @ischeckedYes>
+                    </div>
+                </div>
+                <div class="col-md-2" style="display: flex; align-items: center;">
+                    <div class="form-group" style="display: flex; align-items: center;">
+                        <label>@R.GetResource("No")</label>
+                        <input class="radio" type="radio" id="no$@item.DiscountID" name="DiscountRadio$@item.DiscountID" @ischeckedNo>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p style="text-align: center;padding: 50px;">لا يوجد اسئلة الرجاء متابعة التسجيل</p>
+
+        }
+    </div>
+
+    }
+}
+else{
+    <p style="text-align: center;padding: 50px;">لا يوجد اسئلة الرجاء متابعة التسجيل</p>
+}

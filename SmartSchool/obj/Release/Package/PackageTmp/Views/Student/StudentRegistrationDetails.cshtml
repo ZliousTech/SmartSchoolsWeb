@@ -1,0 +1,696 @@
+﻿@model SmartSchool.Models.Registration.StudentRegistrationViewModel
+@{
+    ViewBag.Title = "AllEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    SmartSchoolsEntities context = new SmartSchoolsEntities();
+
+    string pull = "";
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+
+    }
+    else
+    {
+        pull = "pull-right";
+        modalpositon = "right";
+
+
+    }
+    <style>
+        .modal {
+            margin-top: 100px;
+            z-index: 20;
+        }
+
+        .modal-backdrop {
+            z-index: 10;
+            /*opacity:0 !important;*/
+        }
+
+        .light-component.inner {
+            align-items: unset;
+            padding: 40px;
+        }
+
+        input[type=radio] {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: -5px;
+            float:inherit;
+        }
+    </style>
+}
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("Students")</h2>
+</div>
+
+@Html.HiddenFor(a => a.student.StudentID)
+@Html.Action("AdmissionDashboard", "Student")
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:195px">
+            <span>
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("StudentInformation")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <div class="row">
+            <div class="col-md-5">
+                @{ var base64 = "";
+                    var imgSrc = "../../Images/camera2.png";
+                    if (Model.student != null)
+                    {
+                        if (Model.student.Photo != null)
+                        {
+                            base64 = Convert.ToBase64String(Model.student.Photo);
+                            imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                        }
+                    }
+
+                }
+                <div class="col-md-5">
+                    <div class="profile-userpic">
+                        <img src="@imgSrc" id="profileImage" style="border-radius:unset; width:400px; height:175px;" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("StudentName")</strong>
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@Model.student.StudentEnglishName</p>
+                            }
+                            else
+                            {
+                                <p>@Model.student.StudentArabicName</p>
+
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("Gender")</strong>
+                            @if (Model.student.Gender == 0)
+                            {
+                                <p>@R.GetResource("Male")</p>
+                            }
+                            else
+                            {
+                                <p>@R.GetResource("Female")</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("Nationality")</strong>
+                            @{
+                                int NationalityID = Model.student.Nationality.Value;
+                                var National = (from Country in context.Countries where Country.ID == NationalityID select Country).FirstOrDefault();
+                            }
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@National.EnglishNationality</p>
+                            }
+                            else
+                            {
+                                <p>@National.ArabicNationality</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("NationalNumber")</strong>
+                            <p>@Model.student.NationalNumber</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("ResidencyNumber")</strong>
+                            <p>@Model.student.ResidencyNumber</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("DateOfBirth")</strong>
+                            <p>@Model.DateofBirth</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("PlaceOfBirth")</strong>
+                            <p>@Model.BirthPlace</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4" style="display: flex; flex-direction: column; align-items: center;">
+                <div>
+                    <label class="control-label">@R.GetResource("BirthCertificatePhoto")</label>
+                </div>
+                <div class="form-group">
+                    @{ var BCPbase64 = "";
+                        var BCFimgSrc = "../../Images/BrithCertificate.jpeg";
+                        if (Model.student != null)
+                        {
+                            if (Model.student.BirthCertificatePhoto != null)
+                            {
+                                BCPbase64 = Convert.ToBase64String(Model.student.BirthCertificatePhoto);
+                                BCFimgSrc = String.Format("data:image/*;base64,{0}", BCPbase64);
+                            }
+                        }
+                    }
+                    <div class="profile-userpic">
+                        <img src="@BCFimgSrc" id="BCPImage" style="border-radius:unset; width:200px; height:200px;" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="display: flex; flex-direction: column; align-items: center;">
+                <div>
+                    <label class="control-label">@R.GetResource("FamilyBookPhoto")</label>
+                </div>
+                <div class="form-group">
+                    @{
+                        var FBPbase64 = "";
+                        var FBPimgSrc = "../../Images/FamilyBook.jpeg";
+                        if (Model.student != null)
+                        {
+                            if (Model.student.FamilyBookPhoto != null)
+                            {
+                                FBPbase64 = Convert.ToBase64String(Model.student.FamilyBookPhoto);
+                                FBPimgSrc = String.Format("data:image/*;base64,{0}", FBPbase64);
+                            }
+                        }
+                    }
+                    <div class="profile-userpic">
+                        <img src="@FBPimgSrc" id="FBPImage" style="border-radius: unset; width: 200px; height: 200px;" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="display: flex; flex-direction: column; align-items: center;">
+                <div>
+                    <label class="control-label">@R.GetResource("LastYearCertificate")</label>
+                </div>
+                <div class="form-group">
+                    @{ var LYCbase64 = "";
+                        var LYCimgSrc = "../../Images/LastYearCertificate.jpeg";
+                        if (Model.student != null)
+                        {
+                            if (Model.student.LastYearCertificate != null)
+                            {
+                                LYCbase64 = Convert.ToBase64String(Model.student.LastYearCertificate);
+                                LYCimgSrc = String.Format("data:image/*;base64,{0}", LYCbase64);
+                            }
+                        }
+                    }
+                    <div class="profile-userpic">
+                        <img src="@LYCimgSrc" id="LYCImage" style="border-radius:unset; width:200px; height:200px;" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:195px">
+            <span>
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("SchoolInformation")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("EducationalYear")</strong>
+                            @{
+                                var Eductionalyear = (from EducationalYear in context.EducationalYears where EducationalYear.EductionalYearID == Model.SchoolDetail.EductionalYear select EducationalYear).FirstOrDefault();
+                            }
+
+                            <p>@Eductionalyear.EducationalYear1</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("Country")</strong>
+                            @{
+
+                                var country = (from Country in context.Countries where Country.ID == Model.SchoolDetail.CountryID select Country).FirstOrDefault();
+                            }
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@country.EnglishName</p>
+                            }
+                            else
+                            {
+                                <p>@country.ArabicName</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        @{
+                            var headquarters = (from Headquarters in context.Headquarters where Headquarters.CompanyID == Model.SchoolDetail.CompanyID  select Headquarters).FirstOrDefault();
+                        }
+                        <div class="form-group">
+                            <strong>@R.GetResource("School")</strong>
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@headquarters.CompanyEnglishName</p>
+                            }
+                            else
+                            {
+                                <p>@headquarters.CompanyArabicName</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @{
+                            var branch = (from SchoolBranch in context.SchoolBranches where SchoolBranch.SchoolID == Model.SchoolDetail.SchoolID select SchoolBranch).FirstOrDefault();
+                        }
+                        <div class="form-group">
+                            <strong>@R.GetResource("Branch")</strong>
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@branch.SchoolEnglishName</p>
+                            }
+                            else
+                            {
+                                <p>@branch.SchoolArabicName</p>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("Class")</strong>
+                            @{
+                                var ClassID = (from SchoolClass in context.SchoolClasses where SchoolClass.SchoolClassID == Model.SchoolDetail.ClassID select SchoolClass.ClassID).FirstOrDefault();
+                                var StudentClass = (from Class in context.Classes where Class.ClassID == ClassID select Class).FirstOrDefault();
+                            }
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@StudentClass.ClassEnglishName</p>
+                            }
+                            else
+                            {
+                                <p>@StudentClass.ClassArabicName</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("LastSchool")</strong>
+                            <p>@Model.SchoolDetail.LastSchoolName</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:195px">
+            <span>
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("GuardianInformation")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("GuardianName")</strong>
+                            <p>@Model.GuardianName</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("GuardianRelationship")</strong>
+                            @{ int GuardianRelationship = Model.student.GuardianRelationship.Value;
+                                var GurdianTypes = Model.GuardianRelationshipList.Where(a => a.ID == GuardianRelationship).FirstOrDefault();
+                            }
+                            @if (CurrentLanguage == Languges.English)
+                            {
+                                <p>@GurdianTypes.Description</p>
+                            }
+                            else
+                            {
+                                <p>@GurdianTypes.DescriptionAR</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <strong>@R.GetResource("GuardianMobileNumber")</strong>
+                            <p>@Model.GuardianMobileNumber</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <strong>@R.GetResource("SMSNumber")</strong>
+                            <p>@Model.smsNumber</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:195px">
+            <span>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Tranportation")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        @Html.Action("StudentSchoolMapAPI", "TransportMAPs")
+    </div>
+</div>
+
+@if (Model.DiscountModel.SchoolDiscounts.Count > 0)
+{
+    <div class="inner-Container">
+        <div class="light-component action">
+            <a href="javascript:void(0)" style="width:195px">
+                <span>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </span>
+                <h5>
+                    @R.GetResource("SchoolQuestions")
+                </h5>
+            </a>
+        </div>
+
+
+        <div class="light-component inner">
+            @{
+                foreach (var item in Model.DiscountModel.SchoolDiscounts)
+                {
+                    var studentDiscount = Model.DiscountModel.StudentDiscounts.Where(a => a.DiscountID == item.DiscountID).FirstOrDefault();
+                    var ischeckedYes = "";
+                    var ischeckedNo = "";
+                    if (studentDiscount != null)
+                    {
+                        if (studentDiscount.IsYes)
+                        {
+                            ischeckedYes = "checked";
+                        }
+                        else
+                        {
+                            ischeckedNo = "checked";
+                        }
+                    }
+                    <br />
+                    <br />
+                    <div class="row">
+                        @{
+                            var checkQuestions = Model.DiscountModel.SchoolDiscounts.Where(a => a.DiscountQuestion != null).ToList();
+                        }
+                        <p style="margin-top:20px;">@item.DiscountQuestion</p>
+                        @if (checkQuestions != null)
+                        {
+                            if (item.DiscountQuestion != null)
+                            {
+                                <div class="col-md-2" style="float:inherit;">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("Yes")</label>
+                                        <input type="radio" id="yes$@item.DiscountID" name="DiscountRadio$@item.DiscountID" @ischeckedYes value="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2" style="float:inherit;">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("No") </label>
+                                        <input type="radio" id="no$@item.DiscountID" name="DiscountRadio$@item.DiscountID" @ischeckedNo value="0">
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="javascript:void(0)" style="width:195px">
+            <span>
+                <i class="fa fa-money" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("Discount")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="form-group">
+                    <label>
+                        @R.GetResource("DiscountValue")
+                    </label>
+                    <div class="input-group spinner">
+                        @Html.TextBoxFor(m => m.DiscountValue, new { @type = "number", min = 0, id = "DiscountValue", @class = "form-control text-center", Value = 0 })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="inner-Container">
+
+
+    <div class="light-component inner" style="align-items:center;">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-primary-custom" id="Accept">@R.GetResource("Accept")</button>
+            </div>
+            <div class="col-md-6">
+                <button id="addRow"
+                        class="show-modal btn btn-danger" data-toggle="modal" data-target="#myModal">
+                    @R.GetResource("Reject")
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="setup-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6"><div class="form-group"><textarea class="form-control" maxlength="100" id="RejectReason" placeholder="@R.GetResource("thereasonofrefuse")" rows="4" cols="50" required></textarea></div></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 modal_body_end">
+                                <button type="button" class="btn btn-secondary closemodal" style="float:@modalpositon;" data-dismiss="modal">@R.GetResource("Close")</button>
+                                <button type="button" id="Reject" class="btn btn-info" style="float:@modalpositon;">@R.GetResource("Save")</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        //Hamza01
+        $("#Accept").on("click", function () {
+            debugger;
+            var isValid = true;
+            var DiscountValue = $("#DiscountValue").val();
+            var maxDiscountNumber = @((Model.MaxDiscountNumber != null) ? Model.MaxDiscountNumber.ToString() : "null");
+
+            if (maxDiscountNumber != "null" && DiscountValue > maxDiscountNumber) {
+                isValid = false;
+                Swal.fire(
+                    'Information',
+                    'The max Discount Value is: ' + maxDiscountNumber,
+                    'info'
+                );
+            }
+
+            if (isValid) {
+                var CheckedDiscounts = [];
+                $("input[type=radio]").each(function () {
+                    if ($(this).is(":checked")) {
+                        CheckedDiscounts.push($(this).attr('id'));
+                    }
+                });
+                $.ajax({
+                    url: "AcceptStudent",
+                    type: "POST",
+                    data: { 'StudentID': $("#student_StudentID").val(), 'CheckedDiscounts': CheckedDiscounts, 'SpecialDiscount': DiscountValue },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#Accept").attr("disabled", "disabled");
+                            $("#addRow").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية القبول بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("RegisterationRequests", "Student")';
+
+                            }, 3000);
+                        }
+                        else {
+                            $("#Accept").attr("disabled", "disabled");
+                            $("#addRow").attr("disabled", "disabled");
+                            $.toast({
+                                heading: response.Message,
+                                text: '',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 4000,
+                                stack: 6
+                            });
+                             window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("RegisterationRequests", "Student")';
+
+                            }, 3000);
+                        }
+                    }
+                });
+            }
+
+        });
+
+        $("#Reject").on("click", function () {
+            var curStep = $(this).closest(".setup-content"),
+                curInputs = curStep.find("textarea"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+            if (isValid) {
+                $.ajax({
+                    url: "RejectStudent",
+                    type: "POST",
+                    data: { 'StudentID': $("#student_StudentID").val(), 'RejectReason': $.trim($("#RejectReason").val()) },
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#Accept").attr("disabled", "disabled");
+                            $("#addRow").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الرفض بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("RegisterationRequests", "Student")';
+                            }, 3000);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

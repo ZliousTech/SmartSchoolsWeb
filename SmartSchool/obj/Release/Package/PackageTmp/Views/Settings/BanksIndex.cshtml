@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "BanksIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+}
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("BanksSettings")</h2>
+</div>
+
+<div class="Dashboard-widget">
+    <a href="@Url.Action("Banks","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Banks")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Bank.jpg" />
+    </a>
+
+    <a href="@Url.Action("Branches","Settings")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Branches")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Branch.jpg" />
+    </a>
+</div>
+

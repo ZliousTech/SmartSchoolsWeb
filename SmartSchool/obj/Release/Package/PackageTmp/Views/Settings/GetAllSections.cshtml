@@ -1,0 +1,81 @@
+﻿@model List<SmartSchool.Models.Settings.Sections>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Sections")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddNewSection","Settings")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddNewSection")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col" style="display: none;">@R.GetResource("SectionID")</th>
+                    <th scope="col">@R.GetResource("ClassName")</th>
+                    @*<th scope="col">@R.GetResource("SectionCode")</th>*@
+                    <th scope="col"> @R.GetResource("SectionName") </th>
+                    <th scope="col"> @R.GetResource("ClassRoom") </th>
+                    <th scope="col"> @R.GetResource("StudentsNumber") </th>
+                    <th scope="col"> @R.GetResource("Edit") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var ClassName = CurrentLanguage == Languges.English ? @item.SchoolClassEnglishName : @item.SchoolClassArabicName;
+                    var SectionName = CurrentLanguage == Languges.English ?
+                        (string.IsNullOrWhiteSpace(@item.SectionEnglishName)?item.SectionArabicName: @item.SectionEnglishName):
+                        (string.IsNullOrWhiteSpace(@item.SectionArabicName) ? item.SectionEnglishName : @item.SectionArabicName);
+                    <tr>
+                        <td style="display: none;">@item.SectionID</td>
+                        <td>@ClassName</td>
+                        @*<td>@item.SectionCode</td>*@
+                        <td>@SectionName</td>
+                        <td>@item.ClassroomDescription</td>
+                        <td>@item.NumberofStudents</td>
+                        <td style="display:flex">
+                            <a href="@Url.Action("EditSection","Settings", new { SectionID = item.SectionID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

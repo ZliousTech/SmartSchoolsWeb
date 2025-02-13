@@ -1,0 +1,56 @@
+﻿@model int?
+@using SmartSchool.Models.Common;
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+    var list = (List<LookupDTO>)ViewData["List"];
+    var Disabled = (bool)ViewData["Disabled"] ? true : false;
+
+    var Alloption = ViewData["Alloption"]!=null ? (bool)ViewData["Alloption"] ? true : false : false;
+
+}
+<select name="@Html.IdForModel()" id="@Html.IdForModel()" class="form-control select2" required="required" Disabled="@Disabled">
+    @if (Alloption)
+    {
+        <option value="0">@R.GetResource("All")</option>
+
+    }
+    else
+    {
+        <option value="">@R.GetResource("Pleaseselect")</option>
+
+    }
+    @if (list != null)
+    {
+        foreach (var item in list)
+        {
+            if (Model.HasValue && item.ID == Model.Value)
+            {
+                if (CurrentLanguage == Languges.English)
+                {
+                    <option value="@item.ID" selected="selected">@item.Description</option>
+
+                }
+                else
+                {
+                    <option value="@item.ID" selected="selected">@item.DescriptionAR</option>
+
+                }
+            }
+            else
+            {
+                if (CurrentLanguage == Languges.English)
+                {
+                    <option value="@item.ID">@item.Description</option>
+
+                }
+                else
+                {
+                    <option value="@item.ID">@item.DescriptionAR</option>
+
+                }
+            }
+        }
+    }
+</select>
+

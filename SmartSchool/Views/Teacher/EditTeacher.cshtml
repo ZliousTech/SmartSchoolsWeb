@@ -1,0 +1,1068 @@
+﻿@model SmartSchool.Models.Teacher.TeacherRegisterModel
+@{
+
+    ViewBag.Title = "RegisterEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string modalpositon = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        modalpositon = "left";
+    }
+    else
+    {
+        modalpositon = "right";
+
+    }
+
+}
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+@section SectionHead{
+
+    <link href="../../Content/Wizard/WizardStyle.css" rel="stylesheet" />
+}
+
+<style>
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+    }
+
+    .form-holder {
+        width: 100%;
+        padding: 10px 25px;
+    }
+
+
+    .success-box {
+        padding: 10px;
+    }
+
+
+        .success-box img {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .success-box > div {
+            vertical-align: top;
+            display: inline-block;
+            color: #888;
+        }
+
+
+    /* Rating Star Widgets Style */
+    .rating-stars > ul {
+        padding: 9px 0px !important;
+        margin: 0px;
+    }
+
+    .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .rating-stars ul > li.star {
+            display: inline-block;
+        }
+
+            /* Idle State of the stars */
+            .rating-stars ul > li.star > i.fa {
+                font-size: 2.5em; /* Change the size of the stars */
+                color: #ccc; /* Color on idle state */
+            }
+
+            /* Hover state of the stars */
+            .rating-stars ul > li.star.hover > i.fa {
+                color: #FFCC36;
+            }
+
+            /* Selected state of the stars */
+            .rating-stars ul > li.star.selected > i.fa {
+                color: #FF912C;
+            }
+
+    table.calendar {
+        margin-bottom: 0;
+    }
+
+        table.calendar > thead > tr > th {
+            text-align: center;
+        }
+
+        table.calendar > tbody > tr > td {
+            height: 20px;
+        }
+
+            table.calendar > tbody > tr > td > div {
+                //padding: 8px;
+                height: 40px;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                float: left;
+            }
+
+            table.calendar > tbody > tr > td.has-events {
+                color: white;
+                cursor: pointer;
+                padding: 0;
+                border-radius: 4px;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div {
+                    background-color: #08C;
+                    border-left: 1px solid white;
+                }
+
+                    table.calendar > tbody > tr > td.has-events > div:first-child {
+                        border-left: 0;
+                        margin-left: 1px;
+                    }
+
+                    table.calendar > tbody > tr > td.has-events > div.practice {
+                        opacity: 0.7;
+                    }
+
+            table.calendar > tbody > tr > td.conflicts > div > span.title {
+                //color: red;
+            }
+
+            table.calendar > tbody > tr > td.max-conflicts > div {
+                background-color: red;
+                color: white;
+            }
+
+            table.calendar > tbody > tr > td.has-events > div > span {
+                display: block;
+                text-align: center;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div > span a {
+                    color: white;
+                }
+
+                table.calendar > tbody > tr > td.has-events > div > span.title {
+                    font-weight: bold;
+                }
+
+    table.table-borderless > thead > tr > th, table.table-borderless > tbody > tr > td {
+        border: 0;
+    }
+
+    .table tbody tr.hover td, .table tbody tr.hover th {
+        background-color: whiteSmoke;
+    }
+</style>
+
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>@R.GetResource("EditTeacherInfo")</h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component inner">
+
+        <div class="form-holder">
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <a href="#step-1" type="button" class="btn btn-info btn-circle">1</a>
+                        <p> @R.GetResource("TeacherInformation")</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-2" type="button" class="btn btn-default btn-circle">2</a>
+                        <p>@R.GetResource("JobDetails")</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-3" type="button" class="btn btn-default btn-circle">3</a>
+                        <p>@R.GetResource("TeacherExperience")</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-4" type="button" class="btn btn-default btn-circle">4</a>
+                        <p>@R.GetResource("Subjects")</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-5" type="button" class="btn btn-default btn-circle">5</a>
+                        <p>@R.GetResource("TimeTableTeacher")</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row setup-content" id="step-1">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("TeacherInformation")</h4>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("School")</label>
+                                    @Html.EditorFor(model => model.schoolID, "SelectListRequired", new { List = Model.schoolList, Disabled = true })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("TeacherName")</label>
+                                    @Html.TextBoxFor(m => m.TeacherName, new { @class = "form-control", Name = "number", required = "required", @disabled = "disabled" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("JobNumber")</label>
+                                    @Html.TextBoxFor(m => m.JobNumber, new { @class = "form-control", Name = "number", required = "required", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("MobileNo")</label>
+                                    @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", Name = "number", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Email")</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", Type = "Email", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("NumberofSessins")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.NumberofSessins, new { @class = "form-control", Name = "number", Type = "number", required = "required" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("TimeTableSessions")</label>
+                                    @Html.TextBoxFor(m => m.TimeTableSessions, new { @class = "form-control", Name = "number", Type = "number", required = "required", Disabled = true })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ClassRooms(Supervision)")</label>
+                                    @Html.EditorFor(model => model.ClassroomID, "SelectListRequired", new { List = Model.ClassroomList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("AssistanceTeacher")</label>
+                                    @Html.EditorFor(model => model.AssistanceStaffID, "SelectList", new { List = Model.TeacherNameList, Disabled = false })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" onclick="nextStep(2)">@R.GetResource("Next")</button>
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;margin:0px 5px;" type="button" id="UpdatePersonalInfoBtn">@R.GetResource("Update")</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row setup-content" id="step-2">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("JobDetails")</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("School")</label>
+                                    @Html.EditorFor(model => model.schoolID, "SelectListRequired", new { List = Model.schoolList, Disabled = true })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Institution")</label>
+                                    @Html.TextBoxFor(m => m.Institution, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Department")</label>
+                                    @Html.EditorFor(model => model.DepartmentID, "SelectListRequired", new { List = Model.DepartmentsList, Disabled = false })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("DateOfJoining")</label>
+                                    @Html.TextBoxFor(m => m.DateOfJoining, new { @class = "form-control date", type = "date", required = "required", Value = DateTime.Parse(Model.DateOfJoining).ToString("yyyy-MM-dd") })
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Qualification")</label>
+                                    @Html.EditorFor(model => model.QualificationID, "SelectListRequired", new { List = Model.QualificationList, Disabled = false })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Specialization")</label>
+                                    @Html.EditorFor(model => model.SpecializationID, "SelectListRequired", new { List = Model.SpecializationList, Disabled = false })
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="EditYearofExperienceLbl" onclick="ShowTotalYearOfExperiencebox()"><i class="fa fa-edit fa-s-15"></i> @R.GetResource("YearOfExperience")</label>
+                                    @Html.TextBoxFor(m => m.YearOfExperience, new { @class = "form-control", Type = "number", @disabled = "disabled" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("YearOfGraduation")</label>
+                                    @Html.TextBoxFor(m => m.YearofGraduation, new { @class = "form-control", Type = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none" id="TotalYearOfExperiencebox">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ExFromDate")</label>
+                                    @Html.TextBoxFor(m => m.FromDate, new { @class = "form-control date"})
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ToDate")</label>
+                                    @Html.TextBoxFor(m => m.ToDate, new { @class = "form-control date"})
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;margin:0px 5px;" type="button" id="UpdateJobDetails">@R.GetResource("Update")</button>
+                        <button class="btn btn-primary-custom forms" id="next-jobDetials" style="padding:10px 20px;margin-bottom:20px" type="button">@R.GetResource("Next")</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row setup-content" id="step-3">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <input type="hidden" id="hdnRate" value="" />
+                        <h4 class="htitles">@R.GetResource("TeacherExperience")</h4>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Class")</label>
+                                    @Html.EditorFor(model => model.SchoolClassID, "SelectListRequired", new { List = Model.SchoolClassList, Disabled = false })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Subjects")</label>
+                                    <select name="SubjectID" id="SubjectID" class="form-control select2" required="required" Disabled="Disabled"></select>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ExFromDate")</label>
+                                    @Html.TextBoxFor(m => m.FromDate, new { @class = "form-control date", required = "required", Type = "date", id = "ExpFromDate" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ToDate")</label>
+                                    @Html.TextBoxFor(m => m.ToDate, new { @class = "form-control date", required = "required", Type = "date", id = "ExpToDate" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <!--<div class="form-group">
+                                    <div class='rating-widget light-component'>-->
+                                @*Rating Stars Box*@
+                                <!--<div class='rating-stars text-center'>
+                                            <ul id='stars'>
+
+                                                <li class='star' title='@R.GetResource("Weak")' data-value='1'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='@R.GetResource("Good")' data-value='3'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='@R.GetResource("Very Good")' data-value='4'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='@R.GetResource("Acquainted")' data-value='5'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>-->
+
+                            </div>
+                            @*<div class="col-md-6">
+                                    <div class='success-box light-component'>
+                                        <img alt='tick image' width='32' src='data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K' />
+                                        <div class='text-message'></div>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary-custom forms" style="padding:10px 20px;margin:0px 5px;" type="button" id="saveExperienceInfoBtn">@R.GetResource("Save")</button>
+                    <button class="btn btn-primary-custom forms" style="padding:10px 20px;display:none" type="button" id="Next-ExperienceInfoBtn" onclick="nextStep(4)">@R.GetResource("Next")</button>
+
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <div id="TeacherExperiencesTable">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row setup-content" id="step-4">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <input type="hidden" id="hdnRate" value="" />
+                        <h4 class="htitles">@R.GetResource("Subjects")</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Class")</label>
+                                    @Html.EditorFor(model => model.SchoolClassID2, "SelectListRequired", new { List = Model.SchoolClassList2, Disabled = false, Alloption = true })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="ShowSubjectInfoBtn">@R.GetResource("search")</button>
+
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <div id="TeacherSubjectTable">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row setup-content" id="step-5" style="overflow-x:auto">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h4 class="htitles">@R.GetResource("TimeTableTeacher")</h4>
+                        @Html.Action("GetTimeTable", "Teacher", new { StaffID = Model.StaffID })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="../../Content/Wizard/TeacherWizard.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<script>
+    debugger;
+    $("#AssistanceStaffID").val('@Model.StrAssistanceStaffID').trigger("change");
+
+    $(document).ready(function () {
+        GetTeacherSubjectList(0);
+        GetTeacherExperiencesList();
+        $('#StaffID').on('change', function (e) {
+            var StaffID = $("#StaffID option:selected").val();
+            debugger;
+            $.ajax({
+                type: "GET",
+                url: "GetInformation",
+                data: { 'StaffID': StaffID },
+                dataType: "json",
+                success: function (response) {
+                    if (response.data != null) {
+                        $("#JobNumber").val(StaffID);
+                        $("#MobileNo").val(response.data.MobileNo);
+                        $("#Email").val(response.data.Email);
+                        $("#Department").val(response.JobDetailsData.Department);
+                        $("#DateOfJoining").val(response.JobDetailsData.DateOfJoining);
+                        $("#Qualification").val(response.JobDetailsData.Qualification);
+                        $("#Specialization").val(response.JobDetailsData.Specialization);
+                        $("#YearOfExperience").val(response.JobDetailsData.YearOfExperience);
+                        $("#YearofGraduation").val(response.JobDetailsData.YearofGraduation);
+                        $("#Institution").val(response.JobDetailsData.Institution);
+
+                        //disable input
+                        $("#JobNumber").attr("disabled", true);
+                        $("#MobileNo").attr("disabled", true);
+                        $("#Email").attr("disabled", true);
+                        $("#Department").attr("disabled", true);
+                        $("#DateOfJoining").attr("disabled", true);
+                        $("#Qualification").attr("disabled", true);
+                        $("#Specialization").attr("disabled", true);
+                        $("#YearOfExperience").attr("disabled", true);
+                        $("#YearofGraduation").attr("disabled", true);
+                        $("#Institution").attr("disabled", true);
+
+                    }
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        });
+        $("#UpdatePersonalInfoBtn").on("click", function () {
+            debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                var DataObj = JSON.stringify({
+                    'StaffID':@Model.StaffID,
+                    'MobileNo': $("#MobileNo").val(),
+                    'Email': $('#Email').val(),
+                    'NumberofSessins': $('#NumberofSessins').val(),
+                    'TimeTableSessions': $("#TimeTableSessions").val(),
+                    'ClassroomID': $('#ClassroomID').val(),
+                    'AssistanceStaffID': $('#AssistanceStaffID').val(),
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "EditTeacherInformation",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response != null && !response.Exist) {
+                            $.toast({
+                                text: 'تمت العملية  بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                nextStepWizard.removeAttr('disabled').trigger('click');
+                                $(".select2").select2({
+                                    width: 'resolve'
+                                });
+                            }, 3000);
+                        }
+                        else {
+                            $.toast({
+                                heading: 'حدث خطا ما !',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                    }
+
+                })
+            }
+        });
+        $("#UpdateJobDetails").on("click", function () {
+            debugger;
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                debugger;
+                var FromDate = new Date($('#FromDate').val());
+                var ToDate = new Date($('#ToDate').val());
+                var diffMillis = ToDate - FromDate;
+                var diffYears = diffMillis / (1000 * 60 * 60 * 24 * 365.25); // 365.25 days in a year to account for leap years
+                var TotalYearsOfExperience = Math.round(diffYears);
+
+                var DataObj = JSON.stringify({
+                    'StaffID':@Model.StaffID,
+                    'Institution': $("#Institution").val(),
+                    'DepartmentID': $("#DepartmentID").val(),
+                    'QualificationID': $('#QualificationID').val(),
+                    'TotalYearsOfExperience': TotalYearsOfExperience,
+                    'YearofGraduation': $('#YearofGraduation').val(),
+                    'SpecializationID': $('#SpecializationID').val(),
+                    'DateOfJoining': $('#DateOfJoining').val(),
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "EditTeacherJobDetails",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response != null && !response.Exist) {
+                            $.toast({
+                                text: 'تمت العملية  بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                nextStepWizard.removeAttr('disabled').trigger('click');
+                                $(".select2").select2({
+                                    width: 'resolve'
+                                });
+                            }, 3000);
+                        }
+                        else {
+                            $.toast({
+                                heading: 'حدث خطا ما !',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                    }
+
+                })
+            }
+        });
+
+
+        $("#saveExperienceInfoBtn").on("click", function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select"),
+                isValid = true;
+
+            $(".form-control-wrapper").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-control-wrapper").addClass("has-error");
+                }
+            }
+
+            if (isValid) {
+                debugger;
+                $('#Next-ExperienceInfoBtn').css("display", "block");
+                //var FromDate = $('#FromDate').val();
+                //var ToDate = $('#ToDate').val();
+                //var start = new Date(FromDate);
+                //var end = new Date(ToDate);
+                //var diffDate = (end - start) / 31536000000;
+                //var TotalYearsOfExperience = Math.round(diffDate);
+
+                var FromDate = new Date($('#ExpFromDate').val());
+                var ToDate = new Date($('#ExpToDate').val());
+                var diffMillis = ToDate - FromDate;
+                var diffYears = diffMillis / (1000 * 60 * 60 * 24 * 365.25); // 365.25 days in a year to account for leap years
+                var TotalYearsOfExperience = Math.round(diffYears);
+
+                var DataObj = JSON.stringify({
+                    'SchoolClassID': $("#SchoolClassID").val(),
+                    'SubjectID': $("#SubjectID").val(),
+                    'TotalYearsOfExperience': TotalYearsOfExperience,
+                    //'Rate': $('#hdnRate').val(),
+                    'Rate': 0,
+                    'StaffID': '@Model.StaffID',
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "TeacherExperience",
+                    data: DataObj,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        debugger;
+                        if (response != null && !response.Exist) {
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+
+                            GetTeacherExperiencesList();
+                        }
+
+
+                        else if (response.Exist) {
+                            $.toast({
+                                heading: 'المعلم مسجل بالفعل !',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                        else {
+                            $.toast({
+                                heading: 'حدث خطا ما !',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 3000,
+                                stack: 6
+                            });
+                        }
+                    },
+                });
+            }
+        });
+
+
+        $("#ShowSubjectInfoBtn").on("click", function () {
+                var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url'],input[type='number'],select");
+                var lang = '@ViewBag.CurrentLanguage';
+                var SchoolClassID = $("#SchoolClassID2").val()
+                GetTeacherSubjectList(SchoolClassID);
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            var SchoolClassID = $('#SchoolClassID').val();
+            var obj = { SchoolClassID: SchoolClassID };
+            AjaxCall('/Teacher/GetSubjects', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SubjectID').html('');
+                    var options = '';
+                    options += '<option value="0">الرجاء الأختيار</option>';
+                    for (var i = 0; i < response.length; i++) {
+                        debugger;
+                        options += '<option value="' + response[i].ID + '">' + response[i].Description + '</option>';
+                    }
+                    $('#SubjectID').append(options);
+                    $('#SubjectID').removeAttr("disabled")
+
+                }
+            }).fail(function (error) {
+            });
+        });
+
+
+        function AjaxCall(url, data, type) {
+            return $.ajax({
+                url: url,
+                type: type ? type : 'GET',
+                data: data,
+                contentType: 'application/json'
+            });
+        }
+
+        $("#next-jobDetials").on("click", function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a");
+            nextStepWizard.removeAttr('disabled').trigger('click');
+
+            debugger;
+            $.ajax({
+                type: "GET",
+                url: "GetSchoolClasses",
+                dataType: "json",
+                cache: false,
+            }).done(function (response) {
+                if (response.Success) {
+                    $('#SchoolClassID').html('');
+                    SchoolClassID.append($('<option value="">' + 'الرجاء الاختيار' + '</option>'));
+                    $.each(response, function (id, option) {
+                        SchoolClassID.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                }
+            });
+
+
+        });
+
+        /* 1. Visualizing things on Hover - See next part for action on click */
+        $('#stars li').on('mouseover', function () {
+            var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+            // Now highlight all the stars that's not after the current hovered star
+            $(this).parent().children('li.star').each(function (e) {
+                if (e < onStar) {
+                    $(this).addClass('hover');
+                }
+                else {
+                    $(this).removeClass('hover');
+                }
+            });
+
+        }).on('mouseout', function () {
+            $(this).parent().children('li.star').each(function (e) {
+                $(this).removeClass('hover');
+            });
+        });
+
+
+        /* 2. Action to perform on click */
+        $('#stars li').on('click', function () {
+            var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+            var stars = $(this).parent().children('li.star');
+
+            for (i = 0; i < stars.length; i++) {
+                $(stars[i]).removeClass('selected');
+            }
+
+            for (i = 0; i < onStar; i++) {
+                $(stars[i]).addClass('selected');
+            }
+
+            // JUST RESPONSE (Not needed)
+            var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+            var msg = "";
+            var lang = '@ViewBag.CurrentLanguage';
+
+            if (ratingValue > 1) {
+                if (lang == "English") {
+                    msg = "Your rated" + ratingValue + " stars.";
+                }
+                else
+                {
+                    msg = "Your rated" + ratingValue + " stars.";
+
+                }
+            }
+            else {
+                if (lang == "English") {
+
+                    msg = "Your rated" + ratingValue + " stars.";
+                }
+                else
+                {
+                    msg = "Your rated" + ratingValue + " stars.";
+
+                }
+            }
+            $('#hdnRate').val(ratingValue);
+            responseMessage(msg);
+
+        });
+    });
+
+    function GetTeacherExperiencesList() {
+        var lang = '@ViewBag.CurrentLanguage';
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "TeacherExperiencesList",
+            data: { 'ID': @Model.StaffID },
+            dataType: "html",
+            success: function (response) {
+                $("#TeacherExperiencesTable").html(response);
+                BindDataTable(lang);
+            },
+            failure: function (response) {
+                console.log(response.responseText);
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    }
+
+    function GetTeacherSubjectList(SchoolClassID) {
+        var lang = '@ViewBag.CurrentLanguage';
+        $.ajax({
+            type: "GET",
+            url: "TeacherSubjectsList",
+            data: {
+                ID: @Model.StaffID,
+                SchoolClassID: SchoolClassID,
+            },
+            dataType: "html",
+            success: function (response) {
+                if (response != "") {
+                    $("#TeacherSubjectTable").empty().append(response);
+                    BindDataTable(lang);
+                }
+            },
+            failure: function (response) {
+                console.log(response.responseText);
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    }
+
+    function BindDataTable(lang) {
+        if (lang =="Arabic") {
+            var table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                paging: false,
+                fixedHeader: true,
+                dom: 'Bflrtip',
+                buttons: [
+                    'excel', 'print'
+                ],
+                responsive: true,
+
+                'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "language": {
+                    "sEmptyTable": "ليست هناك بيانات متاحة في الجدول",
+                    "sLoadingRecords": "جارٍ التحميل...",
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "_MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": تفعيل لترتيب العمود تصاعدياً",
+                        "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+                    }
+                }
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+        }
+        else {
+            var table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                fixedHeader: true,
+                dom: 'Bflrtip',
+                buttons: [
+                    'excel', 'print'
+                ],
+                responsive: true
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+        }
+
+    }
+
+    function responseMessage(msg) {
+        $('.success-box').fadeIn(200);
+        $('.success-box div.text-message').html("<span>" + msg + "</span>");
+    }
+
+    function nextStep(targetStep) {
+        debugger;
+        var prevStep = targetStep - 1;
+        $('#step-' + prevStep + '').css('display', 'none');
+        $('[href*="#step-' + prevStep + '"]').removeClass('btn-info');
+        $('[href*="#step-' + targetStep + '"]').addClass('btn-info');
+        $('#step-' + targetStep+ '').css('display', 'block');
+
+    }
+
+    function ShowTotalYearOfExperiencebox() {
+        $('#TotalYearOfExperiencebox').fadeIn();
+    }
+</script>
+
+

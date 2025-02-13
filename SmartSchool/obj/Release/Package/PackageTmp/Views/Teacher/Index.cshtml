@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Teachers")</h2>
+</div>
+<div class="Dashboard-widget">
+    <a href="@Url.Action("RegisterTeacher","Teacher")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("RegisteranewTeacher")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Registration.png" />
+    </a>
+    <a href="@Url.Action("AllTeachers","Teacher")" class="light-component widget">
+
+        <div class="overlay-head">
+            <h3>@R.GetResource("Teachers")</h3>
+        </div>
+
+        <img src="~/AppContent/WidgetImages/Teachers.jpeg" />
+    </a>
+
+</div>
+
+

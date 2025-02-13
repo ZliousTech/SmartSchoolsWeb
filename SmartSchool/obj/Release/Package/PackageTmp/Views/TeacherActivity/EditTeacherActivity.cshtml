@@ -1,0 +1,558 @@
+﻿@model SmartSchool.Models.Activity.TeacherActivity
+@{
+    ViewBag.Title = "Add Home Work";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    input[type=checkbox], input[type=radio] {
+        float: inherit;
+        margin-right: 5px;
+    }
+
+    #ListStudents {
+        height: auto;
+        max-height: 350px;
+        overflow: auto;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("EditActivity")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-10">
+                <form id="AddActivity" enctype="multipart/form-data" class="padding">
+                    @Html.HiddenFor(m => m.TeacherID, new { id = "TeacherID" })
+                    @Html.HiddenFor(m => m.ID, new { id = "ID" })
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ArabicHeader")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.ArabicHeader, new { @class = "form-control", Id = "ArabicHeader", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("EnglishHeader")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.EnglishHeader, new { @class = "form-control", Id = "EnglishHeader", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("ArabicDescription")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.ArabicDescription, new { @class = "form-control", Id = "ArabicDescription", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("EnglishDescription")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.EnglishDescription, new { @class = "form-control", Id = "EnglishDescription", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("OccasionType")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.DropDownListFor(m => m.OccasionType, Model.OccasionTypeNames, @R.GetResource("SelectOccasionType"), new { @class = "form-control  select2", Id = "OccasionType", required = "required", Disabled = "Disabled" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("StartingDate")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.StartingDate, new { @class = "form-control", Id = "StartingDate", required = "required", type = "date", Value = Model.StartingDate.ToString("yyyy-MM-dd") })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("NumberofDays")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(m => m.NumberofDays, new { @class = "form-control", Id = "NumberofDays", required = "required", type = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@R.GetResource("IsVacation")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.CheckBoxFor(m => m.Vacation, new { @class = "", Id = "Vacation", required = "required", style = "cursor: pointer; transform: scale(2); margin-top:10px" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div class="form-control-wrapper">
+                                    <div class="Mail-holder">
+                                        <button style="width:50%; border-radius:10px" type="button" class="btn btn-primary-custom" data-toggle="modal" data-target="#myModal">@R.GetResource("AddStudents")</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnsavedit btn btn-primary-custom" id="btnEdit" style="padding:10px 20px;" type="button">@R.GetResource("Edit")</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-2">
+                <div class="profile-userpic">
+                    @{ var base64 = "";
+                        var imgSrc = "../../Images/Activities.jpg";
+                        if (Model != null)
+                        {
+                            if (Model.Photo != null)
+                            {
+                                base64 = Convert.ToBase64String(Model.Photo);
+                                imgSrc = String.Format("data:image/*;base64,{0}", base64);
+                            }
+                        }
+                    }
+                    <img src="@imgSrc" id="eventImage" style="border-radius:unset; width:200px; height:175px;" class="img-responsive" alt="">
+                    <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this,'#eventImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                    <button id="btnuploader" type="button" style="width:200px;" onclick="showuploadfile('#fileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                </div>
+                <div class="row">
+                    <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@R.GetResource("AddStudents")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@R.GetResource("Classes")</label>
+                            @Html.DropDownListFor(m => m.SchoolClassID, Model.SchoolClassesList, @R.GetResource("SelectClass"), new { @class = "form-control  select2", id = "SchoolClassID", required = "required", Disabled = "Disabled" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@R.GetResource("Sections")</label>
+                            <select name="SectionID" id="SectionID" class="form-control select2" Disabled="Disabled"></select>
+                            @Html.HiddenFor(m => m.SectionID, new { id = "HiddenSectionID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" style="display: flex;justify-content: flex-end;">
+                        <button class="btn btn-primary-custom forms" style="padding:10px 20px; display:none" type="button" id="btnFilterRec">@R.GetResource("Search")</button>
+                    </div>
+                </div>
+                <div class="row" id="ListStudents">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="CloseModal">@R.GetResource("Close")</button>
+                <button class="btn btn-primary-custom" type="button" onclick="SetRecords()">@R.GetResource("SaveAndcontinue")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+<script>
+    var fileContent = null;
+    var lang = '@ViewBag.CurrentLanguage';
+    var checkedIds = [];
+    var schoolClassID = "", sectionID = "";
+    $(document).ready(function () {
+
+        var SchoolClassID = $('#SchoolClassID').val();
+        var StaffID = '@Model.TeacherID';
+        var obj = { schoolClassID: SchoolClassID, staffID: StaffID };
+        AjaxCall('/TeacherActivity/GetTeacherSections', JSON.stringify(obj), 'POST').done(function (response) {
+            if (response.length > 0) {
+                $('#SectionID').html('');
+                var options = '';
+                if (lang == "English") {
+                    options += '<option value="0">All</option>';
+                }
+                else {
+                    options += '<option value="0">الكل</option>';
+                }
+                for (var i = 0; i < response.length; i++) {
+                    options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                }
+                $('#SectionID').append(options);
+                $('#SectionID').attr("disabled", "disabled");
+                $('#SectionID').val($("#HiddenSectionID").val());
+                $('#btnFilterRec').click();
+            }
+            else {
+                $('#SectionID').empty();
+                $('#SectionID').attr("disabled", "disabled");
+                $('#btnFilterRec').removeAttr("disabled");
+                Swal.fire(
+                    'Information',
+                    'There is no Sections on this Class',
+                    'info'
+                );
+            }
+        }).fail(function (error) {
+        });
+
+        $('#SchoolClassID').on("change", function () {
+            $('#SectionID').empty();
+            $('#SectionID').attr("disabled", "disabled");
+
+            $("#SchoolClassID").val(this.value);
+            var SchoolClassID = $('#SchoolClassID').val();
+            var StaffID = '@Model.TeacherID';
+            var obj = { schoolClassID: SchoolClassID, staffID: StaffID };
+            AjaxCall('/TeacherActivity/GetTeacherSections', JSON.stringify(obj), 'POST').done(function (response) {
+                if (response.length > 0) {
+                    $('#SectionID').html('');
+                    var options = '';
+                    if (lang == "English") {
+                        options += '<option value="0">All</option>';
+                    }
+                    else {
+                        options += '<option value="0">الكل</option>';
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i].Value + '">' + response[i].Text + '</option>';
+                    }
+                    $('#SectionID').append(options);
+                    $('#SectionID').removeAttr("disabled");
+                }
+                else {
+                    $('#SectionID').empty();
+                    $('#SectionID').attr("disabled", "disabled");
+                    $('#btnFilterRec').removeAttr("disabled");
+                    Swal.fire(
+                        'Information',
+                        'There is no Sections on this Class',
+                        'info'
+                    );
+                }
+            }).fail(function (error) {
+            });
+        });
+
+        $('#SectionID').on("change", function () {
+            $('#HiddenSectionID').val($(this).val());
+            if ($(this).val() === "0") {
+                $('#btnFilterRec').prop("disabled", true);
+                $("#ListStudents").html("");
+            }
+            else {
+                $('#btnFilterRec').prop("disabled", false);
+                schoolClassID = $('#SchoolClassID').val();
+                sectionID = $(this).val();
+            }
+        });
+
+        $('#btnFilterRec').on("click", function () {
+            debugger;
+            $("#ListStudents").html("");
+            var SectionID = $("#SectionID").val();
+            if (SectionID == undefined || SectionID == "0" || SectionID == "" ) {
+                SectionID = 0;
+            }
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetListStudents")",
+                data: {sectionID: SectionID },
+                dataType: "html",
+                success: function (response) {
+                    if (response != null) {
+                        debugger;
+                        $("#ListStudents").html(response);
+                        BindCheckbox();
+                        BindDataTable(lang);
+                        getActivityStudents();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert(xhr.responseText);
+                }
+            })
+        });
+
+
+        $("#btnEdit").on("click", function () {
+            debugger;
+            var isValid = true;
+            if ($("#OccasionType").val() == "") { isValid = false; }
+            if ($("#ArabicHeader").length <= 0) { isValid = false; }
+            if ($("#EnglishHeader").length <= 0) { isValid = false; }
+            if ($("#StartingDate").length <= 0) { isValid = false; }
+            if ($("#NumberofDays").length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                SetRecords();
+                var formData = new FormData();
+                var ArabicHeader = $("#ArabicHeader").val();
+                var EnglishHeader = $("#EnglishHeader").val();
+                var ArabicDescription = $("#ArabicDescription").val();
+                var EnglishDescription = $("#EnglishDescription").val();
+                var OccasionType = $("#OccasionType").val();
+                var StartingDate = $("#StartingDate").val();
+                var NumberofDays = $("#NumberofDays").val();
+                var Vacation = $("#Vacation").prop('checked') ? true : false;
+                var ID = $("#ID").val();
+
+                formData.append('file', $('#fileuploader')[0].files[0]);
+                formData.append('SchoolClassID', $("#SchoolClassID").val());
+                formData.append('SectionID', $("#HiddenSectionID").val());
+                formData.append('ArabicHeader', ArabicHeader);
+                formData.append('EnglishHeader', EnglishHeader);
+                formData.append('ArabicDescription', ArabicDescription);
+                formData.append('EnglishDescription', EnglishDescription);
+                formData.append('OccasionType', OccasionType);
+                formData.append('StartingDate', StartingDate);
+                formData.append('NumberofDays', NumberofDays);
+                formData.append('Vacation', Vacation);
+                formData.append('TeacherID', $("#TeacherID").val());
+                formData.append('students', checkedIds);
+                formData.append('ID', ID);
+
+                $.ajax({
+                    type: "POST",
+                    url: "UpdateTeacherActivity",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnEdit").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("PrepareTeacherActivity", "TeacherActivity", new {staffID = Model.TeacherID})';
+                            }, 1000);
+
+                        } else {
+                            Swal.fire(
+                                '@R.GetResource("Error")',
+                                response.Message,
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire(
+                    '@R.GetResource("Warning")',
+                    '@R.GetResource("PleaseEnterthealldata")',
+                    'warning'
+                );
+            }
+        });
+    });
+
+    function AjaxCall(url, data, type) {
+        return $.ajax({
+            url: url,
+            type: type ? type : 'GET',
+            data: data,
+            contentType: 'application/json'
+        });
+    }
+
+    function readURL(input, id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id)
+                    .attr('src', e.target.result).width(200)
+                    .height(175);
+                $("#btnuploader").width(180);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function showuploadfile(id) {
+        $(id).click();
+    }
+
+    function BindCheckbox() {
+        // Header Master Checkbox Event
+        $("#masterCheck").on("click", function () {
+            var isMasterChecked = $(this).is(':checked');
+            $('input[name="row-check"]').prop('checked', isMasterChecked);
+        });
+
+        // Check event on each table row checkbox
+        $("input:checkbox[name='row-check']").on("change", function () {
+            var total_check_boxes = $("input:checkbox[name='row-check']").length;
+            var total_checked_boxes = $("input:checkbox[name='row-check']:checked").length;
+            console.log("total_checked_boxes::" + total_checked_boxes);
+            // If all checked manually then check master checkbox
+            if (total_check_boxes === total_checked_boxes) {
+                $("#masterCheck").prop("checked", true);
+            }
+            else {
+                $("#masterCheck").prop("checked", false);
+            }
+        });
+    }
+
+    function BindDataTable(lang) {
+
+        if (lang == "Arabic") {
+            table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                paging: false,
+                fixedHeader: true,
+                responsive: true,
+                'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "language": {
+                    "sEmptyTable": "ليست هناك بيانات متاحة في الجدول",
+                    "sLoadingRecords": "جارٍ التحميل...",
+                    "sProcessing": "جارٍ التحميل...",
+                    "sLengthMenu": "_MENU_ مدخلات",
+                    "sZeroRecords": "لم يعثر على أية سجلات",
+                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                    "sInfoPostFix": "",
+                    "sSearch": "ابحث:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "الأول",
+                        "sPrevious": "السابق",
+                        "sNext": "التالي",
+                        "sLast": "الأخير"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": تفعيل لترتيب العمود تصاعدياً",
+                        "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+                    }
+                }
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+        }
+        else {
+            table = $('#exportTable').DataTable({
+                destroy: true,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+
+        }
+    }
+
+    function SetRecords() {
+        //get all checked values
+        $('input[name="row-check"]').each(function () {
+            if ($(this).is(':checked')) {
+                var ids = $(this).attr('id').split('$');
+                var studentID = ids[0];
+                var sectionID = ids[1];
+
+                checkedIds.push(studentID + "$" +sectionID);
+            }
+        });
+        $("#ListStudents").html("");
+
+        $("#CloseModal").click();
+    }
+
+    function getActivityStudents() {
+        var obj = { activityID: $("#ID").val() };
+        AjaxCall('/TeacherActivity/ActivityStudents', JSON.stringify(obj), 'POST').done(function (response) {
+            debugger;
+            if (response.Success) {
+                debugger;
+                var studentsIDs = response.teacherStudentsActivity;
+                studentsIDs.forEach(function (item) {
+                    $('input[name="row-check"]').each(function () {
+                        var ids = $(this).attr('id').split('$');
+                        var studentID = ids[0];
+                        if (studentID == item) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                });
+                rowCount = $('input[name="row-check"]').length
+                if (rowCount == studentsIDs.length) {
+                    $("#masterCheck").prop('checked', true);
+                }
+            }
+        }).fail(function (error) {
+        });
+    }
+</script>

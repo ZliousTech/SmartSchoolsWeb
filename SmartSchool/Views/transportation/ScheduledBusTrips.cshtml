@@ -1,0 +1,250 @@
+﻿@model  List<Objects.DTO.TourDto>
+<style>
+    #student-content {
+        height: auto;
+        max-height: 280px;
+        overflow: auto;
+    }
+
+    #viewStudent {
+        border-radius: 10px;
+        border: solid 1px #3699ff;
+        text-decoration: none !important;
+    }
+
+        #viewStudent > i {
+            margin: 0px 5px;
+        }
+</style>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>
+        @R.GetResource("ScheduledBusTrips")
+    </h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <div class="Dashboard-widget">
+            <a href="@Url.Action("addStudentToTour","transportation")" class="light-component widget">
+                @*<span>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </span>*@
+                <h5>
+                    @R.GetResource("addStudentToTour")
+                </h5>
+            </a>
+
+            <a href="@Url.Action("deleteStudentFromTour","transportation")" class="light-component widget">
+                @*<span>
+                <i class="fa fa-minus" aria-hidden="true"></i>
+            </span>*@
+                <h5>
+                    @R.GetResource("deleteStudentFromTour")
+                </h5>
+            </a>
+        </div>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    @*<th scope="col">#</th>*@
+                    <th scope="col">@R.GetResource("BusNo")</th>
+                    <th scope="col">@R.GetResource("TourName")</th>
+                    @*<th scope="col">@R.GetResource("TourAreaName")</th>*@
+                    <th scope="col">@R.GetResource("TourDirection")</th>
+                    <th scope="col">@R.GetResource("MaxNumberOfStudent")</th>
+                    <th scope="col">@R.GetResource("StudentsCountInTour")</th>
+                    <th scope="col">@R.GetResource("Students")</th>
+                    <th scope="col">@R.GetResource("TourRouteInformation")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        @*<th scope="row">1</th>*@
+                        <td>@item.BusNo</td>
+                        <td>@item.TourName</td>
+                        @*<td>@item.AreaName</td>*@
+                        <td>
+                            @if (item.TourDirection == 0)
+                            {
+                                <label class="Driver-label" style="display:flex;justify-content:center;">
+                                    <span style="margin:0px 5px">
+                                        <i class="fa fa-long-arrow-right fa-s-15"></i>
+                                        @*<i class="fa fa-long-arrow-right fa-s-15 gray"></i>*@
+                                    </span>
+                                    @R.GetResource("OnWay(Go)")
+                                </label>
+
+                            }
+                            else if (item.TourDirection == 1)
+                            {
+                                <label class="Driver-label" style="display:flex;justify-content:center;">
+                                    <span style="display:flex;justify-content:center;flex-direction:column;margin:0px 5px">
+                                        <i class="fa fa-long-arrow-left fa-s-15"></i>
+                                    </span>
+                                    @R.GetResource("OnWay(Return)")
+                                </label>
+                            }
+                            @*else
+            {
+                <label class="Driver-label" style="display:flex;justify-content:center;">
+                    <span style="display:flex;justify-content:center;flex-direction:column;margin:0px 5px">
+                        <i class="fa fa-long-arrow-right fa-s-15"></i><i class="fa fa-long-arrow-left fa-s-15"></i>
+                    </span>
+                    @R.GetResource("BiDirection")
+                </label>
+            }*@
+
+                        </td>
+                        <td>@item.MaxNumberOfStudents</td>
+                        <td>@item.StudentsinTourCount</td>
+                        <td style="display:flex">
+                            <a href="javascript:void(0)" onclick="getStudent('@item.BusNo','@item.TourID')" class="padding" id="viewStudent"><i class="fa fa-user fa-s-15"></i>@R.GetResource("ViewStudents")</a>
+                        </td>
+
+                        <td>
+                            @*<a href="javascript:void(0)" onclick="getBusInfo('@item.BusNo','@item.TourID')" class="padding" id="TourInfo"><i class="fa fa-bus fa-s-15"></i>@R.GetResource("TourInfo")</a>*@
+                            <a href="javascript:void(0)" onclick="getTourInfo('@item.BusNo','@item.TourID')" class="padding" data-toggle="modal" data-target="#TourInfoModal">@R.GetResource("ViewRouteInformation")</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="StudentModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="border-radius:20px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Students in tour</h4>
+            </div>
+            <div class="modal-body" id="student-content">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Maps/TourRoutInfo.js"></script>
+
+<div class="modal fade" id="TourInfoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">@R.GetResource("TourRouteInformation")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 modal_body_content">
+                        <div id="directions-panel"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 modal_body_map">
+                        <div class="location-map" id="location-map">
+                            <div style="width: 100%; height: 400px;" id="map"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-md-12 modal_body_end">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@R.GetResource("Close")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getStudent(BusNo, TourID) {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "StudentByBusNoModal",
+            data: { 'BusNo': BusNo, 'TourID': TourID },
+            dataType: "html",
+            success: function (response) {
+                console.log(response);
+                $('#student-content').html(response);
+                $('#StudentModal').modal('show')
+            },
+            failure: function (response) {
+                console.log(response.responseText);
+            },
+            error: function (response) {
+                StudentLat
+                console.log(response.responseText);
+            }
+        });
+    }
+
+    function getTourInfo(BusNo, TourID) {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url: "GetTourMAPInfo",
+            data: { 'BusNo': BusNo, 'TourID': TourID },
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    var jData = $.parseJSON(response);
+                    var SchoolLat = "";
+                    var SchoolLng = "";
+                    var AttendantLat = "";
+                    var AttendantLng = "";
+                    var PassengersLat = [];
+                    var PassengersLng = [];
+
+                    for (var i = 0; i < jData.length; i++) {
+                        if (i == 0) {
+                            SchoolLat = jData[i].SchoolLat;
+                            SchoolLng = jData[i].SchoolLng;
+                            AttendantLat = jData[i].AttendantLat;
+                            AttendantLng = jData[i].AttendantLng;
+                        }
+                        PassengersLat[i] = jData[i].PassengerLat;
+                        PassengersLng[i] = jData[i].PassengerLng;
+                    }
+                }
+                var StartPointLat = AttendantLat;
+                var StartPointLng = AttendantLng;
+                var EndPointLat = SchoolLat;
+                var EndPointLng = SchoolLng;
+                var WayPointsLat = PassengersLat;
+                var WayPointsLng = PassengersLng;
+
+                initMap(StartPointLat, StartPointLng, EndPointLat, EndPointLng, WayPointsLat, WayPointsLng);
+                //console.log(response);
+            },
+            failure: function (response) {
+                console.log(response.responseText);
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@System.Configuration.ConfigurationManager.AppSettings["GoogleAPIKey"]&callback=initMap&v=weekly" defer></script>

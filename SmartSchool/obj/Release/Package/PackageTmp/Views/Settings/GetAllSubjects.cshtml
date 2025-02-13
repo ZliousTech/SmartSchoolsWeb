@@ -1,0 +1,77 @@
+﻿@model List<SmartSchool.Models.Settings.Subjects>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("Subjects")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddNewSubject","Settings")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddNewSubject")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col" style="display: none;">@R.GetResource("SubjectID")</th>
+                    <th scope="col">@R.GetResource("SubjectName")</th>
+                    <th scope="col"> @R.GetResource("ClassName") </th>
+                    <th scope="col"> @R.GetResource("NumberOfSessionsPerWeek") </th>
+                    <th scope="col"> @R.GetResource("SubjectType") </th>
+                    <th scope="col"> @R.GetResource("Edit") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var SubjectName = (CurrentLanguage == Languges.English) ? @item.SubjectEnglishName : @item.SubjectArabicName;
+                    var SubjectType = (CurrentLanguage == Languges.English) ? (bool.Parse(item.IsOptional.ToString()) ? "Optional" : "Compulsory") : (bool.Parse(item.IsOptional.ToString()) ? "إختياري" : "إجباري");
+                    <tr>
+                        <td style="display: none;">@item.SubjectID</td>
+                        <td>@SubjectName</td>
+                        <td>@item.SchoolClassName</td>
+                        <td>@item.NumberOfSessionsPerWeek</td>
+                        <td>@SubjectType</td>
+                        <td style="display:flex">
+                            <a href="@Url.Action("EditSubject","Settings", new { SubjectID = item.SubjectID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

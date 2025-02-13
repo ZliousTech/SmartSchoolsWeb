@@ -1,0 +1,1228 @@
+﻿@model SmartSchool.Models.transportation.TransportatioModel
+
+<link href="~/Content/multi-select.css" rel="stylesheet" />
+
+
+<style>
+    .display1 {
+        display: none !important;
+    }
+
+    .display2 {
+        display: none !important;
+    }
+
+    .display3 {
+        display: none !important;
+    }
+
+    .display4 {
+        display: none !important;
+    }
+
+    .display5 {
+        display: none !important;
+    }
+
+
+
+    .ms-container .ms-list, .ms-container .ms-list.ms-focus {
+        background: #f8f8ef !important;
+    }
+
+    .search-input {
+        width: 100%;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        border: none;
+        padding: 5px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    }
+
+    .row.banner {
+        position: relative;
+        border: dashed #f8c4c4;
+        padding: 30px 0px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+
+        .row.banner > mark {
+            position: absolute;
+            top: -5%;
+            right: 50%;
+            display: flex;
+            color: black;
+            border-radius: 5px;
+            margin: 0px 5px;
+            background-color: #ffffff;
+        }
+
+    .ms-list {
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26) !important;
+        border: none !important;
+    }
+
+    .ms-container {
+        width: 100%;
+    }
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+    }
+
+    .form-holder {
+        width: 100%;
+        padding: 10px 25px;
+    }
+
+
+    .success-box {
+        padding: 10px;
+    }
+
+
+        .success-box img {
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .success-box > div {
+            vertical-align: top;
+            display: inline-block;
+            color: #888;
+        }
+
+
+    /* Rating Star Widgets Style */
+    .rating-stars > ul {
+        padding: 9px 0px !important;
+        margin: 0px;
+    }
+
+    .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .rating-stars ul > li.star {
+            display: inline-block;
+        }
+
+            /* Idle State of the stars */
+            .rating-stars ul > li.star > i.fa {
+                font-size: 2.5em; /* Change the size of the stars */
+                color: #ccc; /* Color on idle state */
+            }
+
+            /* Hover state of the stars */
+            .rating-stars ul > li.star.hover > i.fa {
+                color: #FFCC36;
+            }
+
+            /* Selected state of the stars */
+            .rating-stars ul > li.star.selected > i.fa {
+                color: #FF912C;
+            }
+
+    table.calendar {
+        margin-bottom: 0;
+    }
+
+        table.calendar > thead > tr > th {
+            text-align: center;
+        }
+
+        table.calendar > tbody > tr > td {
+            height: 20px;
+        }
+
+            table.calendar > tbody > tr > td > div {
+                //padding: 8px;
+                height: 40px;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                float: left;
+            }
+
+            table.calendar > tbody > tr > td.has-events {
+                color: white;
+                cursor: pointer;
+                padding: 0;
+                border-radius: 4px;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div {
+                    background-color: #08C;
+                    border-left: 1px solid white;
+                }
+
+                    table.calendar > tbody > tr > td.has-events > div:first-child {
+                        border-left: 0;
+                        margin-left: 1px;
+                    }
+
+                    table.calendar > tbody > tr > td.has-events > div.practice {
+                        opacity: 0.7;
+                    }
+
+            table.calendar > tbody > tr > td.conflicts > div > span.title {
+                //color: red;
+            }
+
+            table.calendar > tbody > tr > td.max-conflicts > div {
+                background-color: red;
+                color: white;
+            }
+
+            table.calendar > tbody > tr > td.has-events > div > span {
+                display: block;
+                text-align: center;
+            }
+
+                table.calendar > tbody > tr > td.has-events > div > span a {
+                    color: white;
+                }
+
+                table.calendar > tbody > tr > td.has-events > div > span.title {
+                    font-weight: bold;
+                }
+
+    table.table-borderless > thead > tr > th, table.table-borderless > tbody > tr > td {
+        border: 0;
+    }
+
+    .table tbody tr.hover td, .table tbody tr.hover th {
+        background-color: whiteSmoke;
+    }
+
+    .border-sucsess {
+        border: dashed #21d521 !important;
+    }
+</style>
+
+<div class="head-body-col">
+    <span onclick="goBack()">
+        <!-- back  icon-->
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </span>
+    <h2>
+        @R.GetResource("AddStudentToTour")
+    </h2>
+</div>
+
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="form-holder">
+            <div class="row ">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        @*<h4 class="htitles">@R.GetResource("AddStudentToTourByType")</h4>*@
+                        <h4 class="htitles">@R.GetResource("AddStudentToTour")</h4>
+                        @if (Model.StudentList.Where(c => c.TransportCategoryTypeID == 1) != null && Model.StudentList.Where(c => c.TransportCategoryTypeID == 1).ToList().Count > 0)
+                        {
+                            <div class="row banner" id="Box-1">
+                                <mark>
+                                    <span>
+                                        @*@R.GetResource("firstcategory")*@
+                                        <i class="fa fa-check" id="sucsess-icon1" aria-hidden="true" style="background: #21d521;padding: 5px;border-radius: 25px;color: #fff;display:none"></i>
+                                    </span>
+                                </mark>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id='searchable1' multiple='multiple'>
+                                            @foreach (var item in Model.StudentList.Where(c => c.TransportCategoryTypeID == 1))
+                                            {
+                                                <option value='@item.StudentID'>
+                                                    @item.StudentName (@item.NationalNumber) @item.TransportationDirection 
+                                                </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("TourName")</label>
+                                        @Html.EditorFor(model => model.TourIDA, "SelectList", new { List = Model.TourList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusToursBtn1">@R.GetResource("Save")</button>
+                                    </div>
+                                </div>
+                                <div class="alertmax display1">
+                                    <strong>@R.GetResource("MaxNumberOfStudent") <span id="MaxNumberOfStudent1"></span></strong>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <hr />
+                                <h5><span id="countsStdsInTour"></span></h5>
+                                <hr />
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            @*<th>@R.GetResource("StudentID")</th>*@
+                                            <td>@R.GetResource("StudentName")</td>
+                                            <th>@R.GetResource("Latitude")</th>
+                                            <th>@R.GetResource("Longitude")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="studentsTourData">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        }
+
+                        @if (Model.StudentList.Where(c => c.TransportCategoryTypeID == 2) != null && Model.StudentList.Where(c => c.TransportCategoryTypeID == 2).ToList().Count > 0)
+                        {
+                            <div class="row banner" id="Box-2">
+                                <mark>
+                                    <span>
+                                        @*@R.GetResource("secondcategory")*@
+                                        <i class="fa fa-check" id="sucsess-icon2" aria-hidden="true" style="background: #21d521;padding: 5px;border-radius: 25px;color: #fff;display:none"></i>
+                                    </span>
+                                </mark>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id='searchable2' multiple='multiple'>
+                                            @foreach (var item in Model.StudentList.Where(c => c.TransportCategoryTypeID == 2))
+                                            {
+                                                <option value='@item.StudentID'>@item.StudentName </option>
+
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("TourName")</label>
+                                        @Html.EditorFor(model => model.TourIDB, "SelectList", new { List = Model.TourList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusToursBtn2">@R.GetResource("Save")</button>
+
+                                    </div>
+                                </div>
+                                <div class="alertmax display2">
+                                    <strong>@R.GetResource("MaxNumberOfStudent") <span id="MaxNumberOfStudent2"></span></strong>
+                                </div>
+                            </div>
+
+                        }
+
+                        @if (Model.StudentList.Where(c => c.TransportCategoryTypeID == 3) != null && Model.StudentList.Where(c => c.TransportCategoryTypeID == 3).ToList().Count > 0)
+                        {
+                            <div class="row banner" id="Box-3">
+
+                                <mark>
+                                    <span>
+                                        @*@R.GetResource("thirdcategory")*@
+                                        <i class="fa fa-check" id="sucsess-icon3" aria-hidden="true" style="background: #21d521;padding: 5px;border-radius: 25px;color: #fff;display:none"></i>
+                                    </span>
+                                </mark>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id='searchable3' multiple='multiple'>
+                                            @foreach (var item in Model.StudentList.Where(c => c.TransportCategoryTypeID == 3))
+                                            {
+                                                <option value='@item.StudentID'>@item.StudentName </option>
+
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("TourName")</label>
+                                        @Html.EditorFor(model => model.TourIDC, "SelectList", new { List = Model.TourList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusToursBtn3">@R.GetResource("Save")</button>
+
+                                    </div>
+                                </div>
+                                <div class="alertmax display3">
+                                    <strong>@R.GetResource("MaxNumberOfStudent") <span id="MaxNumberOfStudent3"></span></strong>
+                                </div>
+                            </div>
+
+                        }
+
+                        @if (Model.StudentList.Where(c => c.TransportCategoryTypeID == 4) != null && Model.StudentList.Where(c => c.TransportCategoryTypeID == 4).ToList().Count > 0)
+                        {
+
+                            <div class="row banner" id="Box-4">
+                                <mark>
+                                    <span>
+                                        @*@R.GetResource("fourthcategory")*@
+                                        <i class="fa fa-check" id="sucsess-icon4" aria-hidden="true" style="background: #21d521;padding: 5px;border-radius: 25px;color: #fff;display:none"></i>
+                                    </span>
+                                </mark>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id='searchable4' multiple='multiple'>
+                                            @foreach (var item in Model.StudentList.Where(c => c.TransportCategoryTypeID == 4))
+                                            {
+                                                <option value='@item.StudentID'>@item.StudentName </option>
+
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("TourName")</label>
+                                        @Html.EditorFor(model => model.TourIDD, "SelectList", new { List = Model.TourList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusToursBtn4">@R.GetResource("Save")</button>
+
+                                    </div>
+                                </div>
+                                <div class="alertmax display4">
+                                    <strong>@R.GetResource("MaxNumberOfStudent") <span id="MaxNumberOfStudent4"></span></strong>
+                                </div>
+                            </div>
+
+                        }
+
+                        @if (Model.StudentList.Where(c => c.TransportCategoryTypeID == 5) != null && Model.StudentList.Where(c => c.TransportCategoryTypeID == 5).ToList().Count > 0)
+                        {
+                            <div class="row banner" id="Box-5">
+                                <mark>
+                                    <span>
+                                        @*@R.GetResource("Fifthcategory")*@
+                                        <i class="fa fa-check" id="sucsess-icon5" aria-hidden="true" style="background: #21d521;padding: 5px;border-radius: 25px;color: #fff;display:none"></i>
+                                    </span>
+                                </mark>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select id='searchable5' multiple='multiple'>
+                                            @foreach (var item in Model.StudentList.Where(c => c.TransportCategoryTypeID == 5))
+                                            {
+                                                <option value='@item.StudentID'>
+                                                    @item.StudentName
+                                                </option>
+
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>@R.GetResource("TourName")</label>
+                                        @Html.EditorFor(model => model.TourIDE, "SelectList", new { List = Model.TourList, Disabled = false })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary-custom forms" style="padding:10px 20px;" type="button" id="saveBusToursBtn5">@R.GetResource("Save")</button>
+
+                                    </div>
+                                </div>
+                                <div class="alertmax display5">
+                                    <strong>@R.GetResource("MaxNumberOfStudent") <span id="MaxNumberOfStudent5"></span></strong>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        var Array1 = new Array();
+        var Array2 = new Array();
+        var Array3 = new Array();
+        var Array4 = new Array();
+        var Array5 = new Array();
+
+        $('#searchable1').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function (v) {
+
+                var _tID1 = $("#TourIDA").val();
+                if (_tID1 == "" || _tID1 == undefined || _tID1 == 0 || _tID1 == -1) {
+                    swal("@R.GetResource("SelectTourFirst")", "", "error");
+                    $('#searchable1').multiSelect('deselect_all');
+                }
+                else {
+                    var isScheduled = isStudentScheduledInSameDirection(v[0], _tID1);
+                    var isInTour = ISstudentParticipationInstour(v[0], _tID1);
+                    if (isInTour) {
+                        if (isScheduled) {
+                            $('#searchable1').multiSelect('deselect', v);
+                            var tripInfo = getBusTripInfo(v[0], _tID1);
+                            swal("@R.GetResource("ThisStudentHasBeenScheduled")", tripInfo, "warning");
+                        } else {
+                            var MaxNumberOfStudent1 = $('#MaxNumberOfStudent1').text();
+                            var curStdsInTour = getCurStdsInTour(_tID1);
+                            var allowedAddStds = parseInt(MaxNumberOfStudent1) - parseInt(curStdsInTour);
+                            //alert(allowedAddStds);
+
+                            //if (Array1.length <= parseInt(MaxNumberOfStudent1)) {
+                            if (Array1.length <= parseInt(allowedAddStds) - 1) {
+                                Array1.push({
+                                    'StudentID': v[0],
+                                });
+                            }
+                            else {
+                                $('#MaxNumberOfStudent1').css("background", "#fa2121");
+                                $("#MaxNumberOfStudent1").parent().addClass("beats");
+
+                                $('#searchable1').multiSelect('deselect', v);
+                                swal("@R.GetResource("CannotAddMoreStudents")", "", "warning");
+                            }
+                        }
+                    }
+                    else {
+                        $('#searchable1').multiSelect('deselect',v);
+                        swal("@R.GetResource("StudentParticipation")", "", "warning");
+                    }
+                }
+
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function (v) {
+                Array1 = Array1.filter(c => c.StudentID != v[0]);
+                if (Array1.length <= parseInt(MaxNumberOfStudent1)) {
+                    $('#MaxNumberOfStudent1').css("background", "#3699ff");
+                    $("#MaxNumberOfStudent1").parent().removeClass("beats");
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        $('#searchable2').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function (v) {
+
+                var _tID2 = $("#TourIDB").val();
+                if (_tID2 == "" || _tID2 == undefined || _tID2 == 0 || _tID2 == -1) {
+                    swal("@R.GetResource("SelectTourFirst")", "", "error");
+                    $('#searchable2').multiSelect('deselect_all');
+                }
+                else {
+
+                    if (ISstudentParticipationInstour(v[0], _tID2)) {
+                        Array2.push({
+                            'StudentID': v[0],
+                        });
+                        var MaxNumberOfStudent2= $('#MaxNumberOfStudent2').text();
+                        if (Array2.length <= parseInt(MaxNumberOfStudent3)) {
+                            Array2.push({
+                                'StudentID': v[0],
+                            });
+                        }
+                        else {
+                            $('#MaxNumberOfStudent2').css("background", "#fa2121");
+                            $("#MaxNumberOfStudent2").parent().addClass("beats");
+                        }
+                    }
+                    else {
+                        $('#searchable2').multiSelect('deselect', v);
+                        swal("@R.GetResource("StudentParticipation")", "", "error");
+
+                    }
+
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function (v) {
+                Array2 = Array2.filter(c => c.StudentID != v[0]);
+                if (Array2.length <= parseInt(MaxNumberOfStudent2)) {
+                    $('#MaxNumberOfStudent2').css("background", "#3699ff");
+                    $("#MaxNumberOfStudent2").parent().removeClass("beats");
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        $('#searchable3').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function (v) {
+
+                var _tID3 = $("#TourIDC").val();
+                if (_tID3 == "" || _tID3 == undefined || _tID3 == 0 || _tID3 == -1) {
+                    swal("@R.GetResource("SelectTourFirst")", "", "error");
+                    $('#searchable3').multiSelect('deselect_all');
+                }
+                else {
+
+                    if (ISstudentParticipationInstour(v[0], _tID3)) {
+
+                        var MaxNumberOfStudent3 = $('#MaxNumberOfStudent3').text();
+                        if (Array3.length <= parseInt(MaxNumberOfStudent3)) {
+                            Array3.push({
+                                'StudentID': v[0],
+                            });
+                        }
+                        else {
+                            $('#MaxNumberOfStudent3').css("background", "#fa2121");
+                            $("#MaxNumberOfStudent3").parent().addClass("beats");
+
+                        }
+                    }
+                    else {
+                        $('#searchable3').multiSelect('deselect', v);
+                        swal("@R.GetResource("StudentParticipation")", "", "error");
+
+                    }
+
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function (v) {
+                Array3 = Array3.filter(c => c.StudentID != v[0]);
+                var MaxNumberOfStudent3 = $('#MaxNumberOfStudent3').text();
+                if (Array3.length <= parseInt(MaxNumberOfStudent3)) {
+                    $('#MaxNumberOfStudent3').css("background", "#3699ff");
+                    $("#MaxNumberOfStudent3").parent().removeClass("beats");
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        $('#searchable4').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function (v) {
+
+                var _tID4 = $("#TourIDD").val();
+                if (_tID4 == "" || _tID4 == undefined || _tID4 == 0 || _tID4 == -1) {
+                    swal("@R.GetResource("SelectTourFirst")", "", "error");
+                    $('#searchable4').multiSelect('deselect_all');
+                }
+                else {
+
+                    if (ISstudentParticipationInstour(v[0], _tID4)) {
+                        var MaxNumberOfStudent4 = $('#MaxNumberOfStudent4').text();
+                        if (Array4.length <= parseInt(MaxNumberOfStudent4)) {
+                            Array4.push({
+                                'StudentID': v[0],
+                            });
+                        }
+                        else {
+                            $('#MaxNumberOfStudent4').css("background", "#fa2121");
+                            $("#MaxNumberOfStudent4").parent().addClass("beats");
+
+                        }
+                    }
+                    else {
+                        $('#searchable4').multiSelect('deselect', v);
+                        swal("@R.GetResource("StudentParticipation")", "", "error");
+
+                    }
+
+                }
+
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function (v) {
+                Array4 = Array4.filter(c => c.StudentID != v[0]);
+                var MaxNumberOfStudent4 = $('#MaxNumberOfStudent4').text();
+                if (Array4.length <= parseInt(MaxNumberOfStudent4)) {
+                    $('#MaxNumberOfStudent4').css("background", "#3699ff");
+                    $("#MaxNumberOfStudent4").parent().removeClass("beats");
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        $('#searchable5').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='@R.GetResource("search")'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function (v) {
+
+                var _tID5 = $("#TourIDE").val();
+                if (_tID5 == "" || _tID5 == undefined || _tID5 == 0 || _tID5 == -1) {
+                    swal("@R.GetResource("SelectTourFirst")", "", "error");
+                    $('#searchable5').multiSelect('deselect_all');
+                }
+                else {
+                    if (ISstudentParticipationInstour(v[0], _tID5)) {
+
+                        var MaxNumberOfStudent5 = $('#MaxNumberOfStudent5').text();
+                        if (Array5.length <= parseInt(MaxNumberOfStudent5)) {
+                            Array5.push({
+                                'StudentID': v[0],
+                            });
+                        }
+                        else {
+                            $('#MaxNumberOfStudent5').css("background","#fa2121");
+                            $("#MaxNumberOfStudent5").parent().addClass("beats");
+
+                        }
+                    }
+                    else {
+                        $('#searchable5').multiSelect('deselect', v);
+                        swal("@R.GetResource("StudentParticipation")", "", "error");
+
+                    }
+
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function (v) {
+                Array5 = Array5.filter(c => c.StudentID != v[0]);
+                var MaxNumberOfStudent5 = $('#MaxNumberOfStudent5').text();
+                if (Array5.length <= parseInt(MaxNumberOfStudent5)) {
+                    $('#MaxNumberOfStudent5').css("background", "#3699ff");
+                    $("#MaxNumberOfStudent5").parent().removeClass("beats");
+                }
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        $("#saveBusToursBtn1").on("click", function () {
+            //debugger;
+            this.disabled = true;
+
+            var DataObj = JSON.stringify({
+                'model': Array1,
+                'TourID': $('#TourIDA').val()
+            });
+            $.ajax({
+                type: "POST",
+                url: "SubmitBusTours",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null && response.Success) {
+                        $("#Box-1").addClass("border-sucsess");
+                        $("#sucsess-icon1").animate({ "opacity": "show", top: "100" }, 600);
+                        swal("@R.GetResource("successmessage")", "", "success");
+
+                        setTimeout(function () {
+                            window.location.href = "ScheduledBusTrips";
+                        }, 3000);
+                    }
+                    else {
+                        this.disabled = false;
+                         swal("@R.GetResource("errorhasOccurred")", "", "error");
+                    }
+                }
+
+            })
+
+        });
+
+        $("#saveBusToursBtn2").on("click", function () {
+            debugger;
+            var DataObj = JSON.stringify({
+                'model': Array2,
+                'TourID': $('#TourIDB').val()
+            });
+            $.ajax({
+                type: "POST",
+                url: "SubmitBusTours",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response != null && response.Success) {
+                        $("#Box-2").addClass("border-sucsess");
+                        $("#sucsess-icon2").animate({ "opacity": "show", top: "100" }, 600);
+                        swal("@R.GetResource("successmessage")", "", "success");
+                    }
+                    else {
+
+                         swal("@R.GetResource("errorhasOccurred")", "", "error");
+
+                    }
+                }
+
+            })
+
+        });
+
+        $("#saveBusToursBtn3").on("click", function () {
+            debugger;
+            var DataObj = JSON.stringify({
+                'model': Array3,
+                'TourID': $('#TourIDC').val()
+            });
+            $.ajax({
+                type: "POST",
+                url: "SubmitBusTours",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response != null && response.Success) {
+                        $("#Box-3").addClass("border-sucsess");
+                        $("#sucsess-icon3").animate({ "opacity": "show", top: "100" }, 600);
+                        swal("@R.GetResource("successmessage")", "", "success");
+                    }
+                    else {
+
+                         swal("@R.GetResource("errorhasOccurred")", "", "error");
+
+                    }
+                }
+
+            })
+
+        });
+
+        $("#saveBusToursBtn4").on("click", function () {
+            debugger;
+            var DataObj = JSON.stringify({
+                'model': Array4,
+                'TourID': $('#TourIDD').val()
+            });
+            $.ajax({
+                type: "POST",
+                url: "SubmitBusTours",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response != null && response.Success) {
+                        $("#Box-4").addClass("border-sucsess");
+                        $("#sucsess-icon4").animate({ "opacity": "show", top: "100" }, 600);
+                        swal("@R.GetResource("successmessage")", "", "success");
+                    }
+                    else {
+                        swal("@R.GetResource("errorhasOccurred")", "", "error");
+                    }
+                }
+
+            })
+
+        });
+
+        $("#saveBusToursBtn5").on("click", function () {
+            debugger;
+            var DataObj = JSON.stringify({
+                'model': Array5,
+                'TourID': $('#TourIDE').val()
+            });
+            $.ajax({
+                type: "POST",
+                url: "SubmitBusTours",
+                data: DataObj,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response != null && response.Success) {
+                        $("#Box-5").addClass("border-sucsess");
+                        $("#sucsess-icon5").animate({ "opacity": "show", top: "100" }, 600);
+                        swal("@R.GetResource("successmessage")", "", "success");
+                    }
+                    else {
+                        swal("@R.GetResource("errorhasOccurred")", "", "error");
+                    }
+                }
+
+            })
+
+        });
+
+
+        $("#TourIDA").on("change", function () {
+            debugger;
+            var _TourID = $("#TourIDA").val();
+            $.ajax({
+                type: "GET",
+                url: "GetStudentNumberInTour",
+                data: { TourID: _TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        $(".alertmax").removeClass("display1");
+                        $("#MaxNumberOfStudent1").html(response.NumberofStudents);
+
+                        $("#countsStdsInTour").text( "@R.GetResource("StudentsCountInTour"): (" + getCurStdsInTour(_TourID) + ")");
+                        GetStudentInTour(_TourID);
+                    }
+                }
+            })
+
+        });
+
+        $("#TourIDB").on("change", function () {
+            debugger;
+            var _TourID = $("#TourIDB").val();
+            $.ajax({
+                type: "GET",
+                url: "GetStudentNumberInTour",
+                data: { TourID: _TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+                        $(".alertmax").removeClass("display2");
+                        $("#MaxNumberOfStudent2").html(response.NumberofStudents);
+                    }
+
+                }
+
+            })
+
+        });
+
+        $("#TourIDC").on("change", function () {
+            debugger;
+            var _TourID = $("#TourIDC").val();
+            $.ajax({
+                type: "GET",
+                url: "GetStudentNumberInTour",
+                data: { TourID: _TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+                        $(".alertmax").removeClass("display3");
+                        $("#MaxNumberOfStudent3").html(response.NumberofStudents);
+                    }
+
+                }
+
+            })
+
+        });
+
+        $("#TourIDD").on("change", function () {
+            debugger;
+            var _TourID = $("#TourIDD").val();
+            $.ajax({
+                type: "GET",
+                url: "GetStudentNumberInTour",
+                data: { TourID: _TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+                        $(".alertmax").removeClass("display4");
+                        $("#MaxNumberOfStudent4").html(response.NumberofStudents);
+                    }
+
+                }
+
+            })
+
+        });
+
+        $("#TourIDE").on("change", function () {
+            debugger;
+            var _TourID = $("#TourIDE").val();
+            $.ajax({
+                type: "GET",
+                url: "GetStudentNumberInTour",
+                data: {TourID: _TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+                        $(".alertmax").removeClass("display5");
+                        $("#MaxNumberOfStudent5").html(response.NumberofStudents);
+                    }
+
+                }
+
+            })
+
+        });
+
+        function ISstudentParticipationInstour(id, TourID) {
+            var result;
+            $.ajax({
+                type: "GET",
+                url: "ISstudentParticipationInstour",
+                data: { studentId: id, TourID: TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    //debugger;
+                    if (response != null && response.InTour) {
+                        result = true;
+                    }
+                    else {
+                        result = false;
+                    }
+                }
+
+            })
+            return result;
+        }
+
+        function isStudentScheduledInSameDirection(id, TourID) {
+            var result;
+            $.ajax({
+                type: "GET",
+                url: "isStudentScheduledInSameDirection",
+                data: { studentId: id, TourID: TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    //debugger;
+                    if (response != null && response.isScheduled) {
+                        result = true;
+                    }
+                    else {
+                        result = false;
+                    }
+                }
+            })
+            return result;
+        }
+
+        function getBusTripInfo(id, TourID) {
+            var result;
+            $.ajax({
+                type: "GET",
+                url: "GetBusTripInfo",
+                data: { StudentID: id, TourID: TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        result = response.TripInfo;
+                    }
+                }
+            })
+            return result;
+        }
+
+        function getCurStdsInTour(TourID) {
+            var result;
+            $.ajax({
+                type: "GET",
+                url: "getCurStdsInTour",
+                data: { TourID: TourID },
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        result = response.curStdsInTour;
+                    }
+                    else {
+                        result = 0;
+                    }
+                }
+            })
+            return result;
+        }
+
+        function GetStudentInTour(TourID) {
+        var result;
+        $.ajax({
+            type: "GET",
+            url: "GetStudentInTour",
+            data: { TourID: TourID },
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    //alert(response);
+                    var jData = $.parseJSON(response);
+                    //alert(jData.length);
+                    //var jData = JSON.stringify(response)
+                    //alert(jData.length);
+                    //for (var i = 0; i < jData.length; i++) {
+                    //    alert(jData[i].StudentID);
+                    //}
+
+                    var output = jData.map(i =>
+                        "<tr>" +
+                            "<td>" + i.StudentName + "</td>" +
+                            "<td>" + i.StudentLat + "</td>" +
+                            "<td>" + i.StudentLng + "</td>" +
+                        "</tr>");
+
+                    $("#studentsTourData").html(output);
+                    result = true;
+                }
+                else {
+                    result = false;
+                }
+            }
+        })
+        return result;
+    }
+
+    </script>
+
+}
+

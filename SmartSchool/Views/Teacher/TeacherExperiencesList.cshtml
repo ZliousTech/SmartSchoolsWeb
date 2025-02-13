@@ -1,0 +1,251 @@
+﻿@model List<SmartSchool.Models.Teacher.TeacherExperiences>
+
+@{
+    Layout = null;
+}
+
+<style>
+    .RemoveBtn {
+        display: flex;
+        align-items: center;
+        width: 75%;
+        padding: 33px;
+        height: 50px;
+        margin: 0px;
+        padding: 0px;
+        border: solid 1px #ceb8b8;
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration:none;
+    }
+        .RemoveBtn > i {
+            margin-right: 10px;
+            background: #dc3545;
+            color: white;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+        }
+</style>
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table" id="exportTable" style="width:100%">
+
+        <thead>
+            <tr>
+                <th scope="col"> @R.GetResource("Subjects") </th>
+                <th scope="col"> @R.GetResource("Class") </th>
+                <th scope="col">@R.GetResource("YearsOfExperience")</th>
+                <th scope="col">@R.GetResource("Delete")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr scope="row" id="@item.TeacherExperienceID">
+
+                    <td>@item.SubjectName</td>
+                    <td>@item.SchoolClassName</td>
+                    <td>@item.YearsOfExperience</td>
+                    <!--<td>-->
+                        @*<div class="light-component" style="display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 5px;">
+
+                            </div>*@
+
+                        @*<div class='rating-stars text-center'>
+                            <ul id='stars'>
+                                @if (item.AppraisalValue == 1)
+                                {
+                                    <li class='star selected' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+                                @if (item.AppraisalValue == 2)
+                                {
+                                    <li class='star ' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star selected' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+                                @if (item.AppraisalValue == 3)
+                                {
+                                    <li class='star ' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star selected' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+                                @if (item.AppraisalValue == 4)
+                                {
+                                    <li class='star ' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star selected' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+                                @if (item.AppraisalValue == 5)
+                                {
+                                    <li class='star ' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star selected' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+                                @if (item.AppraisalValue == 6)
+                                {
+                                    <li class='star ' title='@R.GetResource("Weak")' data-value='1'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star' title='@R.GetResource("Training Required")' data-value='2'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Good")' data-value='3'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Very Good")' data-value='4'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star ' title='@R.GetResource("Acquainted")' data-value='5'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                    <li class='star selected' title='@R.GetResource("Excellent")' data-value='6'>
+                                        <i class='fa fa-star fa-fw'></i>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </div>*@
+                    <!--</td>-->
+
+                    <td style="display:flex;flex-direction:column">
+                        <a href="javascript:void(0)" onclick="RemoveExperience(@item.TeacherExperienceID)" class="padding"><i class="fa fa-remove fa-s-15"></i> @R.GetResource("Delete")</a>
+
+                    </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+
+
+    </table>
+}
+
+
+
+<script>
+
+
+    function RemoveExperience(id) {
+
+        debugger;
+        var TeacherExperienceID = id;
+        swal({
+            title: "@R.GetResource("Areyousure")?",
+            text: "@R.GetResource("Oncedeleted")!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "RemoveExperience",
+                        type: "POST",
+                        data: {
+                            TeacherExperienceID: id
+                        },
+                        dataType: "html",
+                        success: function () {
+                            $('#' + TeacherExperienceID + '').remove();
+                            swal("Done!", "It was succesfully deleted!", "success");
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            swal("Error deleting!", "Please try again", "error");
+                        }
+                    });
+
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+
+    }
+
+</script>

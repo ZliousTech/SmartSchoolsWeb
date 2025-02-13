@@ -1,0 +1,261 @@
+﻿@model SmartSchool.Models.Calendar.AcademicCalendarView
+@{
+    ViewBag.Title = "Add Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+
+<style>
+    input[type=checkbox], input[type=radio] {
+        float: inherit;
+        margin-right: 5px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewCalendar")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="AddCalendar" enctype="multipart/form-data" class="padding">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Country")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.DropDownListFor(m => m.AcademicCalendars.CountryID, Model.AcademicCalendars.CountryNames, @R.GetResource("SelectCountry"), new { @class = "form-control  select2", Id = "CountryID", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("AcademicYear")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendars.SchoolYear, new { @class = "form-control", Id = "SchoolYear", required = "required", Disabled = true })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ArabicHeader")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.ArabicHeader, new { @class = "form-control", Id = "ArabicHeader", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("EnglishHeader")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.EnglishHeader, new { @class = "form-control", Id = "EnglishHeader", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("ArabicDescription")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.ArabicDescription, new { @class = "form-control", Id = "ArabicDescription", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("EnglishDescription")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.EnglishDescription, new { @class = "form-control", Id = "EnglishDescription", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("OccasionType")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.DropDownListFor(m => m.AcademicCalendar.OccasionType, Model.AcademicCalendar.OccasionTypeNames, @R.GetResource("SelectOccasionType"), new { @class = "form-control  select2", Id = "OccasionType", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("StartingDate")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.StartingDate, new { @class = "form-control", Id = "StartingDate", required = "required", type = "date" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("NumberofDays")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.TextBoxFor(m => m.AcademicCalendar.NumberofDays, new { @class = "form-control", Id = "NumberofDays", required = "required", type = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>@R.GetResource("Vacation")</label>
+                                    <div class="form-control-wrapper">
+                                        @Html.CheckBoxFor(m => m.AcademicCalendar.Vacation, new { @class = "", Id = "Vacation", required = "required", style = "cursor: pointer; transform: scale(2); margin-top:10px" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="profile-userpic">
+                            <img src="../../Images/Holyday-event.jpg" id="eventImage" style="border-radius:unset; width:200px; height:175px;" class="img-responsive" alt="">
+                            <input id="fileuploader" name="fileuploader" type="file" onchange="readURL(this,'#eventImage');" class="btn btn-info btn-default " style="display:none;" accept="image/gif, image/jpeg, image/png" />
+                            <button id="btnuploader" type="button" style="width:200px;" onclick="showuploadfile('#fileuploader');" class="btn btn-info btn-default "><i class="fa fa-upload"></i> @R.GetResource("Upload")</button>
+                        </div>
+                        <div class="row">
+                            <img id="FlagImg" height="100" width="200" src="" style="display:none;margin-top:100px;" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        
+        $(".btnsavedit").on("click", function () {
+            var isValid = true;
+            debugger;
+            if ($("#CountryID").val() == "") { isValid = false; }
+            if ($("#OccasionType").val() == "") { isValid = false; }
+            if ($("#SchoolYear").length <= 0) { isValid = false; }
+            if ($("#ArabicHeader").length <= 0) { isValid = false; }
+            if ($("#EnglishHeader").length <= 0) { isValid = false; }
+            if ($("#ArabicDescription").length <= 0) { isValid = false; }
+            if ($("#EnglishDescription").length <= 0) { isValid = false; }
+            if ($("#StartingDate").length <= 0) { isValid = false; }
+            if ($("#NumberofDays").length <= 0) { isValid = false; }
+
+            debugger;
+            if (isValid) {
+                var formData = new FormData();
+                var CountryID = $("#CountryID").val();
+                var SchoolYear = $("#SchoolYear").val();
+                var ArabicHeader = $("#ArabicHeader").val();
+                var EnglishHeader = $("#EnglishHeader").val();
+                var ArabicDescription = $("#ArabicDescription").val();
+                var EnglishDescription = $("#EnglishDescription").val();
+                var OccasionType = $("#OccasionType").val();
+                var StartingDate = $("#StartingDate").val();
+                var NumberofDays = $("#NumberofDays").val();
+                var Vacation = $("#Vacation").prop('checked') ? true : false;
+
+                formData.append('file', $('#fileuploader')[0].files[0]);
+                formData.append('AcademicCalendars.CountryID', CountryID);
+                formData.append('AcademicCalendars.SchoolYear', SchoolYear);
+                formData.append('AcademicCalendar.ArabicHeader', ArabicHeader);
+                formData.append('AcademicCalendar.EnglishHeader', EnglishHeader);
+                formData.append('AcademicCalendar.ArabicDescription', ArabicDescription);
+                formData.append('AcademicCalendar.EnglishDescription', EnglishDescription);
+                formData.append('AcademicCalendar.OccasionType', OccasionType);
+                formData.append('AcademicCalendar.StartingDate', StartingDate);
+                formData.append('AcademicCalendar.NumberofDays', NumberofDays);
+                formData.append('AcademicCalendar.Vacation', Vacation);
+
+                $.ajax({
+                    type: "POST",
+                    url: "NewAcademicCalendar",
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("PrepareCalendar", "Calendar")';
+                            }, 1000);
+
+                        } else {
+                            alert("Something went wrong\n" + response.Message);
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire(
+                    '@R.GetResource("Warning")',
+                    '@R.GetResource("PleaseEnterthealldata")',
+                    'warning'
+                );
+            }
+        });
+    });
+
+    function readURL(input, id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(id)
+                    .attr('src', e.target.result).width(130)
+                    .height(130);
+                $("#btnuploader").width(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function showuploadfile(id) {
+        $(id).click();
+    }
+</script>

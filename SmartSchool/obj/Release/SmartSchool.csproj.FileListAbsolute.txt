@@ -1,0 +1,2145 @@
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\SmartSchool.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Business.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Common.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CommonMark.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportSource.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.Shared.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\DataAccess.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\EntityFramework.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\jose-jwt.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Objects.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\RestSharp.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Data.Common.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\WebGrease.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\stdole.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Business.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Common.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\DataAccess.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Objects.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CommonMark.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\CommonMark.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\EntityFramework.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\RestSharp.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.csprojResolveAssemblyReference.cache
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.Cache
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Owin.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Buffers.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Memory.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Spatial.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Buffers.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Memory.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\System.Spatial.xml
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\moham\source\Workspaces\Smart Schools\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ApplicationInsights.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.exe
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.exe.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.rsp
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csi.exe
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csi.rsp
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.AppContext.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.exe
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.exe.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.rsp
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.dll.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\SmartSchool.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Antlr3.Runtime.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Business.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportSource.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.Shared.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\jose-jwt.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\JsonSubTypes.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Newtonsoft.Json.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Objects.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Owin.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\RestSharp.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Buffers.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Collections.Immutable.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Data.SqlClient.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Memory.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Spatial.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Helpers.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Mvc.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Optimization.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Razor.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\WebGrease.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Utilities.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Web.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\stdole.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Business.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.dll.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.dll.config
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Objects.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Newtonsoft.Json.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\RestSharp.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Buffers.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Collections.Immutable.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Memory.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Spatial.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Helpers.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Mvc.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Optimization.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Razor.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Antlr3.Runtime.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Utilities.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Web.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.pdb
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ApplicationInsights.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.exe
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.exe.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csc.rsp
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csi.exe
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\csi.rsp
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.AppContext.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.exe
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.exe.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\vbc.rsp
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.dll.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\SmartSchool.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\SmartSchool.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Antlr3.Runtime.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Business.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\jose-jwt.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\JsonSubTypes.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Newtonsoft.Json.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Objects.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Owin.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\RestSharp.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Buffers.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Collections.Immutable.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Data.SqlClient.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Memory.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Spatial.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Helpers.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Mvc.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Optimization.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Razor.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\WebGrease.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Utilities.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Web.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Business.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Common.dll.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\DataAccess.dll.config
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Objects.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CommonMark.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Newtonsoft.Json.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\RestSharp.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Buffers.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Collections.Immutable.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Memory.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Spatial.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Helpers.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Mvc.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Optimization.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.Razor.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Antlr3.Runtime.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Utilities.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Westwind.Web.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.xml
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\de\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\es\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\fr\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\it\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ja\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ko\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\ru\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\obj\Release\SmartSchool.pdb
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportSource.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.Shared.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Projects\TFS Projects\SmartSchools\SmartSchool\bin\stdole.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Numerics.Vectors.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Text.Encodings.Web.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Text.Json.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.ValueTuple.dll
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Numerics.Vectors.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Text.Encodings.Web.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Text.Json.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+D:\My Projects\TFS Projects\SmartSchools\SmartSchool\bin\System.ValueTuple.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Business.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Common.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CommonMark.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportSource.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.Shared.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\jose-jwt.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Objects.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Owin.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\RestSharp.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Memory.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\WebGrease.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\stdole.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Business.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Common.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Common.dll.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\DataAccess.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll.config
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Objects.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CommonMark.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\CommonMark.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\RestSharp.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Memory.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+C:\Users\hamza\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Business.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Common.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\CommonMark.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\jose-jwt.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Objects.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Owin.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\RestSharp.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Memory.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\WebGrease.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Business.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Common.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Common.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\DataAccess.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll.config
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Objects.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\CommonMark.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\CommonMark.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\RestSharp.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Memory.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+C:\Users\Hamza Ashry\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Business.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Common.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\CommonMark.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\jose-jwt.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Objects.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Owin.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\RestSharp.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Memory.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\WebGrease.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Business.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Common.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Common.dll.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\DataAccess.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll.config
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Objects.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\CommonMark.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\CommonMark.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\RestSharp.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Memory.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+C:\Users\ZliousTech\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\SmartSchool.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Business.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Common.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\CommonMark.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\DataAccess.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\EntityFramework.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\jose-jwt.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Objects.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Owin.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\RestSharp.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Buffers.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Memory.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Spatial.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Text.Json.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Http.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\WebGrease.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Business.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Common.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Common.dll.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\DataAccess.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\DataAccess.dll.config
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Objects.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\CommonMark.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\CommonMark.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\EntityFramework.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\RestSharp.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Buffers.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Memory.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Spatial.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Text.Json.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.ValueTuple.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Http.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+E:\SmartSchoolsSystemBackup\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.dll
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.pdb
+E:\SmartSchools\SmartSchool\bin\ApplicationInsights.config
+E:\SmartSchools\SmartSchool\bin\roslyn\csc.exe
+E:\SmartSchools\SmartSchool\bin\roslyn\csc.exe.config
+E:\SmartSchools\SmartSchool\bin\roslyn\csc.rsp
+E:\SmartSchools\SmartSchool\bin\roslyn\csi.exe
+E:\SmartSchools\SmartSchool\bin\roslyn\csi.rsp
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SmartSchools\SmartSchool\bin\roslyn\System.AppContext.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+E:\SmartSchools\SmartSchool\bin\roslyn\vbc.exe
+E:\SmartSchools\SmartSchool\bin\roslyn\vbc.exe.config
+E:\SmartSchools\SmartSchool\bin\roslyn\vbc.rsp
+E:\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe
+E:\SmartSchools\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+E:\SmartSchools\SmartSchool\bin\SmartSchool.dll.config
+E:\SmartSchools\SmartSchool\bin\SmartSchool.dll
+E:\SmartSchools\SmartSchool\bin\SmartSchool.pdb
+E:\SmartSchools\SmartSchool\bin\de\SmartSchool.resources.dll
+E:\SmartSchools\SmartSchool\bin\Antlr3.Runtime.dll
+E:\SmartSchools\SmartSchool\bin\Business.dll
+E:\SmartSchools\SmartSchool\bin\Common.dll
+E:\SmartSchools\SmartSchool\bin\CommonMark.dll
+E:\SmartSchools\SmartSchool\bin\DataAccess.dll
+E:\SmartSchools\SmartSchool\bin\EntityFramework.dll
+E:\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.dll
+E:\SmartSchools\SmartSchool\bin\jose-jwt.dll
+E:\SmartSchools\SmartSchool\bin\JsonSubTypes.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Graph.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+E:\SmartSchools\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+E:\SmartSchools\SmartSchool\bin\Newtonsoft.Json.dll
+E:\SmartSchools\SmartSchool\bin\Objects.dll
+E:\SmartSchools\SmartSchool\bin\Owin.dll
+E:\SmartSchools\SmartSchool\bin\RestSharp.dll
+E:\SmartSchools\SmartSchool\bin\System.Buffers.dll
+E:\SmartSchools\SmartSchool\bin\System.Collections.Immutable.dll
+E:\SmartSchools\SmartSchool\bin\System.Data.SqlClient.dll
+E:\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+E:\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\SmartSchools\SmartSchool\bin\System.Memory.dll
+E:\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.dll
+E:\SmartSchools\SmartSchool\bin\System.Numerics.Vectors.dll
+E:\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SmartSchools\SmartSchool\bin\System.Spatial.dll
+E:\SmartSchools\SmartSchool\bin\System.Text.Encodings.Web.dll
+E:\SmartSchools\SmartSchool\bin\System.Text.Json.dll
+E:\SmartSchools\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+E:\SmartSchools\SmartSchool\bin\System.ValueTuple.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Helpers.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Http.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Http.WebHost.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Mvc.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Optimization.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.Razor.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.dll
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.dll
+E:\SmartSchools\SmartSchool\bin\WebGrease.dll
+E:\SmartSchools\SmartSchool\bin\Westwind.Globalization.dll
+E:\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.dll
+E:\SmartSchools\SmartSchool\bin\Westwind.Utilities.dll
+E:\SmartSchools\SmartSchool\bin\Westwind.Web.dll
+E:\SmartSchools\SmartSchool\bin\Business.pdb
+E:\SmartSchools\SmartSchool\bin\Common.pdb
+E:\SmartSchools\SmartSchool\bin\Common.dll.config
+E:\SmartSchools\SmartSchool\bin\DataAccess.pdb
+E:\SmartSchools\SmartSchool\bin\DataAccess.dll.config
+E:\SmartSchools\SmartSchool\bin\Objects.pdb
+E:\SmartSchools\SmartSchool\bin\CommonMark.pdb
+E:\SmartSchools\SmartSchool\bin\CommonMark.xml
+E:\SmartSchools\SmartSchool\bin\EntityFramework.xml
+E:\SmartSchools\SmartSchool\bin\EntityFramework.SqlServer.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\SmartSchools\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.Edm.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.OData.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Graph.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Graph.Core.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+E:\SmartSchools\SmartSchool\bin\Newtonsoft.Json.xml
+E:\SmartSchools\SmartSchool\bin\RestSharp.xml
+E:\SmartSchools\SmartSchool\bin\System.Buffers.xml
+E:\SmartSchools\SmartSchool\bin\System.Collections.Immutable.xml
+E:\SmartSchools\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+E:\SmartSchools\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\SmartSchools\SmartSchool\bin\System.Memory.xml
+E:\SmartSchools\SmartSchool\bin\System.Net.Http.Formatting.xml
+E:\SmartSchools\SmartSchool\bin\System.Numerics.Vectors.xml
+E:\SmartSchools\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SmartSchools\SmartSchool\bin\System.Spatial.xml
+E:\SmartSchools\SmartSchool\bin\System.Text.Encodings.Web.xml
+E:\SmartSchools\SmartSchool\bin\System.Text.Json.xml
+E:\SmartSchools\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+E:\SmartSchools\SmartSchool\bin\System.ValueTuple.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Http.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Http.WebHost.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Helpers.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Mvc.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Optimization.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.Razor.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+E:\SmartSchools\SmartSchool\bin\System.Web.WebPages.Razor.xml
+E:\SmartSchools\SmartSchool\bin\Antlr3.Runtime.pdb
+E:\SmartSchools\SmartSchool\bin\Westwind.Globalization.Web.xml
+E:\SmartSchools\SmartSchool\bin\Westwind.Utilities.xml
+E:\SmartSchools\SmartSchool\bin\Westwind.Web.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+E:\SmartSchools\SmartSchool\bin\Microsoft.AI.Web.xml
+E:\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\SmartSchools\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\SmartSchools\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\SmartSchools\SmartSchool\bin\de\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\es\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\fr\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\it\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\ja\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\ko\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\ru\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+E:\SmartSchools\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+E:\SmartSchools\SmartSchool\obj\Release\SmartSchool.csproj.CopyComplete
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ApplicationInsights.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.exe.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\csc.rsp
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.exe
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\csi.rsp
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.AppContext.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.exe.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\vbc.rsp
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\SmartSchool.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\de\SmartSchool.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Business.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Common.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CommonMark.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.Shared.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\jose-jwt.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\JsonSubTypes.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Azure.ActiveDirectory.GraphClient.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Objects.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Owin.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\RestSharp.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Data.SqlClient.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Memory.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\WebGrease.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\stdole.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Business.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Common.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Common.dll.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\DataAccess.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\DataAccess.dll.config
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Objects.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CommonMark.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\CommonMark.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\EntityFramework.SqlServer.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Edm.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.OData.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Data.Services.Client.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Logging.Console.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Graph.Core.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Newtonsoft.Json.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\RestSharp.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Buffers.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Collections.Immutable.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Memory.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Net.Http.Formatting.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Numerics.Vectors.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Spatial.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Text.Encodings.Web.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Text.Json.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.ValueTuple.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Http.WebHost.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Helpers.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Mvc.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Optimization.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.Razor.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\System.Web.WebPages.Razor.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Antlr3.Runtime.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Globalization.Web.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Utilities.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Westwind.Web.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\Microsoft.AI.Web.xml
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\de\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\es\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\fr\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\it\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ja\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ko\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\ru\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.AssemblyReference.cache
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.resources
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.de.resources
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.GenerateResource.cache
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.csproj.CoreCompileInputs.cache
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\de\SmartSchool.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSch.600DC24B.Up2Date
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.pdb
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\bin\en-GB\SmartSchool.resources.dll
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\SmartSchool.Properties.LocalizationForm.en-GB.resources
+C:\Users\Mohd\source\repos\SmartSchool\SmartSchool\obj\Release\en-GB\SmartSchool.resources.dll

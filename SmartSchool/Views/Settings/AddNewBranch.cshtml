@@ -1,0 +1,185 @@
+﻿@model SmartSchool.Models.Settings.BankBranchViewModel
+@{
+    ViewBag.Title = "Add Bank Branch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "right";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "left";
+
+    }
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AddNewBranch")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component inner">
+        <div class="inner-body-holder-forms">
+            <div class="col-md-12">
+                <form id="EditSpcBank" enctype="multipart/form-data" class="padding">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("BranchArabicName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BranchArabicName, new { @class = "form-control", Name = "BranchArabicName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("BranchEnglishName")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BranchEnglishName, new { @class = "form-control", Name = "BranchEnglishName", required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("Banks")</label>
+                                @Html.DropDownListFor(m => m.BankCode, Model.Banks, @R.GetResource("SelectBank"), new { @class = "form-control  select2", Name = "Bank", required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("Address")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BranchAddress, new { @class = "form-control", Name = "BranchAddress" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>@R.GetResource("ContactNumber")</label>
+                                <div class="form-control-wrapper">
+                                    @Html.TextBoxFor(model => model.BranchContactNumber, new { @class = "form-control", Name = "BranchContactNumber" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-5">
+                        <div class="col-md-3">
+                            <button class="btnsavedit btn btn-primary-custom" id="btnsave" style="padding:10px 20px;" type="button">@R.GetResource("Save")</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var Bank = '';
+
+        $("#BankCode").change(function () {
+            Bank = $("#BankCode option:selected").val();
+        });
+
+        $("#btnsave").on("click", function () {
+            var isValid = true;
+            if ($('input[Name="BranchArabicName"]').val().length <= 0) { isValid = false; }
+            if ($('input[Name="BranchEnglishName"]').val().length <= 0) { isValid = false; }
+            if (Bank == 0) { isValid = false; }
+
+            if (isValid) {
+                var formData = new FormData();
+                var BranchArabicName = $("#BranchArabicName").val();
+                var BranchEnglishName = $("#BranchEnglishName").val();
+                var BranchAddress = $("#BranchAddress").val();
+                var BranchContactNumber = $("#BranchContactNumber").val();
+
+                formData.append('BranchArabicName', BranchArabicName);
+                formData.append('BranchEnglishName', BranchEnglishName);
+                formData.append('BankCode', Bank);
+                formData.append('BranchAddress', BranchAddress);
+                formData.append('BranchContactNumber', BranchContactNumber);
+
+                $.ajax({
+                    type: "POST",
+                    url: "AddBranch",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.Success) {
+                            $("#btnsave").attr("disabled", "disabled");
+                            $.toast({
+                                text: 'تمت عملية الحفظ بنجاح',
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                            window.setTimeout(function () {
+                                // Move to a new location or you can do something else
+                                window.location.href = '@Url.Action("Branches", "Settings")';
+                            }, 1000);
+
+                        } else {
+                            $.toast({
+                                text: response.Message,
+                                position: 'top-center',
+                                loaderBg: '#ff6849',
+                                icon: 'error',
+                                hideAfter: 1000,
+                                stack: 6
+                            });
+                        }
+                    }
+                });
+            }
+            else {
+                var inputsToCheck = $('#BranchArabicName, #BranchEnglishName, #Bank');
+                applyRedBorderToEmptyInputs(inputsToCheck);
+            }
+        });
+    });
+
+    function applyRedBorderToEmptyInputs(inputs) {
+        inputs.each(function () {
+            debugger;
+            var $input = $(this);
+            if ($input.val().trim() === '') {
+                $input.css('border', '1px solid rgba(255, 0, 0, 0.5)');
+            } else {
+                $input.css('border', '');
+            }
+        });
+    }
+</script>

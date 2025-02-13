@@ -1,0 +1,128 @@
+﻿@model List<SmartSchool.Models.Calendar.AcademicCalendar>
+@{
+    ViewBag.Title = "PrepareAcademicCalendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    string pull = "";
+    string modalpositon = "";
+    string buttonpositon = "";
+    string textalign = "";
+    if (CurrentLanguage == Languges.English)
+    {
+        pull = "pull-left";
+        modalpositon = "left";
+        buttonpositon = "left";
+        textalign = "left";
+    }
+    else
+    {
+        pull = "pull-right";
+        textalign = "right";
+        modalpositon = "right";
+        buttonpositon = "right";
+
+    }
+}
+<div class="head-body-col">
+    <span>
+        <!-- back  icon-->
+        <a onclick="goBack()" style="color:#fff"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </span>
+    <h2>@R.GetResource("AcademicCalendar")</h2>
+</div>
+
+<div class="inner-Container">
+    <div class="light-component action">
+        <a href="@Url.Action("AddNewAcademicCalendar","Calendar")" style="width:250px">
+            <span>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+            <h5>
+                @R.GetResource("AddNewCalendar")
+            </h5>
+        </a>
+    </div>
+
+    <div class="light-component inner">
+        <table class="table" id="exportTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col" style="display: none;">@R.GetResource("OccasionID")</th>
+                    <th scope="col">@R.GetResource("OccasionHeader")</th>
+                    <th scope="col"> @R.GetResource("StartingDate") </th>
+                    <th scope="col"> @R.GetResource("NumberofDays") </th>
+                    <th scope="col"> @R.GetResource("Edit") </th>
+                    <th scope="col"> @R.GetResource("Delete") </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var OccasionHeader = CurrentLanguage == Languges.English ?
+                        (!string.IsNullOrWhiteSpace(item.EnglishHeader.ToString()) ? item.EnglishHeader : item.ArabicHeader) :
+                        (!string.IsNullOrWhiteSpace(item.ArabicHeader.ToString()) ? item.ArabicHeader : item.EnglishHeader);
+                    <tr class="calendarrows" id="@item.CalendarID">
+                        <td style="display: none;">@item.OccasionID</td>
+                        <td>@OccasionHeader</td>
+                        <td>@item.StartingDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.NumberofDays</td>
+                        <td>
+                            <a href="@Url.Action("EditAcademicCalendar","Calendar", new { OccasionID = item.OccasionID })" class="padding"><i class="fa fa-edit fa-s-15"></i></a>
+                        </td>
+                        <td>
+                            <a style="cursor:pointer;" class="padding" id="delete$@item.CalendarID"><i class="fa fa-trash fa-s-15"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $(".padding").on("click", function () {
+            var CalendarID = $(this).attr("id").split('$')[1];
+
+            Swal.fire({
+                title: '@R.GetResource("Areyousure")?',
+                text: '@R.GetResource("Oncedeleted")!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '@R.GetResource("OK")',
+                cancelButtonText: '@R.GetResource("Cancel")',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "DeleteCalendar?CalendarID=" + CalendarID,
+                        success: function (response) {
+                            if (response.Success) {
+                                $.toast({
+                                    text: 'تمت عملية الحذف بنجاح',
+                                    position: 'top-center',
+                                    loaderBg: '#ff6849',
+                                    icon: 'success',
+                                    hideAfter: 1000,
+                                    stack: 6
+                                });
+                                $("#" + CalendarID).remove();
+                            } else {
+                                Swal.fire(
+                                    '@R.GetResource("Error")',
+                                    response.Message,
+                                    'error'
+                                );
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>

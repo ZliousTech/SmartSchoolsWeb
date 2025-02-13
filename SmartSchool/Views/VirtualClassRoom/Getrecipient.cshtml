@@ -1,0 +1,229 @@
+﻿@model  List<SmartSchool.Models.VirtualClassRoom.RecipientStudent>
+@{
+    Languges CurrentLanguage = ViewBag.CurrentLanguage;
+    Layout = null;
+}
+<style>
+    .btn-primary {
+        color: #fff;
+        background-color: #3699ff;
+        border-color: #3699ff;
+        border: none;
+        outline: none;
+    }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #3699ff;
+            border-color: #3699ff;
+        }
+
+    .Mail-holder {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+        .Mail-holder > button {
+            /*width: 100px;*/
+            margin: 0px 5px;
+            border-radius: 10px;
+        }
+
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #d7c9c9 1px;
+    }
+
+    .select2-container--default.select2-container .select2-selection--multiple {
+        border-radius: 10px;
+        padding: 5px;
+    }
+    /* The holder-raido */
+    .holder-raido {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        /* Hide the browser's default checkbox */
+        .holder-raido input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        border: solid 1px #ba9090;
+        border-radius: 5px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .holder-raido:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .holder-raido input:checked ~ .checkmark {
+        background-color: #3699ff;
+        border: none;
+        outline: none;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .holder-raido input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .holder-raido .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .item-holder {
+        width: 100%;
+        list-style: none;
+        padding: 10px 5px;
+    }
+
+        .item-holder > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            border: solid 1px #ccc;
+            margin-bottom: 5px;
+            padding: 0px 10px;
+            transition: all ease 0.5s;
+            height: 80px;
+        }
+
+            .item-holder > div:hover {
+                transition: all ease 0.5s;
+                border: solid 1px #3699ff;
+                box-shadow: 1px 1px 5px 0 rgba(0,0,0,.26);
+            }
+
+            .item-holder > div > div > span {
+                padding: 7px;
+                letter-spacing: 2.5px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 15px;
+                box-shadow: 1px 1px 5px 0 rgba(0,0,0,.26);
+                background: #3699ff;
+                color: white;
+            }
+
+           
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        padding: 5px 5px 0px 5px;
+        line-height:unset !important;
+         vertical-align: top; 
+         border:none !important; 
+    }
+    .selectall {
+        background: #fff9f9;
+        width: 25%;
+        border-radius: 10px !important;
+        height: 50px !important;
+    }
+    .selectall > .holder-raido > .checkmark {
+        top:-6px;
+    }
+</style>
+
+
+<table class="table" id="exportTable" style="width:100%">
+
+    <thead>
+        <tr>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr scope="row">
+
+            <td class="item-holder">
+                <div class="selectall">
+
+                    <h4 for="masterCheck">
+                        @R.GetResource("Select/DeselectAll")
+                    </h4>
+                    <label class="holder-raido">
+                        <input class="form-check-input" type="checkbox" id="masterCheck" name="mastercheckbox" value="checkUncheckAll">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+
+        <tr scope="row">
+
+            <td class="item-holder">
+
+
+                <div>
+                    <div>
+                        <h4>
+                            @item.StudentName
+                        </h4>
+
+                        @*<span><i class="fa fa-phone" aria-hidden="true"></i> @item.MobileNumber</span>*@
+
+                    </div>
+
+                    <label class="holder-raido">
+                        <input class="form-check-input" type="checkbox" id="@item.StudentID" name="row-check" value="@item.StudentName">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+
+
+
+
+            </td>
+
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
