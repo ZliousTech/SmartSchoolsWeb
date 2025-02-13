@@ -1,0 +1,3 @@
+  <appSettings>
+    <add key="GoogleAPIKey" value="AIzaSyAC4eYLfDTVH4rIJsY4ZnwZpNBnWugR4wg" />
+  </appSettings>

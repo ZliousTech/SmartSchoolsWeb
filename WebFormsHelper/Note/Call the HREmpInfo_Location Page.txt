@@ -1,0 +1,9 @@
+        'Create cookie with its values 
+        Dim Co_sentLocInfo As HttpCookie = New HttpCookie("Co_sentLocInfoData")
+        Co_sentLocInfo.Values("HREmpInfo_Location_Operation") = Hdn_CookieGMapopr.Value
+        Co_sentLocInfo.Values("HREmpInfo_Location_EmpName") = TxtEmpNaEN1.Text.Trim & " " & TxtEmpNaEN2.Text.Trim & " " & TxtEmpNaEN3.Text.Trim & " " & TxtEmpNaEN4.Text.Trim
+        Co_sentLocInfo.Values("HREmpInfo_Location_Lat") = TxtCommLatitude.Text.Trim
+        Co_sentLocInfo.Values("HREmpInfo_Location_Lng") = TxtCommlongitude.Text.Trim
+        Response.Cookies.Add(Co_sentLocInfo)
+
+        empLocFrm.Attributes("src") = "~/HREmpInfo_Location.aspx"
