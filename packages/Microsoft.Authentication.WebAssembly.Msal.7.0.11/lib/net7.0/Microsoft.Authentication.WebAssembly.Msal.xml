@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Authentication.WebAssembly.Msal</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions">
+            <summary>
+            Authentication options for the underlying msal.js library handling the authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.ClientId">
+            <summary>
+            Gets or sets the client id for the application.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.Authority">
+            <summary>
+            Gets or sets the authority for the Azure Active Directory or Azure Active Directory B2C instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.ValidateAuthority">
+            <summary>
+            Gets or sets a value that indicates whether or not to validate the authority.
+            </summary>
+            <remarks>
+            This value needs to be set to false when using Azure Active Directory B2C.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.RedirectUri">
+            <summary>
+            Gets or sets the redirect uri for the application.
+            </summary>
+            <remarks>
+            It can be an absolute or base relative <see cref="T:System.Uri"/> and defaults to <c>authentication/login-callback.</c>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.PostLogoutRedirectUri">
+            <summary>
+            Gets or sets the post logout redirect uri for the application.
+            </summary>
+            <remarks>
+            It can be an absolute or base relative <see cref="T:System.Uri"/> and defaults to <c>authentication/logout-callback.</c>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.NavigateToLoginRequestUrl">
+            <summary>
+            Gets or sets whether or not to navigate to the login request url after a successful login.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions.KnownAuthorities">
+            <summary>
+            Gets or sets the set of known authority host names for the application.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Authentication.WebAssembly.Msal.Models.MsalCacheOptions">
+            <summary>
+            Cache options for the msal.js cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalCacheOptions.CacheLocation">
+            <summary>
+            Gets or sets the cache location.
+            </summary>
+            <remarks>
+            Valid values are <c>sessionStorage</c> and <c>localStorage</c>.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalCacheOptions.StoreAuthStateInCookie">
+            <summary>
+            Gets or sets whether to store the authentication state in a cookie.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions">
+            <summary>
+            Authentication provider options for the msal.js authentication provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions.Authentication">
+            <summary>
+            Gets or sets the <see cref="T:Microsoft.Authentication.WebAssembly.Msal.MsalAuthenticationOptions"/> to use for authentication operations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions.Cache">
+            <summary>
+            Gets or sets the msal.js cache options.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions.DefaultAccessTokenScopes">
+            <summary>
+            Gets or set the list of default access tokens scopes to provision during the sign-in flow.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions.AdditionalScopesToConsent">
+            <summary>
+            Gets or sets a list of additional scopes to consent during the initial sign-in flow.
+            </summary>
+            <remarks>
+            Use this parameter to request consent for scopes for other resources.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions.LoginMode">
+            <summary>
+            Gets or sets the login mode that is used when initiating the sign-in flow.
+            </summary>
+            <value>Defaults to <c>popup</c></value>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.MsalWebAssemblyServiceCollectionExtensions">
+            <summary>
+            Contains extension methods to add authentication to Blazor WebAssembly applications using
+            Azure Active Directory or Azure Active Directory B2C.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.MsalWebAssemblyServiceCollectionExtensions.AddMsalAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions{Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions}})">
+            <summary>
+            Adds authentication using msal.js to Blazor applications.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+            <param name="configure">A callback to configure the <see cref="T:Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.MsalWebAssemblyServiceCollectionExtensions.AddMsalAuthentication``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions{Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions}})">
+            <summary>
+            Adds authentication using msal.js to Blazor applications.
+            </summary>
+            <typeparam name="TRemoteAuthenticationState">The type of the remote authentication state.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+            <param name="configure">A callback to configure the <see cref="T:Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.MsalWebAssemblyServiceCollectionExtensions.AddMsalAuthentication``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions{Microsoft.Authentication.WebAssembly.Msal.Models.MsalProviderOptions}})">
+            <summary>
+            Adds authentication using msal.js to Blazor applications.
+            </summary>
+            <typeparam name="TRemoteAuthenticationState">The type of the remote authentication state.</typeparam>
+            <typeparam name="TAccount">The type of the <see cref="T:Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteUserAccount"/>.</typeparam>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+            <param name="configure">A callback to configure the <see cref="T:Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Internal.LinkerFlags.JsonSerialized">
+            <summary>
+            Flags for a member that is JSON (de)serialized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Internal.LinkerFlags.Component">
+            <summary>
+            Flags for a component
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Internal.LinkerFlags.JSInvokable">
+            <summary>
+            Flags for a JSInvokable type.
+            </summary>
+        </member>
+    </members>
+</doc>
