@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F87E3642-A918-4763-92FB-B0E15D2E5EEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Objects</RootNamespace>
+    <AssemblyName>Objects</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbsenceReason.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AcademicCalendar.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AcademicCalendar1.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountOwnerType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountsMaster.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveInstalltion.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveProductKey.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AgeClassification.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Appraisal.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalMetricsGroup.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalValue.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Area.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutomaticTimetable.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bank.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BankBranch.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BloodType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookChapter.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookUnit.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusAttendanceSchedule.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusFuel.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusInfo.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusMaintenance.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusShiftRotationSchedule.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusShiftRotationScheduleforAutomaticBusSchedule.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusTour.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusTrackNavigation.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusTrip.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classroom.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCardType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Curriculum.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurriculumDepartment.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Designation.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DesignationType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceRegistrar.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DisciplineAction.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Discount.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountStudent.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentCustomProperty.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumrntCustomizedProperty.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AcademicSubjects.cs" />
+    <Compile Include="DTO\ClassTimeTableDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\HeadQuarterDTO.cs" />
+    <Compile Include="DTO\LookupDTOTwo.cs" />
+    <Compile Include="DTO\ManualScheduleDTO.cs" />
+    <Compile Include="DTO\NotificationDTO.cs" />
+    <Compile Include="DTO\RegistrationRequestsDTO.cs" />
+    <Compile Include="DTO\StaffDesignationDTO.cs" />
+    <Compile Include="DTO\StudentClassficationDTO.cs" />
+    <Compile Include="DTO\SystemUsersDTO.cs" />
+    <Compile Include="DTO\transportationDTO.cs" />
+    <Compile Include="DTO\TeacherDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="EducationalYear.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalGuardian.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalGuardStudentsRequest.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalOtherStudentDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalStudent.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalStudentAdress.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalStudentGuardDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalStudentSchoolDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Family.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fee.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeeType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Function.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guardian.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardianSchool.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuardianType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Headquarters.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImportanceType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPI.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LiveswithType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookupValue.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MailTemplate.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManualTimetable.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappedField.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaritalStatus.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSTeams_Accounts.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSTeams_SessionAttendes.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSTeams_Sessions.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotifiactionStatus.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationsWeb.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objects.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OccasionType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtherStudentDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethod.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Privilage.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qualification.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionBank.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionLevel.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecurrenceType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Religion.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduledBusTrip.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleZone.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolBranch.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolClass.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolSetting.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Section.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDistribution.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Specialization.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialResidenceConditionType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffBankDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffContactDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffJobDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffLeaf.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffSalaryDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAdress.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentBehavior.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDiseas.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFee.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGuardDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentHealth.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPayment.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPhysicalStatu.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentResult.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSchoolDetail.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentStatu.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student_Login.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subject.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemField.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemObject.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSettingsperSchool.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherExperience.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherSubject.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateSetting.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Timetable.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableCondition.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableItem.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportCategory.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportCategoryType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportDirection.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserType.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualMeeting.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebUser.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wife.cs">
+      <DependentUpon>Objects.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Objects.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Objects.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

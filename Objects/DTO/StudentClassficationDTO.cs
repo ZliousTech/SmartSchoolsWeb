@@ -1,0 +1,11 @@
+﻿namespace Objects.DTO
+{
+    public class StudentClassficationDTO
+    {
+        public string StudentID { get; set; }
+        public int AgeClassificationID { get; set; }
+        public string AgeClassificationArabicText { get; set; }
+        public string AgeClassificationEnglishText { get; set; }
+
+    }
+}
