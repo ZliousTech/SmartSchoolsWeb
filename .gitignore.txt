@@ -9,6 +9,9 @@
 *.VC.db
 *.VC.opendb
 
+.vs/SmartSchool/config
+.vs/SmartSchool/v17
+
 # Ignore build output
 bin/
 obj/
